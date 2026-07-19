@@ -1,0 +1,32 @@
+# Quarto build output (comment out _book/ if you want to commit the built site)
+# _book/
+.quarto/
+# *.html is commented: _book/*.html should be committed
+# *.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# R files (not needed for Quarto template)
+.Rhistory
+.Rproj.user/
+*.Rproj
+
+# Build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Large/binary build output
+
+/.quarto/
+**/*.quarto_ipynb

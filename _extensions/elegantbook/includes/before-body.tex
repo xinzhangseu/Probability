@@ -1,0 +1,119 @@
+%------------------------------------------------------------------------------
+% Redefine theorem environments at \begin{document} time
+% (after Quarto's amsthm \newtheorem, to avoid "already defined" error)
+% Use \DeclareTColorBox to match elegantbook.cls visual style.
+%------------------------------------------------------------------------------
+% This runs in the normal token stream after \begin{document},
+% so # does not need doubling.
+%
+% Quarto generates: \begin{definition}[name]\protect\hypertarget{id}{}\label{id}
+% We accept the optional [name], and Quarto's extra tokens go into the box body.
+%
+% First, undefine Quarto's amsthm theorem environments
+\makeatletter
+\let\theorem\relax\let\endtheorem\relax
+\let\definition\relax\let\enddefinition\relax
+\let\lemma\relax\let\endlemma\relax
+\let\corollary\relax\let\endcorollary\relax
+\let\proposition\relax\let\endproposition\relax
+\let\axiom\relax\let\endaxiom\relax
+\let\postulate\relax\let\endpostulate\relax
+\let\solution\relax\let\endsolution\relax
+\let\remark\relax\let\endremark\relax
+\makeatother
+
+% Now define with simple \DeclareTColorBox (O{} for optional name)
+% Note: Quarto puts \protect\hypertarget{}{}\label{} tokens BEFORE the theorem body.
+% These end up inside the tcolorbox body and still function correctly.
+
+% theorem (thmstyle, ♥) — 定理
+\DeclareTColorBox[auto counter,number within=chapter]{theorem}{ O{} }{
+  common,thmstyle,
+  title={定理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% definition (defstyle, ♣) — 定义
+\DeclareTColorBox[auto counter,number within=chapter]{definition}{ O{} }{
+  common,defstyle,
+  title={定义~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% lemma (thmstyle, ♥) — 引理
+\DeclareTColorBox[auto counter,number within=chapter]{lemma}{ O{} }{
+  common,thmstyle,
+  title={引理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% corollary (thmstyle, ♥) — 推论
+\DeclareTColorBox[auto counter,number within=chapter]{corollary}{ O{} }{
+  common,thmstyle,
+  title={推论~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% proposition (prostyle, ♠) — 命题
+\DeclareTColorBox[auto counter,number within=chapter]{proposition}{ O{} }{
+  common,prostyle,
+  title={命题~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% axiom (thmstyle, ♥) — 公理
+\DeclareTColorBox[auto counter,number within=chapter]{axiom}{ O{} }{
+  common,thmstyle,
+  title={公理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% postulate (thmstyle, ♥) — 公设
+\DeclareTColorBox[auto counter,number within=chapter]{postulate}{ O{} }{
+  common,thmstyle,
+  title={公设~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% Starred (unnumbered) versions
+\DeclareTColorBox{theorem*}{ O{} }{
+  common,thmstyle,
+  title={定理\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{definition*}{ O{} }{
+  common,defstyle,
+  title={定义\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{lemma*}{ O{} }{
+  common,thmstyle,
+  title={引理\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{corollary*}{ O{} }{
+  common,thmstyle,
+  title={推论\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{proposition*}{ O{} }{
+  common,prostyle,
+  title={命题\IfValueT{#1}{ (#1)}},
+}
+
+% Redefine proof, solution, remark environments (match elegantbook.cls)
+\makeatletter
+\let\proof\relax\let\endproof\relax
+\makeatother
+
+% Proof environment — match elegantbook.cls
+\newenvironment{proof}{
+  \par\noindent\textbf{\color{second}\proofname\;}
+  \color{black!90}\cfs}{\par}
+
+% Solution environment — match elegantbook.cls
+\newenvironment{solution}{\par\noindent\textbf{\color{main}解} \citshape}{\par}
+
+% Remark environment — match elegantbook.cls
+\newenvironment{remark}{\noindent\textbf{\color{second}注}}{\par}
+
+% Chinese translation for proofname
+\renewcommand{\proofname}{证明}
+
+% Override Quarto's hardcoded "Table of contents"
+% Quarto template unconditionally sets \contentsname to "Table of contents"
+% just before \tableofcontents. We hook into \tableofcontents to re-override.
+\pretocmd{\tableofcontents}{\renewcommand{\contentsname}{目\ \ 录}}{}{}
+
+% Bibliography header suppression is now handled by before-bib.tex partial
+% (natbib-based), which patches \bibliography to use \bibname and clears
+% running headers. The old CSLReferences redefinition is no longer needed.

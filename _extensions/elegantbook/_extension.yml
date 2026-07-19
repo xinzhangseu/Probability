@@ -1,0 +1,50 @@
+title: ElegantBook PDF Format
+author: Alex
+version: 1.0.0
+quarto-required: ">=1.4"
+contributes:
+  filters:
+    - div-environments.lua
+    - math-no-auto-number.lua
+  formats:
+    pdf:
+      documentclass: book
+      classoption:
+        - oneside
+        - a4paper
+      geometry:
+        - top=25.4mm
+        - bottom=25.4mm
+        - left=20mm
+        - right=20mm
+        - headheight=2.17cm
+        - headsep=4mm
+        - footskip=12mm
+      cite-method: natbib
+      biblio-style: plainnat-doi
+      biblio-title: "参考文献"
+      include-in-header:
+        - includes/header-includes.tex
+      include-before-body:
+        - includes/before-body.tex
+      template-partials:
+        - partials/title.tex
+        - partials/author.tex
+        - partials/affiliation.tex
+        - partials/before-bib.tex
+        - partials/after-body.tex
+      format-resources:
+        - orcidlink.sty
+        - plainnat-doi.bst
+      colorlinks: true
+      linkcolor: winered
+      citecolor: winered
+      urlcolor: winered
+      fontsize: 11pt
+      linestretch: 1.2
+      toc: true
+      toc-depth: 1
+      number-sections: true
+      code-line-numbers: true
+      highlight-style: pygments
+      pdf-engine: xelatex

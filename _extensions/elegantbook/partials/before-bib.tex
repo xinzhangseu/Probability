@@ -1,0 +1,12 @@
+% Suppress running headers on bibliography pages.
+% Quarto's book template places this partial after \bibliography,
+% so heading patches go here but they run too late for \bibliography
+% itself. The heading is already set by Quarto's biblio-title.
+\let\stdchaptermark\chaptermark
+\renewcommand{\chaptermark}[1]{}
+\makeatletter
+\let\stdmkboth\@mkboth
+\def\@mkboth#1#2{}
+\makeatother
+\markright{}
+\pagestyle{plain}

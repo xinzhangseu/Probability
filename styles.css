@@ -1,0 +1,105 @@
+/* ========== Sidebar fixes ========== */
+
+/* Hide sidebar title text (book title below logo), keep tools visible */
+.sidebar-title > a[href] {
+  display: none !important;
+}
+
+/* Move search box up */
+.sidebar-header-stacked + div[class*="mt-2"] {
+  margin-top: 0 !important;
+}
+
+/* 1. 彻底隐藏右侧用于生成目录的预留容器 */
+#quarto-margin-sidebar {
+    display: none !important;
+}
+
+/* 隐藏首页的标题块（书名、作者、日期），但不影响章节页的章标题 */
+header#title-block-header {
+    display: none !important;
+}
+header#title-block-header:has(.chapter-number) {
+    display: block !important;
+}
+
+
+/* 2. 启用精准 Grid 网格：左边固定 260px，右边占满所有剩余空间 */
+#quarto-content {
+    display: grid !important;
+    grid-template-columns: 260px 1fr !important;
+    width: 100% !important;
+    align-items: start !important; /* 保证所有内容从顶部开始自然往下排布 */
+}
+
+/* 3. 将左侧导航栏死死钉在第 1 列，并允许它向下跨越多个虚拟行 */
+#quarto-sidebar {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 10 !important; 
+}
+
+
+
+/* 4. 正文放在第 2 列的第 1 行，并限制宽度自适应居中 */
+main.content {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    /* 核心修改：上 70px，右 50px，下 30px，左 50px */
+    padding: 70px 50px 30px 50px !important; 
+    box-sizing: border-box !important;
+}
+
+/* 5. 翻页导航放在第 2 列的第 2 行（紧跟正文正下方），保持一致宽度 */
+nav.page-navigation {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 3 !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 30px 50px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: space-between !important; /* 让上一页靠左，下一页靠右 */
+}
+
+/* 6. 如果有底部 Footer 版权信息，放在第 2 列的第 3 行 */
+footer.nav-footer {
+    grid-column: 2 / 3 !important;
+    grid-row: 3 / 4 !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 0 50px !important;
+}
+
+/* 7. 确保正文文字左对齐 */
+main.content h1, main.content h2, main.content h3, main.content p, #title-block-header {
+    text-align: left !important;
+    width: 100% !important;
+}
+
+/* 8. 强制“下一页”指引单独靠右对齐 */
+.nav-page-next {
+    margin-left: auto !important;
+    text-align: right !important;
+}
+
+/* 让左侧导航栏占据整个屏幕高度，并固定在左侧 */
+@media (min-width: 768px) {
+    #quarto-sidebar {
+        height: 100vh !important;         /* 强制高度为 100% 视口高度（Viewport Height） */
+        min-height: 100vh !important;
+        top: 0 !important;                /* 紧贴浏览器最顶部 */
+        position: sticky !important;      /* 无论右侧怎么滚动，左侧永远钉在原位 */
+        
+        /* 下面两行是为了增加 Gitbook 那样的视觉分界线（可选，但强烈推荐） */
+        /*background-color: #f9f9f9 !important;       /* 给侧边栏加上极浅的灰色背景 */
+        border-right: 0px solid #eaeaea !important; /* 在右侧画一条细细的分割线 */
+        
+        overflow-y: auto !important;      /* 如果左侧目录项太多，允许左侧边栏内部独立上下滑动 */
+    }
+}
+

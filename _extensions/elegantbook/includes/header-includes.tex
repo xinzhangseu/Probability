@@ -1,0 +1,517 @@
+%==============================================================================
+% ElegantBook PDF Style - LaTeX Preamble
+% Replicates the visual style of ElegantBook template for Quarto PDF output
+%==============================================================================
+
+%------------------------------------------------------------------------------
+% 1. Package Loading
+%------------------------------------------------------------------------------
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\usepackage[center]{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,calc,shadows,positioning,fit}
+\usepackage{bbding}
+\usepackage{manfnt}
+\usepackage{adforn}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage[labelfont={bf,color=structurecolor}]{caption}
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{orcidlink}
+\usepackage{etoolbox}
+
+%------------------------------------------------------------------------------
+% 2. Color Definitions (Blue Theme - Default)
+%------------------------------------------------------------------------------
+\definecolor{structurecolor}{RGB}{60,113,183}
+\definecolor{main}{RGB}{0,166,82}
+\definecolor{second}{RGB}{255,134,24}
+\definecolor{third}{RGB}{0,174,247}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{coverlinecolor}{RGB}{255,134,24}
+
+% Color aliases for reference
+\definecolor{structure3}{RGB}{60,113,183}
+\definecolor{main3}{RGB}{0,166,82}
+\definecolor{second3}{RGB}{255,134,24}
+\definecolor{third3}{RGB}{0,174,247}
+
+%------------------------------------------------------------------------------
+% 3. Page Layout Adjustments (supplement to geometry in _extension.yml)
+%------------------------------------------------------------------------------
+% Note: Main geometry is set in _extension.yml
+% Additional adjustments can be made here if needed
+
+%------------------------------------------------------------------------------
+% 4. Chapter/Section Format (titlesec) — match elegantbook.cls exactly
+%------------------------------------------------------------------------------
+% Chapter format - hang style (default)
+% Note: elegantbook.cls uses \xchaptertitle which is "第 \thechapter{} 章"
+% For Chinese chapter titles, set in \AtBeginDocument
+\titleformat{\chapter}[hang]
+  {\bfseries}
+  {\filcenter\LARGE\bfseries\color{structurecolor} 第 \thechapter{} 章\;}
+  {1pt}
+  {\LARGE\bfseries\color{structurecolor}\filcenter}
+  []
+
+% Section format
+\titleformat{\section}[hang]
+  {\bfseries}
+  {\Large\bfseries\color{structurecolor}\thesection\enspace}
+  {1pt}
+  {\color{structurecolor}\Large\bfseries\filright}
+
+% Subsection format
+\titleformat{\subsection}[hang]
+  {\bfseries}
+  {\large\bfseries\color{structurecolor}\thesubsection\enspace}
+  {1pt}
+  {\color{structurecolor}\large\bfseries\filright}
+
+% Subsubsection format
+\titleformat{\subsubsection}[hang]
+  {\bfseries}
+  {\large\bfseries\color{structurecolor}\thesubsubsection\enspace}
+  {1pt}
+  {\color{structurecolor}\large\bfseries\filright}
+
+% Spacing
+\titlespacing{\chapter}{0pt}{-20pt}{1.3\baselineskip}
+
+%------------------------------------------------------------------------------
+% 5. Headers and Footers (fancyhdr) — match elegantbook.cls
+%------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+% Footer: centered page number
+\fancyfoot[c]{\color{structurecolor}\small\thepage}
+
+% Header: centered (chapter/section title)
+\fancyhead[C]{\color{structurecolor}\normalfont\normalsize\leftmark}
+
+% Header rule
+\renewcommand{\headrule}{\color{structurecolor}\hrule width\textwidth}
+\renewcommand{\headrulewidth}{1pt}
+
+% Plain page style (chapter opening pages) — centered page number at bottom
+\fancypagestyle{plain}{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhf{}
+  \fancyfoot[C]{\color{structurecolor}\small\thepage}
+  \renewcommand{\headrule}{}
+}
+
+% Section and chapter marks
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{第 \thechapter{} 章\ #1}{}}
+
+%------------------------------------------------------------------------------
+% 6. List Environments (enumitem + tikz) — match elegantbook.cls
+%------------------------------------------------------------------------------
+\setlist{nolistsep}
+
+% Itemize custom bullets
+\newcommand*{\eitemi}{\tikz[baseline]\draw[baseline, ball color=structurecolor,draw=none] circle (2pt);}
+\newcommand*{\eitemii}{\tikz[baseline]\draw[baseline, fill=structurecolor,draw=none,circular drop shadow] circle (2pt);}
+\newcommand*{\eitemiii}{\tikz[baseline]\draw[baseline, fill=structurecolor,draw=none] circle (2pt);}
+
+\setlist[itemize,1]{label={\eitemi}}
+\setlist[itemize,2]{label={\eitemii}}
+\setlist[itemize,3]{label={\eitemiii}}
+
+% Enumerate format
+\setlist[enumerate,1]{label=\color{structurecolor}\arabic*.}
+\setlist[enumerate,2]{label=\color{structurecolor}(\alph*).}
+\setlist[enumerate,3]{label=\color{structurecolor}\Roman*.}
+\setlist[enumerate,4]{label=\color{structurecolor}\Alph*.}
+
+%------------------------------------------------------------------------------
+% 7. Theorem Environments (tcolorbox - fancy mode, match elegantbook.cls)
+%------------------------------------------------------------------------------
+% We define the tcolorbox styles here (same as elegantbook.cls),
+% but defer the actual \newenvironment definitions to \AtBeginDocument
+% (after Quarto's amsthm \newtheorem) to avoid conflicts.
+
+\tcbuselibrary{theorems,breakable}
+
+% Common style for all theorem boxes — match elegantbook.cls exactly
+% Note: cls uses \citshape; for Chinese we use \kaishu via \citshape
+% We'll define \citshape if not already defined (ctex provides \kaishu)
+\providecommand{\citshape}{\itshape}
+
+\tcbset{
+  common/.style={
+    fontupper=\citshape,
+    lower separated=false,
+    coltitle=white,
+    colback=gray!5,
+    boxrule=0.5pt,
+    fonttitle=\bfseries,
+    enhanced,
+    breakable,
+    top=8pt,
+    before skip=8pt,
+    attach boxed title to top left={yshift=-0.11in,xshift=0.15in},
+    boxed title style={boxrule=0pt,colframe=white,arc=0pt,outer arc=0pt},
+    separator sign={.},
+  }
+}
+
+% defstyle (definition-like environments) — match cls exactly
+\tcbset{
+  defstyle/.style={
+    common,
+    colframe=main,
+    colback=main!5,
+    colbacktitle=main,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{main}{$\clubsuit$}};
+    },
+  }
+}
+
+% thmstyle (theorem-like environments) — match cls exactly
+\tcbset{
+  thmstyle/.style={
+    common,
+    colframe=second,
+    colback=second!5,
+    colbacktitle=second,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{second}{$\heartsuit$}};
+    },
+  }
+}
+
+% prostyle (proposition-like environments) — match cls exactly
+\tcbset{
+  prostyle/.style={
+    common,
+    colframe=third,
+    colback=third!5,
+    colbacktitle=third,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{third}{$\spadesuit$}};
+    },
+  }
+}
+
+%------------------------------------------------------------------------------
+% 7b. Theorem environment definitions moved to before-body.tex
+%     (to run after Quarto's amsthm \newtheorem, avoiding conflicts)
+%------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------
+% 8. Other Environments (example, exercise, problem, note, proof, solution, etc.)
+%    Match elegantbook.cls exactly
+%------------------------------------------------------------------------------
+% Example environment
+\newcounter{example}[chapter]
+\renewcommand{\theexample}{\thechapter.\arabic{example}}
+\newenvironment{example}[1][]{
+  \refstepcounter{example}
+  \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Exercise environment
+\newcounter{exercise}[chapter]
+\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\newenvironment{exercise}[1][]{
+  \refstepcounter{exercise}
+  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
+  \textbf{\color{main}练习 \theexercise #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Problem environment
+\newcounter{problem}[chapter]
+\renewcommand{\theproblem}{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][]{
+  \refstepcounter{problem}
+  \par\noindent\textbf{\color{main}问题 \theproblem #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Note environment
+\newenvironment{note}{
+  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\textdbend\quad}
+  \textbf{\color{second}注} \citshape}{\par}
+
+% proof, solution, remark environments are defined in before-body.tex
+% (to run after Quarto's amsthm definitions)
+
+% Assumption environment
+\newenvironment{assumption}{\par\noindent\textbf{\color{third}假设} \citshape}{\par}
+
+% Conclusion environment
+\newenvironment{conclusion}{\par\noindent\textbf{\color{third}结论} \citshape}{\par}
+
+% Property environment
+\newenvironment{property}{\par\noindent\textbf{\color{third}性质} \citshape}{\par}
+
+% Custom environment (user-defined name)
+\newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
+
+%------------------------------------------------------------------------------
+% 9. Introduction and Problemset Environments — match elegantbook.cls
+%------------------------------------------------------------------------------
+
+% Introduction environment style
+\tcbset{
+  introductionsty/.style={
+    enhanced,
+    breakable,
+    colback=structurecolor!10,
+    colframe=structurecolor,
+    fonttitle=\bfseries,
+    colbacktitle=structurecolor,
+    fontupper=\citshape,
+    attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+    boxrule=0pt,
+    toprule=0.5pt,
+    bottomrule=0.5pt,
+    top=8pt,
+    before skip=8pt,
+    sharp corners
+  }
+}
+
+% Introduction environment
+% Note: Pandoc generates \begin{itemize}\tightlist\item...\end{itemize}
+% inside the div. We wrap with tcolorbox + multicols but let the
+% Pandoc-generated itemize provide the list structure.
+\newenvironment{introduction}[1][内容提要]{
+  \begin{tcolorbox}[introductionsty,title={#1}]
+    \begin{multicols}{2}
+      \renewcommand{\labelitemi}{\textcolor{structurecolor}{\upshape\scriptsize\SquareShadowBottomRight}}}{
+    \end{multicols}
+  \end{tcolorbox}}
+
+% Problemset environment
+% Pandoc generates \begin{enumerate}\tightlist\item...\end{enumerate}
+% inside the div. We just provide the decorative header.
+\newenvironment{problemset}[1][习题]{
+  \vspace*{10pt}
+  \begin{center}
+    \textcolor{structurecolor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}
+  \end{center}}{
+  \par}
+
+%------------------------------------------------------------------------------
+% 10. Hyperref Settings (supplement to Quarto's default)
+%------------------------------------------------------------------------------
+% Note: colorlinks, linkcolor, citecolor, urlcolor are set in _extension.yml
+% Additional hyperref settings
+
+%------------------------------------------------------------------------------
+% 11. Chinese Font Settings (for Chinese documents) — match elegantbook.cls ctexfont option
+%------------------------------------------------------------------------------
+% Requires XeLaTeX engine
+% Use ctex with default fontset (auto-detect system fonts)
+\usepackage[UTF8,scheme=plain]{ctex}
+\xeCJKsetup{AutoFakeBold=true}
+% Set Chinese fonts for macOS (adjust for other platforms)
+%\setCJKmainfont{Songti SC}
+%\setCJKsansfont{Heiti SC}
+%\setCJKmonofont[AutoFakeBold=true]{FangSong_GB2312}
+
+% Define \citshape (楷体 = \kaishu) if ctex is loaded
+\ifdefined\kaishu
+  \renewcommand{\citshape}{\kaishu}
+\else
+  \renewcommand{\citshape}{\itshape}
+\fi
+% Define \cfs (仿宋 = \fangsong) if ctex is loaded
+\ifdefined\fangsong
+  \newcommand{\cfs}{\fangsong}
+\else
+  \newcommand{\cfs}{\normalfont}
+\fi
+
+%------------------------------------------------------------------------------
+% 12. Additional Styling Adjustments — match elegantbook.cls
+%------------------------------------------------------------------------------
+
+% Display math spacing
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+% Caption setup (already done above, repeated for clarity)
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+
+% Listings style (code blocks) — match elegantbook.cls
+\RequirePackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{structurecolor},
+  framerule=0.2pt,
+  numbers=none,
+  keywordstyle=\color{winered},
+  commentstyle=\color{gray},
+}
+
+%------------------------------------------------------------------------------
+% 13. Title Page — match elegantbook.cls \maketitle exactly
+%------------------------------------------------------------------------------
+
+% Chinese title page labels (from elegantbook.cls lang=cn)
+\newcommand{\authorname}{\citshape 作者：}
+\newcommand{\institutename}{\citshape 组织：}
+\newcommand{\datename}{\citshape 时间：}
+\newcommand{\versionname}{\citshape 版本：}
+
+% Define ElegantBook-specific commands
+\makeatletter
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand{\institute}[1]{\gdef\@institute{#1}}
+\newcommand{\version}[1]{\gdef\@version{#1}}
+\newcommand{\extrainfo}[1]{\gdef\@extrainfo{#1}}
+\newcommand{\logo}[1]{\gdef\@logo{#1}}
+\newcommand{\cover}[1]{\gdef\@cover{#1}}
+\newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
+\makeatother
+
+% \cnormal is used in title page author/institute lines
+\newcommand{\cnormal}{\kaishu}
+
+% ---- Set cover and logo (defaults; override in project) ----
+% These are set here so \maketitle can use them immediately.
+% Users can override by redefining \@cover / \@logo before \maketitle.
+\makeatletter
+\gdef\@cover{images/cover.jpg}%
+\gdef\@logo{images/logo-blue.png}%
+\makeatother
+
+% ---- Redefine \maketitle to match elegantbook.cls ----
+% Must be in preamble (NOT \AtBeginDocument) so it overrides
+% the standard \maketitle before \frontmatter\maketitle executes.
+%
+% The \@->\spacefactor error is caused by parskip.sty (loaded by
+% Quarto's default template) which tries to process paragraph
+% transitions after \includegraphics while still in vertical mode.
+% Fix: wrap \includegraphics in \mbox{} to keep it in horizontal mode,
+% then use explicit \par to transition back.
+\makeatletter
+\renewcommand*{\maketitle}{%
+  \hypersetup{pageanchor=false}
+  \pagenumbering{Alph}
+  \begin{titlepage}
+    \newgeometry{margin=0in}
+    \parindent=0pt
+    \parskip=0pt
+    % Cover image — wrapped in \mbox to prevent
+    % parskip \@ expansion in vertical mode
+    \noindent\mbox{\includegraphics[width=\linewidth]{\@cover}}\par
+    \nointerlineskip
+    \setlength{\fboxsep}{0pt}%
+    \noindent\colorbox{coverlinecolor}{\rule{0pt}{0.5in}\hspace{\linewidth}}\par
+    \vfill
+    \vskip-2ex
+    \hspace{2em}\parbox{0.8\textwidth}{%
+      \bfseries\Huge\@title\par}%
+    \vfill
+    \vspace{-1.0cm}
+    \setstretch{2.5}
+    \hspace{2.5em}%
+    \begin{minipage}[c]{0.67\linewidth}
+      {\color{darkgray}\bfseries\Large
+        \ifcsname @subtitle\endcsname\@subtitle\\[2ex]\fi}
+      \color{gray}\normalsize
+      {\renewcommand{\arraystretch}{0.618}
+      \begin{tabular}{l}
+        \ifx\@author\empty\else\authorname\cnormal\@author\\ \fi
+        \ifcsname @institute\endcsname \institutename \cnormal\@institute\\ \fi
+        \datename\cnormal\zhtoday \\
+        \ifcsname @version\endcsname \cnormal\versionname\@version\\ \fi
+        \ifcsname @bioinfo\endcsname \cnormal\@bioinfo\\ \fi
+      \end{tabular}}%
+    \end{minipage}%
+    \begin{minipage}[c]{0.27\linewidth}
+    \begin{tikzpicture}[remember picture,overlay]
+      \begin{pgfonlayer}{background}
+        \node[opacity=0.8,
+              anchor=south east,
+              outer sep=0pt,
+              inner sep=0pt] at ($(current page.south east) +(-0.8in,1.5in)$) {
+                \ifcsname @logo\endcsname\includegraphics[width=4.2cm]{\@logo}\fi};
+      \end{pgfonlayer}
+    \end{tikzpicture}
+    \end{minipage}
+    \vfill
+    \begin{center}
+      \setstretch{1.3}
+      \parbox[t]{0.7\textwidth}{\centering\citshape
+        \ifcsname @extrainfo\endcsname\@extrainfo\fi}
+    \end{center}
+    \vfill
+  \end{titlepage}
+  \restoregeometry
+  \thispagestyle{empty}%
+  \pagenumbering{Roman}% switch to uppercase Roman numerals for TOC pages
+}
+\makeatother
+
+%------------------------------------------------------------------------------
+% 14. natbib citation style — numbered, sorted & compressed, square brackets
+%------------------------------------------------------------------------------
+\AtBeginDocument{%
+  \setcitestyle{numbers,sort&compress,square}%
+}
+
+%------------------------------------------------------------------------------
+% 15. Equation numbering — number within chapter (e.g. (1.1), (1.2), …)
+%------------------------------------------------------------------------------
+\numberwithin{equation}{chapter}
+
+%------------------------------------------------------------------------------
+% 16. Chapters start on odd pages; redefined \cleardoublepage to force
+%     odd pages even with oneside (standard \cleardoublepage only does
+%     \clearpage in oneside mode, which doesn't ensure odd page numbers).
+%------------------------------------------------------------------------------
+\makeatletter
+\def\cleardoublepage{\clearpage\ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage\fi}
+\makeatother
+
+\AtBeginDocument{%
+  \let\oldchapter\chapter
+  \renewcommand{\chapter}{%
+    \cleardoublepage
+    \oldchapter
+  }%
+}%
+
+%------------------------------------------------------------------------------
+% 17. Equation reference parentheses — Quarto 对公式交叉引用使用 \ref
+%     而非 \eqref，导致编号不带括号。AtBeginDocument 在 hyperref 加载后执行，
+%     确保 \ref 重定义生效（覆盖 hyperref 版本）。
+%------------------------------------------------------------------------------
+\usepackage{xstring}
+\AtBeginDocument{%
+  \let\quartoOldRef\ref
+  \renewcommand{\ref}[1]{%
+    \IfBeginWith{#1}{eq-}{%
+      \textup{(\quartoOldRef{#1})}%
+    }{%
+      \quartoOldRef{#1}%
+    }%
+  }%
+}
+
+%==============================================================================
+% End of ElegantBook PDF Style Preamble (all other hooks cleaned up)
+%==============================================================================

@@ -1,0 +1,9 @@
+orcid: "0000-0000-0000-0001"
+
+github-url: "https://github.com/yourusername/yourrepo"
+
+pgp:
+  key: pgp_placeholder.asc.txt
+  fingerprint: "XXXX XXXX XXXX XXXX XXXX"
+
+years: "2024-2025"

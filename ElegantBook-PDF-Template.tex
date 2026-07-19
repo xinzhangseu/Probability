@@ -1,0 +1,1312 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+\PassOptionsToPackage{space}{xeCJK}
+%
+\documentclass[
+  11pt,
+  letterpaper,
+  oneside,
+  a4paper]{book}
+\usepackage{xcolor}
+\usepackage[top=25.4mm,bottom=25.4mm,left=20mm,right=20mm,headheight=2.17cm,headsep=4mm,footskip=12mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \ifXeTeX
+    \usepackage{xeCJK}
+    \setCJKmainfont[]{Songti SC}
+    \setCJKsansfont[]{Heiti SC}
+    \setCJKmonofont[]{FangSong\_GB2312}
+  \fi
+  \ifLuaTeX
+    \usepackage[]{luatexja-fontspec}
+    \setmainjfont[]{Songti SC}
+  \fi
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+\usepackage[]{natbib}
+\bibliographystyle{plainnat-doi}
+
+
+%==============================================================================
+% ElegantBook PDF Style - LaTeX Preamble
+% Replicates the visual style of ElegantBook template for Quarto PDF output
+%==============================================================================
+
+%------------------------------------------------------------------------------
+% 1. Package Loading
+%------------------------------------------------------------------------------
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\usepackage[center]{titlesec}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,calc,shadows,positioning,fit}
+\usepackage{bbding}
+\usepackage{manfnt}
+\usepackage{adforn}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage[labelfont={bf,color=structurecolor}]{caption}
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{orcidlink}
+\usepackage{etoolbox}
+
+%------------------------------------------------------------------------------
+% 2. Color Definitions (Blue Theme - Default)
+%------------------------------------------------------------------------------
+\definecolor{structurecolor}{RGB}{60,113,183}
+\definecolor{main}{RGB}{0,166,82}
+\definecolor{second}{RGB}{255,134,24}
+\definecolor{third}{RGB}{0,174,247}
+\definecolor{winered}{rgb}{0.5,0,0}
+\definecolor{coverlinecolor}{RGB}{255,134,24}
+
+% Color aliases for reference
+\definecolor{structure3}{RGB}{60,113,183}
+\definecolor{main3}{RGB}{0,166,82}
+\definecolor{second3}{RGB}{255,134,24}
+\definecolor{third3}{RGB}{0,174,247}
+
+%------------------------------------------------------------------------------
+% 3. Page Layout Adjustments (supplement to geometry in _extension.yml)
+%------------------------------------------------------------------------------
+% Note: Main geometry is set in _extension.yml
+% Additional adjustments can be made here if needed
+
+%------------------------------------------------------------------------------
+% 4. Chapter/Section Format (titlesec) — match elegantbook.cls exactly
+%------------------------------------------------------------------------------
+% Chapter format - hang style (default)
+% Note: elegantbook.cls uses \xchaptertitle which is "第 \thechapter{} 章"
+% For Chinese chapter titles, set in \AtBeginDocument
+\titleformat{\chapter}[hang]
+  {\bfseries}
+  {\filcenter\LARGE\bfseries\color{structurecolor} 第 \thechapter{} 章\;}
+  {1pt}
+  {\LARGE\bfseries\color{structurecolor}\filcenter}
+  []
+
+% Section format
+\titleformat{\section}[hang]
+  {\bfseries}
+  {\Large\bfseries\color{structurecolor}\thesection\enspace}
+  {1pt}
+  {\color{structurecolor}\Large\bfseries\filright}
+
+% Subsection format
+\titleformat{\subsection}[hang]
+  {\bfseries}
+  {\large\bfseries\color{structurecolor}\thesubsection\enspace}
+  {1pt}
+  {\color{structurecolor}\large\bfseries\filright}
+
+% Subsubsection format
+\titleformat{\subsubsection}[hang]
+  {\bfseries}
+  {\large\bfseries\color{structurecolor}\thesubsubsection\enspace}
+  {1pt}
+  {\color{structurecolor}\large\bfseries\filright}
+
+% Spacing
+\titlespacing{\chapter}{0pt}{-20pt}{1.3\baselineskip}
+
+%------------------------------------------------------------------------------
+% 5. Headers and Footers (fancyhdr) — match elegantbook.cls
+%------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+
+% Footer: centered page number
+\fancyfoot[c]{\color{structurecolor}\small\thepage}
+
+% Header: centered (chapter/section title)
+\fancyhead[C]{\color{structurecolor}\normalfont\normalsize\leftmark}
+
+% Header rule
+\renewcommand{\headrule}{\color{structurecolor}\hrule width\textwidth}
+\renewcommand{\headrulewidth}{1pt}
+
+% Plain page style (chapter opening pages) — centered page number at bottom
+\fancypagestyle{plain}{
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhf{}
+  \fancyfoot[C]{\color{structurecolor}\small\thepage}
+  \renewcommand{\headrule}{}
+}
+
+% Section and chapter marks
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{第 \thechapter{} 章\ #1}{}}
+
+%------------------------------------------------------------------------------
+% 6. List Environments (enumitem + tikz) — match elegantbook.cls
+%------------------------------------------------------------------------------
+\setlist{nolistsep}
+
+% Itemize custom bullets
+\newcommand*{\eitemi}{\tikz[baseline]\draw[baseline, ball color=structurecolor,draw=none] circle (2pt);}
+\newcommand*{\eitemii}{\tikz[baseline]\draw[baseline, fill=structurecolor,draw=none,circular drop shadow] circle (2pt);}
+\newcommand*{\eitemiii}{\tikz[baseline]\draw[baseline, fill=structurecolor,draw=none] circle (2pt);}
+
+\setlist[itemize,1]{label={\eitemi}}
+\setlist[itemize,2]{label={\eitemii}}
+\setlist[itemize,3]{label={\eitemiii}}
+
+% Enumerate format
+\setlist[enumerate,1]{label=\color{structurecolor}\arabic*.}
+\setlist[enumerate,2]{label=\color{structurecolor}(\alph*).}
+\setlist[enumerate,3]{label=\color{structurecolor}\Roman*.}
+\setlist[enumerate,4]{label=\color{structurecolor}\Alph*.}
+
+%------------------------------------------------------------------------------
+% 7. Theorem Environments (tcolorbox - fancy mode, match elegantbook.cls)
+%------------------------------------------------------------------------------
+% We define the tcolorbox styles here (same as elegantbook.cls),
+% but defer the actual \newenvironment definitions to \AtBeginDocument
+% (after Quarto's amsthm \newtheorem) to avoid conflicts.
+
+\tcbuselibrary{theorems,breakable}
+
+% Common style for all theorem boxes — match elegantbook.cls exactly
+% Note: cls uses \citshape; for Chinese we use \kaishu via \citshape
+% We'll define \citshape if not already defined (ctex provides \kaishu)
+\providecommand{\citshape}{\itshape}
+
+\tcbset{
+  common/.style={
+    fontupper=\citshape,
+    lower separated=false,
+    coltitle=white,
+    colback=gray!5,
+    boxrule=0.5pt,
+    fonttitle=\bfseries,
+    enhanced,
+    breakable,
+    top=8pt,
+    before skip=8pt,
+    attach boxed title to top left={yshift=-0.11in,xshift=0.15in},
+    boxed title style={boxrule=0pt,colframe=white,arc=0pt,outer arc=0pt},
+    separator sign={.},
+  }
+}
+
+% defstyle (definition-like environments) — match cls exactly
+\tcbset{
+  defstyle/.style={
+    common,
+    colframe=main,
+    colback=main!5,
+    colbacktitle=main,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{main}{$\clubsuit$}};
+    },
+  }
+}
+
+% thmstyle (theorem-like environments) — match cls exactly
+\tcbset{
+  thmstyle/.style={
+    common,
+    colframe=second,
+    colback=second!5,
+    colbacktitle=second,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{second}{$\heartsuit$}};
+    },
+  }
+}
+
+% prostyle (proposition-like environments) — match cls exactly
+\tcbset{
+  prostyle/.style={
+    common,
+    colframe=third,
+    colback=third!5,
+    colbacktitle=third,
+    overlay unbroken and last={
+      \node[anchor=south east, outer sep=0pt] at (\linewidth-width,0) 
+      {\textcolor{third}{$\spadesuit$}};
+    },
+  }
+}
+
+%------------------------------------------------------------------------------
+% 7b. Theorem environment definitions moved to before-body.tex
+%     (to run after Quarto's amsthm \newtheorem, avoiding conflicts)
+%------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------
+% 8. Other Environments (example, exercise, problem, note, proof, solution, etc.)
+%    Match elegantbook.cls exactly
+%------------------------------------------------------------------------------
+% Example environment
+\newcounter{example}[chapter]
+\renewcommand{\theexample}{\thechapter.\arabic{example}}
+\newenvironment{example}[1][]{
+  \refstepcounter{example}
+  \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Exercise environment
+\newcounter{exercise}[chapter]
+\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\newenvironment{exercise}[1][]{
+  \refstepcounter{exercise}
+  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
+  \textbf{\color{main}练习 \theexercise #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Problem environment
+\newcounter{problem}[chapter]
+\renewcommand{\theproblem}{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][]{
+  \refstepcounter{problem}
+  \par\noindent\textbf{\color{main}问题 \theproblem #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Note environment
+\newenvironment{note}{
+  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\textdbend\quad}
+  \textbf{\color{second}注} \citshape}{\par}
+
+% proof, solution, remark environments are defined in before-body.tex
+% (to run after Quarto's amsthm definitions)
+
+% Assumption environment
+\newenvironment{assumption}{\par\noindent\textbf{\color{third}假设} \citshape}{\par}
+
+% Conclusion environment
+\newenvironment{conclusion}{\par\noindent\textbf{\color{third}结论} \citshape}{\par}
+
+% Property environment
+\newenvironment{property}{\par\noindent\textbf{\color{third}性质} \citshape}{\par}
+
+% Custom environment (user-defined name)
+\newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
+
+%------------------------------------------------------------------------------
+% 9. Introduction and Problemset Environments — match elegantbook.cls
+%------------------------------------------------------------------------------
+
+% Introduction environment style
+\tcbset{
+  introductionsty/.style={
+    enhanced,
+    breakable,
+    colback=structurecolor!10,
+    colframe=structurecolor,
+    fonttitle=\bfseries,
+    colbacktitle=structurecolor,
+    fontupper=\citshape,
+    attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+    boxrule=0pt,
+    toprule=0.5pt,
+    bottomrule=0.5pt,
+    top=8pt,
+    before skip=8pt,
+    sharp corners
+  }
+}
+
+% Introduction environment
+% Note: Pandoc generates \begin{itemize}\tightlist\item...\end{itemize}
+% inside the div. We wrap with tcolorbox + multicols but let the
+% Pandoc-generated itemize provide the list structure.
+\newenvironment{introduction}[1][内容提要]{
+  \begin{tcolorbox}[introductionsty,title={#1}]
+    \begin{multicols}{2}
+      \renewcommand{\labelitemi}{\textcolor{structurecolor}{\upshape\scriptsize\SquareShadowBottomRight}}}{
+    \end{multicols}
+  \end{tcolorbox}}
+
+% Problemset environment
+% Pandoc generates \begin{enumerate}\tightlist\item...\end{enumerate}
+% inside the div. We just provide the decorative header.
+\newenvironment{problemset}[1][习题]{
+  \vspace*{10pt}
+  \begin{center}
+    \textcolor{structurecolor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}
+  \end{center}}{
+  \par}
+
+%------------------------------------------------------------------------------
+% 10. Hyperref Settings (supplement to Quarto's default)
+%------------------------------------------------------------------------------
+% Note: colorlinks, linkcolor, citecolor, urlcolor are set in _extension.yml
+% Additional hyperref settings
+
+%------------------------------------------------------------------------------
+% 11. Chinese Font Settings (for Chinese documents) — match elegantbook.cls ctexfont option
+%------------------------------------------------------------------------------
+% Requires XeLaTeX engine
+% Use ctex with default fontset (auto-detect system fonts)
+\usepackage[UTF8,scheme=plain]{ctex}
+\xeCJKsetup{AutoFakeBold=true}
+% Set Chinese fonts for macOS (adjust for other platforms)
+%\setCJKmainfont{Songti SC}
+%\setCJKsansfont{Heiti SC}
+%\setCJKmonofont[AutoFakeBold=true]{FangSong_GB2312}
+
+% Define \citshape (楷体 = \kaishu) if ctex is loaded
+\ifdefined\kaishu
+  \renewcommand{\citshape}{\kaishu}
+\else
+  \renewcommand{\citshape}{\itshape}
+\fi
+% Define \cfs (仿宋 = \fangsong) if ctex is loaded
+\ifdefined\fangsong
+  \newcommand{\cfs}{\fangsong}
+\else
+  \newcommand{\cfs}{\normalfont}
+\fi
+
+%------------------------------------------------------------------------------
+% 12. Additional Styling Adjustments — match elegantbook.cls
+%------------------------------------------------------------------------------
+
+% Display math spacing
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+% Caption setup (already done above, repeated for clarity)
+\captionsetup[table]{skip=3pt}
+\captionsetup[figure]{skip=3pt}
+
+% Listings style (code blocks) — match elegantbook.cls
+\RequirePackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{structurecolor},
+  framerule=0.2pt,
+  numbers=none,
+  keywordstyle=\color{winered},
+  commentstyle=\color{gray},
+}
+
+%------------------------------------------------------------------------------
+% 13. Title Page — match elegantbook.cls \maketitle exactly
+%------------------------------------------------------------------------------
+
+% Chinese title page labels (from elegantbook.cls lang=cn)
+\newcommand{\authorname}{\citshape 作者：}
+\newcommand{\institutename}{\citshape 组织：}
+\newcommand{\datename}{\citshape 时间：}
+\newcommand{\versionname}{\citshape 版本：}
+
+% Define ElegantBook-specific commands
+\makeatletter
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand{\institute}[1]{\gdef\@institute{#1}}
+\newcommand{\version}[1]{\gdef\@version{#1}}
+\newcommand{\extrainfo}[1]{\gdef\@extrainfo{#1}}
+\newcommand{\logo}[1]{\gdef\@logo{#1}}
+\newcommand{\cover}[1]{\gdef\@cover{#1}}
+\newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
+\makeatother
+
+% \cnormal is used in title page author/institute lines
+\newcommand{\cnormal}{\kaishu}
+
+% ---- Set cover and logo (defaults; override in project) ----
+% These are set here so \maketitle can use them immediately.
+% Users can override by redefining \@cover / \@logo before \maketitle.
+\makeatletter
+\gdef\@cover{images/cover.jpg}%
+\gdef\@logo{images/logo-blue.png}%
+\makeatother
+
+% ---- Redefine \maketitle to match elegantbook.cls ----
+% Must be in preamble (NOT \AtBeginDocument) so it overrides
+% the standard \maketitle before \frontmatter\maketitle executes.
+%
+% The \@->\spacefactor error is caused by parskip.sty (loaded by
+% Quarto's default template) which tries to process paragraph
+% transitions after \includegraphics while still in vertical mode.
+% Fix: wrap \includegraphics in \mbox{} to keep it in horizontal mode,
+% then use explicit \par to transition back.
+\makeatletter
+\renewcommand*{\maketitle}{%
+  \hypersetup{pageanchor=false}
+  \pagenumbering{Alph}
+  \begin{titlepage}
+    \newgeometry{margin=0in}
+    \parindent=0pt
+    \parskip=0pt
+    % Cover image — wrapped in \mbox to prevent
+    % parskip \@ expansion in vertical mode
+    \noindent\mbox{\includegraphics[width=\linewidth]{\@cover}}\par
+    \nointerlineskip
+    \setlength{\fboxsep}{0pt}%
+    \noindent\colorbox{coverlinecolor}{\rule{0pt}{0.5in}\hspace{\linewidth}}\par
+    \vfill
+    \vskip-2ex
+    \hspace{2em}\parbox{0.8\textwidth}{%
+      \bfseries\Huge\@title\par}%
+    \vfill
+    \vspace{-1.0cm}
+    \setstretch{2.5}
+    \hspace{2.5em}%
+    \begin{minipage}[c]{0.67\linewidth}
+      {\color{darkgray}\bfseries\Large
+        \ifcsname @subtitle\endcsname\@subtitle\\[2ex]\fi}
+      \color{gray}\normalsize
+      {\renewcommand{\arraystretch}{0.618}
+      \begin{tabular}{l}
+        \ifx\@author\empty\else\authorname\cnormal\@author\\ \fi
+        \ifcsname @institute\endcsname \institutename \cnormal\@institute\\ \fi
+        \datename\cnormal\zhtoday \\
+        \ifcsname @version\endcsname \cnormal\versionname\@version\\ \fi
+        \ifcsname @bioinfo\endcsname \cnormal\@bioinfo\\ \fi
+      \end{tabular}}%
+    \end{minipage}%
+    \begin{minipage}[c]{0.27\linewidth}
+    \begin{tikzpicture}[remember picture,overlay]
+      \begin{pgfonlayer}{background}
+        \node[opacity=0.8,
+              anchor=south east,
+              outer sep=0pt,
+              inner sep=0pt] at ($(current page.south east) +(-0.8in,1.5in)$) {
+                \ifcsname @logo\endcsname\includegraphics[width=4.2cm]{\@logo}\fi};
+      \end{pgfonlayer}
+    \end{tikzpicture}
+    \end{minipage}
+    \vfill
+    \begin{center}
+      \setstretch{1.3}
+      \parbox[t]{0.7\textwidth}{\centering\citshape
+        \ifcsname @extrainfo\endcsname\@extrainfo\fi}
+    \end{center}
+    \vfill
+  \end{titlepage}
+  \restoregeometry
+  \thispagestyle{empty}%
+  \pagenumbering{Roman}% switch to uppercase Roman numerals for TOC pages
+}
+\makeatother
+
+%------------------------------------------------------------------------------
+% 14. natbib citation style — numbered, sorted & compressed, square brackets
+%------------------------------------------------------------------------------
+\AtBeginDocument{%
+  \setcitestyle{numbers,sort&compress,square}%
+}
+
+%------------------------------------------------------------------------------
+% 15. Equation numbering — number within chapter (e.g. (1.1), (1.2), …)
+%------------------------------------------------------------------------------
+\numberwithin{equation}{chapter}
+
+%------------------------------------------------------------------------------
+% 16. Chapters start on odd pages; redefined \cleardoublepage to force
+%     odd pages even with oneside (standard \cleardoublepage only does
+%     \clearpage in oneside mode, which doesn't ensure odd page numbers).
+%------------------------------------------------------------------------------
+\makeatletter
+\def\cleardoublepage{\clearpage\ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage\fi}
+\makeatother
+
+\AtBeginDocument{%
+  \let\oldchapter\chapter
+  \renewcommand{\chapter}{%
+    \cleardoublepage
+    \oldchapter
+  }%
+}%
+
+%------------------------------------------------------------------------------
+% 17. Equation reference parentheses — Quarto 对公式交叉引用使用 \ref
+%     而非 \eqref，导致编号不带括号。AtBeginDocument 在 hyperref 加载后执行，
+%     确保 \ref 重定义生效（覆盖 hyperref 版本）。
+%------------------------------------------------------------------------------
+\usepackage{xstring}
+\AtBeginDocument{%
+  \let\quartoOldRef\ref
+  \renewcommand{\ref}[1]{%
+    \IfBeginWith{#1}{eq-}{%
+      \textup{(\quartoOldRef{#1})}%
+    }{%
+      \quartoOldRef{#1}%
+    }%
+  }%
+}
+
+%==============================================================================
+% End of ElegantBook PDF Style Preamble (all other hooks cleaned up)
+%==============================================================================
+% Title page customization — ElegantBook style
+\subtitle{Your Subtitle Here}
+\institute{Your University, Your Department}
+\version{v1.0}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{plain}
+\newtheorem{corollary}{Corollary}[chapter]
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{Proof}}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\newtheorem{refremark}{Remark}[chapter]
+\newtheorem{refsolution}{Solution}[chapter]
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={ElegantBook PDF Template},
+  pdfauthor={Your Name},
+  colorlinks=true,
+  linkcolor={winered},
+  filecolor={Maroon},
+  citecolor={winered},
+  urlcolor={winered},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{ElegantBook PDF Template}
+
+
+\author{\href{https://your-university.edu/your-profile}{Your
+Name}\,~\orcidlink{0000-0000-0000-0001}}
+\AtBeginDocument{\bioinfo{E-mail}{\texttt{your.email@university.edu}}}
+
+
+
+\begin{document}
+\frontmatter
+\maketitle
+
+%------------------------------------------------------------------------------
+% Redefine theorem environments at \begin{document} time
+% (after Quarto's amsthm \newtheorem, to avoid "already defined" error)
+% Use \DeclareTColorBox to match elegantbook.cls visual style.
+%------------------------------------------------------------------------------
+% This runs in the normal token stream after \begin{document},
+% so # does not need doubling.
+%
+% Quarto generates: \begin{definition}[name]\protect\hypertarget{id}{}\label{id}
+% We accept the optional [name], and Quarto's extra tokens go into the box body.
+%
+% First, undefine Quarto's amsthm theorem environments
+\makeatletter
+\let\theorem\relax\let\endtheorem\relax
+\let\definition\relax\let\enddefinition\relax
+\let\lemma\relax\let\endlemma\relax
+\let\corollary\relax\let\endcorollary\relax
+\let\proposition\relax\let\endproposition\relax
+\let\axiom\relax\let\endaxiom\relax
+\let\postulate\relax\let\endpostulate\relax
+\let\solution\relax\let\endsolution\relax
+\let\remark\relax\let\endremark\relax
+\makeatother
+
+% Now define with simple \DeclareTColorBox (O{} for optional name)
+% Note: Quarto puts \protect\hypertarget{}{}\label{} tokens BEFORE the theorem body.
+% These end up inside the tcolorbox body and still function correctly.
+
+% theorem (thmstyle, ♥) — 定理
+\DeclareTColorBox[auto counter,number within=chapter]{theorem}{ O{} }{
+  common,thmstyle,
+  title={定理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% definition (defstyle, ♣) — 定义
+\DeclareTColorBox[auto counter,number within=chapter]{definition}{ O{} }{
+  common,defstyle,
+  title={定义~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% lemma (thmstyle, ♥) — 引理
+\DeclareTColorBox[auto counter,number within=chapter]{lemma}{ O{} }{
+  common,thmstyle,
+  title={引理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% corollary (thmstyle, ♥) — 推论
+\DeclareTColorBox[auto counter,number within=chapter]{corollary}{ O{} }{
+  common,thmstyle,
+  title={推论~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% proposition (prostyle, ♠) — 命题
+\DeclareTColorBox[auto counter,number within=chapter]{proposition}{ O{} }{
+  common,prostyle,
+  title={命题~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% axiom (thmstyle, ♥) — 公理
+\DeclareTColorBox[auto counter,number within=chapter]{axiom}{ O{} }{
+  common,thmstyle,
+  title={公理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% postulate (thmstyle, ♥) — 公设
+\DeclareTColorBox[auto counter,number within=chapter]{postulate}{ O{} }{
+  common,thmstyle,
+  title={公设~\thetcbcounter\IfValueT{#1}{ (#1)}},
+}
+
+% Starred (unnumbered) versions
+\DeclareTColorBox{theorem*}{ O{} }{
+  common,thmstyle,
+  title={定理\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{definition*}{ O{} }{
+  common,defstyle,
+  title={定义\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{lemma*}{ O{} }{
+  common,thmstyle,
+  title={引理\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{corollary*}{ O{} }{
+  common,thmstyle,
+  title={推论\IfValueT{#1}{ (#1)}},
+}
+\DeclareTColorBox{proposition*}{ O{} }{
+  common,prostyle,
+  title={命题\IfValueT{#1}{ (#1)}},
+}
+
+% Redefine proof, solution, remark environments (match elegantbook.cls)
+\makeatletter
+\let\proof\relax\let\endproof\relax
+\makeatother
+
+% Proof environment — match elegantbook.cls
+\newenvironment{proof}{
+  \par\noindent\textbf{\color{second}\proofname\;}
+  \color{black!90}\cfs}{\par}
+
+% Solution environment — match elegantbook.cls
+\newenvironment{solution}{\par\noindent\textbf{\color{main}解} \citshape}{\par}
+
+% Remark environment — match elegantbook.cls
+\newenvironment{remark}{\noindent\textbf{\color{second}注}}{\par}
+
+% Chinese translation for proofname
+\renewcommand{\proofname}{证明}
+
+% Override Quarto's hardcoded "Table of contents"
+% Quarto template unconditionally sets \contentsname to "Table of contents"
+% just before \tableofcontents. We hook into \tableofcontents to re-override.
+\pretocmd{\tableofcontents}{\renewcommand{\contentsname}{目\ \ 录}}{}{}
+
+% Bibliography header suppression is now handled by before-bib.tex partial
+% (natbib-based), which patches \bibliography to use \bibname and clears
+% running headers. The old CSLReferences redefinition is no longer needed.
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+
+\setstretch{1.2}
+\mainmatter
+\pagenumbering{arabic}\pagestyle{fancy}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Introduction}\label{introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+\markboth{Introduction}{Introduction}
+
+Introduction
+
+\section*{Measure}\label{measure}
+\addcontentsline{toc}{section}{Measure}
+
+\markright{Measure}
+
+\section*{Introduction}\label{introduction-1}
+\addcontentsline{toc}{section}{Introduction}
+
+\markright{Introduction}
+
+\section*{IntroductionIntroductionIntroduction}\label{introductionintroductionintroduction}
+\addcontentsline{toc}{section}{IntroductionIntroductionIntroduction}
+
+\markright{IntroductionIntroductionIntroduction}
+
+Introduction
+
+\bookmarksetup{startatroot}
+
+\chapter{ElegantBook PDF
+扩展测试文档}\label{elegantbook-pdf-ux6269ux5c55ux6d4bux8bd5ux6587ux6863}
+
+\begin{introduction}
+
+\begin{itemize}
+\tightlist
+\item
+  ElegantBook 样式测试
+\item
+  定理环境验证
+\item
+  列表环境测试
+\item
+  交叉引用功能
+\end{itemize}
+
+\end{introduction}
+
+\section{简介}\label{ux7b80ux4ecb}
+
+本文档用于测试 ElegantBook PDF 扩展的各项功能。
+
+\section{定理环境测试}\label{ux5b9aux7406ux73afux5883ux6d4bux8bd5}
+
+\subsection{定义环境}\label{ux5b9aux4e49ux73afux5883}
+
+\begin{definition}[连续性]\protect\hypertarget{def-continuous}{}\label{def-continuous}
+
+设函数
+\(f: D \subseteq \mathbb{R} \to \mathbb{R}\)，\(x_0 \in D\)。如果对于任意
+\(\epsilon > 0\)，存在 \(\delta > 0\)，使得当 \(|x - x_0| < \delta\) 且
+\(x \in D\) 时，有 \(|f(x) - f(x_0)| < \epsilon\)，则称 \(f\) 在 \(x_0\)
+处连续。
+
+\end{definition}
+
+\subsection{定理环境}\label{ux5b9aux7406ux73afux5883}
+
+\begin{theorem}[中值定理]\protect\hypertarget{thm-mvt}{}\label{thm-mvt}
+
+设函数 \(f: [a,b] \to \mathbb{R}\) 连续，在 \((a,b)\) 内可导。则存在
+\(\xi \in (a,b)\)，使得
+
+\begin{equation}\protect\phantomsection\label{eq-einstein}{
+f'(\xi) = \frac{f(b) - f(a)}{b - a}
+}\end{equation}
+
+\end{theorem}
+
+参考定理 Theorem~\ref{thm-mvt} 可知\ldots{}
+
+\subsection{引理环境}\label{ux5f15ux7406ux73afux5883}
+
+\begin{lemma}[费马引理]\protect\hypertarget{lem-fermat}{}\label{lem-fermat}
+
+设函数 \(f\) 在 \(x_0\) 处可导，由公式 \ref{eq-einstein} 知 \(x_0\) 是
+\(f\) 的极值点，则 \(f'(x_0) = 0\)。
+
+\end{lemma}
+
+\subsection{推论环境}\label{ux63a8ux8bbaux73afux5883}
+
+\begin{corollary}[导数零点定理]\protect\hypertarget{cor-zero}{}\label{cor-zero}
+
+若函数 \(f\) 在区间 \(I\) 上可导且 \(f'(x) = 0\) 对所有 \(x \in I\)
+成立，则 \(f\) 在 \(I\) 上为常数函数。
+
+\end{corollary}
+
+\subsection{命题环境}\label{ux547dux9898ux73afux5883}
+
+\begin{proposition}[极值必要条件]\protect\hypertarget{prp-extreme}{}\label{prp-extreme}
+
+设函数 \(f\) 在 \(x_0\) 处可导，且 \(x_0\) 是 \(f\) 的局部极值点，则
+\(f'(x_0) = 0\)。
+
+\end{proposition}
+
+\section{其他环境测试}\label{ux5176ux4ed6ux73afux5883ux6d4bux8bd5}
+
+\subsection{示例环境}\label{ux793aux4f8bux73afux5883}
+
+\begin{example}
+
+考虑功能 \(f(x) = x^2\)。该函数在 \(x = 0\) 处可导，且 \(f'(0) = 0\)。
+
+\end{example}
+
+\subsection{练习环境}\label{ux7ec3ux4e60ux73afux5883}
+
+\begin{exercise}
+
+证明：若函数 \(f\) 在 \([a,b]\) 上连续，则 \(f\) 在 \([a,b]\) 上有界。
+
+\end{exercise}
+
+\subsection{问题环境}\label{ux95eeux9898ux73afux5883}
+
+\begin{problem}
+
+设 \(f(x) = \sin x\)，求 \(f'(x)\)。
+
+\end{problem}
+
+\subsection{注释环境}\label{ux6ce8ux91caux73afux5883}
+
+\begin{note}
+
+此处的证明需要用到拉格朗日中值定理。
+
+\end{note}
+
+\subsection{证明环境}\label{ux8bc1ux660eux73afux5883}
+
+\begin{proof}
+由拉格朗日中值定理，存在 \(\xi \in (a,b)\)，使得\ldots{}
+\end{proof}
+
+\subsection{解环境}\label{ux89e3ux73afux5883}
+
+\begin{solution}
+由 \(f'(x) = \cos x\)，得 \(f'(x) = \cos x\)。
+\end{solution}
+
+\subsection{备注环境}\label{ux5907ux6ce8ux73afux5883}
+
+\begin{remark}
+这个结果是微积分基本定理的直接推论。
+\end{remark}
+
+\subsection{假设环境}\label{ux5047ux8bbeux73afux5883}
+
+\begin{assumption}
+
+假设市场是无摩擦的，且不存在套利机会。
+
+\end{assumption}
+
+\subsection{结论环境}\label{ux7ed3ux8bbaux73afux5883}
+
+\begin{conclusion}
+
+综上所述，该期权定价公式在 Black-Scholes 模型下成立。
+
+\end{conclusion}
+
+\subsection{性质环境}\label{ux6027ux8d28ux73afux5883}
+
+\begin{property}
+
+布朗运动具有独立增量性和平稳增量性。
+
+\end{property}
+
+\section{列表环境测试}\label{ux5217ux8868ux73afux5883ux6d4bux8bd5}
+
+\subsection{无序列表}\label{ux65e0ux5e8fux5217ux8868}
+
+\begin{itemize}
+\tightlist
+\item
+  第一项内容
+\item
+  第二项内容
+
+  \begin{itemize}
+  \tightlist
+  \item
+    嵌套第一项
+  \item
+    嵌套第二项
+
+    \begin{itemize}
+    \tightlist
+    \item
+      三级嵌套项
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsection{有序列表}\label{ux6709ux5e8fux5217ux8868}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  第一步
+\item
+  第二步
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    子步骤 a
+  \item
+    子步骤 b
+
+    \begin{enumerate}
+    \def\labelenumiii{\roman{enumiii}.}
+    \tightlist
+    \item
+      详细步骤 i
+    \item
+      详细步骤 ii
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\section{数学公式测试}\label{ux6570ux5b66ux516cux5f0fux6d4bux8bd5}
+
+行内公式：\(E = mc^2\)
+
+块级公式：
+
+\begin{equation} \int_{-\infty}^{+\infty} e^{-x^2} dx = \sqrt{\pi} \end{equation}
+
+\section{图表测试}\label{ux56feux8868ux6d4bux8bd5}
+
+\subsection{表格}\label{ux8868ux683c}
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{基本函数导数表 \{\#tbl:derivatives\}}\tabularnewline
+\toprule\noalign{}
+函数 & 导数 & 积分 \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+函数 & 导数 & 积分 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(x^n\) & \(nx^{n-1}\) & \(\frac{x^{n+1}}{n+1}\) \\
+\(e^x\) & \(e^x\) & \(e^x\) \\
+\(\ln x\) & \(\frac{1}{x}\) & \(x\ln x - x\) \\
+\end{longtable}
+
+\subsection{图片}\label{ux56feux7247}
+
+\section{章后习题}\label{ux7ae0ux540eux4e60ux9898}
+
+\begin{problemset}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  证明 Cauchy 收敛准则。
+\item
+  计算 \(\lim_{x \to 0} \frac{\sin x}{x}\)。
+\item
+  求解微分方程 \(y' = ky\)。
+\end{enumerate}
+
+\end{problemset}
+
+\bookmarksetup{startatroot}
+
+\chapter{第二章：高级主题}\label{ux7b2cux4e8cux7ae0ux9ad8ux7ea7ux4e3bux9898}
+
+\section{随机控制理论初步}\label{ux968fux673aux63a7ux5236ux7406ux8bbaux521dux6b65}
+
+随机控制是现代金融数学的重要工具。
+
+\subsection{随机微分方程}\label{ux968fux673aux5faeux5206ux65b9ux7a0b}
+
+考虑如下随机微分方程：
+
+\begin{equation} dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t \end{equation}
+
+其中 \(W_t\) 是标准布朗运动。
+
+\begin{definition}[适应过程]\protect\hypertarget{def-adapted}{}\label{def-adapted}
+
+随机过程 \(\{X_t\}_{t \geq 0}\) 称为适应的，如果对于每个
+\(t \geq 0\)，\(X_t\) 是 \(\mathcal{F}_t\)-可测的。
+
+\end{definition}
+
+\subsection{HJB 方程}\label{hjb-ux65b9ux7a0b}
+
+\begin{theorem}[HJB方程]\protect\hypertarget{thm-hjb}{}\label{thm-hjb}
+
+值函数 \(V(x,t)\) 满足如下 HJB 方程：
+
+\begin{equation} -\frac{\partial V}{\partial t} = \max_{u \in U} \left\{ \mathcal{L}^u V(x,t) + f(x,u,t) \right\} \end{equation}
+
+其中 \(\mathcal{L}^u\) 是无穷小生成元。
+
+\end{theorem}
+
+\section{金融保险应用}\label{ux91d1ux878dux4fddux9669ux5e94ux7528}
+
+\subsection{期权定价}\label{ux671fux6743ux5b9aux4ef7}
+
+Black-Scholes 公式给出了欧式看涨期权的价格：
+
+\begin{proposition}[Black-Scholes公式]\protect\hypertarget{prp-bs}{}\label{prp-bs}
+
+欧式看涨期权的价格公式为：
+
+\begin{equation} C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2) \end{equation}
+
+其中
+\(d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}\)，\(d_2 = d_1 - \sigma\sqrt{T-t}\)。
+
+\end{proposition}
+
+\subsection{最优投资消费}\label{ux6700ux4f18ux6295ux8d44ux6d88ux8d39}
+
+\begin{problem}
+
+在 CRRA 效用函数下，求解最优投资消费策略。
+
+\end{problem}
+
+\section{习题}\label{ux4e60ux9898}
+
+\begin{problemset}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  证明 Itô 引理。
+\item
+  推导 Black-Scholes PDE。
+\item
+  求解 Merton 最优投资问题。
+\end{enumerate}
+
+\end{problemset}
+
+\bookmarksetup{startatroot}
+
+\chapter{参考文献}\label{ux53c2ux8003ux6587ux732e}
+
+这里假设 Quarto
+会自动生成参考文献页。如果需要自定义，可以在这里添加内容。
+
+\bookmarksetup{startatroot}
+
+\chapter{测试}\label{ux6d4bux8bd5}
+
+\begin{theorem}[直线定理]\protect\hypertarget{thm-line}{}\label{thm-line}
+
+直线方程可以写为： \[ y = mx + b \]
+
+\end{theorem}
+
+我们将通过三个步骤定义可测函数的积分。首先定义非负简单函数的积分。以下设
+\(E\) 是 \(\mathcal{R}^n\) 中的可测集。
+
+This file is a sample book demonstrating Quarto's capabilities with the
+standard LaTeX \texttt{book} document class. It supports PDF (via LaTeX)
+output. It is assumed that the reader has a basic working knowledge of
+stochastic calculus \citet{karatzas1991brownian} and stochastic control
+theory \citet{yong1999sch}.
+
+\section{Introduction}\label{introduction-2}
+
+Introduction \#\# acv
+
+Introduction
+
+\section{test for cosmo}\label{test-for-cosmo}
+
+IntroductionIntroductionIntroduction
+
+\bookmarksetup{startatroot}
+
+\chapter{Test}\label{test}
+
+这是什么
+
+\section{This is chapter 2}\label{this-is-chapter-2}
+
+这是一个测试
+
+\bookmarksetup{startatroot}
+
+\chapter*{参考文献}\label{ux53c2ux8003ux6587ux732e-1}
+\addcontentsline{toc}{chapter}{参考文献}
+
+\markboth{参考文献}{参考文献}
+
+\pagestyle{plain}
+
+\renewcommand{\bibsection}{}
+\bibliography{references.bib}
+
+% Suppress running headers on bibliography pages.
+% Quarto's book template places this partial after \bibliography,
+% so heading patches go here but they run too late for \bibliography
+% itself. The heading is already set by Quarto's biblio-title.
+\let\stdchaptermark\chaptermark
+\renewcommand{\chaptermark}[1]{}
+\makeatletter
+\let\stdmkboth\@mkboth
+\def\@mkboth#1#2{}
+\makeatother
+\markright{}
+\pagestyle{plain}
+\backmatter
+\renewcommand\bibname{参考文献}
+
+
+\pagestyle{empty}
+\vspace*{18pt}
+\noindent\textbf{Your Name}\par
+
+Your bio text here. This will appear on the author page at the end of
+the book.\par
+
+\end{document}

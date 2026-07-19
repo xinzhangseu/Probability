@@ -103,3 +103,100 @@ main.content h1, main.content h2, main.content h3, main.content p, #title-block-
     }
 }
 
+
+
+/* ========== GitBook typography match ========== */
+
+/*
+ * Typography measured from:
+ * https://math.pku.edu.cn/teachers/lidf/docs/statcomp/html/_statcompbook/
+ *
+ * Reference values:
+ * body 16px / 27.2px, paragraph gap 13.6px;
+ * headings 32px, 28px, 24px, 20px with 1.7 line-height.
+ */
+
+body,
+main.content {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 1.7 !important;
+    letter-spacing: 0.2px;
+}
+
+/* Match the reference page's readable text measure. */
+main.content {
+    max-width: 870px !important;
+}
+
+/* Body copy and list spacing: 16px × 0.85 = 13.6px. */
+main.content p,
+main.content ul,
+main.content ol,
+main.content dl,
+main.content blockquote {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+}
+
+/* GitBook heading scale and proportional vertical rhythm. */
+main.content h1,
+main.content .h1,
+main.content h2,
+main.content .h2,
+main.content h3,
+main.content .h3,
+main.content h4,
+main.content .h4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Noto Sans CJK SC", sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.2px;
+    margin-top: 1.275em !important;
+    margin-bottom: 0.85em !important;
+}
+
+main.content h1,
+main.content .h1 {
+    font-size: 32px !important;
+}
+
+main.content h2,
+main.content .h2 {
+    font-size: 28px !important;
+}
+
+main.content h3,
+main.content .h3 {
+    font-size: 24px !important;
+}
+
+main.content h4,
+main.content .h4 {
+    font-size: 20px !important;
+}
+
+/* Keep inline code slightly smaller, matching the reference page. */
+main.content :not(pre) > code {
+    font-size: 14px;
+}
+
+main.content pre {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-top: 0;
+    margin-bottom: 1.275rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+/* Preserve comfortable proportions on narrow screens. */
+@media (max-width: 767.98px) {
+    main.content {
+        padding: 30px 20px !important;
+    }
+}

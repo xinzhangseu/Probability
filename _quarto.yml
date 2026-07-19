@@ -85,9 +85,9 @@ format:
   elegantbook-pdf:
     pdf-engine: xelatex
     keep-tex: true
-    CJKmainfont: "Songti SC"
-    CJKsansfont: "Heiti SC"
-    CJKmonofont: "FangSong_GB2312"
+    CJKmainfont: "Noto Serif CJK SC"
+    CJKsansfont: "Noto Sans CJK SC"
+    CJKmonofont: "Noto Sans Mono CJK SC"
     toc: true
     toc-depth: 2
     number-sections: true

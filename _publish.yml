@@ -1,4 +1,0 @@
-- source: project
-  netlify:
-    - id: "adfa"
-      url: "https://macsoftset.netlify.app"

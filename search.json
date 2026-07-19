@@ -1,0 +1,192 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ElegantBook PDF Template",
+    "section": "",
+    "text": "Introduction\nIntroduction",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#measure",
+    "href": "index.html#measure",
+    "title": "ElegantBook PDF Template",
+    "section": "Measure",
+    "text": "Measure",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction-1",
+    "href": "index.html#introduction-1",
+    "title": "ElegantBook PDF Template",
+    "section": "Introduction",
+    "text": "Introduction",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "index.html#introductionintroductionintroduction",
+    "href": "index.html#introductionintroductionintroduction",
+    "title": "ElegantBook PDF Template",
+    "section": "IntroductionIntroductionIntroduction",
+    "text": "IntroductionIntroductionIntroduction\nIntroduction",
+    "crumbs": [
+      "Introduction"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html",
+    "href": "template_chapter1.html",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "",
+    "text": "1.1 简介\n本文档用于测试 ElegantBook PDF 扩展的各项功能。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#定理环境测试",
+    "href": "template_chapter1.html#定理环境测试",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.2 定理环境测试",
+    "text": "1.2 定理环境测试\n\n定义环境\n\n定义 1.1 (连续性) 设函数 f: D \\subseteq \\mathbb{R} \\to \\mathbb{R}，x_0 \\in D。如果对于任意 \\epsilon &gt; 0，存在 \\delta &gt; 0，使得当 |x - x_0| &lt; \\delta 且 x \\in D 时，有 |f(x) - f(x_0)| &lt; \\epsilon，则称 f 在 x_0 处连续。\n\n\n\n定理环境\n\n定理 1.1 (中值定理) 设函数 f: [a,b] \\to \\mathbb{R} 连续，在 (a,b) 内可导。则存在 \\xi \\in (a,b)，使得\n\nf'(\\xi) = \\frac{f(b) - f(a)}{b - a}\n\\tag{1.1}\n\n参考定理 定理 1.1 可知…\n\n\n引理环境\n\n引理 1.1 (费马引理) 设函数 f 在 x_0 处可导，由公式 1.1 知 x_0 是 f 的极值点，则 f'(x_0) = 0。\n\n\n\n推论环境\n\n推论 1.1 (导数零点定理) 若函数 f 在区间 I 上可导且 f'(x) = 0 对所有 x \\in I 成立，则 f 在 I 上为常数函数。\n\n\n\n命题环境\n\n命题 1.1 (极值必要条件) 设函数 f 在 x_0 处可导，且 x_0 是 f 的局部极值点，则 f'(x_0) = 0。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#其他环境测试",
+    "href": "template_chapter1.html#其他环境测试",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.3 其他环境测试",
+    "text": "1.3 其他环境测试\n\n示例环境\n\n考虑功能 f(x) = x^2。该函数在 x = 0 处可导，且 f'(0) = 0。\n\n\n\n练习环境\n\n证明：若函数 f 在 [a,b] 上连续，则 f 在 [a,b] 上有界。\n\n\n\n问题环境\n\n设 f(x) = \\sin x，求 f'(x)。\n\n\n\n注释环境\n\n此处的证明需要用到拉格朗日中值定理。\n\n\n\n证明环境\n\n证明. 由拉格朗日中值定理，存在 \\xi \\in (a,b)，使得…\n\n\n\n解环境\n\n解. 由 f'(x) = \\cos x，得 f'(x) = \\cos x。\n\n\n\n备注环境\n\n注记. 这个结果是微积分基本定理的直接推论。\n\n\n\n假设环境\n\n假设市场是无摩擦的，且不存在套利机会。\n\n\n\n结论环境\n\n综上所述，该期权定价公式在 Black-Scholes 模型下成立。\n\n\n\n性质环境\n\n布朗运动具有独立增量性和平稳增量性。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#列表环境测试",
+    "href": "template_chapter1.html#列表环境测试",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.4 列表环境测试",
+    "text": "1.4 列表环境测试\n\n无序列表\n\n第一项内容\n第二项内容\n\n嵌套第一项\n嵌套第二项\n\n三级嵌套项\n\n\n\n\n\n有序列表\n\n第一步\n第二步\n\n子步骤 a\n子步骤 b\n\n详细步骤 i\n详细步骤 ii",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#数学公式测试",
+    "href": "template_chapter1.html#数学公式测试",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.5 数学公式测试",
+    "text": "1.5 数学公式测试\n行内公式：E = mc^2\n块级公式：\n\n\\int_{-\\infty}^{+\\infty} e^{-x^2} dx = \\sqrt{\\pi}",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#图表测试",
+    "href": "template_chapter1.html#图表测试",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.6 图表测试",
+    "text": "1.6 图表测试\n\n表格\n\n基本函数导数表 {#tbl:derivatives}\n\n\n函数\n导数\n积分\n\n\n\n\nx^n\nnx^{n-1}\n\\frac{x^{n+1}}{n+1}\n\n\ne^x\ne^x\ne^x\n\n\n\\ln x\n\\frac{1}{x}\nx\\ln x - x\n\n\n\n\n\n图片",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#章后习题",
+    "href": "template_chapter1.html#章后习题",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.7 章后习题",
+    "text": "1.7 章后习题\n\n\n证明 Cauchy 收敛准则。\n计算 \\lim_{x \\to 0} \\frac{\\sin x}{x}。\n求解微分方程 y' = ky。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#随机控制理论初步",
+    "href": "template_chapter1.html#随机控制理论初步",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "2.1 随机控制理论初步",
+    "text": "2.1 随机控制理论初步\n随机控制是现代金融数学的重要工具。\n\n随机微分方程\n考虑如下随机微分方程：\n\ndX_t = \\mu(X_t, t) dt + \\sigma(X_t, t) dW_t\n\n其中 W_t 是标准布朗运动。\n\n定义 2.1 (适应过程) 随机过程 \\{X_t\\}_{t \\geq 0} 称为适应的，如果对于每个 t \\geq 0，X_t 是 \\mathcal{F}_t-可测的。\n\n\n\nHJB 方程\n\n定理 2.1 (HJB方程) 值函数 V(x,t) 满足如下 HJB 方程：\n\n-\\frac{\\partial V}{\\partial t} = \\max_{u \\in U} \\left\\{ \\mathcal{L}^u V(x,t) + f(x,u,t) \\right\\}\n\n其中 \\mathcal{L}^u 是无穷小生成元。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#金融保险应用",
+    "href": "template_chapter1.html#金融保险应用",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "2.2 金融保险应用",
+    "text": "2.2 金融保险应用\n\n期权定价\nBlack-Scholes 公式给出了欧式看涨期权的价格：\n\n命题 2.1 (Black-Scholes公式) 欧式看涨期权的价格公式为：\n\nC(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)\n\n其中 d_1 = \\frac{\\ln(S/K) + (r + \\sigma^2/2)(T-t)}{\\sigma\\sqrt{T-t}}，d_2 = d_1 - \\sigma\\sqrt{T-t}。\n\n\n\n最优投资消费\n\n在 CRRA 效用函数下，求解最优投资消费策略。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_chapter1.html#习题",
+    "href": "template_chapter1.html#习题",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "2.3 习题",
+    "text": "2.3 习题\n\n\n证明 Itô 引理。\n推导 Black-Scholes PDE。\n求解 Merton 最优投资问题。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
+    "objectID": "template_references.html",
+    "href": "template_references.html",
+    "title": "2  参考文献",
+    "section": "",
+    "text": "这里假设 Quarto 会自动生成参考文献页。如果需要自定义，可以在这里添加内容。",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>参考文献</span>"
+    ]
+  },
+  {
+    "objectID": "chap1.html",
+    "href": "chap1.html",
+    "title": "3  测试",
+    "section": "",
+    "text": "3.1 Introduction\n我们将通过三个步骤定义可测函数的积分。首先定义非负简单函数的积分。以下设 E 是 \\mathcal{R}^n 中的可测集。\nThis file is a sample book demonstrating Quarto’s capabilities with the standard LaTeX book document class. It supports PDF (via LaTeX) output. It is assumed that the reader has a basic working knowledge of stochastic calculus Karatzas 和 Shreve (1991年) and stochastic control theory Yong 和 Zhou (1999年).\nIntroduction ## acv\nIntroduction",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>测试</span>"
+    ]
+  },
+  {
+    "objectID": "chap1.html#test-for-cosmo",
+    "href": "chap1.html#test-for-cosmo",
+    "title": "3  测试",
+    "section": "3.2 test for cosmo",
+    "text": "3.2 test for cosmo\nIntroductionIntroductionIntroduction\n\n\n\n\nKaratzas, Ioannis, 和 Steven E. Shreve. 1991年. Brownian Motion and Stochastic Calculus. Springer New York. https://doi.org/10.1007/978-1-4612-0949-2.\n\n\nYong, Jiongmin, 和 Xunyu Zhou. 1999年. Stochastic Controls: Hamiltonian Systems and HJB Equations. Stochastic Modelling and Applied Probability. Springer New York. https://doi.org/10.1007/978-1-4612-1466-3.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>测试</span>"
+    ]
+  },
+  {
+    "objectID": "chap2.html",
+    "href": "chap2.html",
+    "title": "4  Test",
+    "section": "",
+    "text": "4.1 This is chapter 2\n这是什么\n这是一个测试",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Test</span>"
+    ]
+  },
+  {
+    "objectID": "ref.html",
+    "href": "ref.html",
+    "title": "参考文献",
+    "section": "",
+    "text": "Karatzas, Ioannis, and Steven E. Shreve. 1991. Brownian Motion and\nStochastic Calculus. Springer New York. https://doi.org/10.1007/978-1-4612-0949-2.\n\n\nYong, Jiongmin, and Xunyu Zhou. 1999. Stochastic Controls:\nHamiltonian Systems and HJB Equations. Stochastic Modelling and\nApplied Probability. Springer New York. https://doi.org/10.1007/978-1-4612-1466-3.",
+    "crumbs": [
+      "参考文献"
+    ]
+  }
+]

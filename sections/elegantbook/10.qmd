@@ -1,4 +1,4 @@
-# 1.10 金融保险应用 {.unnumbered}
+# 金融保险应用 {.unnumbered}
 
 ### 期权定价
 

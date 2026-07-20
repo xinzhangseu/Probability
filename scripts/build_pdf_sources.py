@@ -2,7 +2,6 @@
 """Build continuous PDF chapter sources from the HTML section pages."""
 
 from pathlib import Path
-import re
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -12,23 +11,26 @@ CHAPTERS = (
     ("chap2.qmd", "sections/chapter2", "_pdf_chap2.qmd"),
 )
 
-HEADING = re.compile(r"^#\\s+(.+?)(?:\\s+\\{\\.unnumbered\\})?\\s*$")
-MANUAL_NUMBER = re.compile(r"^\\d+\\.\\d+\\s+")
-
 
 def section_for_pdf(path: Path) -> str:
     text = path.read_text(encoding="utf-8")
     lines = text.splitlines()
-    if not lines:
-        return ""
-
-    match = HEADING.match(lines[0])
-    if not match:
+    if not lines or not lines[0].startswith("# "):
         raise ValueError(f"{path}: first line must be a level-one heading")
 
-    title = MANUAL_NUMBER.sub("", match.group(1)).strip()
-    body = "\\n".join(lines[1:]).strip()
-    return f"## {title}\\n\\n{body}\\n"
+    title = lines[0][2:].strip()
+    suffix = " {.unnumbered}"
+    if title.endswith(suffix):
+        title = title[: -len(suffix)].rstrip()
+
+    first_word, separator, remainder = title.partition(" ")
+    if separator and first_word.count(".") == 1:
+        left, right = first_word.split(".")
+        if left.isdigit() and right.isdigit():
+            title = remainder
+
+    body = "\n".join(lines[1:]).strip()
+    return f"## {title}\n\n{body}\n"
 
 
 def build_chapter(chapter_file: str, section_dir: str, output_file: str) -> None:
@@ -39,7 +41,7 @@ def build_chapter(chapter_file: str, section_dir: str, output_file: str) -> None
 
     combined = [chapter]
     combined.extend(section_for_pdf(path).rstrip() for path in sections)
-    (ROOT / output_file).write_text("\\n\\n".join(combined) + "\\n", encoding="utf-8")
+    (ROOT / output_file).write_text("\n\n".join(combined) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

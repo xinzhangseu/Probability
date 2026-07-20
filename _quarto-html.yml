@@ -1,0 +1,23 @@
+# HTML book structure: independent section pages.
+book:
+  chapters:
+    - index.qmd
+    - chapter/template_chapter1.qmd
+    - chapter/chapter1/01.qmd
+    - chapter/chapter1/02.qmd
+    - chapter/chapter1/03.qmd
+    - chapter/chapter1/04.qmd
+    - chapter/chapter1/05.qmd
+    - chapter/chapter1/06.qmd
+    - chapter/chapter1/07.qmd
+    - chapter/chapter1/08.qmd
+    - chapter/chapter1/09.qmd
+    - chapter/chapter1/10.qmd
+    - chapter/chapter1/11.qmd
+    - chapter/chap1.qmd
+    - chapter/chapter2/01.qmd
+    - chapter/chapter2/02.qmd
+    - chapter/chap2.qmd
+    - chapter/chapter3/01.qmd
+    - chapter/template_references.qmd
+    - chapter/ref.qmd

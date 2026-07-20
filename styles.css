@@ -275,8 +275,20 @@ main.content pre {
     padding: 0 !important;
     line-height: 1;
     box-sizing: border-box;
-    border: 0;
+    border: 0 !important;
+    border-bottom: 0 !important;
     border-radius: 0;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"]:hover,
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"]:focus,
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"]:active {
+    border: 0 !important;
+    border-bottom: 0 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
 }
 
 #quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"] .bi {

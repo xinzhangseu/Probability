@@ -302,4 +302,25 @@ main.content pre {
     margin: 0;
     font-size: 1rem;
     line-height: 1;
+}/* ========== Current chapter sidebar hierarchy ========== */
+
+/* Classes are added after Quarto flattens the book navigation. */
+#quarto-sidebar li.book-chapter-item > .sidebar-item-container {
+    padding-left: 0.35rem !important;
+}
+
+#quarto-sidebar li.book-section-item > .sidebar-item-container {
+    padding-left: 1.35rem !important;
+}
+
+#quarto-sidebar li.book-section-item > .sidebar-item-container .sidebar-link {
+    font-size: 0.88rem;
+}
+
+#quarto-sidebar li.book-section-item[hidden] {
+    display: none !important;
+}
+
+#quarto-sidebar li.book-chapter-item.current-book-chapter > .sidebar-item-container .sidebar-link {
+    font-weight: 600;
 }

@@ -22,27 +22,24 @@ book:
         Your bio text here. This will appear on the author page at the end of the book.
   chapters:
     - index.qmd
-    - part: template_chapter1.qmd
-      chapters:
-        - sections/elegantbook/01.qmd
-        - sections/elegantbook/02.qmd
-        - sections/elegantbook/03.qmd
-        - sections/elegantbook/04.qmd
-        - sections/elegantbook/05.qmd
-        - sections/elegantbook/06.qmd
-        - sections/elegantbook/07.qmd
-        - sections/elegantbook/08.qmd
-        - sections/elegantbook/09.qmd
-        - sections/elegantbook/10.qmd
-        - sections/elegantbook/11.qmd
+    - template_chapter1.qmd
+    - sections/elegantbook/01.qmd
+    - sections/elegantbook/02.qmd
+    - sections/elegantbook/03.qmd
+    - sections/elegantbook/04.qmd
+    - sections/elegantbook/05.qmd
+    - sections/elegantbook/06.qmd
+    - sections/elegantbook/07.qmd
+    - sections/elegantbook/08.qmd
+    - sections/elegantbook/09.qmd
+    - sections/elegantbook/10.qmd
+    - sections/elegantbook/11.qmd
+    - chap1.qmd
+    - sections/test/01.qmd
+    - sections/test/02.qmd
+    - chap2.qmd
+    - sections/chapter2/01.qmd
     - template_references.qmd
-    - part: chap1.qmd
-      chapters:
-        - sections/test/01.qmd
-        - sections/test/02.qmd
-    - part: chap2.qmd
-      chapters:
-        - sections/chapter2/01.qmd
     - ref.qmd
 
   site-url: https://your-site.example.com/
@@ -58,6 +55,51 @@ book:
     pinned: true
     align: center
     style: "docked"
+    collapse-level: 2
+    contents:
+      - index.qmd
+      - section: "1 ElegantBook PDF 扩展测试文档"
+        contents:
+          - text: "章首页"
+            href: template_chapter1.qmd
+          - text: "1.1 简介"
+            href: sections/elegantbook/01.qmd
+          - text: "1.2 定理环境测试"
+            href: sections/elegantbook/02.qmd
+          - text: "1.3 其他环境测试"
+            href: sections/elegantbook/03.qmd
+          - text: "1.4 列表环境测试"
+            href: sections/elegantbook/04.qmd
+          - text: "1.5 数学公式测试"
+            href: sections/elegantbook/05.qmd
+          - text: "1.6 图表测试"
+            href: sections/elegantbook/06.qmd
+          - text: "1.7 章后习题"
+            href: sections/elegantbook/07.qmd
+          - text: "1.8 高级主题"
+            href: sections/elegantbook/08.qmd
+          - text: "1.9 随机控制理论初步"
+            href: sections/elegantbook/09.qmd
+          - text: "1.10 金融保险应用"
+            href: sections/elegantbook/10.qmd
+          - text: "1.11 习题"
+            href: sections/elegantbook/11.qmd
+      - section: "2 测试"
+        contents:
+          - text: "章首页"
+            href: chap1.qmd
+          - text: "2.1 Introduction"
+            href: sections/test/01.qmd
+          - text: "2.2 test for cosmo"
+            href: sections/test/02.qmd
+      - section: "3 Test"
+        contents:
+          - text: "章首页"
+            href: chap2.qmd
+          - text: "3.1 This is chapter 2"
+            href: sections/chapter2/01.qmd
+      - template_references.qmd
+      - ref.qmd
     tools:
       - icon: globe
         href: https://yourwebsite.com
@@ -95,7 +137,6 @@ format:
     toc-depth: 2
     toc-expand: true
     include-after-body:
-      - sidebar-sections.html
       - comments.html
     css: styles.css
     crossref:

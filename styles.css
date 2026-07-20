@@ -27,7 +27,7 @@ header#title-block-header:has(.chapter-number) {
 /* 2. 启用精准 Grid 网格：左边固定 260px，右边占满所有剩余空间 */
 #quarto-content {
     display: grid !important;
-    grid-template-columns: 260px 1fr !important;
+    grid-template-columns: 300px 1fr !important;
     width: 100% !important;
     align-items: start !important; /* 保证所有内容从顶部开始自然往下排布 */
 }
@@ -251,4 +251,43 @@ main.content pre {
 #quarto-sidebar li.current-chapter > .sidebar-item-container > a,
 #quarto-sidebar li.current-chapter > a {
     font-weight: 600;
+}
+
+
+/* ========== Wider sidebar and square PDF tool ========== */
+
+/* Give long chapter titles enough room to remain on one line. */
+#quarto-sidebar {
+    width: 300px !important;
+}
+
+#quarto-sidebar .sidebar-item-text {
+    white-space: normal;
+}
+
+/* Normalize the PDF download tool to a square, centered control. */
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0 !important;
+    line-height: 1;
+    box-sizing: border-box;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+}
+
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"] .bi {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+#quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"] .bi::before {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1;
 }

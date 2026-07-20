@@ -429,20 +429,18 @@ window.Quarto = {
   <li><a href="#图片" id="toc-图片" class="nav-link" data-scroll-target="#图片">图片</a></li>
   </ul></li>
   <li><a href="#章后习题" id="toc-章后习题" class="nav-link" data-scroll-target="#章后习题"><span class="header-section-number">1.7</span> 章后习题</a></li>
-  <li><a href="#第二章高级主题" id="toc-第二章高级主题" class="nav-link" data-scroll-target="#第二章高级主题"><span class="header-section-number">2</span> 第二章：高级主题</a>
-  <ul class="collapse">
-  <li><a href="#随机控制理论初步" id="toc-随机控制理论初步" class="nav-link" data-scroll-target="#随机控制理论初步"><span class="header-section-number">2.1</span> 随机控制理论初步</a>
+  <li><a href="#高级主题" id="toc-高级主题" class="nav-link" data-scroll-target="#高级主题"><span class="header-section-number">1.8</span> 高级主题</a></li>
+  <li><a href="#随机控制理论初步" id="toc-随机控制理论初步" class="nav-link" data-scroll-target="#随机控制理论初步"><span class="header-section-number">1.9</span> 随机控制理论初步</a>
   <ul class="collapse">
   <li><a href="#随机微分方程" id="toc-随机微分方程" class="nav-link" data-scroll-target="#随机微分方程">随机微分方程</a></li>
   <li><a href="#hjb-方程" id="toc-hjb-方程" class="nav-link" data-scroll-target="#hjb-方程">HJB 方程</a></li>
   </ul></li>
-  <li><a href="#金融保险应用" id="toc-金融保险应用" class="nav-link" data-scroll-target="#金融保险应用"><span class="header-section-number">2.2</span> 金融保险应用</a>
+  <li><a href="#金融保险应用" id="toc-金融保险应用" class="nav-link" data-scroll-target="#金融保险应用"><span class="header-section-number">1.10</span> 金融保险应用</a>
   <ul class="collapse">
   <li><a href="#期权定价" id="toc-期权定价" class="nav-link" data-scroll-target="#期权定价">期权定价</a></li>
   <li><a href="#最优投资消费" id="toc-最优投资消费" class="nav-link" data-scroll-target="#最优投资消费">最优投资消费</a></li>
   </ul></li>
-  <li><a href="#习题" id="toc-习题" class="nav-link" data-scroll-target="#习题"><span class="header-section-number">2.3</span> 习题</a></li>
-  </ul></li>
+  <li><a href="#习题" id="toc-习题" class="nav-link" data-scroll-target="#习题"><span class="header-section-number">1.11</span> 习题</a></li>
   </ul>
 </nav>
     </div>
@@ -670,10 +668,11 @@ f'(\xi) = \frac{f(b) - f(a)}{b - a}
 </ol>
 </div>
 </section>
-<section id="第二章高级主题" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> 第二章：高级主题</h1>
-<section id="随机控制理论初步" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="随机控制理论初步"><span class="header-section-number">2.1</span> 随机控制理论初步</h2>
+<section id="高级主题" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="高级主题"><span class="header-section-number">1.8</span> 高级主题</h2>
+</section>
+<section id="随机控制理论初步" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="随机控制理论初步"><span class="header-section-number">1.9</span> 随机控制理论初步</h2>
 <p>随机控制是现代金融数学的重要工具。</p>
 <section id="随机微分方程" class="level3">
 <h3 class="anchored" data-anchor-id="随机微分方程">随机微分方程</h3>
@@ -683,13 +682,13 @@ dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t
 </span></p>
 <p>其中 <span class="math inline">W_t</span> 是标准布朗运动。</p>
 <div id="def-adapted" class="theorem definition">
-<p><span class="theorem-title"><strong>定义 2.1 (适应过程)</strong></span> 随机过程 <span class="math inline">\{X_t\}_{t \geq 0}</span> 称为适应的，如果对于每个 <span class="math inline">t \geq 0</span>，<span class="math inline">X_t</span> 是 <span class="math inline">\mathcal{F}_t</span>-可测的。</p>
+<p><span class="theorem-title"><strong>定义 1.2 (适应过程)</strong></span> 随机过程 <span class="math inline">\{X_t\}_{t \geq 0}</span> 称为适应的，如果对于每个 <span class="math inline">t \geq 0</span>，<span class="math inline">X_t</span> 是 <span class="math inline">\mathcal{F}_t</span>-可测的。</p>
 </div>
 </section>
 <section id="hjb-方程" class="level3">
 <h3 class="anchored" data-anchor-id="hjb-方程">HJB 方程</h3>
 <div id="thm-hjb" class="theorem">
-<p><span class="theorem-title"><strong>定理 2.1 (HJB方程)</strong></span> 值函数 <span class="math inline">V(x,t)</span> 满足如下 HJB 方程：</p>
+<p><span class="theorem-title"><strong>定理 1.2 (HJB方程)</strong></span> 值函数 <span class="math inline">V(x,t)</span> 满足如下 HJB 方程：</p>
 <p><span class="math display">
 -\frac{\partial V}{\partial t} = \max_{u \in U} \left\{ \mathcal{L}^u V(x,t) + f(x,u,t) \right\}
 </span></p>
@@ -697,13 +696,13 @@ dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t
 </div>
 </section>
 </section>
-<section id="金融保险应用" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="金融保险应用"><span class="header-section-number">2.2</span> 金融保险应用</h2>
+<section id="金融保险应用" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="金融保险应用"><span class="header-section-number">1.10</span> 金融保险应用</h2>
 <section id="期权定价" class="level3">
 <h3 class="anchored" data-anchor-id="期权定价">期权定价</h3>
 <p>Black-Scholes 公式给出了欧式看涨期权的价格：</p>
 <div id="prp-bs" class="theorem proposition">
-<p><span class="theorem-title"><strong>命题 2.1 (Black-Scholes公式)</strong></span> 欧式看涨期权的价格公式为：</p>
+<p><span class="theorem-title"><strong>命题 1.2 (Black-Scholes公式)</strong></span> 欧式看涨期权的价格公式为：</p>
 <p><span class="math display">
 C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
 </span></p>
@@ -717,8 +716,8 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
 </div>
 </section>
 </section>
-<section id="习题" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="习题"><span class="header-section-number">2.3</span> 习题</h2>
+<section id="习题" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="习题"><span class="header-section-number">1.11</span> 习题</h2>
 <div class="problemset">
 <ol type="1">
 <li>证明 Itô 引理。</li>
@@ -728,7 +727,6 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -755,6 +753,13 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
     chapterItem.classList.add("current-chapter");
     activeChapter.setAttribute("aria-expanded", "true");
     tocList.classList.add("current-chapter-sections");
+
+    // Quarto renders deeper TOC levels as Bootstrap collapse lists. Remove the
+    // collapsed state after moving the TOC so all configured levels are shown.
+    tocList.querySelectorAll("ul.collapse").forEach(function (list) {
+      list.classList.remove("collapse");
+      list.classList.add("show");
+    });
 
     // Move rather than copy the generated TOC so Quarto's scroll highlighting
     // continues to update the section links.

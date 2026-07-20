@@ -110,11 +110,21 @@
     ]
   },
   {
+    "objectID": "template_chapter1.html#高级主题",
+    "href": "template_chapter1.html#高级主题",
+    "title": "1  ElegantBook PDF 扩展测试文档",
+    "section": "1.8 高级主题",
+    "text": "1.8 高级主题",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
+    ]
+  },
+  {
     "objectID": "template_chapter1.html#随机控制理论初步",
     "href": "template_chapter1.html#随机控制理论初步",
     "title": "1  ElegantBook PDF 扩展测试文档",
-    "section": "2.1 随机控制理论初步",
-    "text": "2.1 随机控制理论初步\n随机控制是现代金融数学的重要工具。\n\n随机微分方程\n考虑如下随机微分方程：\n\ndX_t = \\mu(X_t, t) dt + \\sigma(X_t, t) dW_t\n\n其中 W_t 是标准布朗运动。\n\n定义 2.1 (适应过程) 随机过程 \\{X_t\\}_{t \\geq 0} 称为适应的，如果对于每个 t \\geq 0，X_t 是 \\mathcal{F}_t-可测的。\n\n\n\nHJB 方程\n\n定理 2.1 (HJB方程) 值函数 V(x,t) 满足如下 HJB 方程：\n\n-\\frac{\\partial V}{\\partial t} = \\max_{u \\in U} \\left\\{ \\mathcal{L}^u V(x,t) + f(x,u,t) \\right\\}\n\n其中 \\mathcal{L}^u 是无穷小生成元。",
+    "section": "1.9 随机控制理论初步",
+    "text": "1.9 随机控制理论初步\n随机控制是现代金融数学的重要工具。\n\n随机微分方程\n考虑如下随机微分方程：\n\ndX_t = \\mu(X_t, t) dt + \\sigma(X_t, t) dW_t\n\n其中 W_t 是标准布朗运动。\n\n定义 1.2 (适应过程) 随机过程 \\{X_t\\}_{t \\geq 0} 称为适应的，如果对于每个 t \\geq 0，X_t 是 \\mathcal{F}_t-可测的。\n\n\n\nHJB 方程\n\n定理 1.2 (HJB方程) 值函数 V(x,t) 满足如下 HJB 方程：\n\n-\\frac{\\partial V}{\\partial t} = \\max_{u \\in U} \\left\\{ \\mathcal{L}^u V(x,t) + f(x,u,t) \\right\\}\n\n其中 \\mathcal{L}^u 是无穷小生成元。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
     ]
@@ -123,8 +133,8 @@
     "objectID": "template_chapter1.html#金融保险应用",
     "href": "template_chapter1.html#金融保险应用",
     "title": "1  ElegantBook PDF 扩展测试文档",
-    "section": "2.2 金融保险应用",
-    "text": "2.2 金融保险应用\n\n期权定价\nBlack-Scholes 公式给出了欧式看涨期权的价格：\n\n命题 2.1 (Black-Scholes公式) 欧式看涨期权的价格公式为：\n\nC(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)\n\n其中 d_1 = \\frac{\\ln(S/K) + (r + \\sigma^2/2)(T-t)}{\\sigma\\sqrt{T-t}}，d_2 = d_1 - \\sigma\\sqrt{T-t}。\n\n\n\n最优投资消费\n\n在 CRRA 效用函数下，求解最优投资消费策略。",
+    "section": "1.10 金融保险应用",
+    "text": "1.10 金融保险应用\n\n期权定价\nBlack-Scholes 公式给出了欧式看涨期权的价格：\n\n命题 1.2 (Black-Scholes公式) 欧式看涨期权的价格公式为：\n\nC(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)\n\n其中 d_1 = \\frac{\\ln(S/K) + (r + \\sigma^2/2)(T-t)}{\\sigma\\sqrt{T-t}}，d_2 = d_1 - \\sigma\\sqrt{T-t}。\n\n\n\n最优投资消费\n\n在 CRRA 效用函数下，求解最优投资消费策略。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
     ]
@@ -133,8 +143,8 @@
     "objectID": "template_chapter1.html#习题",
     "href": "template_chapter1.html#习题",
     "title": "1  ElegantBook PDF 扩展测试文档",
-    "section": "2.3 习题",
-    "text": "2.3 习题\n\n\n证明 Itô 引理。\n推导 Black-Scholes PDE。\n求解 Merton 最优投资问题。",
+    "section": "1.11 习题",
+    "text": "1.11 习题\n\n\n证明 Itô 引理。\n推导 Black-Scholes PDE。\n求解 Merton 最优投资问题。",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>ElegantBook PDF 扩展测试文档</span>"
     ]

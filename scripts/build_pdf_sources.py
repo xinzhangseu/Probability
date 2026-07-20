@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Merge HTML section pages into continuous PDF chapter sources.
 
-The chapter/section relationship is inferred from book.chapters in _quarto.yml:
+The chapter/section relationship is inferred from book.chapters in _quarto-html.yml:
 a root-level chapter followed by sections/<folder>/*.qmd owns that folder. Each
 folder is merged to pdf-merged/<folder>.qmd, and _quarto-pdf.yml is regenerated
 so the PDF build reads only the merged chapter files.
@@ -10,7 +10,7 @@ so the PDF build reads only the merged chapter files.
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parent.parent
-CONFIG = ROOT / "_quarto.yml"
+CONFIG = ROOT / "_quarto-html.yml"
 PROFILE = ROOT / "_quarto-pdf.yml"
 OUTPUT_DIR = ROOT / "pdf-merged"
 
@@ -20,7 +20,7 @@ def read_book_chapters() -> list[str]:
     try:
         start = lines.index("  chapters:") + 1
     except ValueError as error:
-        raise ValueError("_quarto.yml has no book.chapters list") from error
+        raise ValueError("_quarto-html.yml has no book.chapters list") from error
 
     chapters: list[str] = []
     for line in lines[start:]:

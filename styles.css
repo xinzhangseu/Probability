@@ -275,8 +275,8 @@ main.content pre {
     padding: 0 !important;
     line-height: 1;
     box-sizing: border-box;
-    border: 1px solid currentColor;
-    border-radius: 3px;
+    border: 0;
+    border-radius: 0;
 }
 
 #quarto-sidebar .quarto-navigation-tool[aria-label="Download PDF"] .bi {

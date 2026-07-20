@@ -333,3 +333,27 @@ main.content pre {
         padding: 0 20px !important;
     }
 }
+
+
+/* ========== Current chapter sidebar hierarchy ========== */
+
+/* Indent numbered chapter headings slightly from the sidebar edge. */
+#quarto-sidebar li.sidebar-item-section > .sidebar-item-container {
+    padding-left: 0.35rem !important;
+}
+
+/* Give section pages a clearly deeper indentation than chapter headings. */
+#quarto-sidebar li.sidebar-item-section > ul.sidebar-section > li.sidebar-item > .sidebar-item-container {
+    padding-left: 1.15rem !important;
+}
+
+/* Keep section lists hidden unless the chapter contains the current page. */
+#quarto-sidebar li.sidebar-item-section > ul.sidebar-section {
+    display: none !important;
+}
+
+#quarto-sidebar li.sidebar-item-section:has(a.sidebar-link.active) > ul.sidebar-section,
+#quarto-sidebar li.sidebar-item-section:has(a[aria-current="page"]) > ul.sidebar-section {
+    display: block !important;
+    height: auto !important;
+}

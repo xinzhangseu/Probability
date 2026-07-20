@@ -533,7 +533,10 @@ Applied Probability. Springer New York. <a href="https://doi.org/10.1007/978-1-4
       }
 
       const path = new URL(link.href, window.location.href).pathname;
-      if (currentGroup && /\\/chapter\\/chapter\\d+\\//.test(path)) {
+      const isSectionPage = path.split("/").some(function (part) {
+        return /^chapter[0-9]+$/.test(part);
+      });
+      if (currentGroup && isSectionPage) {
         const menuText = link.querySelector(".menu-text") || link;
         const title = stripSectionNumber(menuText.textContent);
         const label = currentGroup.number + "." + (currentGroup.sections.length + 1) + " " + title;

@@ -504,7 +504,10 @@ ul.task-list li input[type="checkbox"] {
       }
 
       const path = new URL(link.href, window.location.href).pathname;
-      if (currentGroup && /\\/chapter\\/chapter\\d+\\//.test(path)) {
+      const isSectionPage = path.split("/").some(function (part) {
+        return /^chapter[0-9]+$/.test(part);
+      });
+      if (currentGroup && isSectionPage) {
         const menuText = link.querySelector(".menu-text") || link;
         const title = stripSectionNumber(menuText.textContent);
         const label = currentGroup.number + "." + (currentGroup.sections.length + 1) + " " + title;

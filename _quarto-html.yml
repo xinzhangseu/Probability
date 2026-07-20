@@ -2,22 +2,22 @@
 book:
   chapters:
     - index.qmd
-    - template_chapter1.qmd
-    - sections/elegantbook/01.qmd
-    - sections/elegantbook/02.qmd
-    - sections/elegantbook/03.qmd
-    - sections/elegantbook/04.qmd
-    - sections/elegantbook/05.qmd
-    - sections/elegantbook/06.qmd
-    - sections/elegantbook/07.qmd
-    - sections/elegantbook/08.qmd
-    - sections/elegantbook/09.qmd
-    - sections/elegantbook/10.qmd
-    - sections/elegantbook/11.qmd
-    - chap1.qmd
-    - sections/test/01.qmd
-    - sections/test/02.qmd
-    - chap2.qmd
-    - sections/chapter2/01.qmd
-    - template_references.qmd
-    - ref.qmd
+    - chapter/template_chapter1.qmd
+    - chapter/chapter1/01.qmd
+    - chapter/chapter1/02.qmd
+    - chapter/chapter1/03.qmd
+    - chapter/chapter1/04.qmd
+    - chapter/chapter1/05.qmd
+    - chapter/chapter1/06.qmd
+    - chapter/chapter1/07.qmd
+    - chapter/chapter1/08.qmd
+    - chapter/chapter1/09.qmd
+    - chapter/chapter1/10.qmd
+    - chapter/chapter1/11.qmd
+    - chapter/chap1.qmd
+    - chapter/chapter2/01.qmd
+    - chapter/chapter2/02.qmd
+    - chapter/chap2.qmd
+    - chapter/chapter3/01.qmd
+    - chapter/template_references.qmd
+    - chapter/ref.qmd

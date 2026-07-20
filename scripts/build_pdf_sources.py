@@ -2,7 +2,7 @@
 """Merge HTML section pages into continuous PDF chapter sources.
 
 The chapter/section relationship is inferred from book.chapters in _quarto-html.yml:
-a root-level chapter followed by sections/<folder>/*.qmd owns that folder. Each
+a chapter/*.qmd page followed by chapter/<folder>/*.qmd owns that folder. Each
 folder is merged to pdf-merged/<folder>.qmd, and _quarto-pdf.yml is regenerated
 so the PDF build reads only the merged chapter files.
 """
@@ -61,7 +61,7 @@ def discover_groups(chapters: list[str]) -> tuple[dict[str, dict], dict[str, str
 
     for entry in chapters:
         parts = PurePosixPath(entry).parts
-        if len(parts) >= 3 and parts[0] == "sections":
+        if len(parts) >= 3 and parts[0] == "chapter" and parts[1].startswith("chapter"):
             if current_parent is None:
                 raise ValueError(f"{entry}: no preceding chapter page")
             folder = parts[1]
@@ -76,7 +76,7 @@ def discover_groups(chapters: list[str]) -> tuple[dict[str, dict], dict[str, str
 
 
 def merge_group(folder: str, parent: str) -> str:
-    section_dir = ROOT / "sections" / folder
+    section_dir = ROOT / "chapter" / folder
     sections = sorted(section_dir.glob("*.qmd"))
     if not sections:
         raise ValueError(f"{section_dir}: no .qmd section files found")
@@ -125,7 +125,7 @@ def main() -> None:
     emitted_parents: set[str] = set()
     for entry in chapters:
         parts = PurePosixPath(entry).parts
-        if len(parts) >= 3 and parts[0] == "sections":
+        if len(parts) >= 3 and parts[0] == "chapter" and parts[1].startswith("chapter"):
             continue
         if entry in merged_paths:
             if entry not in emitted_parents:
@@ -136,7 +136,7 @@ def main() -> None:
 
     write_pdf_profile(pdf_chapters)
     for folder in groups:
-        print(f"sections/{folder} -> pdf-merged/{folder}.qmd")
+        print(f"chapter/{folder} -> pdf-merged/{folder}.qmd")
 
 
 if __name__ == "__main__":

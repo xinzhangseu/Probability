@@ -22,10 +22,27 @@ book:
         Your bio text here. This will appear on the author page at the end of the book.
   chapters:
     - index.qmd
-    - template_chapter1.qmd
+    - part: template_chapter1.qmd
+      chapters:
+        - sections/elegantbook/01.qmd
+        - sections/elegantbook/02.qmd
+        - sections/elegantbook/03.qmd
+        - sections/elegantbook/04.qmd
+        - sections/elegantbook/05.qmd
+        - sections/elegantbook/06.qmd
+        - sections/elegantbook/07.qmd
+        - sections/elegantbook/08.qmd
+        - sections/elegantbook/09.qmd
+        - sections/elegantbook/10.qmd
+        - sections/elegantbook/11.qmd
     - template_references.qmd
-    - chap1.qmd
-    - chap2.qmd
+    - part: chap1.qmd
+      chapters:
+        - sections/test/01.qmd
+        - sections/test/02.qmd
+    - part: chap2.qmd
+      chapters:
+        - sections/chapter2/01.qmd
     - ref.qmd
 
   site-url: https://your-site.example.com/

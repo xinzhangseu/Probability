@@ -200,3 +200,55 @@ main.content pre {
         padding: 30px 20px !important;
     }
 }
+
+
+/* ========== Sections nested below active chapter ========== */
+
+#quarto-sidebar .current-chapter-sections {
+    display: block !important;
+    margin: 0.25rem 0 0.55rem 0 !important;
+    padding: 0 0 0 1.15rem !important;
+    list-style: none !important;
+}
+
+#quarto-sidebar .current-chapter-sections ul {
+    display: block !important;
+    margin: 0 !important;
+    padding-left: 0.9rem !important;
+    list-style: none !important;
+}
+
+#quarto-sidebar .current-chapter-sections li {
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#quarto-sidebar .current-chapter-sections a {
+    display: block;
+    padding: 0.18rem 0.35rem;
+    border-left: 1px solid rgba(128, 128, 128, 0.25);
+    color: var(--bs-body-color);
+    font-size: 0.82rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+#quarto-sidebar .current-chapter-sections a:hover {
+    color: var(--bs-link-color);
+    border-left-color: var(--bs-link-color);
+}
+
+#quarto-sidebar .current-chapter-sections a.active {
+    color: var(--bs-link-color);
+    border-left: 2px solid var(--bs-link-color);
+    font-weight: 600;
+}
+
+/* Keep the active chapter visually stronger than its nested sections. */
+#quarto-sidebar li.current-chapter > .sidebar-item-container > a,
+#quarto-sidebar li.current-chapter > a {
+    font-weight: 600;
+}

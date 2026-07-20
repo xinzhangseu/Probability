@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -347,7 +347,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">目录</h2>
+   
+  <ul>
+  <li><a href="#this-is-chapter-2" id="toc-this-is-chapter-2" class="nav-link active" data-scroll-target="#this-is-chapter-2"><span class="header-section-number">4.1</span> This is chapter 2</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -380,6 +388,42 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<script>
+(function () {
+  function nestCurrentPageSections() {
+    const sidebar = document.querySelector("#quarto-sidebar");
+    const toc = document.querySelector("#TOC");
+
+    if (!sidebar || !toc) return;
+
+    const activeChapter =
+      sidebar.querySelector("a.sidebar-link.active") ||
+      sidebar.querySelector('a.sidebar-link[aria-current="page"]') ||
+      sidebar.querySelector('a[aria-current="page"]');
+
+    if (!activeChapter) return;
+
+    const chapterItem = activeChapter.closest("li.sidebar-item");
+    const tocList = toc.querySelector("ul");
+
+    if (!chapterItem || !tocList) return;
+
+    chapterItem.classList.add("current-chapter");
+    activeChapter.setAttribute("aria-expanded", "true");
+    tocList.classList.add("current-chapter-sections");
+
+    // Move rather than copy the generated TOC so Quarto's scroll highlighting
+    // continues to update the section links.
+    chapterItem.appendChild(tocList);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", nestCurrentPageSections);
+  } else {
+    nestCurrentPageSections();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

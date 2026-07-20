@@ -125,7 +125,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -390,7 +390,62 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">目录</h2>
+   
+  <ul>
+  <li><a href="#简介" id="toc-简介" class="nav-link active" data-scroll-target="#简介"><span class="header-section-number">1.1</span> 简介</a></li>
+  <li><a href="#定理环境测试" id="toc-定理环境测试" class="nav-link" data-scroll-target="#定理环境测试"><span class="header-section-number">1.2</span> 定理环境测试</a>
+  <ul class="collapse">
+  <li><a href="#定义环境" id="toc-定义环境" class="nav-link" data-scroll-target="#定义环境">定义环境</a></li>
+  <li><a href="#定理环境" id="toc-定理环境" class="nav-link" data-scroll-target="#定理环境">定理环境</a></li>
+  <li><a href="#引理环境" id="toc-引理环境" class="nav-link" data-scroll-target="#引理环境">引理环境</a></li>
+  <li><a href="#推论环境" id="toc-推论环境" class="nav-link" data-scroll-target="#推论环境">推论环境</a></li>
+  <li><a href="#命题环境" id="toc-命题环境" class="nav-link" data-scroll-target="#命题环境">命题环境</a></li>
+  </ul></li>
+  <li><a href="#其他环境测试" id="toc-其他环境测试" class="nav-link" data-scroll-target="#其他环境测试"><span class="header-section-number">1.3</span> 其他环境测试</a>
+  <ul class="collapse">
+  <li><a href="#示例环境" id="toc-示例环境" class="nav-link" data-scroll-target="#示例环境">示例环境</a></li>
+  <li><a href="#练习环境" id="toc-练习环境" class="nav-link" data-scroll-target="#练习环境">练习环境</a></li>
+  <li><a href="#问题环境" id="toc-问题环境" class="nav-link" data-scroll-target="#问题环境">问题环境</a></li>
+  <li><a href="#注释环境" id="toc-注释环境" class="nav-link" data-scroll-target="#注释环境">注释环境</a></li>
+  <li><a href="#证明环境" id="toc-证明环境" class="nav-link" data-scroll-target="#证明环境">证明环境</a></li>
+  <li><a href="#解环境" id="toc-解环境" class="nav-link" data-scroll-target="#解环境">解环境</a></li>
+  <li><a href="#备注环境" id="toc-备注环境" class="nav-link" data-scroll-target="#备注环境">备注环境</a></li>
+  <li><a href="#假设环境" id="toc-假设环境" class="nav-link" data-scroll-target="#假设环境">假设环境</a></li>
+  <li><a href="#结论环境" id="toc-结论环境" class="nav-link" data-scroll-target="#结论环境">结论环境</a></li>
+  <li><a href="#性质环境" id="toc-性质环境" class="nav-link" data-scroll-target="#性质环境">性质环境</a></li>
+  </ul></li>
+  <li><a href="#列表环境测试" id="toc-列表环境测试" class="nav-link" data-scroll-target="#列表环境测试"><span class="header-section-number">1.4</span> 列表环境测试</a>
+  <ul class="collapse">
+  <li><a href="#无序列表" id="toc-无序列表" class="nav-link" data-scroll-target="#无序列表">无序列表</a></li>
+  <li><a href="#有序列表" id="toc-有序列表" class="nav-link" data-scroll-target="#有序列表">有序列表</a></li>
+  </ul></li>
+  <li><a href="#数学公式测试" id="toc-数学公式测试" class="nav-link" data-scroll-target="#数学公式测试"><span class="header-section-number">1.5</span> 数学公式测试</a></li>
+  <li><a href="#图表测试" id="toc-图表测试" class="nav-link" data-scroll-target="#图表测试"><span class="header-section-number">1.6</span> 图表测试</a>
+  <ul class="collapse">
+  <li><a href="#表格" id="toc-表格" class="nav-link" data-scroll-target="#表格">表格</a></li>
+  <li><a href="#图片" id="toc-图片" class="nav-link" data-scroll-target="#图片">图片</a></li>
+  </ul></li>
+  <li><a href="#章后习题" id="toc-章后习题" class="nav-link" data-scroll-target="#章后习题"><span class="header-section-number">1.7</span> 章后习题</a></li>
+  <li><a href="#第二章高级主题" id="toc-第二章高级主题" class="nav-link" data-scroll-target="#第二章高级主题"><span class="header-section-number">2</span> 第二章：高级主题</a>
+  <ul class="collapse">
+  <li><a href="#随机控制理论初步" id="toc-随机控制理论初步" class="nav-link" data-scroll-target="#随机控制理论初步"><span class="header-section-number">2.1</span> 随机控制理论初步</a>
+  <ul class="collapse">
+  <li><a href="#随机微分方程" id="toc-随机微分方程" class="nav-link" data-scroll-target="#随机微分方程">随机微分方程</a></li>
+  <li><a href="#hjb-方程" id="toc-hjb-方程" class="nav-link" data-scroll-target="#hjb-方程">HJB 方程</a></li>
+  </ul></li>
+  <li><a href="#金融保险应用" id="toc-金融保险应用" class="nav-link" data-scroll-target="#金融保险应用"><span class="header-section-number">2.2</span> 金融保险应用</a>
+  <ul class="collapse">
+  <li><a href="#期权定价" id="toc-期权定价" class="nav-link" data-scroll-target="#期权定价">期权定价</a></li>
+  <li><a href="#最优投资消费" id="toc-最优投资消费" class="nav-link" data-scroll-target="#最优投资消费">最优投资消费</a></li>
+  </ul></li>
+  <li><a href="#习题" id="toc-习题" class="nav-link" data-scroll-target="#习题"><span class="header-section-number">2.3</span> 习题</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -677,6 +732,42 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
 </section>
 
 </main> <!-- /main -->
+<script>
+(function () {
+  function nestCurrentPageSections() {
+    const sidebar = document.querySelector("#quarto-sidebar");
+    const toc = document.querySelector("#TOC");
+
+    if (!sidebar || !toc) return;
+
+    const activeChapter =
+      sidebar.querySelector("a.sidebar-link.active") ||
+      sidebar.querySelector('a.sidebar-link[aria-current="page"]') ||
+      sidebar.querySelector('a[aria-current="page"]');
+
+    if (!activeChapter) return;
+
+    const chapterItem = activeChapter.closest("li.sidebar-item");
+    const tocList = toc.querySelector("ul");
+
+    if (!chapterItem || !tocList) return;
+
+    chapterItem.classList.add("current-chapter");
+    activeChapter.setAttribute("aria-expanded", "true");
+    tocList.classList.add("current-chapter-sections");
+
+    // Move rather than copy the generated TOC so Quarto's scroll highlighting
+    // continues to update the section links.
+    chapterItem.appendChild(tocList);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", nestCurrentPageSections);
+  } else {
+    nestCurrentPageSections();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

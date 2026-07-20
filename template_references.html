@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -347,7 +347,9 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -376,6 +378,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 </main> <!-- /main -->
+<script>
+(function () {
+  function nestCurrentPageSections() {
+    const sidebar = document.querySelector("#quarto-sidebar");
+    const toc = document.querySelector("#TOC");
+
+    if (!sidebar || !toc) return;
+
+    const activeChapter =
+      sidebar.querySelector("a.sidebar-link.active") ||
+      sidebar.querySelector('a.sidebar-link[aria-current="page"]') ||
+      sidebar.querySelector('a[aria-current="page"]');
+
+    if (!activeChapter) return;
+
+    const chapterItem = activeChapter.closest("li.sidebar-item");
+    const tocList = toc.querySelector("ul");
+
+    if (!chapterItem || !tocList) return;
+
+    chapterItem.classList.add("current-chapter");
+    activeChapter.setAttribute("aria-expanded", "true");
+    tocList.classList.add("current-chapter-sections");
+
+    // Move rather than copy the generated TOC so Quarto's scroll highlighting
+    // continues to update the section links.
+    chapterItem.appendChild(tocList);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", nestCurrentPageSections);
+  } else {
+    nestCurrentPageSections();
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

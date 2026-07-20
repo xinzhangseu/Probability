@@ -1,0 +1,10 @@
+# ElegantBook PDF 扩展测试文档
+
+::: {.introduction}
+
+- ElegantBook 样式测试
+- 定理环境验证
+- 列表环境测试
+- 交叉引用功能
+
+:::

@@ -41,7 +41,7 @@
       }
 
       const path = new URL(link.href, window.location.href).pathname;
-      if (currentGroup && path.includes("/sections/")) {
+      if (currentGroup && /\\/chapter\\/chapter\\d+\\//.test(path)) {
         const menuText = link.querySelector(".menu-text") || link;
         const title = stripSectionNumber(menuText.textContent);
         const label = currentGroup.number + "." + (currentGroup.sections.length + 1) + " " + title;

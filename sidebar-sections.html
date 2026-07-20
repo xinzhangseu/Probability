@@ -1,5 +1,9 @@
 <script>
 (function () {
+  function stripSectionNumber(text) {
+    return text.trim().replace(/^\\d+\\.\\d+\\s+/, "");
+  }
+
   function initializeCurrentChapterSidebar() {
     const sidebar = document.querySelector("#quarto-sidebar");
     if (!sidebar) return;
@@ -13,7 +17,9 @@
     });
 
     const groups = [];
+    const pageLabels = new Map();
     let currentGroup = null;
+    let currentSectionLabel = null;
 
     items.forEach(function (item) {
       const link = item.querySelector(":scope > .sidebar-item-container a.sidebar-link");
@@ -22,8 +28,13 @@
         return;
       }
 
-      if (link.querySelector(".chapter-number")) {
-        currentGroup = { chapter: item, sections: [] };
+      const chapterNumber = link.querySelector(".chapter-number");
+      if (chapterNumber) {
+        currentGroup = {
+          chapter: item,
+          number: chapterNumber.textContent.trim(),
+          sections: []
+        };
         groups.push(currentGroup);
         item.classList.add("book-chapter-item");
         return;
@@ -31,8 +42,18 @@
 
       const path = new URL(link.href, window.location.href).pathname;
       if (currentGroup && path.includes("/sections/")) {
+        const menuText = link.querySelector(".menu-text") || link;
+        const title = stripSectionNumber(menuText.textContent);
+        const label = currentGroup.number + "." + (currentGroup.sections.length + 1) + " " + title;
+
+        menuText.textContent = label;
+        pageLabels.set(path, label);
         currentGroup.sections.push(item);
         item.classList.add("book-section-item");
+
+        if (link.matches(".active, [aria-current='page']")) {
+          currentSectionLabel = label;
+        }
       } else {
         currentGroup = null;
       }
@@ -52,6 +73,22 @@
       group.sections.forEach(function (item) {
         item.hidden = !isCurrent;
       });
+    });
+
+    if (currentSectionLabel) {
+      const heading = document.querySelector("main.content h1");
+      if (heading) heading.textContent = currentSectionLabel;
+
+      const titleParts = document.title.split("–");
+      titleParts[0] = currentSectionLabel + " ";
+      document.title = titleParts.join("–");
+    }
+
+    document.querySelectorAll("nav.page-navigation a.pagination-link").forEach(function (link) {
+      const path = new URL(link.href, window.location.href).pathname;
+      const label = pageLabels.get(path);
+      const text = link.querySelector(".nav-page-text");
+      if (label && text) text.textContent = label;
     });
   }
 

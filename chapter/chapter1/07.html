@@ -592,7 +592,12 @@ window.Quarto = {
     });
 
     if (currentSectionLabel) {
-      const heading = document.querySelector("main.content h1");
+      const titleBlock = document.querySelector("header#title-block-header");
+      if (titleBlock) titleBlock.classList.add("section-title-block");
+
+      const heading =
+        (titleBlock && titleBlock.querySelector("h1.title")) ||
+        document.querySelector("main.content h1");
       if (heading) heading.textContent = currentSectionLabel;
 
       const titleParts = document.title.split("–");

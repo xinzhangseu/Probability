@@ -65,10 +65,10 @@ nav.page-navigation {
     justify-content: space-between !important; /* 让上一页靠左，下一页靠右 */
 }
 
-/* 6. 如果有底部 Footer 版权信息，放在第 2 列的第 3 行 */
+/* 6. 如果有底部 Footer 版权信息，放在评论区之后 */
 footer.nav-footer {
     grid-column: 2 / 3 !important;
-    grid-row: 3 / 4 !important;
+    grid-row: 4 / 5 !important;
     max-width: 850px !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -307,19 +307,29 @@ main.content pre {
 
 /* ========== Giscus comments ========== */
 
+/* Display the discussion after the previous/next section navigation. */
 .comments-wrapper {
-    margin-top: 3.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(128, 128, 128, 0.25);
+    grid-column: 2 / 3 !important;
+    grid-row: 3 / 4 !important;
+    width: 100% !important;
+    max-width: 870px !important;
+    margin: 0 auto 3rem !important;
+    padding: 0 50px !important;
+    box-sizing: border-box !important;
 }
 
-.comments-wrapper .comments-title {
-    margin: 0 0 1.25rem !important;
-    font-size: 1.4rem !important;
-    line-height: 1.4 !important;
+.comments-wrapper .giscus {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
 }
 
 .comments-wrapper .giscus,
 .comments-wrapper .giscus-frame {
     width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .comments-wrapper {
+        padding: 0 20px !important;
+    }
 }

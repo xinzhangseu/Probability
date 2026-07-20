@@ -569,8 +569,7 @@ ul.task-list li input[type="checkbox"] {
   }
 })();
 </script>
-<div id="comments" class="comments-wrapper" aria-labelledby="comments-title">
-  <h2 id="comments-title" class="comments-title">评论</h2>
+<div id="comments" class="comments-wrapper">
   <div class="giscus"></div>
 </div>
 
@@ -578,13 +577,15 @@ ul.task-list li input[type="checkbox"] {
 (function () {
   function initializeComments() {
     const comments = document.querySelector("#comments");
-    const main = document.querySelector("main.content");
+    const navigation = document.querySelector("nav.page-navigation");
     const container = comments && comments.querySelector(".giscus");
 
-    if (!comments || !main || !container) return;
+    if (!comments || !container) return;
 
-    // Keep comments inside the readable content column and above page navigation.
-    main.appendChild(comments);
+    // Place the discussion below the previous/next section navigation.
+    if (navigation) {
+      navigation.insertAdjacentElement("afterend", comments);
+    }
 
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
@@ -592,8 +593,8 @@ ul.task-list li input[type="checkbox"] {
     script.crossOrigin = "anonymous";
     script.setAttribute("data-repo", "xinzhangseu/Probability");
     script.setAttribute("data-repo-id", "R_kgDOTdREOQ");
-    script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", "DIC_kwDOTdREOc4DBkMH");
+    script.setAttribute("data-category", "Comments");
+    script.setAttribute("data-category-id", "DIC_kwDOTdREOc4DBkQP");
     script.setAttribute("data-mapping", "pathname");
     script.setAttribute("data-strict", "0");
     script.setAttribute("data-reactions-enabled", "1");

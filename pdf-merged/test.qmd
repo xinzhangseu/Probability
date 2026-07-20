@@ -1,0 +1,23 @@
+# 测试
+
+
+::: {#thm-line}
+## 直线定理
+
+直线方程可以写为： $$ y = mx + b $$
+:::
+
+我们将通过三个步骤定义可测函数的积分。首先定义非负简单函数的积分。以下设 $E$ 是 $\mathcal{R}^n$ 中的可测集。
+
+
+This file is a sample book demonstrating Quarto's capabilities with the standard LaTeX `book` document class. It supports PDF (via LaTeX) output. It is assumed that the reader has a basic working knowledge of stochastic calculus @karatzas1991brownian and stochastic control theory @yong1999sch.
+
+## Introduction
+
+Introduction \## acv
+
+Introduction
+
+## test for cosmo
+
+IntroductionIntroductionIntroduction

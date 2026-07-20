@@ -1,0 +1,11 @@
+project:
+  output-dir: _book-pdf
+
+book:
+  chapters:
+    - index.qmd
+    - _pdf_template_chapter1.qmd
+    - _pdf_chap1.qmd
+    - _pdf_chap2.qmd
+    - template_references.qmd
+    - ref.qmd

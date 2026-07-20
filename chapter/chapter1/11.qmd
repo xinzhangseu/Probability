@@ -1,0 +1,9 @@
+# 习题 {.unnumbered}
+
+::: {.problemset}
+
+1. 证明 Itô 引理。
+2. 推导 Black-Scholes PDE。
+3. 求解 Merton 最优投资问题。
+
+:::

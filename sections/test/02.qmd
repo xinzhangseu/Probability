@@ -1,3 +1,3 @@
-# 2.2 test for cosmo {.unnumbered}
+# test for cosmo {.unnumbered}
 
 IntroductionIntroductionIntroduction

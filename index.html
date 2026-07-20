@@ -499,6 +499,70 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<script>
+(function () {
+  function initializeCurrentChapterSidebar() {
+    const sidebar = document.querySelector("#quarto-sidebar");
+    if (!sidebar) return;
+
+    const list = sidebar.querySelector(".sidebar-menu-container > ul") ||
+      sidebar.querySelector("ul.list-unstyled");
+    if (!list) return;
+
+    const items = Array.from(list.children).filter(function (item) {
+      return item.matches("li.sidebar-item");
+    });
+
+    const groups = [];
+    let currentGroup = null;
+
+    items.forEach(function (item) {
+      const link = item.querySelector(":scope > .sidebar-item-container a.sidebar-link");
+      if (!link) {
+        currentGroup = null;
+        return;
+      }
+
+      if (link.querySelector(".chapter-number")) {
+        currentGroup = { chapter: item, sections: [] };
+        groups.push(currentGroup);
+        item.classList.add("book-chapter-item");
+        return;
+      }
+
+      const path = new URL(link.href, window.location.href).pathname;
+      if (currentGroup && path.includes("/sections/")) {
+        currentGroup.sections.push(item);
+        item.classList.add("book-section-item");
+      } else {
+        currentGroup = null;
+      }
+    });
+
+    groups.forEach(function (group) {
+      const isCurrent =
+        !!group.chapter.querySelector("a.sidebar-link.active, a[aria-current='page']") ||
+        group.sections.some(function (item) {
+          return !!item.querySelector("a.sidebar-link.active, a[aria-current='page']");
+        });
+
+      group.chapter.classList.toggle("current-book-chapter", isCurrent);
+      const chapterLink = group.chapter.querySelector("a.sidebar-link");
+      if (chapterLink) chapterLink.setAttribute("aria-expanded", String(isCurrent));
+
+      group.sections.forEach(function (item) {
+        item.hidden = !isCurrent;
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCurrentChapterSidebar);
+  } else {
+    initializeCurrentChapterSidebar();
+  }
+})();
+</script>
 <div id="comments" class="comments-wrapper">
   <div class="giscus"></div>
 </div>

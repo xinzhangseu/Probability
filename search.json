@@ -52,101 +52,101 @@
   {
     "objectID": "sections/elegantbook/01.html",
     "href": "sections/elegantbook/01.html",
-    "title": "1.1 简介",
+    "title": "简介",
     "section": "",
     "text": "本文档用于测试 ElegantBook PDF 扩展的各项功能。",
     "crumbs": [
-      "1.1 简介"
+      "简介"
     ]
   },
   {
     "objectID": "sections/elegantbook/02.html",
     "href": "sections/elegantbook/02.html",
-    "title": "1.2 定理环境测试",
+    "title": "定理环境测试",
     "section": "",
     "text": "定义环境\n\n定义 1 (连续性) 设函数 f: D \\subseteq \\mathbb{R} \\to \\mathbb{R}，x_0 \\in D。如果对于任意 \\epsilon &gt; 0，存在 \\delta &gt; 0，使得当 |x - x_0| &lt; \\delta 且 x \\in D 时，有 |f(x) - f(x_0)| &lt; \\epsilon，则称 f 在 x_0 处连续。\n\n\n\n定理环境\n\n定理 1 (中值定理) 设函数 f: [a,b] \\to \\mathbb{R} 连续，在 (a,b) 内可导。则存在 \\xi \\in (a,b)，使得\n\nf'(\\xi) = \\frac{f(b) - f(a)}{b - a}\n\\tag{1}\n\n参考定理 定理 1 可知…\n\n\n引理环境\n\n引理 1 (费马引理) 设函数 f 在 x_0 处可导，由公式 1 知 x_0 是 f 的极值点，则 f'(x_0) = 0。\n\n\n\n推论环境\n\n推论 1 (导数零点定理) 若函数 f 在区间 I 上可导且 f'(x) = 0 对所有 x \\in I 成立，则 f 在 I 上为常数函数。\n\n\n\n命题环境\n\n命题 1 (极值必要条件) 设函数 f 在 x_0 处可导，且 x_0 是 f 的局部极值点，则 f'(x_0) = 0。",
     "crumbs": [
-      "1.2 定理环境测试"
+      "定理环境测试"
     ]
   },
   {
     "objectID": "sections/elegantbook/03.html",
     "href": "sections/elegantbook/03.html",
-    "title": "1.3 其他环境测试",
+    "title": "其他环境测试",
     "section": "",
     "text": "示例环境\n\n考虑功能 f(x) = x^2。该函数在 x = 0 处可导，且 f'(0) = 0。\n\n\n\n练习环境\n\n证明：若函数 f 在 [a,b] 上连续，则 f 在 [a,b] 上有界。\n\n\n\n问题环境\n\n设 f(x) = \\sin x，求 f'(x)。\n\n\n\n注释环境\n\n此处的证明需要用到拉格朗日中值定理。\n\n\n\n证明环境\n\n证明. 由拉格朗日中值定理，存在 \\xi \\in (a,b)，使得…\n\n\n\n解环境\n\n解. 由 f'(x) = \\cos x，得 f'(x) = \\cos x。\n\n\n\n备注环境\n\n注记. 这个结果是微积分基本定理的直接推论。\n\n\n\n假设环境\n\n假设市场是无摩擦的，且不存在套利机会。\n\n\n\n结论环境\n\n综上所述，该期权定价公式在 Black-Scholes 模型下成立。\n\n\n\n性质环境\n\n布朗运动具有独立增量性和平稳增量性。",
     "crumbs": [
-      "1.3 其他环境测试"
+      "其他环境测试"
     ]
   },
   {
     "objectID": "sections/elegantbook/04.html",
     "href": "sections/elegantbook/04.html",
-    "title": "1.4 列表环境测试",
+    "title": "列表环境测试",
     "section": "",
     "text": "无序列表\n\n第一项内容\n第二项内容\n\n嵌套第一项\n嵌套第二项\n\n三级嵌套项\n\n\n\n\n\n有序列表\n\n第一步\n第二步\n\n子步骤 a\n子步骤 b\n\n详细步骤 i\n详细步骤 ii",
     "crumbs": [
-      "1.4 列表环境测试"
+      "列表环境测试"
     ]
   },
   {
     "objectID": "sections/elegantbook/05.html",
     "href": "sections/elegantbook/05.html",
-    "title": "1.5 数学公式测试",
+    "title": "数学公式测试",
     "section": "",
     "text": "行内公式：E = mc^2\n块级公式：\n\n\\int_{-\\infty}^{+\\infty} e^{-x^2} dx = \\sqrt{\\pi}",
     "crumbs": [
-      "1.5 数学公式测试"
+      "数学公式测试"
     ]
   },
   {
     "objectID": "sections/elegantbook/06.html",
     "href": "sections/elegantbook/06.html",
-    "title": "1.6 图表测试",
+    "title": "图表测试",
     "section": "",
     "text": "表格\n\n基本函数导数表 {#tbl:derivatives}\n\n\n函数\n导数\n积分\n\n\n\n\nx^n\nnx^{n-1}\n\\frac{x^{n+1}}{n+1}\n\n\ne^x\ne^x\ne^x\n\n\n\\ln x\n\\frac{1}{x}\nx\\ln x - x\n\n\n\n\n\n图片",
     "crumbs": [
-      "1.6 图表测试"
+      "图表测试"
     ]
   },
   {
     "objectID": "sections/elegantbook/07.html",
     "href": "sections/elegantbook/07.html",
-    "title": "1.7 章后习题",
+    "title": "章后习题",
     "section": "",
     "text": "证明 Cauchy 收敛准则。\n计算 \\lim_{x \\to 0} \\frac{\\sin x}{x}。\n求解微分方程 y' = ky。",
     "crumbs": [
-      "1.7 章后习题"
+      "章后习题"
     ]
   },
   {
     "objectID": "sections/elegantbook/09.html",
     "href": "sections/elegantbook/09.html",
-    "title": "1.9 随机控制理论初步",
+    "title": "随机控制理论初步",
     "section": "",
     "text": "随机控制是现代金融数学的重要工具。\n\n随机微分方程\n考虑如下随机微分方程：\n\ndX_t = \\mu(X_t, t) dt + \\sigma(X_t, t) dW_t\n\n其中 W_t 是标准布朗运动。\n\n定义 1 (适应过程) 随机过程 \\{X_t\\}_{t \\geq 0} 称为适应的，如果对于每个 t \\geq 0，X_t 是 \\mathcal{F}_t-可测的。\n\n\n\nHJB 方程\n\n定理 1 (HJB方程) 值函数 V(x,t) 满足如下 HJB 方程：\n\n-\\frac{\\partial V}{\\partial t} = \\max_{u \\in U} \\left\\{ \\mathcal{L}^u V(x,t) + f(x,u,t) \\right\\}\n\n其中 \\mathcal{L}^u 是无穷小生成元。",
     "crumbs": [
-      "1.9 随机控制理论初步"
+      "随机控制理论初步"
     ]
   },
   {
     "objectID": "sections/elegantbook/10.html",
     "href": "sections/elegantbook/10.html",
-    "title": "1.10 金融保险应用",
+    "title": "金融保险应用",
     "section": "",
     "text": "期权定价\nBlack-Scholes 公式给出了欧式看涨期权的价格：\n\n命题 1 (Black-Scholes公式) 欧式看涨期权的价格公式为：\n\nC(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)\n\n其中 d_1 = \\frac{\\ln(S/K) + (r + \\sigma^2/2)(T-t)}{\\sigma\\sqrt{T-t}}，d_2 = d_1 - \\sigma\\sqrt{T-t}。\n\n\n\n最优投资消费\n\n在 CRRA 效用函数下，求解最优投资消费策略。",
     "crumbs": [
-      "1.10 金融保险应用"
+      "金融保险应用"
     ]
   },
   {
     "objectID": "sections/elegantbook/11.html",
     "href": "sections/elegantbook/11.html",
-    "title": "1.11 习题",
+    "title": "习题",
     "section": "",
     "text": "证明 Itô 引理。\n推导 Black-Scholes PDE。\n求解 Merton 最优投资问题。",
     "crumbs": [
-      "1.11 习题"
+      "习题"
     ]
   },
   {
@@ -162,21 +162,21 @@
   {
     "objectID": "sections/test/01.html",
     "href": "sections/test/01.html",
-    "title": "2.1 Introduction",
+    "title": "Introduction",
     "section": "",
     "text": "Introduction ## acv\nIntroduction",
     "crumbs": [
-      "2.1 Introduction"
+      "Introduction"
     ]
   },
   {
     "objectID": "sections/test/02.html",
     "href": "sections/test/02.html",
-    "title": "2.2 test for cosmo",
+    "title": "test for cosmo",
     "section": "",
     "text": "IntroductionIntroductionIntroduction",
     "crumbs": [
-      "2.2 test for cosmo"
+      "test for cosmo"
     ]
   },
   {
@@ -192,11 +192,11 @@
   {
     "objectID": "sections/chapter2/01.html",
     "href": "sections/chapter2/01.html",
-    "title": "3.1 This is chapter 2",
+    "title": "This is chapter 2",
     "section": "",
     "text": "这是一个测试",
     "crumbs": [
-      "3.1 This is chapter 2"
+      "This is chapter 2"
     ]
   },
   {

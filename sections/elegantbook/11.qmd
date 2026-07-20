@@ -1,4 +1,4 @@
-# 1.11 习题 {.unnumbered}
+# 习题 {.unnumbered}
 
 ::: {.problemset}
 

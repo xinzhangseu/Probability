@@ -75,7 +75,7 @@ format:
       light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss]
     toc: true
-    toc-depth: 3
+    toc-depth: 2
     toc-expand: true
     include-after-body:
       - sidebar-sections.html

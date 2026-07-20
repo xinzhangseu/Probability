@@ -92,15 +92,17 @@
 % 4b. Table of contents hierarchy
 %------------------------------------------------------------------------------
 % Chapter entries stay prominent; section entries are smaller and indented.
-\setlength{\cftchapindent}{0pt}
-\setlength{\cftchapnumwidth}{3.2em}
-\renewcommand{\cftchapfont}{\normalsize\bfseries}
-\renewcommand{\cftchappagefont}{\normalsize\bfseries}
-
-\setlength{\cftsecindent}{2.2em}
-\setlength{\cftsecnumwidth}{3.4em}
-\renewcommand{\cftsecfont}{\small\normalfont}
-\renewcommand{\cftsecpagefont}{\small\normalfont}
+% Apply after all language and document-class customizations are loaded.
+\AtBeginDocument{%
+  \setlength{\cftchapindent}{0pt}%
+  \setlength{\cftchapnumwidth}{3.2em}%
+  \renewcommand{\cftchapfont}{\normalsize\bfseries}%
+  \renewcommand{\cftchappagefont}{\normalsize\bfseries}%
+  \setlength{\cftsecindent}{2.2em}%
+  \setlength{\cftsecnumwidth}{3.4em}%
+  \renewcommand{\cftsecfont}{\small\normalfont}%
+  \renewcommand{\cftsecpagefont}{\small\normalfont}%
+}
 
 %------------------------------------------------------------------------------
 % 5. Headers and Footers (fancyhdr) — match elegantbook.cls

@@ -1,3 +1,0 @@
-# This is chapter 2 {.unnumbered}
-
-这是一个测试

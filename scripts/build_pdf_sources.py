@@ -3,7 +3,7 @@
 
 The chapter/section relationship is inferred from book.chapters in _quarto.yml:
 a root-level chapter followed by sections/<folder>/*.qmd owns that folder. Each
-folder is merged to _pdf-merged/<folder>.qmd, and _quarto-pdf.yml is regenerated
+folder is merged to pdf-merged/<folder>.qmd, and _quarto-pdf.yml is regenerated
 so the PDF build reads only the merged chapter files.
 """
 
@@ -12,7 +12,7 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "_quarto.yml"
 PROFILE = ROOT / "_quarto-pdf.yml"
-OUTPUT_DIR = ROOT / "_pdf-merged"
+OUTPUT_DIR = ROOT / "pdf-merged"
 
 
 def read_book_chapters() -> list[str]:
@@ -136,7 +136,7 @@ def main() -> None:
 
     write_pdf_profile(pdf_chapters)
     for folder in groups:
-        print(f"sections/{folder} -> _pdf-merged/{folder}.qmd")
+        print(f"sections/{folder} -> pdf-merged/{folder}.qmd")
 
 
 if __name__ == "__main__":

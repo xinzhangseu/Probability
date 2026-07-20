@@ -545,12 +545,21 @@ ul.task-list li input[type="checkbox"] {
 
     if (currentSectionLabel) {
       const titleBlock = document.querySelector("header#title-block-header");
-      if (titleBlock) titleBlock.classList.add("section-title-block");
+      if (titleBlock) {
+        titleBlock.classList.add("section-title-block");
+        titleBlock.style.setProperty("display", "block", "important");
+        titleBlock.style.setProperty("width", "100%", "important");
+        titleBlock.style.setProperty("text-align", "left", "important");
+      }
 
       const heading =
         (titleBlock && titleBlock.querySelector("h1.title")) ||
         document.querySelector("main.content h1");
-      if (heading) heading.textContent = currentSectionLabel;
+      if (heading) {
+        heading.textContent = currentSectionLabel;
+        heading.style.setProperty("width", "100%", "important");
+        heading.style.setProperty("text-align", "left", "important");
+      }
 
       const titleParts = document.title.split("–");
       titleParts[0] = currentSectionLabel + " ";

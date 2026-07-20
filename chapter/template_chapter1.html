@@ -579,6 +579,24 @@ ul.task-list li input[type="checkbox"] {
 
 <script>
 (function () {
+  function currentGiscusTheme() {
+    const htmlTheme = document.documentElement.getAttribute("data-bs-theme");
+    const body = document.body;
+    const isDark =
+      htmlTheme === "dark" ||
+      body.classList.contains("quarto-dark");
+    return isDark ? "dark" : "light";
+  }
+
+  function updateGiscusTheme() {
+    const frame = document.querySelector(".giscus-frame");
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: currentGiscusTheme() } } },
+      "https://giscus.app"
+    );
+  }
+
   function initializeComments() {
     const comments = document.querySelector("#comments");
     const navigation = document.querySelector("nav.page-navigation");
@@ -604,10 +622,30 @@ ul.task-list li input[type="checkbox"] {
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "top");
-    script.setAttribute("data-theme", "preferred_color_scheme");
+    script.setAttribute("data-theme", currentGiscusTheme());
     script.setAttribute("data-lang", "zh-CN");
     script.setAttribute("data-loading", "lazy");
     container.appendChild(script);
+
+    // Keep Giscus synchronized with Quarto's own light/dark mode.
+    const themeObserver = new MutationObserver(updateGiscusTheme);
+    themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-bs-theme"]
+    });
+
+    const frameObserver = new MutationObserver(function () {
+      const frame = container.querySelector(".giscus-frame");
+      if (!frame) return;
+      frame.addEventListener("load", updateGiscusTheme, { once: true });
+      updateGiscusTheme();
+      frameObserver.disconnect();
+    });
+    frameObserver.observe(container, { childList: true });
   }
 
   if (document.readyState === "loading") {

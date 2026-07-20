@@ -5,9 +5,9 @@ project:
 book:
   chapters:
     - index.qmd
-    - _pdf-merged/elegantbook.qmd
-    - _pdf-merged/test.qmd
-    - _pdf-merged/chapter2.qmd
+    - pdf-merged/elegantbook.qmd
+    - pdf-merged/test.qmd
+    - pdf-merged/chapter2.qmd
     - template_references.qmd
     - ref.qmd
 

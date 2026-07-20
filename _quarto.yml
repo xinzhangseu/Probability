@@ -137,6 +137,7 @@ format:
     toc-depth: 2
     toc-expand: true
     include-after-body:
+      - sidebar-sections.html
       - comments.html
     css: styles.css
     crossref:

@@ -697,7 +697,7 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
 </main> <!-- /main -->
 <script>
 (function () {
-  function nestCurrentPageSections() {
+  function initializeBookNavigation() {
     const sidebar = document.querySelector("#quarto-sidebar");
     const toc = document.querySelector("#TOC");
 
@@ -719,8 +719,7 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
     activeChapter.setAttribute("aria-expanded", "true");
     tocList.classList.add("current-chapter-sections");
 
-    // Quarto renders deeper TOC levels as Bootstrap collapse lists. Remove the
-    // collapsed state after moving the TOC so all configured levels are shown.
+    // Quarto may render deeper TOC levels as Bootstrap collapse lists.
     tocList.querySelectorAll("ul.collapse").forEach(function (list) {
       list.classList.remove("collapse");
       list.classList.add("show");
@@ -729,12 +728,151 @@ C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
     // Move rather than copy the generated TOC so Quarto's scroll highlighting
     // continues to update the section links.
     chapterItem.appendChild(tocList);
+
+    initializeSectionNavigation(tocList, activeChapter);
+  }
+
+  function initializeSectionNavigation(tocList, activeChapter) {
+    const navigation = document.querySelector("nav.page-navigation");
+    if (!navigation) return;
+
+    const previousChapterLink = navigation.querySelector(
+      ".nav-page-previous a.pagination-link"
+    );
+    const nextChapterLink = navigation.querySelector(
+      ".nav-page-next a.pagination-link"
+    );
+
+    const previousChapter = readDestination(previousChapterLink);
+    const nextChapter = readDestination(nextChapterLink);
+
+    const sectionLinks = Array.from(tocList.children)
+      .map(function (item) {
+        return item.querySelector(":scope > a");
+      })
+      .filter(Boolean);
+
+    if (sectionLinks.length === 0) return;
+
+    const currentPage = {
+      href: window.location.pathname + window.location.search,
+      title: activeChapter.textContent.trim()
+    };
+
+    const sections = sectionLinks.map(function (link) {
+      return {
+        href: link.href,
+        title: link.textContent.trim(),
+        element: link
+      };
+    });
+
+    const sequence = [currentPage].concat(sections);
+    navigation.classList.add("section-page-navigation");
+
+    let lastIndex = -1;
+
+    function currentIndex() {
+      const activeSection = sectionLinks.findIndex(function (link) {
+        return link.classList.contains("active");
+      });
+
+      if (activeSection >= 0) return activeSection + 1;
+
+      if (window.location.hash) {
+        const hashIndex = sections.findIndex(function (section) {
+          return new URL(section.href, window.location.href).hash ===
+            window.location.hash;
+        });
+        if (hashIndex >= 0) return hashIndex + 1;
+      }
+
+      return 0;
+    }
+
+    function updateNavigation() {
+      const index = currentIndex();
+      if (index === lastIndex) return;
+      lastIndex = index;
+
+      const previous = index > 0 ? sequence[index - 1] : previousChapter;
+      const next =
+        index < sequence.length - 1 ? sequence[index + 1] : nextChapter;
+
+      navigation.replaceChildren(
+        createNavigationSide("previous", previous),
+        createNavigationSide("next", next)
+      );
+    }
+
+    let scheduled = false;
+    function scheduleUpdate() {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(function () {
+        scheduled = false;
+        updateNavigation();
+      });
+    }
+
+    window.addEventListener("hashchange", scheduleUpdate);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    sectionLinks.forEach(function (link) {
+      link.addEventListener("click", scheduleUpdate);
+    });
+
+    updateNavigation();
+  }
+
+  function readDestination(link) {
+    if (!link) return null;
+    const label = link.querySelector(".nav-page-text");
+    return {
+      href: link.href,
+      title: label ? label.textContent.trim() : link.textContent.trim()
+    };
+  }
+
+  function createNavigationSide(direction, destination) {
+    const side = document.createElement("div");
+    side.className = "nav-page nav-page-" + direction;
+
+    if (!destination) return side;
+
+    const link = document.createElement("a");
+    link.className = "pagination-link";
+    link.href = destination.href;
+
+    const label =
+      direction === "previous"
+        ? "上一节：" + destination.title
+        : "下一节：" + destination.title;
+    link.setAttribute("aria-label", label);
+
+    const icon = document.createElement("i");
+    icon.className =
+      direction === "previous"
+        ? "bi bi-arrow-left-short"
+        : "bi bi-arrow-right-short";
+
+    const text = document.createElement("span");
+    text.className = "nav-page-text";
+    text.textContent = destination.title;
+
+    if (direction === "previous") {
+      link.append(icon, text);
+    } else {
+      link.append(text, icon);
+    }
+
+    side.appendChild(link);
+    return side;
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", nestCurrentPageSections);
+    document.addEventListener("DOMContentLoaded", initializeBookNavigation);
   } else {
-    nestCurrentPageSections();
+    initializeBookNavigation();
   }
 })();
 </script>

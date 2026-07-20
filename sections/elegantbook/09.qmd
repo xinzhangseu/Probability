@@ -1,0 +1,37 @@
+# 随机控制理论初步
+
+随机控制是现代金融数学的重要工具。
+
+### 随机微分方程
+
+考虑如下随机微分方程：
+
+$$
+dX_t = \mu(X_t, t) dt + \sigma(X_t, t) dW_t
+$$
+
+其中 $W_t$ 是标准布朗运动。
+
+::: {#def-adapted}
+
+## 适应过程
+
+随机过程 $\{X_t\}_{t \geq 0}$ 称为适应的，如果对于每个 $t \geq 0$，$X_t$ 是 $\mathcal{F}_t$-可测的。
+
+:::
+
+### HJB 方程
+
+::: {#thm-hjb}
+
+## HJB方程
+
+值函数 $V(x,t)$ 满足如下 HJB 方程：
+
+$$
+-\frac{\partial V}{\partial t} = \max_{u \in U} \left\{ \mathcal{L}^u V(x,t) + f(x,u,t) \right\}
+$$
+
+其中 $\mathcal{L}^u$ 是无穷小生成元。
+
+:::

@@ -79,6 +79,7 @@ format:
     toc-expand: true
     include-after-body:
       - sidebar-sections.html
+      - comments.html
     css: styles.css
     crossref:
       chapters: true

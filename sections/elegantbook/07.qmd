@@ -1,4 +1,4 @@
-# 1.7 章后习题 {.unnumbered}
+# 章后习题 {.unnumbered}
 
 ::: {.problemset}
 

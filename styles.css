@@ -23,6 +23,20 @@ header#title-block-header:has(.chapter-number) {
     display: block !important;
 }
 
+/* Show the generated number and title at the top of each standalone section page. */
+header#title-block-header.section-title-block {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin: 0 0 1.5rem 0 !important;
+}
+
+header#title-block-header.section-title-block h1.title {
+    width: 100% !important;
+    margin-top: 0 !important;
+    text-align: left !important;
+}
+
 
 /* 2. 启用精准 Grid 网格：左边固定 260px，右边占满所有剩余空间 */
 #quarto-content {

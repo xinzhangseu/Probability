@@ -11,13 +11,3 @@
 
 
 This file is a sample book demonstrating Quarto's capabilities with the standard LaTeX `book` document class. It supports PDF (via LaTeX) output. It is assumed that the reader has a basic working knowledge of stochastic calculus @karatzas1991brownian and stochastic control theory @yong1999sch.
-
-## Introduction
-
-Introduction \## acv
-
-Introduction
-
-## test for cosmo
-
-IntroductionIntroductionIntroduction

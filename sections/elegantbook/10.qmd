@@ -1,0 +1,27 @@
+# 金融保险应用
+
+### 期权定价
+
+Black-Scholes 公式给出了欧式看涨期权的价格：
+
+::: {#prp-bs}
+
+## Black-Scholes公式
+
+欧式看涨期权的价格公式为：
+
+$$
+C(S,t) = S N(d_1) - K e^{-r(T-t)} N(d_2)
+$$
+
+其中 $d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}$，$d_2 = d_1 - \sigma\sqrt{T-t}$。
+
+:::
+
+### 最优投资消费
+
+::: {.problem}
+
+在 CRRA 效用函数下，求解最优投资消费策略。
+
+:::

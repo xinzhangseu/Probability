@@ -303,3 +303,23 @@ main.content pre {
     font-size: 1rem;
     line-height: 1;
 }
+
+
+/* ========== Giscus comments ========== */
+
+.comments-wrapper {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.comments-wrapper .comments-title {
+    margin: 0 0 1.25rem !important;
+    font-size: 1.4rem !important;
+    line-height: 1.4 !important;
+}
+
+.comments-wrapper .giscus,
+.comments-wrapper .giscus-frame {
+    width: 100%;
+}

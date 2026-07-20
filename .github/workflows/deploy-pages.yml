@@ -57,7 +57,7 @@ jobs:
           cache-version: 2
 
       - name: Build HTML
-        run: quarto render --to html
+        run: quarto render --profile html --to html
 
       - name: Build continuous PDF
         run: |

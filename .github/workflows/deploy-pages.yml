@@ -63,7 +63,7 @@ jobs:
         run: |
           python3 scripts/build_pdf_sources.py
           quarto render --profile pdf --to elegantbook-pdf
-          find _book-pdf -maxdepth 1 -type f -name '*.pdf' -exec cp {} _book/ \\;
+          find _book-pdf -maxdepth 1 -type f -name '*.pdf' -exec cp {} _book/ \;
 
       - name: Deploy to gh-pages
         if: github.event_name != 'pull_request'

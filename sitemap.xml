@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://your-site.example.com/index.html</loc>
-    <lastmod>2026-07-20T10:22:04.119Z</lastmod>
+    <lastmod>2026-07-20T14:25:55.324Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/template_chapter1.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/template_chapter1.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/01.html</loc>
-    <lastmod>2026-07-20T10:22:04.120Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/01.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/02.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/02.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/03.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/03.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/04.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/04.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/05.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/05.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/06.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/06.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/07.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/07.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/08.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/08.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/09.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/09.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/10.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/10.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/elegantbook/11.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter1/11.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/chap1.html</loc>
-    <lastmod>2026-07-20T10:22:04.116Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chap1.html</loc>
+    <lastmod>2026-07-20T14:25:55.322Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/test/01.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter2/01.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/test/02.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter2/02.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/chap2.html</loc>
-    <lastmod>2026-07-20T10:22:04.116Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chap2.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/sections/chapter2/01.html</loc>
-    <lastmod>2026-07-20T10:22:04.120Z</lastmod>
+    <loc>https://your-site.example.com/chapter/chapter3/01.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/template_references.html</loc>
-    <lastmod>2026-07-20T10:22:04.121Z</lastmod>
+    <loc>https://your-site.example.com/chapter/template_references.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
   <url>
-    <loc>https://your-site.example.com/ref.html</loc>
-    <lastmod>2026-07-20T10:22:04.120Z</lastmod>
+    <loc>https://your-site.example.com/chapter/ref.html</loc>
+    <lastmod>2026-07-20T14:25:55.323Z</lastmod>
   </url>
 </urlset>

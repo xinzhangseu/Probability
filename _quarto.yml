@@ -74,7 +74,11 @@ format:
     theme:
       light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss]
-    toc: false
+    toc: true
+    toc-depth: 3
+    toc-expand: true
+    include-after-body:
+      - sidebar-sections.html
     css: styles.css
     crossref:
       chapters: true

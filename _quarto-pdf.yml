@@ -5,11 +5,11 @@ project:
 book:
   chapters:
     - index.qmd
-    - pdf-merged/elegantbook.qmd
-    - pdf-merged/test.qmd
+    - pdf-merged/chapter1.qmd
     - pdf-merged/chapter2.qmd
-    - template_references.qmd
-    - ref.qmd
+    - pdf-merged/chapter3.qmd
+    - chapter/template_references.qmd
+    - chapter/ref.qmd
 
 format:
   elegantbook-pdf:

@@ -55,7 +55,7 @@ book:
     pinned: true
     align: center
     style: "docked"
-    collapse-level: 2
+    collapse-level: 1
     contents:
       - index.qmd
       - section: "1 ElegantBook PDF 扩展测试文档"

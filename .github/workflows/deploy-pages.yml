@@ -56,8 +56,14 @@ jobs:
         with:
           cache-version: 2
 
-      - name: Build HTML and PDF
-        run: quarto render
+      - name: Build HTML
+        run: quarto render --to html
+
+      - name: Build continuous PDF
+        run: |
+          python3 scripts/build_pdf_sources.py
+          quarto render --profile pdf --to elegantbook-pdf
+          find _book-pdf -maxdepth 1 -type f -name '*.pdf' -exec cp {} _book/ \\;
 
       - name: Deploy to gh-pages
         if: github.event_name != 'pull_request'

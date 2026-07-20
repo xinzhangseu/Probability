@@ -1,4 +1,4 @@
-# 1.6 图表测试 {.unnumbered}
+# 图表测试 {.unnumbered}
 
 ### 表格
 

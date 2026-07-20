@@ -1,0 +1,9 @@
+# 章后习题 {.unnumbered}
+
+::: {.problemset}
+
+1. 证明 Cauchy 收敛准则。
+2. 计算 $\lim_{x \to 0} \frac{\sin x}{x}$。
+3. 求解微分方程 $y' = ky$。
+
+:::

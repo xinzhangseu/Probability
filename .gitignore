@@ -32,4 +32,4 @@ Thumbs.db
 **/*.quarto_ipynb
 
 # Generated continuous PDF chapter sources
-_pdf-merged/
+pdf-merged/

@@ -20,28 +20,6 @@ book:
         corresponding: true
       bio: |
         Your bio text here. This will appear on the author page at the end of the book.
-  chapters:
-    - index.qmd
-    - template_chapter1.qmd
-    - sections/elegantbook/01.qmd
-    - sections/elegantbook/02.qmd
-    - sections/elegantbook/03.qmd
-    - sections/elegantbook/04.qmd
-    - sections/elegantbook/05.qmd
-    - sections/elegantbook/06.qmd
-    - sections/elegantbook/07.qmd
-    - sections/elegantbook/08.qmd
-    - sections/elegantbook/09.qmd
-    - sections/elegantbook/10.qmd
-    - sections/elegantbook/11.qmd
-    - chap1.qmd
-    - sections/test/01.qmd
-    - sections/test/02.qmd
-    - chap2.qmd
-    - sections/chapter2/01.qmd
-    - template_references.qmd
-    - ref.qmd
-
   site-url: https://your-site.example.com/
   downloads: [pdf]
   sharing: [twitter, facebook]

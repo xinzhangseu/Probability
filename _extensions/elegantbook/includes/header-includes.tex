@@ -219,12 +219,14 @@
 %    Match elegantbook.cls exactly
 %------------------------------------------------------------------------------
 % Example environment
-\newcounter{example}[chapter]
-\renewcommand{\theexample}{\thechapter.\arabic{example}}
-\newenvironment{example}[1][]{
-  \refstepcounter{example}
-  \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
-  \par\ignorespacesafterend}
+% The original definition is retained below as comments. The active definition
+% is moved to before-body.tex so it runs after Quarto's automatic theorem setup.
+% \newcounter{example}[chapter]
+% \renewcommand{\theexample}{\thechapter.\arabic{example}}
+% \newenvironment{example}[1][]{
+%   \refstepcounter{example}
+%   \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
+%   \par\ignorespacesafterend}
 
 % Exercise environment
 \newcounter{exercise}[chapter]

@@ -38,12 +38,27 @@ jobs:
           sudo apt-get install -y             fontconfig             fonts-noto-cjk             fonts-noto-cjk-extra             libcurl4-openssl-dev             xz-utils
           sudo fc-cache -f -v
 
-      - name: Verify TinyTeX and fonts
+      - name: Verify TinyTeX and fonts locally
+        shell: bash
         run: |
-          quarto list tools
-          fc-match "Noto Serif CJK SC"
-          fc-match "Noto Sans CJK SC"
-          fc-match "Noto Sans Mono CJK SC"
+          set -euo pipefail
+
+          echo "Quarto version:"
+          quarto --version
+
+          echo "XeLaTeX:"
+          command -v xelatex
+          xelatex --version | head -n 1
+
+          echo "Chinese fonts:"
+          fc-match "Noto Serif CJK SC" | tee /tmp/noto-serif-match.txt
+          grep -F "Noto Serif CJK SC" /tmp/noto-serif-match.txt
+
+          fc-match "Noto Sans CJK SC" | tee /tmp/noto-sans-match.txt
+          grep -F "Noto Sans CJK SC" /tmp/noto-sans-match.txt
+
+          fc-match "Noto Sans Mono CJK SC" | tee /tmp/noto-sans-mono-match.txt
+          grep -F "Noto Sans Mono CJK SC" /tmp/noto-sans-mono-match.txt
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2

@@ -21,6 +21,7 @@
 \let\solution\relax\let\endsolution\relax
 \let\remark\relax\let\endremark\relax
 \let\example\relax\let\endexample\relax
+\let\exercise\relax\let\endexercise\relax
 \makeatother
 
 % Restore the ElegantBook example environment after Quarto has created
@@ -29,6 +30,15 @@
 \newenvironment{example}[1][]{
   \refstepcounter{example}
   \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
+  \par\ignorespacesafterend}
+
+% Restore the ElegantBook exercise environment after Quarto has created
+% the exercise counter. Reuse that counter instead of declaring it again.
+\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+\newenvironment{exercise}[1][]{
+  \refstepcounter{exercise}
+  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
+  \textbf{\color{main}练习 \theexercise #1 }\rmfamily}{
   \par\ignorespacesafterend}
 
 % Now define with simple \DeclareTColorBox (O{} for optional name)

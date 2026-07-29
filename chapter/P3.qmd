@@ -1,0 +1,2652 @@
+# 随机变量的数字特征 {#sec-ch3-numerical-characteristics}
+
+::: {.hidden}
+$$
+\newcommand{\xlongequal}[2][]{\overset{#2}{=}}
+\newcommand{\varliminf}{\liminf}
+\newcommand{\varlimsup}{\limsup}
+$$
+:::
+
+
+完整分布能够回答所有概率问题,但在比较模型,估计参数或进行近似时,我们往往需要更简洁的数量摘要.数学期望描述位置中心,方差描述波动尺度,协方差和相关系数描述线性共同变化,高阶矩提供分布形状信息.这些数字特征都可以理解为随机变量函数的期望.
+
+本章还引入两类更具结构性的工具.条件数学期望把在给定信息下求平均提升为随机变量,是预测,鞅论与统计推断的基础;母函数和特征函数则把分布编码为函数,使独立随机变量之和的卷积运算转化为乘法.学习本章时,应同时掌握计算公式,存在条件和统计解释.
+
+## 本章学习目标 {#本章学习目标 .unnumbered}
+
+- 从积分观点统一理解离散型和连续型随机变量的数学期望;
+
+- 掌握方差,矩,协方差,相关系数及协方差矩阵的性质;
+
+- 理解不相关与独立的区别,并避免把相关关系解释为因果关系;
+
+- 会利用条件数学期望的塔式性质分解复杂计算;
+
+- 会用母函数和特征函数识别分布,求矩并处理独立随机变量之和.
+
+## 数学期望 {#sec-ch3-lecture-16}
+
+::: {.callout-note appearance="simple" icon="false"}
+## 本节导读
+
+分布给出完整概率规律,数学期望则用一个数概括随机变量的平均水平.期望本质上是随机变量关于概率测度的积分;这一观点统一了离散求和与连续积分,也解释了期望的线性,单调性以及变量函数公式.
+:::
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+## 理论主线
+
+数学期望是 Lebesgue 积分 $\int_\Omega X\,dP$.对于一般实值随机变量,应先分别考虑正部 $X^+$ 和负部 $X^-$;只有当至少一个积分有限时,期望才有确定意义,而通常所说的期望有限是指 $E|X|<\infty$.这一存在性条件不能被形式计算所代替.
+
+离散求和与连续积分都是同一测度积分的具体形式.计算 $E[g(X)]$ 时不必先求 $g(X)$ 的分布,可以直接对 $X$ 的分布积分;这就是无意识统计学家法则.期望的线性不要求随机变量独立,但交换无穷求和,极限与期望时必须说明所用的单调收敛,控制收敛或其他充分条件.
+:::
+
+
+#### 平均值与加权平均值 {#平均值与加权平均值 .unnumbered}
+
+有甲乙两名射手,其射击技术可用下表表出
+
+甲射手 乙射手\
+
+   击中环数   $8$   $9$   $10$
+  ---------- ----- ----- ------
+    概 率     0.3   0.1   0.6
+
+   击中环数   $8$   $9$   $10$
+  ---------- ----- ----- ------
+    概 率     0.2   0.5   0.3
+
+试问哪一个射手技术较好?
+
+仅凭分布表难以直接判断两名射手技术的优劣. 同时,这说明分布列虽然完整描述了随机变量的概率规律,却不便于集中反映其位置和波动特征. 因此,有必要引入若干数字特征,对分布作更集中,更概括的描述. 相应地,最基本的数字特征是以概率为权的平均值,即数学期望.
+
+#### 平均值与加权平均值 {#平均值与加权平均值-1 .unnumbered}
+
+当各个数据具有同等重要性时,通常使用算术平均$\bar{x}=\dfrac{x_1+x_2+\cdots+x_n}{n}$; 同时,算术平均没有区分各个数据的相对重要性.例如,一小学生考试成绩为:语文 95 分,数学 85 分,常识 60 分,若按上述计算其平均成绩为 $\bar{x}=80$; 若三个科目的课时和重要程度不同,简单平均就未必具有合理解释.假设在这个年级中,每周有语文 10 节课,数学 8 节课,常识 2 节课,则利用下述的平均计算其平均成绩似乎更合理一些:
+
+$$
+\begin{aligned}
+\bar{x}_w=95*\dfrac{10}{20}+85*\dfrac{8}{20}+60*\dfrac{2}{20}=87.5
+\end{aligned}
+$$
+
+ 相应地,一般地,加权平均定义如下:给定权 $w_i$ 满足 $\sum_{i=1}^nw_i=1$, 则
+
+$$
+\begin{aligned}
+\bar{x}_w=\sum_{i=1}^nw_ix_i
+\end{aligned}
+$$
+
+ 称为加权平均值.
+
+有甲乙两名射手,其射击技术可用下表表出
+
+甲射手 乙射手\
+
+   击中环数   $8$   $9$   $10$
+  ---------- ----- ----- ------
+    概 率     0.3   0.1   0.6
+
+   击中环数   $8$   $9$   $10$
+  ---------- ----- ----- ------
+    概 率     0.2   0.5   0.3
+
+考虑以概率为权重的加权平均:
+
+$$
+\begin{aligned}
+\bar{x}_{\mbox{甲}}=8*0.3+9*0.1+10*0.6=9.3\\
+         \bar{x}_{\mbox{乙}}=8*0.2+9*0.5+10*0.3=9.1
+\end{aligned}
+$$
+
+ 则平均起来,甲每枪射中 9.3 环,乙每枪射中 9.1 环,故甲的技术更好一些.
+
+#### 数学期望的定义 {#数学期望的定义 .unnumbered}
+
+::: {#def-ch3-001}
+设离散型随机变量的分布列为
+
+$$
+\begin{aligned}
+\left(\begin{array}{ccccc}
+                x_1,&x_2, &\cdots, &x_k, &\cdots\\
+                p_1,&p_2, &\cdots, &p_k, &\cdots
+            \end{array}\right)
+\end{aligned}
+$$
+
+ 如果
+
+$$
+\begin{aligned}
+\sum_{i=1}^\infty|x_i|p_i<\infty
+\end{aligned}
+$$
+
+ 则称
+
+$$
+\begin{aligned}
+E(X)=\sum_{i=1}^\infty x_iP(X=x_i)=\sum_{i=1}^\infty x_ip_i
+\end{aligned}
+$$
+
+ 为随机变量 $X$ 的数学期望,或称该分布的数学期望,简称期望或均值.若级数 $\sum_{i=1}^\infty|x_i|p_i$ 不收敛,则称 $X$ 的期望不存在.
+:::
+
+#### 从离散到连续 {#从离散到连续 .unnumbered}
+
+假设连续型随机变量 $X$ 的分布密度为 $p (x)$; 同时,考虑随机变量 $X$ 的如下近似:记 $A_i:=\{\omega:X (\omega)\in (x_i, x_{i+1}]\}$
+
+$$
+\begin{aligned}
+\tilde{X}:=\sum_{i}x_iI_{A_i}(\omega)
+\end{aligned}
+$$
+
+ 其中 $I_{A_i}(\omega)=\left\{
+        \begin{array}{ll}
+            1,& \omega\in A_i\\
+            0,& \omega\notin A_i
+        \end{array}\right.$.
+
+显然 $\tilde{X}$ 为离散型随机变量,且 $$P(\tilde{X}=x_i)=\int_{x_i}^{x_{i+1}}p(x)dx\approx p(x_i)(x_{i+1}-x_i);$$ 故 $\tilde{X}$ 的期望为
+
+$$
+\begin{aligned}
+E(\tilde{X})\approx \sum_i x_ip(x_i)(x_{i+1}-x_i)\rightarrow \int xp(x)dx
+\end{aligned}
+$$
+
+
+#### 连续型随机变量数学期望的定义 {#连续型随机变量数学期望的定义 .unnumbered}
+
+::: {#def-ch3-002}
+设连续随机变量 $X$ 的密度函数为 $p (x)$. 如果
+
+$$
+\begin{aligned}
+\int_{-\infty}^{\infty}|x|p(x)dx<\infty,
+\end{aligned}
+$$
+
+ 则称
+
+$$
+\begin{aligned}
+E(X):=\int_{-\infty}^\infty xp(x)dx
+\end{aligned}
+$$
+
+ 为随机变量 $X$ 的数学期望,简称期望或均值.若 $\int_{-\infty}^\infty|x|p (x) dx$ 不收敛,则称 $X$ 的期望不存在.
+:::
+
+#### 数学期望的一般情形 {#数学期望的一般情形 .unnumbered}
+
+若随机变量 $X$ 的分布函数为 $F (x)$; 同时,类似于连续情形,考虑随机变量 $X$ 的如下近似:
+
+$$
+\begin{aligned}
+\tilde{X}:=\sum_{i}x_iI_{A_i}(\omega)
+\end{aligned}
+$$
+
+ 其中 $A_i:=\{\omega:X (\omega)\in (x_i, x_{i+1}]\}, I_{A_i}(\omega)=\left\{
+        \begin{array}{ll}
+            1,& \omega\in A_i\\
+            0,& \omega\notin A_i
+        \end{array}\right.$.
+
+显然 $\tilde{X}$ 为离散型随机变量,且 $$P(\tilde{X}=x_i)=P(X\in (x_i,x_{i+1}])=F(x_{i+1})-F(x_i);$$ 故 $\tilde{X}$ 的期望为
+
+$$
+\begin{aligned}
+E (\tilde{X})=\sum_i x_i\left[F (x_{i+1})-F (x_i)\right]\rightarrow \int xdF (x) \quad \textcolor{red}{\mbox{斯蒂尔切斯积分}}
+\end{aligned}
+$$
+
+
+#### 数学期望的一般定义 {#数学期望的一般定义 .unnumbered}
+
+::: {#def-ch3-003}
+假设随机变量 $X$ 的分布函数为 $F (x)$, 则定义
+
+$$
+\begin{aligned}
+E(X)=\int_{-\infty}^{+\infty}xdF(x)
+\end{aligned}
+$$
+
+ 为随机变量 $X$ 的数学期望.这里我们要求上述积分绝对收敛,否则称数学期望不存在.
+:::
+
+#### 斯蒂尔切斯 (Stieltjes) 积分的性质 {#斯蒂尔切斯-stieltjes-积分的性质 .unnumbered}
+
+
+$$
+\begin{aligned}
+I=\int_{-\infty}^{+\infty}g(x)dF(x)
+\end{aligned}
+$$
+
+
+当 $F (x)$ 为右连续的阶梯函数,在 $x_i (i=1,2,\cdots,)$ 具有跃度 $p_i$ 时,上面的积分化为
+
+$$
+\begin{aligned}
+I=\sum_{i}g(x_i)\bigg(F(x_i)-F(x_{i-1})\bigg)=\sum_i g(x_i)p_i
+\end{aligned}
+$$
+
+ 同时,当 $F (x)$ 存在导数 $F'(x)=p (x)$ 时,上述积分化为普通积分
+
+$$
+\begin{aligned}
+I=\int_{-\infty}^{+\infty}g(x)p(x)dx
+\end{aligned}
+$$
+
+ 此外,线性性质
+
+$$
+\begin{aligned}
+\int_{-\infty}^{+\infty}(ag_1(x)+bg_2(x)dF(x)=a\int_{-\infty}^{+\infty}g_1(x)dF(x)+b\int_{-\infty}^{+\infty}g_2(x)dF(x)
+\end{aligned}
+$$
+
+ 若 $g (x)\ge 0$, $F (x)$ 单调不减,$b>a$, 则 $\int_a^bg (x) dF (x)\ge 0$.
+
+#### 几点注记 {#几点注记 .unnumbered}
+
+根据斯蒂尔切斯 (Stieltjes) 积分的定义可证:
+
+$$
+\begin{aligned}
+\int_{(a, b]}dF(y)&=&F(b)-F(a)\\
+            \int_{(-\infty, x]}dF(y)&=&\lim_{a\rightarrow-\infty}\int_{(a,x]}dF(y)=\lim_{a\rightarrow-\infty}[F(x)-F(a)]\\
+            &=&F(x)=P(X\le x)\\
+            \int_BdF(y)&=&P(X\in B)
+\end{aligned}
+$$
+
+ 同时,数学期望的另一计算公式:关于概率测度的积分
+
+$$
+\begin{aligned}
+\textcolor{blue}{E (X)}&=&  \textcolor{blue}{\int_{-\infty}^\infty xdF (x)}  \quad \textcolor{red}{\mbox{ 注意到} F (x)=P (X (\omega)\le x):=P (X^{-1}(x))}\\
+                &\xlongequal[]{x=X(\omega)}& \int_{\Omega}X(\omega)dP(X^{-1}(X(\omega)))= \textcolor{blue}{\int_{\Omega}X(\omega)dP(\omega)}
+\end{aligned}
+$$
+
+
+## 方差,矩与常用不等式 {#sec-ch3-lecture-17}
+
+::: {.callout-note appearance="simple" icon="false"}
+## 本节导读
+
+相同均值的随机变量可能具有完全不同的波动程度.方差和标准差刻画随机变量围绕均值的离散程度,高阶矩进一步描述分布的形状;Markov 与 Chebyshev 不等式则在分布信息有限时给出尾概率的普适上界.
+:::
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+## 理论主线
+
+方差 $\operatorname{Var}(X)=E[(X-EX)^2]$ 只有在二阶矩有限时才是有限数.恒等式 $\operatorname{Var}(X)=E(X^2)-(EX)^2$ 便于计算,但其使用前提同样是相应矩存在.标准差与原变量具有相同量纲,高阶中心矩,偏度和峰度则提供分布形状的进一步信息.
+
+Markov 不等式从非负随机变量的期望控制尾概率,Chebyshev 不等式是其对平方偏差的应用.这些不等式通常不给出精确概率,而是在缺乏完整分布时提供普适保证.使用时应检查非负性,矩的存在性以及阈值的尺度,并理解所得上界可能较为保守.
+:::
+
+
+### 期望的进一步性质
+
+#### 随机变量关于概率测度的积分 {#随机变量关于概率测度的积分 .unnumbered}
+
+若 $X (\omega)=\sum_{i=1}^{n} a_{i} I_{A_{i}}(\omega), A_1,\cdots, A_n\in\mathcal{F}$, 即 $X$ 为简单随机变量时,定义
+
+$$
+\begin{aligned}
+\int_\Omega X(\omega)P(d\omega):=\sum_{i=1}^na_iP(A_i)
+\end{aligned}
+$$
+
+ 若 $X (\omega)$ 为非负随机变量,则由之前随机变量的结构易知:
+
+$$
+\begin{aligned}
+\mbox{存在简单随机变量序列} X_n (\omega)\uparrow X (\omega)
+\end{aligned}
+$$
+
+ 故可定义
+
+$$
+\begin{aligned}
+\int_\Omega X(\omega)P(d\omega):=\lim_{n\rightarrow\infty}\int_\Omega X_n(\omega)P(d\omega)
+\end{aligned}
+$$
+
+ 若 $X (\omega)$ 为任一随机变量,则由于 $X (\omega)=X^+(\omega)-X^-(\omega)$, 故定义
+
+$$
+\begin{aligned}
+\int_\Omega X(\omega)P(d\omega):=\int_\Omega X^+(\omega)P(d\omega)-\int_\Omega X^-(\omega)P(d\omega)
+\end{aligned}
+$$
+
+
+#### 随机变量可积与积分存在的定义 {#随机变量可积与积分存在的定义 .unnumbered}
+
+::: {#def-ch3-004}
+称随机变量 $X (\omega)$ 关于概率测度 $P$ 的积分存在,如果 $$\int_\Omega X^+(\omega) P (d\omega) \mbox{ 与 }\int_\Omega X^-(\omega) P (d\omega) \mbox{不同时为}\infty$$ 称随机变量 $X (\omega)$ 关于概率测度 $P$ 可积,如果 $\int_\Omega X (\omega) P (d\omega)<\infty$, 即 $$\int_\Omega X^+(\omega) P (d\omega)<\infty \mbox{ 且 }\int_\Omega X^-(\omega) P (d\omega)<\infty.$$
+:::
+
+::: {#def-ch3-005}
+若 $X (\omega)$ 是概率空间 $(\Omega,\mathcal{F},P)$ 上的可积随机变量,则称
+
+$$
+\begin{aligned}
+E(X):=\int_\Omega X(\omega)P(d\omega)
+\end{aligned}
+$$
+
+ 为随机变量 $X (\omega)$ 的数学期望.
+:::
+
+#### 随机变量期望的性质 {#随机变量期望的性质 .unnumbered}
+
+1.  若 $c$ 为常数,则 $E (c)=c$;
+
+2.  若 $X\ge 0$, 则 $E (X)\ge 0$, 且$E(X)=0$ 当且仅当 $X=0$ 几乎处处成立;
+
+3.  对任意的常数 $a$, 有 $E (aX)=aE (X)$;
+
+4.  对任意两个函数 $g_1 (x),g_2 (x)$ 有
+
+$$
+\begin{aligned}
+E(g_1(X)\pm g_2(X))=E(g_1(X))\pm E(g_2(X))
+\end{aligned}
+$$
+
+
+5.  对任意两个随机变量 $X,Y$, 有 $E (X+Y)=E (X)+E (Y)$;
+
+6.  一般的,对任意两个随机变量 $X,Y$ 及任给两个常数 $a,b$, 有
+
+$$
+\begin{aligned}
+E(aX+bY)=aE(X)+bE(Y);
+\end{aligned}
+$$
+
+
+7.  更一般的有
+
+$$
+\begin{aligned}
+E(\sum_{i=1}^na_iX_i+b)=\sum_{i=1}^na_iEX_i+b
+\end{aligned}
+$$
+
+
+#### 期望的性质 {#期望的性质 .unnumbered}
+
+::: {#thm-ch3-001}
+设 $X$ 为非负随机变量.则 $E X \geqslant 0$,且 $E X=0$ 当且仅当 $P(X=0)=1$,即 $X=0, a.s.$
+:::
+
+**证明.** 
+
+首先,因 $X$ 是非负随机变量,当 $x<0$ 有 $F_{X}(x)=0$. 由斯蒂尔切斯积分的定义和性质易知 $$E X=\int_{0}^{\infty} x \mathrm{d} F_{X}(x) \geqslant 0.$$ 若 $X=0,  a.s.$,则 $F_{X}(x)=1_{\{x \geqslant 0\}}$. 故 $E(X)=\int_{-\infty}^{\infty}xdF_X(x)=0$. 于是,反之,若 $E X=0$ ,则对任意的 $a>0$ 有 $$0=\int_{0}^{\infty} x \mathrm{d} F_{X}(x) \geqslant \int_{a}^{\infty} x \mathrm{d} F_{X}(x) \geqslant a \int_{a}^{\infty} \mathrm{d} F_{X}(x)=a\left[1-F_{X}(a)\right]$$ 故 $F_{X}(a)=1$ ,再由右连续性得 $F_{X}(0)=1$ ,从而 $X=0, a.s.$.
+
+#### 期望的性质 {#期望的性质-1 .unnumbered}
+
+::: {#thm-ch3-002}
+给定随机变量 $X$ ,令 $X^{+}=0 \vee X$ 和 $X^{-}=0 \vee(-X)$, 则
+
+$$
+\begin{aligned}
+E X^{+}&=\int_{0}^{\infty} x \mathrm{d} F_{X}(x)=\int_{0}^{\infty}\left[1-F_{X}(t)\right] \mathrm{d} t\\
+E X^{-}&=-\int_{-\infty}^{0} x \mathrm{d} F_{X}(x)=\int_{-\infty}^{0} F_{X}(t) \mathrm{d} t
+\end{aligned}
+$$
+
+
+:::
+
+#### 期望的性质 {#期望的性质-2 .unnumbered}
+
+**证明.** 
+
+首先,因 $X^{+}, X^{-}$为非负随机变量, 故 其中,对 $x<0$ 有 $F_{X^{+}}(x)=F_{X^{-}}(x)=0$.; 对 $x \geqslant 0$, 有 $$F_{X^{+}}(x)=F_{X}(x), \quad F_{X^{-}}(x)=P(X\geq -x)=1-P(X<-x).$$ 从而
+
+$$
+\begin{aligned}
+E X^{+} & =\int_{0}^{\infty} x \mathrm{d} F_{X}(x)=\int_{0}^{\infty} \mathrm{d} F_{X}(x) \int_{0}^{x} \mathrm{d} t \\
+ &=\int_{0}^{\infty} \mathrm{d} t \int_{t}^{\infty} \mathrm{d} F_{X}(x)=\int_{0}^{\infty}\left[1-F_{X}(t)\right] \mathrm{d} t\\
+ E X^{-}  & =\int_{0}^{\infty} [1-F_{X^-}(x)]dx=\int_{-\infty}^{0} [1-F_{X^{-}}(-x)] dx\\
+ &=\int_{-\infty}^{0} P(X<x)\mathrm{d} x=\int_{-\infty}^{0} F_X(x)dx
+\end{aligned}
+$$
+
+ 最后一个等号是因为改变可数个点上的函数值不影响黎曼积分值.
+
+#### 期望的性质 {#期望的性质-3 .unnumbered}
+
+::: {#thm-ch3-theorem-4-2-5}
+若随机变量 $X$ 的数学期望存在,则有
+
+$$
+\begin{aligned}
+E X&=\int_{0}^{\infty} P(X>t) \mathrm{d} t-\int_{-\infty}^{0} P(X \leqslant t) \mathrm{d} t\\
+E|X|&=\int_{0}^{\infty} P(X>t) \mathrm{d} t+\int_{-\infty}^{0} P(X \leqslant t) \mathrm{d} t
+\end{aligned}
+$$
+
+
+:::
+
+::: {#exm-ch3-001}
+设 $X$ 为取值于数集 $\{0,1,2, \cdots\}$ 的离散型随机变量.则
+
+$$
+\begin{aligned}
+E X  &=\int_{0}^{\infty} P(X>t) \mathrm{d} t=\sum_{n=1}^{\infty} \int_{n-1}^{n} P(X>t) \mathrm{d} t\\
+&=\sum_{n=1}^{\infty} \int_{n-1}^{n} P(X \geqslant n) \mathrm{d} t=\sum_{n=1}^{\infty} P(X \geqslant n)
+\end{aligned}
+$$
+
+
+:::
+
+#### 随机变量函数的期望 {#随机变量函数的期望 .unnumbered}
+
+::: {#thm-ch3-004}
+设随机变量 $X$ 有分布函数 $F_{X}$ ,而 $f$ 为 $\mathbb{R}$ 上的可测函数, 则随机变量 $f(X)$ 的数学期望存在当且仅当 $f$ 的 $F_{X}$ 积分存在,且此时 $$E f(X)=\int_{-\infty}^{\infty} f(x) \mathrm{d} F_{X}(x)$$
+:::
+
+**证明.** 
+
+由定理[\[lbl-ch3-theorem-4-2-5\]](#thm-ch3-theorem-4-2-5){reference-type="ref" reference="lbl-ch3-theorem-4-2-5"}知:
+
+$$
+\begin{aligned}
+E f(X)  &=\int_{0}^{\infty} P(f(X)>t) \mathrm{d} t-\int_{-\infty}^{0} P(f(X) \leqslant t) \mathrm{d} t \\
+&=\int_{0}^{\infty} \mathrm{d} t \int_{-\infty}^{\infty} 1_{\{f(x)>t\}} \mathrm{d} F_{X}(x)-\int_{-\infty}^{0} \mathrm{d} t \int_{-\infty}^{\infty} 1_{\{f(x) \leqslant t\}} \mathrm{d} F_{X}(x)\\
+&=\int_{-\infty}^{\infty} \mathrm{d} F_{X}(x) \int_{0}^{\infty} 1_{\{f(x)>t\}} \mathrm{d} t-\int_{-\infty}^{\infty} \mathrm{d} F_{X}(x) \int_{-\infty}^{0} 1_{\{f(x) \leqslant t\}} \mathrm{d} t \\
+&
+=\int_{-\infty}^{\infty} f^{+}(x) \mathrm{d} F_{X}(x)-\int_{-\infty}^{\infty} f^{-}(x) \mathrm{d} F_{X}(x)=\int_{-\infty}^{\infty} f(x) \mathrm{d} F_{X}(x)
+\end{aligned}
+$$
+
+
+#### 随机变量函数的期望 {#随机变量函数的期望-1 .unnumbered}
+
+::: {#thm-ch3-005}
+若随机变量 $X$ 的分布函数为 $F (x)$, 则 $X$ 的某一函数 $g (X)$ 的期望为
+
+$$
+\begin{aligned}
+E[g(X)]&=&\int_{-\infty}^{+\infty}g(x)dF(x)\\
+                &=& \left\{
+                \begin{array}{l}
+                    \sum_{i}g(x_i)[F(x_i)-F(x_{i-1})]=\sum_{i}g(x_i)P(X=x_i),\\
+                    \\
+                    \int_{-\infty}^{+\infty}g(x)p(x)dx.
+                \end{array}
+                \right.
+\end{aligned}
+$$
+
+
+:::
+
+#### 积分变换定理 {#积分变换定理 .unnumbered}
+
+::: {#thm-ch3-006}
+设 $X$ 为概率空间 $(\Omega,\mathcal{F}, P)$ 上的随机变量,$\mathbf{F}$ 为随机变量 $X$ 的分布,则对任意的 Borel 函数 $f (x)$ 有
+
+$$
+\begin{aligned}
+\int_\Omega f(X(\omega))P(d\omega)= \int_{\mathbb{R}}f(x)\mathbf{F}(dx)  \left(\textcolor{red}{= \int_{\mathbb{R}}f(x)dF(x)}\right).
+\end{aligned}
+$$
+
+ 特别的,若 $f (x)=x$, 则有
+
+$$
+\begin{aligned}
+E(X)=\int_\Omega X(\omega)P(d\omega)=\int_{\mathbb{R}}x \mathbf{F}(dx)=\int_{\mathbb{R}} xdF(x)
+\end{aligned}
+$$
+
+
+:::
+
+#### 随机变量函数的期望:多维情形 {#随机变量函数的期望多维情形 .unnumbered}
+
+::: {#thm-ch3-007}
+若随机向量 $(X_1,\cdots, X_n)$ 的分布函数为 $F (x_1,\cdots,x_n)$, $g (x_1,\cdots, x_n)$ 为 $n$ 元 Borel 函数,则
+
+$$
+\begin{aligned}
+E[g(X_1,\cdots, X_n)]&=&\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}g(x_1,\cdots,x_n)dF(x_1,\cdots,x_n).
+\end{aligned}
+$$
+
+ 特别的,
+
+$$
+\begin{aligned}
+E(X_i)=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}x_idF(x_1,\cdots,x_n)=\int_{-\infty}^{+\infty}x_idF_i(x_i)
+\end{aligned}
+$$
+
+ 其中 $F_i (x_i)$ 为 $X_i$ 的分布函数. 更进一步,如果 $(X_1,\cdots,X_n)$ 为连续型随机向量即具有联合分布密度 $p (x_1,\cdots,x_n)$, 则
+
+$$
+\begin{aligned}
+&&E[g(X_1,\cdots, X_n)]=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}g(x_1,\cdots,x_n)p(x_1,\cdots,x_n)dx_1\cdots dx_n;\\
+                && E(X_i)=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}x_ip(x_1,\cdots,x_n)dx_1\cdots dx_n=\int_{-\infty}^{+\infty}x_ip_{X_i}(x_i)dx_i
+\end{aligned}
+$$
+
+
+:::
+
+#### 随机向量的数学期望 {#随机向量的数学期望 .unnumbered}
+
+::: {#def-ch3-006}
+假设随机向量 $(X_1,\cdots, X_n)$ 的每个分量 $X_i$ 的数学期望都存在,则称
+
+$$
+\begin{aligned}
+E(X)=(EX_1,EX_2,\cdots,EX_n)
+\end{aligned}
+$$
+
+ 为随机向量 $X$ 的数学期望向量,简称为 $X$ 的数学期望.这里
+
+$$
+\begin{aligned}
+E(X_i)=\int_{-\infty}^{+\infty}\cdots\int_{-\infty}^{+\infty}x_idF(x_1,\cdots,x_n)=\int_{-\infty}^{+\infty}x_idF_i(x_i)
+\end{aligned}
+$$
+
+ 这里 $F_i (x_i)$ 为 $X_i$ 的分布函数.
+:::
+
+#### 随机变量的期望与独立性 {#随机变量的期望与独立性 .unnumbered}
+
+::: {#thm-ch3-008}
+设 $X, Y$ 为概率空间 $(\Omega,\mathcal{F}, P)$ 上两个相互独立的随机变量,且 $X, Y$ 均可积,则乘积 $XY$ 也可积,且
+
+$$
+\begin{aligned}
+E(XY)=E(X)E(Y)
+\end{aligned}
+$$
+
+
+:::
+
+::: {#thm-ch3-009}
+概率空间 $(\Omega,\mathcal{F}, P)$ 上两个随机变量 $X, Y$ 相互独立的充要条件是,对于使得 $f (X)$ 与 $g (Y)$ 均可积的任何 Borel 函数 $f,g$ 均有
+
+$$
+\begin{aligned}
+E[f(X)g(Y)]=E[f(X)]E[g(Y)].
+\end{aligned}
+$$
+
+
+:::
+
+#### 期望的极限性质:单调收敛定理 {#期望的极限性质单调收敛定理 .unnumbered}
+
+::: {#thm-ch3-010}
+(单调收敛定理) 若随机变量序列 $\{X_n\}$ 满足条件
+
+$$
+\begin{aligned}
+0\leq X_1(\omega)\leq X_2(\omega)\leq \cdots \leq X_n(\omega)\uparrow X(\omega), \omega\in \Omega,
+\end{aligned}
+$$
+
+ 则
+
+$$
+\begin{aligned}
+\int_{\Omega}\lim_{n\rightarrow\infty}X_n(\omega)P(d\omega)&=& \lim_{n\rightarrow\infty}\int_\Omega X_n(\omega)P(d\omega), \\
+                {\rm i.e.} \quad    E(\lim_{n\rightarrow\infty}X_n)&=&\lim_{n\rightarrow\infty}E(X_n).
+\end{aligned}
+$$
+
+
+:::
+
+#### 单调收敛定理的证明 {#单调收敛定理的证明 .unnumbered}
+
+设 $\left\{X_{n k}\right\}_{k \geqslant 1}$ 为定义 $E\left(X_{n}\right)$ 的简单随机变量列,且满足
+
+$$0 \leqslant X_{11} \leqslant X_{12} \leqslant \cdots \leqslant X_{1 k} \uparrow X_{1}$$ $$0 \leqslant X_{21} \leqslant X_{22} \leqslant \cdots \leqslant X_{2 k} \uparrow X_{2}$$ $$\vdots$$ $$0 \leqslant X_{n 1} \leqslant X_{n 2} \leqslant \cdots \leqslant X_{n k} \uparrow X_{n}$$ $$\lim _{k \rightarrow \infty} E\left(X_{n k}\right)=E\left(X_{n}\right)$$ 令 $\widetilde{X}_{k}=\max _{1 \leqslant i \leqslant k} X_{i k}$ ,则 $\widetilde{X}_{k}$ 为非降简单随机变量序列, $$X_{n k} \leqslant \widetilde{X}_{k} \leqslant X_{k}, \quad  E\left(X_{n k}\right) \leq E\left(\widetilde{X}_{k}\right) \leq E\left(X_{k}\right)$$
+
+. 另一方面,下证$\lim _{k \rightarrow \infty} \widetilde{X}_{k}=X$, $\lim _{k \rightarrow \infty}E(\widetilde{X}_{k})=\lim_{n\rightarrow\infty}E(X_n)$
+
+其中,固定 $n$ ,令 $k \rightarrow+\infty$可得 $$X_{n} \leq \lim _{k \rightarrow+\infty} \widetilde{X}_{k} \leq X, \qquad   E\left(X_{n}\right) \leq \lim _{k \rightarrow+\infty} E\left(\widetilde{X}_{k}\right) \leq \lim _{k \rightarrow+\infty}E{(X_k)}$$ 再令 $n \rightarrow+\infty$ 可得 $$\lim _{k \rightarrow \infty} \widetilde{X}_{k}=X, \qquad  \lim _{k \rightarrow \infty}E(\widetilde{X}_{k})=\lim_{n\rightarrow\infty}E(X_n)$$ 最后,结合 $E(\lim_{n\rightarrow\infty}X_n)=E(X):=\lim_{k\rightarrow\infty}E(\widetilde{X}_k)=\lim_{n\rightarrow\infty}E(X_n)$可知定理得证.
+
+#### 期望的极限性质:Fatou 引理 {#期望的极限性质fatou-引理 .unnumbered}
+
+::: {#thm-ch3-011}
+(Fatou 引理) 若 $\{X_n\}$ 是一随机变量序列,
+
+首先,如果存在可积随机变量 $\underline{Y}$ 使得 $X_n\geq \underline{Y}$, 则有
+
+$$
+\begin{aligned}
+\int_{\Omega}\liminf_{n\rightarrow\infty}X_n(\omega)P(d\omega)&\leq& \liminf_{n\rightarrow\infty}\int_\Omega X_n(\omega)P(d\omega),  \\
+                    {\rm i.e. }\quad  E(\liminf_{n\rightarrow\infty}X_n)&\leq& \liminf_{n\rightarrow\infty}E(X_n).
+\end{aligned}
+$$
+
+ 最后,如果存在可积随机变量 $\overline{Y}$ 使得 $X_n\leq \overline{Y}$, 则有
+
+$$
+\begin{aligned}
+\int_{\Omega}\limsup_{n\rightarrow\infty} X_n (\omega)) P (d\omega)&\geq& \limsup_{n\rightarrow\infty}\int_\Omega X_n (\omega)) P (d\omega), \\
+                    {\rm i.e.} \quad    E(\limsup_{n\rightarrow\infty}X_n)&\geq& \limsup_{n\rightarrow\infty}E(X_n).
+\end{aligned}
+$$
+
+
+:::
+
+#### Fatou引理证明 {#fatou引理证明 .unnumbered}
+
+首先,如果 $\liminf_{n\rightarrow\infty}E\left(X_n\right)=+\infty$, 则不等式显然成立.以下设 $\liminf_{n\rightarrow\infty}E\left(X_n\right)$ 有限. 令$Y_{n}=\inf_{k\geq n}\left(X_{k}-\underline{Y}\right),  n \geq 1$, 则 $\left\{Y_{n}\right\}$ 为非负随机变量的上升序列,且以 $\liminf_{n\rightarrow\infty}\left(X_n-\underline{Y}\right)$ 为极限. 由单调收敛定理可得: $$E\left[\liminf_{\rightarrow\infty}\left(X_n-\underline{Y}\right)\right]=\lim_{n\rightarrow\infty} E\left[\inf_{k\geq n}\left(X_{k}-\underline{Y}\right)\right] \leq \liminf_{n\rightarrow\infty}E\left(X_n-\underline{Y}\right) .$$ 于是,消去有限的 $E(\underline{Y})$ 可证得结论. 最后,对 $\left\{-X_n\right\}$ 用下确界的结论可证得上确界的结论.
+
+#### 期望的极限性质:控制收敛定理 {#期望的极限性质控制收敛定理 .unnumbered}
+
+::: {#thm-ch3-012}
+(控制收敛定理) 设 $\{X_n\}$ 是一随机变量序列.如果存在可积随机变量 $Y$ 使得 $|X_n|\leq Y$, 且 $\lim_{n\rightarrow\infty} X_n (\omega)=X (\omega)$, 则随机变量 $X (\omega)$ 可积,且有
+
+$$
+\begin{aligned}
+\int_{\Omega}\lim_{n\rightarrow\infty}X_n(\omega)P(d\omega)&=& \lim_{n\rightarrow\infty}\int_\Omega X_n(\omega)P(d\omega),\\
+                \quad{\rm i.e.} \quad    E(X)=E(\lim_{n\rightarrow\infty}X_n)&=&\lim_{n\rightarrow\infty}E(X_n).
+\end{aligned}
+$$
+
+
+:::
+
+#### 控制收敛定理的证明 {#控制收敛定理的证明 .unnumbered}
+
+首先,$\left|X_{n}\right| \leq Y$ 蕴含 $|X| \leq Y$, 故 $X$ 可积. 接着,取 $\underline{Y}=-Y$ 与 $\overline{Y}=Y$, 用Fatou引理便得到 $$E(X) \leq \liminf_{n\rightarrow\infty} E\left(X_{n}\right) \leq \limsup_{n\rightarrow\infty} E\left(X_{n}\right) \leq E(X)$$ 故 $\lim _{n} E\left(X_{n}\right)$ 存在且等于 $E(X)$, 定理至此得证.
+
+### 方差的定义与性质
+
+#### 平方可积随机变量集$L^2$ {#平方可积随机变量集l2 .unnumbered}
+
+::: {#def-ch3-007}
+设 $(\Omega, \mathcal{F}, P)$ 是一个概率空间, 称随机变量 $X$ 平方可积, 如果 $$E\left(X^{2}\right)<\infty.$$
+:::
+
+::: {#rem-ch3-001}
+首先,$(\Omega, \mathcal{F}, P)$ 上的所有平方可积随机变量构成的集合记为 $L^{2}(\Omega, \mathcal{F}, P)$ 或简记为 $L^{2}$. 接着,类似的, 对 $p \geq 1$, 也可以定义 $L^{p}$ 空间, 即所有满足 $E(|X|^p) < \infty$ 的随机变量组成的集合. 若 $X\in L^2$, 则由 $E|X|<E\left(1+X^{2}\right)<\infty$ 知 $X$ 可积.
+:::
+
+#### 柯西 - 施瓦兹 (Cauchy-Schwarz) 不等式 {#柯西---施瓦兹-cauchy-schwarz-不等式 .unnumbered}
+
+::: {#thm-ch3-013}
+对任意的随机变量 $X$ 与 $Y$ 都有
+
+$$
+\begin{aligned}
+[E(XY)]^2\le E(X^2)E(Y^2)
+\end{aligned}
+$$
+
+ 等式成立当且仅当存在常数 $t_0$ 使得
+
+$$
+\begin{aligned}
+P(Y=t_0X)=1
+\end{aligned}
+$$
+
+
+:::
+
+#### Cauchy-Schwarz 不等式的证明:$[E (XY)]^2\le E (X^2) E (Y^2)$
+
+**证明.** 对任意的实数 $t$, 定义
+
+$$
+\begin{aligned}
+u(t):=E(tX-Y)^2=t^2E(X^2)-2tE(XY)+E(Y^2).
+\end{aligned}
+$$
+
+ 显然,对一切的 $t\in R$, $u (t)\ge 0$, 故方程 $u (t)=0$ 或者没有实根或者有重根,从而
+
+$$
+\begin{aligned}
+\Delta=[2E(XY)]^2-4E(X^2)E(Y^2)\le 0
+\end{aligned}
+$$
+
+ 即
+
+$$
+\begin{aligned}
+[E(XY)]^2\le E(X^2)E(Y^2)
+\end{aligned}
+$$
+
+ 上述不等式等号成立,当且仅当 $\Delta=0$ 即 $u (t)=0$ 存在一个重根 $t_0$, 这时
+
+$$
+\begin{aligned}
+u(t_0)=E(t_0X-Y)^2=0
+\end{aligned}
+$$
+
+ 从而由可知
+
+$$
+\begin{aligned}
+P(t_0X-Y=0)=1 \Leftrightarrow P(Y=t_0X)=1.
+\end{aligned}
+$$
+
+
+#### $L^2$是一个线性空间 {#l2是一个线性空间 .unnumbered}
+
+::: {#prp-ch3-001}
+平方可积随机变量集 $L^{2}$ 是一个线性空间.
+:::
+
+**证明.** 假设 $X, Y \in L^{2}$, 则对任何 $\alpha, \beta \in \mathbb{R}$, 由柯西-施瓦茨不等式有
+
+$$
+\begin{aligned}
+E\left[(\alpha X+\beta Y)^{2}\right]  &=\alpha^{2} E\left(X^{2}\right)+2 \alpha \beta E(X Y)+\beta^{2} E\left(Y^{2}\right) \\
+&\leqslant \alpha^{2} E\left(X^{2}\right)+2|\alpha \beta|\left[E\left(X^{2}\right) E\left(Y^{2}\right)\right]^{1 / 2}+\beta^{2} E\left(Y^{2}\right)\\
+&<\infty
+\end{aligned}
+$$
+
+ 所以 $L^{2}$ 是一个线性空间.
+
+#### 赫尔德(H textquotedblolder)不等式 {#赫尔德h-textquotedblolder不等式 .unnumbered}
+
+::: {#thm-ch3-014}
+设 $p, q>1$ 满足 $1 / p+1 / q=1$. 若 $X \in L^{p}$ 和 $Y \in L^{q}$,则 $$X Y \in L^{1}, \mbox{ 且 } E(|X Y|) \leqslant\left[E\left(|X|^{p}\right)\right]^{1 / p}\left[E\left(|Y|^{q}\right)\right]^{1 / q}.$$
+:::
+
+**证明.** 
+
+若 $E(|X Y|)=0$,欲证不等式显然成立. 若 $E(|X Y|)>0$,则必有 $E(|X|)>0$ 和 $E(|Y|)>0$. 另一方面,如若不然, 则 $P(X=0)=1$ 或 $P(Y=0)=1$,从而 $P(X Y=0)=1$,与 $E(|X Y|)>0$ 矛盾. 根据对数函数的凹性,对 $x, y>0$ 有: $\dfrac{1}{p} \ln x+\dfrac{1}{q} \ln y \leqslant \ln \left(\dfrac{x}{p}+\dfrac{y}{q}\right).$. 因此,对任何 $x, y \geqslant 0$ 有: $x^{1 / p} y^{1 / q} \leqslant \dfrac{x}{p}+\dfrac{y}{q}$. 最后,在上式中令 $x=|X|^{p} / E\left(|X|^{p}\right)$ 和 $y=|Y|^{q} / E\left(|Y|^{q}\right)$, 并对所得不等式取期望即得结论.
+
+#### 一个推论 {#一个推论 .unnumbered}
+
+::: {#prp-ch3-002}
+对任何随机变量 $X$ ,函数 $r \mapsto\left[\mathrm{E}\left(|X|^{r}\right)\right]^{1 / r}$ 在 $(0, \infty)$ 上不降.
+:::
+
+**证明.** 
+
+首先,取 $r>q>0$ 并注意 $$\dfrac{1}{\frac{r}{q}}+\dfrac{1}{\frac{r}{r-q}}=q / r+(r-q) / r=1.$$ 接着,对 $X=|X|^{q}$ 和 $Y=1$ 应用上面定理即知 $$E\left(|X|^{q}\right)=E(|X|^{q} Y) \leqslant\left[E\left((|X|^q)^{\frac{r}{q}}\right)\right]^{q / r}\left[E\left(1^{\frac{r}{r-q}}\right)\right]^{(r-q) / r}=\left[E\left(|X|^{r}\right)\right]^{q / r}.$$ 故 $$\left[E\left(|X|^{q}\right)\right]^{1 / q} \leqslant\left[E\left(|X|^{r}\right)\right]^{1 / r}.$$
+
+#### 随机变量方差的定义 {#随机变量方差的定义 .unnumbered}
+
+::: {#def-ch3-008}
+若 $X\in L^2$, 则称
+
+$$
+\begin{aligned}
+D(X):=E\big[(X-EX)^2\big]
+\end{aligned}
+$$
+
+ 为随机变量 $X$ 的方差, 有时我们也用 $Var (X)$ 来表示 $X$ 的方差. 称方差 $D (X)$ 的正平方根 $\sqrt{D (X)}$ 为随机变量 $X$ 的标准差,记为 $\sigma (X)$ 或 $\sigma_X$.
+:::
+
+::: {#thm-ch3-015}
+假设随机变量 $X$ 的方差存在,则
+
+$$
+\begin{aligned}
+D(X)&=&E[(X-EX)^2]= \int_{-\infty}^{+\infty}(x-EX)^2dF(x)\\
+                &=& \left\{
+                \begin{array}{l}
+                    \sum_{i}(x_i-EX)^2[F(x_i)-F(x_{i-1})]=\sum_{i}(x_i-EX)^2P(X=x_i)\\
+                    \\
+                    \int_{-\infty}^{+\infty}(x-EX)^2p(x)dx  \end{array}
+                \right.
+\end{aligned}
+$$
+
+
+:::
+
+#### 方差的性质 {#方差的性质 .unnumbered}
+
+1.  $D (X)=E[(X-EX)^2]\ge 0$, $D (X)=0$ 当且仅当 $P (X=EX)=1$;
+
+2.  常数的方差为 $0$ 即 $D (c)=0$, 其中 $c$ 为常数;
+
+3.  $D (X)=E (X^2)-(EX)^2$: 事实上,根据方差的定义及期望的线性性质,我们有
+
+$$
+\begin{aligned}
+D(X)&=& E[(X-EX)^2]= E[X^2-2X\cdot EX+(EX)^2]\\
+                    &=& E(X^2)-2EX\cdot EX+(EX)^2\\
+                    &=& E(X^2)-(EX)^2
+\end{aligned}
+$$
+
+
+#### 方差的性质 (续) {#方差的性质-续 .unnumbered}
+
+1.  若 $E (X^2)=0$, 则 $E (X)=0, D (X)=0$. 事实上
+
+$$
+\begin{aligned}
+0\le D(X)=E(X^2)-(EX)^2=-(EX)^2\le 0
+\end{aligned}
+$$
+
+
+2.  若 $a,b$ 为常数,则 $D (aX+b)=a^2D (X)$, 事实上,
+
+$$
+\begin{aligned}
+D(aX+b)&=&E(aX+b-E(aX+b))^2=E(aX-aEX)^2
+                    \\ &=& E[a^2(X-EX)^2]= a^2E[(X-EX)^2]=a^2D(X)
+\end{aligned}
+$$
+
+
+3.  $f (c):=E (X-c)^2$ 当且仅当 $c=E (X)$ 时取到最小值: 由
+
+$$
+\begin{aligned}
+f(c)=E(X-EX+EX-c)^2=E(X-EX)^2+[EX-c]^2
+\end{aligned}
+$$
+
+ 可得.
+
+#### 切比雪夫 (Chebyshev) 不等式 {#切比雪夫-chebyshev-不等式 .unnumbered}
+
+::: {#thm-ch3-016}
+设随机变量 $X$ 的期望与方差均存在,则对任意的 $\epsilon>0$ 有
+
+$$
+\begin{aligned}
+P(|X-EX|\ge \epsilon)\le \dfrac{D(X)}{\epsilon^2}
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 记 $a=EX$, 则
+
+$$
+\begin{aligned}
+P(|X-a|\ge \epsilon)&=&\int_{\{x:|x-a|\ge \epsilon\}}dF(x)\le \int_{\{x:|x-a|\ge \epsilon\}}\dfrac{(x-a)^2}{\epsilon^2}dF(x)\\
+            &\le& \dfrac{1}{\epsilon^2}\int_{-\infty}^{+\infty}(x-a)^2dF(x)= \dfrac{D(X)}{\epsilon^2}
+\end{aligned}
+$$
+
+
+#### $D(X)=0\Leftrightarrow P(X=EX)=1$ {#dx0leftrightarrow-pxex1 .unnumbered}
+
+::: {#thm-sec-ch3-var0}
+若随机变量 $X$ 的方差存在,则
+
+$$
+\begin{aligned}
+D(X)=0\Leftrightarrow P(X=EX)=1.
+\end{aligned}
+$$
+
+ 特别的,如果 $E (X^2)=0$, 则 $E (X)=0,D (X)=0$, 从而 $P (X=0)=1$.
+:::
+
+**证明.** 充分性显然,下面证必要性.设 $D (X)=0$, 此时 $EX$ 存在.注意到
+
+$$
+\begin{aligned}
+\{|X-EX|>0\}= \cup_{n=1}^\infty \{|X-EX|\ge \dfrac{1}{n}\}
+\end{aligned}
+$$
+
+ 故
+
+$$
+\begin{aligned}
+P(|X-EX|>0)&=& P(\cup_{n=1}^\infty \{|X-EX|\ge \dfrac{1}{n}\})\\
+            &\le & \sum_{n=1}^{\infty}P(|X-EX|\ge \dfrac{1}{n})\le  \sum_{n=1}^{\infty}\dfrac{D(X)}{(1/n)^2}=0
+\end{aligned}
+$$
+
+ 从而
+
+$$
+\begin{aligned}
+P(X=EX)=1-P(|X-EX|>0)=1-0=1
+\end{aligned}
+$$
+
+
+### 常见随机变量的期望与方差
+
+#### 二项分布 $B (n,p)$ 的期望:$P (X=k)=C_n^kp^k (1-p)^{n-k}$ {#二项分布-b-np-的期望p-xkc_nkpk-1-pn-k .unnumbered}
+
+
+$$
+\begin{aligned}
+E(X)&=& \sum_{k=0}^nkP(X=k)= \sum_{k=0}^n\dfrac{k\cdot n!}{k!(n-k)!}p^k(1-p)^{n-k}\\
+                &=& \sum_{k=1}^{n}\dfrac{n!}{(k-1)!(n-k)!}p^k(1-p)^{n-k}\\
+                &=& \sum_{k=1}^{n}\dfrac{n\cdot \textcolor{red}{(n-1)!}}{\textcolor{red}{(k-1)!(n-1-(k-1))!}}p \textcolor{red}{p^{k-1}(1-p)^{n-1-(k-1)}}\\
+                &=& np\sum_{k=1}^nC_{n-1}^{k-1}p^{k-1}(1-p)^{n-1-(k-1)}\\
+                &=& np
+\end{aligned}
+$$
+
+ 特别的,对于两点分布 ($B (1,p)$) 随机变量 $X$, 有 $E (X)=p$. 事实上对于两点分布其期望为: $E (X)=0\cdot P (X=0)+1\cdot P (X=1)=p$.
+
+#### 计算二项分布期望的另一方法 {#计算二项分布期望的另一方法 .unnumbered}
+
+前面在讲二项分布时,我们知道:
+
+$$
+\begin{aligned}
+X=X_1+X_2+\cdots+X_n
+\end{aligned}
+$$
+
+ 其中 $X_k, k=1,\cdots, n$ 为第 k 次伯努利试验成功的次数,显然服从两点分布.故
+
+$$
+\begin{aligned}
+EX_i&=&0\cdot P(X_i=0)+1\cdot P(X_i=1)=p\\
+            EX_i^2&=&0^2\cdot P(X_i=0)+1^2\cdot P(X_i=1)=p\\
+            D(X_i)&=&EX_i^2-(EX_i)^2=p-p^2=p(1-p)
+\end{aligned}
+$$
+
+
+再由期望的线性性知
+
+$$
+\begin{aligned}
+E(X)= E(X_1+X_2+\cdots+X_n)= E(X_1)+E(X_2)+\cdots +E(X_n)= np
+\end{aligned}
+$$
+
+
+#### 二项分布的方差 $D (X)$ {#二项分布的方差-d-x .unnumbered}
+
+
+$$
+\begin{aligned}
+E(X^2)&=& \sum_{k=0}^nk^2P(X=k)= \sum_{k=1}^nk(k-1+1)C_n^kp^k(1-p)^{n-k}\\
+            &=& \sum_{k=1}^{n}k(k-1)C_n^kp^k(1-p)^{n-k}+\sum_{k=1}^{n}kC_n^kp^k(1-p)^{n-k}\\
+            &=& \sum_{k=2}^{n}k(k-1)C_n^kp^k(1-p)^{n-k}+np\\
+            &=& n(n-1)p^2\sum_{k=2}^nC_{n-2}^{k-2}p^{k-2}(1-p)^{(n-2)-(k-2)}+np\\
+            &=& n(n-1)p^2+np
+\end{aligned}
+$$
+
+ 故
+
+$$
+\begin{aligned}
+D(X)=E(X^2)-(EX)^2=n(n-1)p^2+np-(np)^2=np(1-p)
+\end{aligned}
+$$
+
+ 特别的,两点分布的方差为 $p (1-p)$.
+
+#### 泊松分布的期望与方差: $P (X=k)=\dfrac{\lambda^k}{k!} e^{-\lambda}$ {#泊松分布的期望与方差-p-xkdfraclambdakk-e-lambda .unnumbered}
+
+
+$$
+\begin{aligned}
+E(X)&=& \sum_{k=0}^\infty k P(X=k)=\sum_{k=0}^\infty k \dfrac{\lambda^k}{k!}e^{-\lambda}= \sum_{k=1}^\infty  \lambda\dfrac{\lambda^{k-1}}{(k-1)!}e^{-\lambda}= \lambda\\
+            E(X^2)&=& \sum_{k=0}^\infty k^2 P(X=k)=\sum_{k=1}^\infty k^2 \dfrac{\lambda^k}{k!}e^{-\lambda}= \sum_{k=1}^\infty[(k-1)+1]\dfrac{\lambda^{k}}{(k-1)!}e^{-\lambda}\\
+            &=& \lambda^2e^{-\lambda}\sum_{k=2}^\infty \dfrac{\lambda^{k-2}}{(k-2)!}+\lambda e^{-\lambda}\sum_{k=1}^\infty  \dfrac{\lambda^{k-1}}{(k-1)!}= \lambda^2+\lambda\\
+            D(X)&=& E(X^2)-(EX)^2=\lambda^2+\lambda-\lambda^2=\lambda
+\end{aligned}
+$$
+
+
+#### 几何分布的期望与方差:$P (X=k)=(1-p)^{k-1} p$ {#几何分布的期望与方差p-xk1-pk-1-p .unnumbered}
+
+
+$$
+\begin{aligned}
+E(X)&=& \sum_{k=1}^\infty k (1-p)^{k-1}p= p\sum_{k=1}^\infty \sum_{n=1}^k(1-p)^{k-1}= p\sum_{n=1}^\infty\sum_{k=n}^\infty (1-p)^{k-1}\\
+                &=& p\sum_{n=1}^\infty (1-p)^{n-1}\dfrac{1}{1-(1-p)}=\sum_{n=1}^\infty (1-p)^{n-1}=  \dfrac{1}{p}\\
+                E(X^2)&=& \sum_{k=1}^\infty k^2 (1-p)^{k-1}p= p\bigg[\sum_{k=1}^\infty k(k+1)(1-p)^{k-1}-\sum_{k=1}^\infty k(1-p)^{k-1}\bigg]\\
+                &=& 2p\sum_{k=1}^\infty\sum_{n=1}^kn (1-p)^{k-1}-p\sum_{k=1}^\infty k (1-p)^{k-1}\\
+                &=& 2p\sum_{n=1}^\infty n\sum_{k=n}^\infty (1-p)^{k-1}-\dfrac{1}{p}= 2p\sum_{n=1}^\infty n(1-p)^{n-1}/p-\dfrac{1}{p}\\
+                &=& \dfrac{2}{p^2}-\dfrac{1}{p}\\
+                D(X)&=& E(X^2)-(EX)^2= \dfrac{2}{p^2}-\dfrac{1}{p}-\dfrac{1}{p^2}= \dfrac{1-p}{p^2}
+\end{aligned}
+$$
+
+
+#### 负二项分布的期望与方差: $P (X=k)=C_{k-1}^{r-1} p^r (1-p)^{k-r}$ {#负二项分布的期望与方差-p-xkc_k-1r-1-pr-1-pk-r .unnumbered}
+
+
+$$
+\begin{aligned}
+E(X)&=& \sum_{k=r}^\infty k C_{k-1}^{r-1}p^r(1-p)^{k-r}= \sum_{k=r}^\infty\dfrac{r}{p} \dfrac{k\cdot (k-1)!}{r\cdot (r-1)!(k-r)!}p^{r+1}(1-p)^{k-r}\\
+                &=&\sum_{k=r}^\infty\dfrac{r}{p} C_{k+1-1}^{r+1-1}p^{r+1}(1-p)^{k-r}= \dfrac{r}{p}\sum_{l=r+1}^\infty C_{l-1}^{r+1-1}p^{r+1}(1-p)^{l-(r+1)}= \dfrac{r}{p}\\
+                E(X^2)&=& \sum_{k=r}^\infty k^2 C_{k-1}^{r-1}p^r(1-p)^{k-r}= \sum_{k=r}^\infty k(k+1-1) C_{k-1}^{r-1}p^r(1-p)^{k-r}\\
+                &=&\sum_{k=r}^\infty k(k+1) C_{k-1}^{r-1}p^r(1-p)^{k-r}-\sum_{k=r}^\infty k C_{k-1}^{r-1}p^r(1-p)^{k-r}\\
+                &=&\sum_{k=r}^\infty\dfrac{r(r+1)}{p^2} C_{k+2-1}^{r+2-1}p^{r+2}(1-p)^{(k+2)-(r+2)}-\dfrac{r}{p}\\
+                &=& \dfrac{r(r+1)}{p^2}-\dfrac{r}{p}\\
+                D(X)&=& E(X^2)-(EX)^2= \dfrac{r(r+1)}{p^2}-\dfrac{r}{p}-\big(\dfrac{r}{p}\big)^2= \dfrac{r(1-p)}{p^2}
+\end{aligned}
+$$
+
+
+#### 均匀分布的期望与方差:$X\sim U (a,b)$ {#均匀分布的期望与方差xsim-u-ab .unnumbered}
+
+若 $X\sim U (a,b)$, 即 $p (x)=\left\{\begin{array}{ll}
+                \dfrac{1}{b-a}, & x\in (a,b)\\
+                \\
+                0, & \mbox{其他}
+            \end{array}\right.$, 故
+
+$$
+\begin{aligned}
+E(X)&=& \int_{-\infty}^{+\infty}xp(x)dx= \int_a^bx\dfrac{1}{b-a}dx= \dfrac{a+b}{2}\\
+                E(X^2)&=& \int_{-\infty}^{+\infty}x^2p(x)dx= \int_a^bx^2\dfrac{1}{b-a}dx= \dfrac{a^2+ab+b^2}{3}\\
+                D(X)&=& E(X^2)-(EX)^2= \dfrac{a^2+ab+b^2}{3}-\dfrac{(a+b)^2}{4}= \dfrac{(b-a)^2}{12}
+\end{aligned}
+$$
+
+
+#### 标准正态分布的期望与方差:$X\sim N (0,1)$ {#标准正态分布的期望与方差xsim-n-01 .unnumbered}
+
+若 $X\sim N (0,1)$ 即 $p (x)=\dfrac{1}{\sqrt{2\pi}} e^{-\dfrac{x^2}{2}}$ 则
+
+$$
+\begin{aligned}
+E(X)&=& \int_{-\infty}^{+\infty}xp(x)dx= \int_{-\infty}^{+\infty}x\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}dx= 0\\
+                D(X)&=& E[(X-EX)^2]= E(X^2)= \int_{-\infty}^{+\infty}x^2p(x)dx\\
+                &=& \int_{-\infty}^{+\infty}x^2\dfrac{1}{\sqrt{2\pi}}e^{-\dfrac{x^2}{2}}dx= \dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}xd(-e^{-\frac{x^2}{2}})\\
+                &=&\dfrac{1}{\sqrt{2\pi}}\left(-xe^{-\frac{x^2}{2}}\bigg|_{-\infty}^{+\infty}+\int_{-\infty}^{+\infty}e^{-\frac{x^2}{2}}dx\right)\\
+                &=& 1
+\end{aligned}
+$$
+
+
+#### 正态分布的期望与方差:$X\sim N (\mu,\sigma^2)$ {#正态分布的期望与方差xsim-n-musigma2 .unnumbered}
+
+若 $X\sim N (\mu,\sigma^2)$, 则易知 $\dfrac{X-\mu}{\sigma}\sim N (0,1)$, 故
+
+$$
+\begin{aligned}
+E(X)&=& E(\sigma \cdot \dfrac{X-\mu}{\sigma}+\mu )= \sigma E(\dfrac{X-\mu}{\sigma})+\mu= \mu\\
+                D(X)&=& D(\sigma \cdot \dfrac{X-\mu}{\sigma}+\mu )= \sigma^2 D(\dfrac{X-\mu}{\sigma})= \sigma^2
+\end{aligned}
+$$
+
+
+#### Gamma 分布的期望 {#gamma-分布的期望 .unnumbered}
+
+若 $X\sim \Gamma (\alpha,\lambda)$ 即 $p (x)=\left\{\begin{array}{ll}
+                \dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}, & x\ge 0\\
+                \\
+                0, &x<0
+            \end{array}\right.$, 故
+
+$$
+\begin{aligned}
+E(X)&=& \int_{-\infty}^{+\infty}xp(x)dx= \int_0^{+\infty}x\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}dx\\
+                    &=& \int_0^{+\infty}\dfrac{\Gamma(\alpha+1)}{\lambda\Gamma(\alpha)}\dfrac{\lambda^{\alpha+1}}{\Gamma(\alpha+1)}x^{\alpha+1-1}e^{-\lambda x}dx= \dfrac{\Gamma(\alpha+1)}{\lambda\Gamma(\alpha)}=\dfrac{\alpha}{\lambda};\\
+                    E(X^2)&=& \int_{-\infty}^{+\infty}x^2p(x)dx= \int_0^{+\infty}x^2\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}dx\\
+                    &=& \int_0^{+\infty}\dfrac{\Gamma(\alpha+2)}{\lambda^2\Gamma(\alpha)}\dfrac{\lambda^{\alpha+2}}{\Gamma(\alpha+2)}x^{\alpha+2-1}e^{-\lambda x}dx= \dfrac{\Gamma(\alpha+2)}{\lambda^2\Gamma(\alpha)}= \dfrac{\alpha(\alpha+1)}{\lambda^2}\\
+                    D(X)&=& E(X^2)-(EX)^2= \dfrac{\alpha(\alpha+1)}{\lambda^2}-\big(\dfrac{\alpha}{\lambda}\big)^2= \dfrac{\alpha}{\lambda^2}
+\end{aligned}
+$$
+
+
+#### 指数分布与 $\chi^2$ 分布的期望与方差 {#指数分布与-chi2-分布的期望与方差 .unnumbered}
+
+若 $X\sim \Gamma (1,\lambda)$ 分布即 $X$ 服从指数分布,此时 $\alpha=1$
+
+$$
+\begin{aligned}
+E(X)&=& \dfrac{\alpha}{\lambda}= \dfrac{1}{\lambda}\\
+                E(X^2)&=& \dfrac{\alpha(\alpha+1)}{\lambda^2}= \dfrac{2}{\lambda^2}\\
+                D(X)&=& \dfrac{\alpha}{\lambda^2}= \dfrac{1}{\lambda^2}
+\end{aligned}
+$$
+
+ 若 $X\sim \Gamma (\frac{n}{2},\frac{1}{2})$ 即 $X$ 服从 $\chi^2 (n)$ 分布,此时 $\alpha=n/2, \lambda=1/2$
+
+$$
+\begin{aligned}
+E(X)&=& \dfrac{\alpha}{\lambda}= n\\
+                E(X^2)&=& \dfrac{\alpha(\alpha+1)}{\lambda^2}= n(n+2)\\
+                D(X)&=& \dfrac{\alpha}{\lambda^2}= 2n
+\end{aligned}
+$$
+
+
+## 协方差与相关系数 {#sec-ch3-lecture-18}
+
+::: {.callout-note appearance="simple" icon="false"}
+## 本节导读
+
+协方差刻画两个随机变量共同偏离各自均值的方向,相关系数通过标准化消除量纲.零相关通常弱于独立,相关也不等于因果.本节同时讨论协方差矩阵及其半正定性,为多维统计分析建立语言.
+:::
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+## 理论主线
+
+协方差 $\operatorname{Cov}(X,Y)$ 衡量中心化变量乘积的平均符号与大小,只有在相应二阶矩存在时才定义良好.相关系数进一步除以两个标准差,因而只在二者方差均为正时有定义.其绝对值不超过 $1$,等号刻画几乎处处的线性关系.
+
+独立性蕴含可积函数的乘积期望分解,因而在二阶矩存在时推出零协方差;反向一般不成立.协方差和相关系数只描述线性依赖,也不表达因果方向.多维情形下,协方差矩阵必为对称半正定矩阵,这一性质可由任意线性组合的方差非负直接得到.
+:::
+
+
+### 协方差
+
+#### 协方差 {#协方差-1 .unnumbered}
+
+::: {#def-ch3-009}
+对于随机向量 $X=(X_1,\cdots,X_n)$, 类似于随机向量期望的定义,我们定义随机向量 $X$ 的方差为 $D (X):=(D (X_1),D (X_2),\cdots, D (X_n))$.
+:::
+
+::: {#def-ch3-010}
+设随机向量 $(X_1,\cdots,X_n)$ 的每个分量 $X_i$ 的方差均存在,称
+
+$$
+\begin{aligned}
+cov(X_i,X_j):=E[(X_i-EX_i)(X_j-EX_j)], i,j=1,2,\cdots,n
+\end{aligned}
+$$
+
+ 为 $X_i$ 与 $X_j$ 的协方差. 而将协方差构成的 $n\times n$ 方阵 $$B=(b_{ij}),\quad b_{ij}=cov (X_i,X_j)$$ 称为随机向量的协方差阵.一般来说,
+
+若 $cov (X_i,X_j)>0$ 时,称 $X_i$ 与 $X_j$ 正相关; 若 $cov (X_i,X_j)<0$ 时,称 $X_i$ 与 $X_j$ 负相关; 若 $cov (X_i,X_j)=0$ 时,称 $X_i$ 与 $X_j$ 不相关或零相关.
+:::
+
+#### 协方差的性质:$cov (X_i,X_j)=E[(X_i-EX_i)(X_j-EX_j)]$ {#协方差的性质cov-x_ix_jex_i-ex_ix_j-ex_j .unnumbered}
+
+$cov (X_i,X_j)=E (X_iX_j)-E (X_i) E (X_j)$: 事实上
+
+$$
+\begin{aligned}
+cov(X_i,X_j)&=&E[(X_i-EX_i)(X_j-EX_j)]\\
+            &=& E\bigg[X_iX_j-X_iE(X_j)-X_jE(X_i)+E(X_i)E(X_j)\bigg]\\
+            &=& E(X_iX_j)-E(X_i)E(X_j)
+\end{aligned}
+$$
+
+ 若 $a$ 为常数,则 $cov (X_i,a)=0$; 此外,对任意常数 $a,b$, 有 $cov (aX_i,bX_j)=ab\cdot  cov (X_i,X_j)$; 相应地,$cov(X_i+X_j, X_k)=cov(X_i,X_k)+cov(X_j,X_k)$.
+
+#### 协方差与方差: $cov (X_i,X_j)=E[(X_i-EX_i)(X_j-EX_j)]$ {#协方差与方差-cov-x_ix_jex_i-ex_ix_j-ex_j .unnumbered}
+
+$cov(X_i,X_i)=E(X_i-EX_i)^2=D(X_i)$; 同时,$D (X_1+X_2+\cdots+X_n)=\sum_{i=1}^nD (X_i)+2\sum_{1\le i<j\le n} cov (X_i,X_j)$: 事实上
+
+$$
+\begin{aligned}
+D(\sum_{i=1}^nX_i)&=& E(\sum_{i=1}^nX_i-E\sum_{i=1}^nX_i)^2= E(\sum_{i=1}^n(X_i-EX_i))^2\\
+            &=& E\bigg[\sum_{i=1}^n(X_i-EX_i)^2+2\sum_{1\le i<j\le n}(X_i-EX_i)(X_j-EX_j)\bigg]\\
+            &=& \sum_{i=1}^nD(X_i)+2\sum_{1\le i<j\le n}cov(X_i,X_j)
+\end{aligned}
+$$
+
+ 此外,特别的,
+
+$$
+\begin{aligned}
+D(X_i+X_j)=D(X_i)+D(X_j)+2cov(X_i,X_j)
+\end{aligned}
+$$
+
+
+#### 协方差矩阵的性质:$cov (X_i,X_j)=E[(X_i-EX_i)(X_j-EX_j)]$ {#协方差矩阵的性质cov-x_ix_jex_i-ex_ix_j-ex_j .unnumbered}
+
+对称性: $cov (X_i,X_j)=cov (X_j,X_i)$, 由定义可直接推得,从而协方差阵 $B$ 是对称矩阵; 同时,协方差矩阵 $B$ 是非负定矩阵,事实上,对任意向量 $y=(y_1,y_2,\cdots,y_n)$,
+
+$$
+\begin{aligned}
+yBy'&=&\sum_{i,j}y_iy_jb_{ij}=\sum_{i,j}y_iy_jE[(X_i-EX_i)(X_j-EX_j)]\\
+            &=&E\sum_{i,j}y_i(X_i-EX_i)\cdot y_j(X_j-EX_j)\\
+            &=&E[\sum_{i}y_i(X_i-EX_i)]^2\ge 0
+\end{aligned}
+$$
+
+
+::: {#exm-ch3-002}
+设二维随机变量 $(X,Y)$ 的联合密度为
+
+$$
+\begin{aligned}
+p(x,y)=\left\{
+            \begin{array}{ll}
+                3x, & 0<y<x<1,\\
+                0, &\mbox{其他}
+            \end{array}
+            \right.
+\end{aligned}
+$$
+
+ 试求 $cov (X,Y)$.
+:::
+
+**解.** 由 $cov (X,Y)=E (XY)-EXEY$ 知,我们只需计算 $E (XY), EX, EY$ 的值.
+
+$$
+\begin{aligned}
+EX&=& \int_{-\infty}^{+\infty}xp_X(x)dx= \int_{-\infty}^{+\infty}x\int_{-\infty}^{+\infty}p(x,y)dydx\\
+        &=& \int_0^1x\int_0^x3xdydx= \int_0^13x^3dx= 3/4\\
+        EY&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}yp(x,y)dydx= \int_0^1\int_0^x3xydydx= 3/8\\
+        E(XY)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xyp(x,y)dydx= \int_0^1\int_0^xxy\cdot 3xdydx= 3/10\\
+        cov(X,Y)&=& \dfrac{3}{10}-\dfrac{3}{4}\cdot \dfrac{3}{8}=\dfrac{3}{160}>0
+\end{aligned}
+$$
+
+
+::: {#exm-ch3-003}
+设二维随机变量 $(X,Y)$ 的联合密度为
+
+$$
+\begin{aligned}
+p(x,y)=\left\{
+            \begin{array}{ll}
+                \dfrac{x+y}{3}, & 0<x<1, 0<y<2,\\
+                0, &\mbox{其他}
+            \end{array}
+            \right.
+\end{aligned}
+$$
+
+ 试求 $D (2X-3Y+8)$.
+:::
+
+**解.** 注意到
+
+$$
+\begin{aligned}
+D(2X-3Y+8)&=& D(2X-3Y)=  D(2X)+D(-3Y)+2cov(2X,-3Y)\\
+        &=& 2^2D(X)+(-3)^2D(Y)+2\cdot2\cdot (-3)cov(X,Y)\\
+        &=& 4D(X)+9D(Y)-12cov(X,Y)
+\end{aligned}
+$$
+
+ 所以我们需要计算:$E (X),E (X^2), E (Y), E (Y^2), E (XY)$.
+
+
+$$
+\begin{aligned}
+E(X)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xp(x,y)dydx= \int_0^1\int_0^2x\dfrac{x+y}{3}dydx= 5/9\\
+        E(X^2)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}x^2p(x,y)dydx= \int_0^1\int_0^2x^2\dfrac{x+y}{3}dydx= 7/18\\
+\end{aligned}
+$$
+
+
+类似的可计算
+
+$$
+\begin{aligned}
+E(Y)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}yp(x,y)dydx= \int_0^1\int_0^2y\dfrac{x+y}{3}dydx= 11/9\\
+        E(Y^2)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}y^2p(x,y)dydx= \int_0^1\int_0^2y^2\dfrac{x+y}{3}dydx= 16/9\\
+        E(XY)&=& \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xyp(x,y)dydx= \int_0^1\int_0^2xy\dfrac{x+y}{3}dydx= 2/3
+\end{aligned}
+$$
+
+ 从而
+
+$$
+\begin{aligned}
+D(X)&=& 7/18-(5/9)^2=13/162, \\
+        D(Y)&=& 16/9-(11/9)^2=23/81, \\
+        cov(X,Y)&=& 2/3-5/9\cdot 11/9=-1/81\\
+        D(2X-3Y+8)&=& 4\cdot 13/162+9\cdot 23/81-12\cdot (-1/81)=245/81
+\end{aligned}
+$$
+
+
+#### 二维正态分布的协方差矩阵 {#二维正态分布的协方差矩阵 .unnumbered}
+
+若 $(X,Y)\sim N (\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$ 即其联合分布密度为
+
+$$
+\begin{aligned}
+p(x,y)&=&\dfrac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}\times\\
+        &&\exp\bigg\{-\dfrac{1}{2(1-\rho^2)}\bigg[\dfrac{(x-\mu_1)^2}{\sigma_1^2}-\dfrac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\dfrac{(y-\mu_2)^2}{\sigma_2^2}\bigg]\bigg\}
+\end{aligned}
+$$
+
+ 则由上一章的知识知: $X\sim N (\mu_1,\sigma_1^2), Y\sim N (\mu_2,\sigma_2^2)$, 故
+
+$$
+\begin{aligned}
+&& E(X)=\mu_1, \quad E(Y)=\mu_2\\
+        &&b_{11}=cov(X,X)=D(X)=\sigma_1^2,\\
+        && b_{22}=cov(Y,Y)=D(Y)=\sigma_2^2
+\end{aligned}
+$$
+
+
+$$
+\begin{aligned}
+&& b_{12}=cov(X,Y)=E[(X-EX)(Y-EY)]=\iint (x-\mu_1)(y-\mu_2)p(x,y)dxdy\\
+            && \xlongequal[v=(y-\mu_2)/\sigma_2]{u=(x-\mu_1)/\sigma_1} \iint \dfrac{\sigma_1\sigma_2uv}{2\pi\sqrt{1-\rho^2}}\exp\{-\dfrac{1}{2(1-\rho^2)}(u^2-2\rho uv+v^2)\}dudv\\
+            &&= \iint \dfrac{\sigma_1\sigma_2uv}{2\pi\sqrt{1-\rho^2}}\exp\{-\dfrac{1}{2(1-\rho^2)}\big[(u-\rho v)^2+(1-\rho^2)v^2\big]\}dudv\\
+            && \xlongequal[t=v]{s=(u-\rho v)/\sqrt{1-\rho^2}} \dfrac{\sigma_1\sigma_2}{2\pi}\iint(\sqrt{1-\rho^2}st+\rho t^2) \exp\{-\dfrac{s^2+t^2}{2}\}dsdt\\
+            && =\dfrac{\sigma_1\sigma_2}{2\pi}\bigg(\sqrt{1-\rho^2}\int_{-\infty}^{+\infty}se^{-\frac{s^2}{2}}ds\int_{-\infty}^{+\infty}te^{-\frac{t^2}{2}}dt+\rho\int_{-\infty}^{+\infty}e^{-\frac{s^2}{2}}ds\int_{-\infty}^{+\infty}t^2e^{-\frac{t^2}{2}}dt\bigg)\\
+            && =\dfrac{\sigma_1\sigma_2}{2\pi}(\sqrt{1-\rho^2}\cdot 0+ \rho  \sqrt{2\pi}\cdot  \sqrt{2\pi})= \rho \sigma_1\sigma_2
+\end{aligned}
+$$
+
+ 故二维正态分布的协方差矩阵为
+
+$$
+\begin{aligned}
+B=\left(
+        \begin{array}{cc}
+            \sigma_1^2, &\rho\sigma_1\sigma_2\\
+            \rho\sigma_1\sigma_2,&\sigma_2^2
+        \end{array}
+        \right)
+\end{aligned}
+$$
+
+
+### 相关系数
+
+#### 相关系数 {#相关系数-1 .unnumbered}
+
+::: {#def-ch3-011}
+设 $X, Y$ 为方差存在的两个随机变量,则称
+
+$$
+\begin{aligned}
+r:=\dfrac{cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}
+\end{aligned}
+$$
+
+ 为 $X$ 与 $Y$ 的相关系数.
+:::
+
+#### 相关系数的性质: $r:=\dfrac{cov (X,Y)}{\sqrt{D (X)}\sqrt{D (Y)}}$ {#相关系数的性质-rdfraccov-xysqrtd-xsqrtd-y .unnumbered}
+
+$r=0\Leftrightarrow cov (X,Y)=0$ 即 $X,Y$ 不相关; 若记 $X^*:=\dfrac{X-EX}{\sqrt{D (X)}}, \quad Y^*:=\dfrac{Y-EY}{\sqrt{D (Y)}}$, 则 $EX^*=EY^*=0$, 从而
+
+$$
+\begin{aligned}
+\textcolor{red}{r}&:=& \dfrac{cov(X,Y)}{\sqrt{D(X)}\sqrt{D(Y)}}= \dfrac{E[(X-EX)(Y-EY)]}{\sqrt{D(X)}\sqrt{D(Y)}}\\
+            &=& E(X^*Y^*)= E[(X^*-EX^*)(Y^*-EY^*)]\\
+            &=& \textcolor{red}{cov(X^*,Y^*)}
+\end{aligned}
+$$
+
+ 此外,$|r|\le 1$, 且 其中,$r=1$ 当且仅当 $P (X^*=Y^*)=1$; $r=-1$ 当且仅当 $P (X^*=-Y^*)=1$.
+
+#### 相关系数绝对值小于等于 1 的证明 {#相关系数绝对值小于等于-1-的证明 .unnumbered}
+
+首先由 $X^*=\dfrac{X-EX}{\sqrt{D (X)}}, Y^*=\dfrac{Y-EY}{\sqrt{D (Y)}}$ 知:
+
+$$
+\begin{aligned}
+EX^*&=&EY^*=0\\
+            D(X^*)&=& D\bigg(\dfrac{X-EX}{\sqrt{D(X)}}\bigg)= \dfrac{1}{D(X)}D(X-EX)= \dfrac{1}{D(X)}D(X)=1\\
+            D(Y^*)&=& D\bigg(\dfrac{Y-EY}{\sqrt{D(Y)}}\bigg)= \dfrac{1}{D(Y)}D(Y-EY)= \dfrac{1}{D(Y)}D(Y)=1\\
+\end{aligned}
+$$
+
+ 其次,由 $r=cov (X^*,Y^*)$ 知
+
+$$
+\begin{aligned}
+|r|&=&|cov(X^*,Y^*)|= |E(X^*Y^*)-E(X^*)E(Y^*)|\le  \sqrt{E[(X^*)^2]E[(Y^*)^2]}\\
+            &=& \sqrt{D(X^*)D(Y^*)}=1;
+\end{aligned}
+$$
+
+ 最后,$|r|=1$ 当且仅当存在 $t_0$ 使得 $P (Y^*=t_0X^*)=1$, 而此时有
+
+$$
+\begin{aligned}
+r=E(X^*Y^*)=t_0E[(X^*)^2]=t_0
+\end{aligned}
+$$
+
+
+#### 随机变量不相关时期望与方差的性质 {#随机变量不相关时期望与方差的性质 .unnumbered}
+
+::: {#thm-ch3-018}
+对于随机变量 $X,Y$, 下面四个事实是等价的:
+
+1.  $X,Y$ 不相关;
+
+2.  $r=0$ 即相关系数为 $0$;
+
+3.  $E(XY)=E(X)E(Y)$;
+
+4.  $D(X+Y)=D(X)+D(Y)$.
+:::
+
+**证明.** (1) 与 (2) 等价是显然的,根据定义即可得. 由于
+
+$$
+\begin{aligned}
+cov(X,Y)=E(XY)-E(X)E(Y)
+\end{aligned}
+$$
+
+ 故 $cov (X,Y)=0$ 当且仅当 $E (XY)=E (X) E (Y)$, 即 (1) 和 (3) 等价. 另外,又由于
+
+$$
+\begin{aligned}
+D(X+Y)=D(X)+D(Y)+2cov(X,Y)
+\end{aligned}
+$$
+
+ 故 $cov (X,Y)=0$ 当且仅当 $D (X+Y)=D (X)+D (Y)$, 即 (1) 与 (4) 等价.
+
+#### 独立与不相关的联系:独立必定不相关 {#独立与不相关的联系独立必定不相关 .unnumbered}
+
+::: {#thm-ch3-019}
+若 $X,Y$ 独立,则 $X$ 与 $Y$ 不相关.
+:::
+
+**证明.** 我们仅对连续型随机变量给出证明.因为 $X,Y$ 独立,故其联合分布密度 $p (x,y)=p_X (x) p_Y (y)$, 从而
+
+$$
+\begin{aligned}
+E(XY)&=& \iint xyp(x,y)dxdy= \iint xyp_X(x)p_Y(y)dxdy\\
+        &=& \int xp_X(x)dx\int yp_Y(y)dy = E(X)E(Y)
+\end{aligned}
+$$
+
+ 从而 $X,Y$ 不相关.
+
+::: {#thm-ch3-020}
+若 $X,Y$ 独立,则
+
+$$
+\begin{aligned}
+E(XY)=E(X)E(Y),\quad
+            D(X+Y)=D(X)+D(Y)
+\end{aligned}
+$$
+
+ 更一般的,我们有若 $X_1,\cdots,X_n$ 为相互独立的随机变量,则.
+
+$$
+\begin{aligned}
+E(X_1\cdots X_n)&=&E(X_1)E(X_2)\cdots E(X_n);\\
+            D(\sum_{i=1}^nX_i)&=&\sum_{i=1}^nD(X_i)
+\end{aligned}
+$$
+
+
+:::
+
+#### 独立与不相关的联系:不相关未必独立 {#独立与不相关的联系不相关未必独立 .unnumbered}
+
+::: {#exm-ch3-004}
+设随机变量 $X\sim N (0,\sigma^2)$, 并令 $Y=X^2$, 显然 $X,Y$ 不独立,但是此时 $X,Y$ 不相关.事实上,此时
+
+$$
+\begin{aligned}
+cov(X,Y)=E(X\cdot X^2)-E(X)E(X^2)=0.
+\end{aligned}
+$$
+
+
+:::
+
+::: {#exm-ch3-005}
+设 $\theta$ 为 $[0,2\pi]$ 上的均匀分布,$a$ 为一固定常数,令
+
+$$
+\begin{aligned}
+X=\cos \theta, \quad Y=\cos (\theta+a).
+\end{aligned}
+$$
+
+ 则我们有
+
+$$
+\begin{aligned}
+E(X)&=&\int_0^{2\pi}\cos t \cdot \dfrac{1}{2\pi}dt=0, \quad  E(Y)=\int_0^{2\pi}\cos (t+a) \cdot \dfrac{1}{2\pi}dt=0\\
+            E(X^2)&=& \int_0^{2\pi}\cos^2 t \cdot \dfrac{1}{2\pi}dt=\dfrac{1}{2}, \quad E(Y^2)=\int_0^{2\pi}\cos^2 (t+a) \cdot \dfrac{1}{2\pi}dt=\dfrac{1}{2}\\
+            E(XY)&=& \int_0^{2\pi}\cos t \cos(t+a) \cdot \dfrac{1}{2\pi}dt=\dfrac{1}{2}\cos a
+\end{aligned}
+$$
+
+ 因此 $r=\cos a$. 故
+
+首先,$a=0$ 时,$r=1, X=Y$; 接着,$a=\pi$ 时,$r=-1, X=-Y$; 最后,$a=\dfrac{\pi}{2}\mbox{或}\dfrac{3\pi}{2}$ 时,$r=0$, $X,Y$ 不相关,但此时 $X^2+Y^2=1$, 因此不独立.
+:::
+
+#### 二维正态分布:不相关与独立等价 {#二维正态分布不相关与独立等价 .unnumbered}
+
+::: {#thm-ch3-021}
+对于二维正态分布 $(X,Y)$,$X$ 与 $Y$ 不相关与 $X,Y$ 独立等价.
+:::
+
+**证明.** 因为独立必然不相关,故我们仅需证在不相关条件下,$X,Y$ 独立即可. 对于二维正态分布,我们有
+
+$$
+\begin{aligned}
+cov(X,Y)=\rho\sigma_1\sigma_2
+\end{aligned}
+$$
+
+ 从而 $X,Y$ 不相关,当且仅当 $\rho=0$, 此时
+
+$$
+\begin{aligned}
+p(x,y)&=&\dfrac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}\times\\
+        &&\exp\bigg\{-\dfrac{1}{2(1-\rho^2)}\bigg[\dfrac{(x-\mu_1)^2}{\sigma_1^2}-\dfrac{2\rho(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\dfrac{(y-\mu_2)^2}{\sigma_2^2}\bigg]\bigg\}\\
+        &=&\dfrac{1}{\sqrt{2\pi}\sigma_1}\exp\{-\dfrac{(x-\mu_1)^2}{2\sigma_1^2}\}\cdot \dfrac{1}{\sqrt{2\pi}\sigma_2}\exp\{-\dfrac{(y-\mu_2)^2}{2\sigma_2^2}\}\\
+        &=&p_X(x)P_Y(y)
+\end{aligned}
+$$
+
+ 故 $X,Y$ 独立,定理得证.
+
+## 条件数学期望与母函数 {#sec-ch3-lecture-19}
+
+::: {.callout-note appearance="simple" icon="false"}
+## 本节导读
+
+条件数学期望是在给定信息下对随机变量作最佳均方预测,它把条件化方法从事件推广到一般随机变量,并满足塔式性质.母函数把离散分布的概率质量序列编码为幂级数,可用于求矩,处理独立和与识别分布.
+:::
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+## 理论主线
+
+条件数学期望 $E(X\mid\mathcal G)$ 是相对于信息 $\sigma$-代数 $\mathcal G$ 可测的随机变量,并通过对每个 $G\in\mathcal G$ 满足积分一致性来刻画.它一般不是一个常数,而是在已知 $\mathcal G$ 的条件下对 $X$ 的最优均方预测;其版本只在几乎处处意义下唯一.
+
+塔式性质体现信息逐层减少时的相容性,条件方差公式则把总变异分解为组内变异与组间变异.概率母函数适用于非负整数值随机变量,在收敛域内可通过求导提取阶乘矩;独立随机变量之和对应母函数之积,但使用前仍需核对独立性和函数存在域.
+:::
+
+
+### 条件数学期望
+
+#### 条件数学期望 {#条件数学期望-1 .unnumbered}
+
+首先,在第二章中对于任何有正概率的事件 $B$, 我们引入了条件概率 $P (\cdot|B)$ 及条件分布 $F (x|B):=P (X\le x|B)$; 最后,类似于概率与分布函数,对于上述的条件概率及条件分布,我们也可以定义相应的条件数学期望:
+
+::: {#def-ch3-012}
+如果下述积分绝对收敛,则称
+
+$$
+\begin{aligned}
+E(X|B):=\int_{-\infty}^{+\infty}xdF(x|B)=\int_{\Omega}X(\omega)dP(\omega|B)
+\end{aligned}
+$$
+
+ 为已知事件 $B$ 发生后 $X$ 的条件数学期望.
+:::
+
+#### 条件数学期望的两类特殊情形:离散型与连续型 {#条件数学期望的两类特殊情形离散型与连续型 .unnumbered}
+
+::: {#thm-ch3-022}
+若 $X,Y$ 均为离散型随机变量,并且条件数学期望定义中的 $B$ 选为 $B:=\{Y=y_j\}$ 的形式,则
+
+$$
+\begin{aligned}
+E(X|Y=y_j)=\int_{-\infty}^{+\infty}xdF(x|Y=y_j)=\sum_{i}x_iP(X=x_i|Y=y_j)
+\end{aligned}
+$$
+
+
+:::
+
+::: {#thm-ch3-023}
+若 $X,Y$ 均为连续型随机变量,并且条件数学期望定义中的 $B$ 选为 $B:=\{Y=y\}$ 的形式,则
+
+$$
+\begin{aligned}
+E(X|Y=y)=\int_{-\infty}^{+\infty}xdF(x|Y=y)=\int_{-\infty}^{+\infty}xp(x|y)dx
+\end{aligned}
+$$
+
+
+:::
+
+#### 随机变量函数的条件数学期望及条件方差 {#随机变量函数的条件数学期望及条件方差 .unnumbered}
+
+::: {#thm-ch3-024}
+设 $g (x)$ 为 Borel 函数,则 $g (X)$ 关于 $Y=y$ 的条件期望为
+
+$$
+\begin{aligned}
+E(g(X)|Y=y)=\int_{-\infty}^{+\infty}g(x)dF(x|y)
+\end{aligned}
+$$
+
+
+:::
+
+::: {#def-ch3-013}
+假设 $X$ 的方差存在,则称
+
+$$
+\begin{aligned}
+D(X|Y=y)&:=&E[(X-E(X|Y=y))^2|Y=y]\\
+            &=&\int_{-\infty}^{+\infty}(x-E(X|Y=y))^2dF(x|y)
+\end{aligned}
+$$
+
+ 为给定 $Y=y$ 后 $X$ 的条件方差.
+:::
+
+#### 条件数学期望与数学期望之间的联系 {#条件数学期望与数学期望之间的联系 .unnumbered}
+
+::: {#thm-ch3-025}
+设 $X$ 为随机变量,$B$ 为任意事件,且 $P(B)>0$, 则
+
+$$
+\begin{aligned}
+E(X|B)&=&\dfrac{1}{P(B)}E(X1_B)\\
+            &=&\dfrac{1}{P(B)}\int_{\Omega}X(\omega)1_{B}(\omega)dP(\omega)
+            =\dfrac{1}{P(B)}\int_{B}X(\omega)dP(\omega)
+\end{aligned}
+$$
+
+
+:::
+
+#### 条件数学期望与数学期望之间的联系 {#条件数学期望与数学期望之间的联系-1 .unnumbered}
+
+若 $X=1_A$, 则 $E(X|B)=P(A|B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{E(1_A1_B)}{P(B)}=\dfrac{E(X1_B)}{P(B)}$; 若 $X=\sum_{i=1}^na_i1_{A_i}$, 则
+
+$$
+\begin{aligned}
+E(X|B)&=&\sum_{i=1}^na_iP(A_i|B)=\sum_{i=1}^na_i\dfrac{P(A_i\cap B)}{P(B)}\\
+&=&\dfrac{1}{P(B)}\sum_{i=1}^na_iE(1_{A_i}1_B)=\dfrac{1}{P(B)}E(X1_B);
+\end{aligned}
+$$
+
+ 此外,对任意非负随机变量 $X$, 存在简单随机变量$X_n\uparrow X$, 从而
+
+$$
+\begin{aligned}
+E(X|B)&=&\lim_{n\to\infty}E(X_n|B)=\lim_{n\to\infty}\dfrac{1}{P(B)}E(X_n1_B)\\
+&=&\dfrac{1}{P(B)}\lim_{n\to\infty}E(X_n1_B)=\dfrac{1}{P(B)}E(X1_B);
+\end{aligned}
+$$
+
+ 相应地,对任意随机变量 $X=X^+-X^-$, 则
+
+$$
+\begin{aligned}
+E(X|B)=\frac{1}{P(B)}E(X^+1_B)-\frac{1}{P(B)}E(X^-1_B)=\frac{1}{P(B)}E(X1_B).
+\end{aligned}
+$$
+
+
+#### 如何理解条件数学期望 {#如何理解条件数学期望 .unnumbered}
+
+如何理解条件概率 $P(A|B)=\frac{P(AB)}{P(B)}$: 对随机变量 $1_A$ 的最优常数估计为: $E(1_A)=P(A)$; 已知 $B$ 发生的条件下对 $1_A$ 的最优常数估计为: $E(1_A|B)=P(A|B)$; 条件概率 $P(A|B)$ 也可看作在已知事件 $B$ 发生的条件下对事件 $A$ 发生概率 $P(A)$ 的一个估计.
+
+同时,如何理解条件数学期望 $E(X|B)$: 对随机变量 $X$ 的最优常数估计为: $E(X)$; 已知事件 $B$ 发生的条件下对 $X$ 的最优常数估计为: $E(X|B)$; 条件数学期望 $E(X|B)$ 也可看作在已知事件 $B$ 发生的条件下对 $X$ 的数学期望 $E(X)$ 的一个估计. 若已知 $\mathcal{G}=\{\emptyset, B, \bar{B}, \Omega\}$, 如何定义 $E(X|\mathcal{G})$, 即寻找已知 $\sigma$-代数 $\mathcal{G}$ 下 $X$ 的最优预测或估计? 其中,若 $\omega\in B$, 则 $X$ 的最优预测或估计 $E(X|\mathcal{G})(\omega)=E(X|B)$; 若 $\omega\in \bar{B}$, 则 $X$ 的最优预测或估计 $E(X|\mathcal{G})(\omega)=E(X|\bar{B})$; 因此 $E(X|\mathcal{G})=E(X|B)1_B(\omega)+E(X|\bar{B})1_{\bar{B}}(\omega);$; 上述定义的 $E(X|\mathcal{G})$ 关于 $\mathcal{G}$ 可测,且满足
+
+$$
+\begin{aligned}
+\int_G E(X|\mathcal{G})dP=\int_G XdP, \quad \forall G\in \mathcal{G};
+\end{aligned}
+$$
+
+
+#### 随机变量关于$\sigma$-代数 $\sigma(\{B_i, i\in I\})$ 的条件数学期望 {#随机变量关于sigma-代数-sigmab_i-iin-i-的条件数学期望 .unnumbered}
+
+::: {#def-ch3-014}
+设 $\{B_i, i\in I\}\subset\mathcal{F}$ 为 $\Omega$ 的一个划分且$P(B_i)>0$. 令 $\mathcal{G}=\sigma(\{B_i, i\in I\})$ 为由该划分生成的 $\sigma$-代数,则称随机变量
+
+$$
+\begin{aligned}
+Z=\sum_{i\in I}E(X|B_i)1_{B_i}(\omega)
+\end{aligned}
+$$
+
+ 为随机变量 $X$ 关于 $\sigma$-代数 $\mathcal{G}$ 的条件数学期望, 并将其记为 $E(X|\mathcal{G})$.
+:::
+
+#### $E(X|\sigma(\{B_i, i\in I\})$ 的性质 {#exsigmab_i-iin-i-的性质 .unnumbered}
+
+::: {#thm-ch3-026}
+上述定义的 $E(X|\mathcal{G})$ 关于 $\mathcal{G}$ 可测,且满足
+
+$$
+\begin{aligned}
+\int_G E(X|\mathcal{G})dP=\int_G XdP, \quad \forall G\in \mathcal{G}.
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 显然,$E(X|\mathcal{G})$ 关于 $\mathcal{G}$ 可测. 若 $G\in \mathcal{G}=\sigma(\{B_i, i\in I\})$, 则必有 $$G=\cup_{i\in J} B_i, \quad J\subset I.$$ 因此,
+
+$$
+\begin{aligned}
+\int_{G}XdP&=&\int_{\cup_{i\in J} B_i}XdP=\sum_{i\in J}\int_{B_i}XdP=\sum_{i\in J}\int_{\Omega}X1_{B_i}dP\\
+    &=& \sum_{i\in J}E(X|B_i)P(B_i) = \sum_{i\in J}\int_{B_i}E(X|B_i)dP\\
+    &=&\sum_{i\in J}\int_{B_i}E(X|\mathcal{G})dP= \int_{\cup_{i\in J} B_i} E(X|\mathcal{G})dP\\
+     &=&\int_G E(X|\mathcal{G})dP, \quad \forall G\in \mathcal{G};
+\end{aligned}
+$$
+
+
+#### 随机变量关于任意$\sigma$-代数的条件数学期望 {#随机变量关于任意sigma-代数的条件数学期望 .unnumbered}
+
+::: {#def-ch3-015}
+设 $\mathcal{G}$ 为$\sigma$-代数且 $\mathcal{G}\subset\mathcal{F}$, 我们称随机变量 $Z$ 为可积随机变量 $X$ 关于 $\sigma$-代数 $\mathcal{G}$ 的条件数学期望, 如果
+
+首先,$Z$ 关于 $\mathcal{G}$ 可测; 最后,对任意 $G\in \mathcal{G}$ 有
+
+$$
+\begin{aligned}
+\int_G ZdP=\int_G XdP.
+\end{aligned}
+$$
+
+
+:::
+
+::: {#rem-ch3-002}
+首先,此处定义的 $Z$ 在几乎处处相等意义下是否唯一存在? 接着,我们常把上述定义的 $Z$ 记为 $E(X|\mathcal{G})$. 若取 $G=\Omega$, 则有 $EZ=\int_{\Omega}ZdP=\int_{\Omega}XdP=EX$, 也即 $$E[E(X|\mathcal{G})]=EX.$$
+:::
+
+#### 随机变量关于任意$\sigma$-代数的条件数学期望的性质 {#随机变量关于任意sigma-代数的条件数学期望的性质 .unnumbered}
+
+若 $\mathcal{G}=\{\emptyset, \Omega\}$, 则 $E(X|\mathcal{G})=EX$;
+
+若 $X$ 关于 $\mathcal{G}$ 可测, 则 $E(X|\mathcal{G})=X$; 若 $X$ 与 $\mathcal{G}$ 独立, 则 $E(X|\mathcal{G})=EX$; 若 $\mathcal{G}_1\subset \mathcal{G}_2\subset \mathcal{F}$, 则 $$E[E(X|\mathcal{G}_2)|\mathcal{G}_1]=E(X|\mathcal{G}_1);$$
+
+若 $X,Y$ 均为可积随机变量, 且 $a,b$ 为常数, 则 $$E(aX+bY|\mathcal{G})=aE(X|\mathcal{G})+bE(Y|\mathcal{G});$$ 若 $X\le Y$ 几乎处处成立, 则 $$E(X|\mathcal{G})\le E(Y|\mathcal{G}) \mbox{ 几乎处处成立};$$ 若 $Y$ 关于 $\mathcal{G}$ 可测, 则 $$E(XY|\mathcal{G})=Y E(X|\mathcal{G}).$$
+
+#### 条件数学期望的最优预测性 {#条件数学期望的最优预测性 .unnumbered}
+
+::: {#thm-ch3-027}
+设 $\mathcal{G}$ 为$\sigma$-代数且 $\mathcal{G}\subset\mathcal{F}$, 则对任意 $\mathcal{F}$可测的可积随机变量 $X$ 及 $\mathcal{G}$-可测随机变量 $Z$ 有
+
+$$
+\begin{aligned}
+E[(X-E(X|\mathcal{G}))^2]=\inf_{Z\in\mathcal{G}} E[(X-Z)^2].
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 对任意 $\mathcal{G}$-可测随机变量 $Z$, 有
+
+$$
+\begin{aligned}
+E[(X-Z)^2]&=&E[(X-E(X|\mathcal{G}))+ (E(X|\mathcal{G})-Z)]^2\\
+    &=&E[(X-E(X|\mathcal{G}))^2]+E[(E(X|\mathcal{G})-Z)^2]\\
+    &&+2E[(X-E(X|\mathcal{G}))(E(X|\mathcal{G})-Z)]
+\end{aligned}
+$$
+
+ 注意到
+
+$$
+\begin{aligned}
+E[(X-E(X|\mathcal{G}))(E(X|\mathcal{G})-Z)]&=&E\bigg[E\big((X-E(X|\mathcal{G}))(E(X|\mathcal{G})-Z)\big|\mathcal{G}\big)\bigg]\\
+    &=&E\bigg[(E(X|\mathcal{G})-Z)E\big(X-E(X|\mathcal{G})|\mathcal{G}\big)\bigg]=0
+\end{aligned}
+$$
+
+ 故 $E[(X-Z)^2]=E[(X-E(X|\mathcal{G}))^2]+E[(E(X|\mathcal{G})-Z)^2]\ge E[(X-E(X|\mathcal{G}))^2].$
+
+#### 条件数学期望的最优预测性 {#条件数学期望的最优预测性-1 .unnumbered}
+
+::: {#thm-ch3-028}
+设 $\mathcal{G}$ 为$\sigma$-代数且 $\mathcal{G}\subset\mathcal{F}$, 则对任意有界 $\mathcal{G}$可测随机变量 $Z$ 均有
+
+$$
+\begin{aligned}
+E[(X-E(X|\mathcal{G}))Z]=0.
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 
+
+由条件数学期望的定义可知, 对任意的 $G\in\mathcal{G}$ 均有 $$E[(X-E(X|\mathcal{G}))1_G]=0$$ 从而, 对任意的简单函数 $Z=\sum_{i=1}^na_i1_{G_i}$, 其中 $G_i\in\mathcal{G}$, 均有 $$E[(X-E(X|\mathcal{G}))Z]=\sum_{i=1}^na_iE[(X-E(X|\mathcal{G}))1_{G_i}]=0.$$ 由于有界 $\mathcal{G}$ 可测随机变量 $Z$ 可由有界简单函数逼近, 故由控制收敛定理可知对任意有界 $\mathcal{G}$ 可测随机变量 $Z$ 均有 $$E[(X-E(X|\mathcal{G}))Z]=0.$$
+
+#### 随机变量$X$ 关于随机变量 $Y$ 的条件数学期望 {#随机变量x-关于随机变量-y-的条件数学期望 .unnumbered}
+
+首先,随机变量 $X$ 关于随机变量 $Y$ 的条件数学期望: $$E(X|Y):=E(X|\sigma(Y)).$$ 根据PPT267页定理2.4可知, 存在博雷尔可测函数 $\varphi(\cdot)$ 使得 $$E(X|Y)=\varphi(Y).$$ 最后,我们也常把上述的函数 $\varphi(\cdot)$ 记作 $\varphi(y):=E(X|Y=y)$. 其中,若 $Y$ 为离散型随机变量, 则上述的博雷尔函数 $\varphi(y_j)=E(X|Y=y_j)$; 若 $(X,Y)$ 为二维连续型随机向量,且其联合分布密度为 $p(x,y)$, 则上述的博雷尔函数 $$\varphi(y)=E(X|Y=y)=\int_{-\infty}^{+\infty}xp(x|y)dx,$$ 其中 $p(x|y)=\dfrac{p(x,y)}{p_Y(y)}$ 为 $X$ 关于 $Y$ 的条件分布密度.
+
+::: {#exm-ch3-006}
+若 $(X,Y)\sim N (\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$, 则
+
+$$
+\begin{aligned}
+E(X|Y=y)=\mu_1+\rho \dfrac{\sigma_1}{\sigma_2}(y-\mu_2).
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 在第二章中,我们知道给定 $Y=y$ 下,$X$ 的条件分布服从 $$N(\mu_1+\rho \dfrac{\sigma_1}{\sigma_2}(y-\mu_2), \sigma_1^2(1-\rho^2))$$ 故
+
+$$
+\begin{aligned}
+\varphi(y)=E(X|Y=y)=\mu_1+\rho \dfrac{\sigma_1}{\sigma_2}(y-\mu_2)
+\end{aligned}
+$$
+
+ 更进一步地,我们有
+
+$$
+\begin{aligned}
+E(X|Y)=\varphi(Y)=\mu_1+\rho \dfrac{\sigma_1}{\sigma_2}(Y-\mu_2)
+\end{aligned}
+$$
+
+
+#### 条件数学期望的性质:重期望(全期望)公式 {#条件数学期望的性质重期望全期望公式 .unnumbered}
+
+::: {#thm-ch3-029}
+设 $\mathcal{G}$ 为$\sigma$-代数且 $\mathcal{G}\subset\mathcal{F}$, 则对随机变量 $X$ 及任意 Borel 函数 $g (x)$ 有
+
+$$
+\begin{aligned}
+E[E(g(X)|\mathcal{G})]=E(g(X)), \mbox{ 或, } \int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP.
+\end{aligned}
+$$
+
+ 特别的,
+
+若 $\mathcal{G}=\sigma(Y)$, 则有
+
+$$
+\begin{aligned}
+E[E(g(X)|Y)]=E(g(X)), \mbox{ 或,  } \int_{\Omega}E(g(X)|Y)dP=\int_{\Omega}g(X)dP.
+\end{aligned}
+$$
+
+ 若 $\mathcal{G}=\sigma(\{B_i, i\in I\})$, 则有
+
+$$
+\begin{aligned}
+E\bigg[\sum_{i\in I}E(g(X)|B_i)1_{B_i}(\omega)\bigg]=E(g(X)), \mbox{ 或, } E[g(X)]=\sum_{i\in I}E(g(X)|B_i)P(B_i).
+\end{aligned}
+$$
+
+
+:::
+
+#### 条件数学期望的性质:重期望(全期望)公式 {#条件数学期望的性质重期望全期望公式-1 .unnumbered}
+
+**证明.** 由条件数学期望定义的第2条可知对任意 $G\in \mathcal{G}$ 有
+
+$$
+\begin{aligned}
+\int_G E(g(X)|\mathcal{G})dP=\int_G g(X)dP.
+\end{aligned}
+$$
+
+ 取 $G=\Omega$, 则有
+
+$$
+\begin{aligned}
+E[E(g(X)|\mathcal{G})]=\int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP=E(g(X)).
+\end{aligned}
+$$
+
+
+#### 重期望公式关于分布函数的Stieltjes积分表达形式 {#重期望公式关于分布函数的stieltjes积分表达形式 .unnumbered}
+
+注意到, $E(g(X)|Y)=\varphi(Y),$ 其中 $\varphi(y):=E(g(X)|Y=y)$; 故上述定理的重期望公式可写成如下形式
+
+$$
+\begin{aligned}
+E(g(X))&=&\int_{-\infty}^{+\infty}E[g(X)|Y=y]dF_Y(y)\\
+            &=&\left\{
+            \begin{array}{l}
+                \sum_jE(g(X)|Y=y_j)P(Y=y_j)\\
+                \\
+                \int_{-\infty}^{+\infty}E(g(X)|Y=y)p_Y(y)dy
+            \end{array}
+            \right.
+\end{aligned}
+$$
+
+ 最后,特别的,若 $g (X)=X$, 则有
+
+$$
+\begin{aligned}
+E(X)&=&\int_{-\infty}^{+\infty}E[X|Y=y]dF_Y(y)\\
+            &=&\left\{
+            \begin{array}{l}
+                \sum_jE(X|Y=y_j)P(Y=y_j)\\
+                \\
+                \int_{-\infty}^{+\infty}E(X|Y=y)p_Y(y)dy
+            \end{array}
+            \right.
+\end{aligned}
+$$
+
+
+#### 巴格达窃贼问题 {#巴格达窃贼问题 .unnumbered}
+
+::: {#exm-ch3-007}
+一个窃贼被关在有 3 个门的地牢中.其中 1 号门通向自由,出 1 号门后走 3 个小时便回到地面;2 号门通向一个地道,在此地道走 5 个小时后返回地牢;3 号门通向一个更长的地道,沿这个地道走 7 个小时后回到地牢.如果窃贼每次选择 3 个门的可能性总相等,求他为获自由而奔走的平均时间.
+:::
+
+**解.** 设窃贼需要走 $X$ 小时到达地面,则 $X$ 的所有可能取值为
+
+$$
+\begin{aligned}
+3, 5+3, 7+3, 5+5+3, 5+7+3, 7+7+3,\cdots,
+\end{aligned}
+$$
+
+ 则显然要写出 $X$ 的分布列是困难的,所以无法直接求 $E (X)$. 但是如果我们引入 $Y$ 表示窃贼每次对 3 个门的选择,则
+
+$$
+\begin{aligned}
+&&P(Y=1)=P(Y=2)=P(Y=3)=1/3\\
+        && E(X|Y=1)=3,  E(X|Y=2)=5+E(X),  E(X|Y=3)=7+E(X)
+\end{aligned}
+$$
+
+ 从而由重期望公式可得
+
+$$
+\begin{aligned}
+E(X)=\sum_{i=1}^3E(X|Y=i)P(Y=i)=5+\dfrac{2}{3}E(X) \Rightarrow E(X)=15
+\end{aligned}
+$$
+
+
+#### 随机个随机变量和的期望 {#随机个随机变量和的期望 .unnumbered}
+
+::: {#thm-ch3-030}
+设 $X_1,X_2,\cdots,$ 为一列独立同分布的随机变量,随机变量 $N$ 只取正整数值,且 $N$ 与 $\{X_n\}$ 独立,则
+
+$$
+\begin{aligned}
+E\left(\sum_{i=1}^NX_i\right)=E(X_1)E(N)
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 由重期望公式可知
+
+$$
+\begin{aligned}
+E\left(\sum_{i=1}^NX_i\right)&=& E\bigg[ E\big(\sum_{i=1}^NX_i|N\big)\bigg]= \sum_{n=1}^{+\infty}E\big(\sum_{i=1}^NX_i|N=n\big)P(N=n)\\
+        &=& \sum_{n=1}^{+\infty}E\big(\sum_{i=1}^nX_i|N=n\big)P(N=n)= \sum_{n=1}^{+\infty}E\big(\sum_{i=1}^nX_i\big)P(N=n)\\
+        &=& \sum_{n=1}^{+\infty}nE(X_1)P(N=n)= E(X_1)E(N)\\
+\end{aligned}
+$$
+
+
+#### 矩的概念 {#矩的概念 .unnumbered}
+
+::: {#def-ch3-016}
+如果 $E|X|^k<+\infty$, 则称 $m_k:=E (X^k)$ 为随机变量 $X$(及其分布) 的 $k$ 阶原点矩.而称 $c_k:=E (X-EX)^k$ 为随机变量 (及其分布) 的 $k$ 阶中心矩.
+:::
+
+::: {#thm-ch3-031}
+当 $E|X|^k<+\infty$ 时有,
+
+$$
+\begin{aligned}
+c_k=\sum_{i=0}^kC_k^i(-m_1)^{k-i}m_i, \quad m_k=\sum_{i=0}^kC_k^ic_{k-i}m_1^i.
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 注意到
+
+$$
+\begin{aligned}
+(X-EX)^k&=&\sum_{i=0}^kC_k^iX^i(-EX)^{k-i}, \\
+         X^k=(EX+X-EX)^k&=& \sum_{i=0}^kC_k^i(EX)^i(X-EX)^{k-i}
+\end{aligned}
+$$
+
+ 对上面两式取期望即可得证.
+
+### 母函数
+
+#### 母函数的定义 {#母函数的定义 .unnumbered}
+
+::: {#def-ch3-017}
+对任何实数列 $\{p_n\}$, 如果幂级数
+
+$$
+\begin{aligned}
+G(s)=\sum_{n=0}^\infty p_ns^n
+\end{aligned}
+$$ {#eq-ch3-gfunc}
+
+ 的收敛半径 $s_0>0$, 则称 $G (s)$ 为数列 $\{p_n\}$ 的母函数.特别当 $\{p_n\}$ 为某非负整值随机变量 $X$ 的概率分布时,([\[eq-ch3-gfunc\]](#eq-ch3-gfunc){reference-type="ref" reference="eq-ch3-gfunc"}) 式至少在区间 $[-1,1]$ 上绝对收敛且一致收敛,此时有
+
+$$
+\begin{aligned}
+G(s)=E(s^X),
+\end{aligned}
+$$
+
+ 称此 $G (s)$ 为随机变量 $X$ 或其概率分布 $\{p_n\}$ 的母函数.
+:::
+
+#### 母函数与分布之间的反演公式 {#母函数与分布之间的反演公式 .unnumbered}
+
+首先,已知 $G (s)$, 如何确定 $\{p_n\}$? 注意到
+
+$$
+\begin{aligned}
+G(0)=p_0, \quad G^{(n)}(s)=n! p_n+\sum_{k=n+1}^\infty k(k-1)\cdots(k-n+1)p_ks^{k-n}
+\end{aligned}
+$$
+
+ 故
+
+$$
+\begin{aligned}
+p_n=\dfrac{1}{n!}G^{(n)}(0)
+\end{aligned}
+$$
+
+ 最后,非负整值概率分布 $\{p_n\}$ 与其母函数 $G (s)$ 是一一对应的,母函数可以作为描述这种分布的一种工具.
+
+#### 母函数与随机变量矩的关系 {#母函数与随机变量矩的关系 .unnumbered}
+
+::: {#thm-ch3-032}
+设非负随机变量 $X$ 的母函数为 $G (s)$, 如果 $E (X)$ 与 $E (X^2)$ 有限,则
+
+$$
+\begin{aligned}
+G'(1)=E(X), \quad G''(1)=E(X^2)-E(X)
+\end{aligned}
+$$
+
+
+:::
+
+#### 常见离散型分布的母函数 {#常见离散型分布的母函数 .unnumbered}
+
+首先,Poisson 分布的母函数
+
+$$
+\begin{aligned}
+G(s)=E(s^X)=\sum_{k=0}^\infty s^k\dfrac{\lambda^k}{k!}e^{-\lambda}=e^{\lambda(s-1)}
+\end{aligned}
+$$
+
+ 最后,几何分布的母函数
+
+$$
+\begin{aligned}
+G(s)=E(s^X)=\sum_{k=1}^\infty s^kq^{k-1}p=\dfrac{ps}{1-qs}
+\end{aligned}
+$$
+
+
+#### 独立和的母函数 {#独立和的母函数 .unnumbered}
+
+::: {#thm-ch3-033}
+如果 $X,Y$ 为相互独立的随机变量,它们分别有概率分布 $\{a_n\}, \{b_n\}$ 及对应的母函数 $A (s), B (s)$, 则它们的和 $X+Y$ 的母函数为 $$C(s)=A(s)B(s).$$ 更进一步,如果 $X_1,\cdots, X_n$ 相互独立,其对应的母函数分别为 $A_1 (s),$ $\cdots, A_n (s)$, 则 $X_1+\cdots+X_n$ 的母函数为
+
+$$
+\begin{aligned}
+C(s)=\Pi_{i=1}^nA_i(s)
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 注意到由 $X,Y$ 相互独立可知 $s^X, s^Y$ 也相互独立,从而
+
+$$
+\begin{aligned}
+C(s)= E(s^{X+Y})= E(s^X s^Y)= E(s^X)E(s^Y)= A(s)B(s)
+\end{aligned}
+$$
+
+
+::: {#exm-ch3-008}
+设 $X$ 服从二项分布 $B (n,p)$, 则 $X$ 的母函数为 $G (s)=(q+ps)^n$.
+:::
+
+#### 随机个非负整值随机量之和的母函数 {#随机个非负整值随机量之和的母函数 .unnumbered}
+
+::: {#thm-ch3-034}
+设 $\{X_k\}$ 为相互独立同分布的非负整值随机变量序列,其共同的母函数为 $G (s)$. 如果 $N$ 为另一非负整值随机变量,其母函数为 $F (s)$. 则当 $N$ 与每一个 $X_k$ 均独立时,$X=\sum_{k=1}^NX_k$ 的母函数为
+
+$$
+\begin{aligned}
+H(s)=F(G(s)).
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 由重期望公式可得
+
+$$
+\begin{aligned}
+H(s)&=& E(s^X)= E(E(s^X|N))=\sum_{n=0}^\infty P(N=n) E(s^{\sum_{k=1}^NX_k}|N=n)\\
+        &=&\sum_{n=0}^\infty P(N=n) E(s^{\sum_{k=1}^nX_k}|N=n)=\sum_{n=0}^\infty P(N=n) E(s^{\sum_{k=1}^nX_k})\\
+        &=&\sum_{n=0}^\infty P(N=n)[G(s)]^n= E(G(s)^N)\\
+        &=& F(G(s))
+\end{aligned}
+$$
+
+
+#### 随机个非负整值随机量之和的期望与方差 {#随机个非负整值随机量之和的期望与方差 .unnumbered}
+
+首先,对 $H (s)$ 求导可得
+
+$$
+\begin{aligned}
+H'(s)=F'(G(s))G'(s)
+\end{aligned}
+$$
+
+ 令 $s=1$ 并注意到 $G (1)=1$ 可得
+
+$$
+\begin{aligned}
+E(X)=E(N)E(X_1)
+\end{aligned}
+$$
+
+ 另一方面,再对 $H'(s)$ 求导可得
+
+$$
+\begin{aligned}
+H''(s)=F''(G(s))[G'(s)]^2+F'(G(s))G''(s)
+\end{aligned}
+$$
+
+ 令 $s=1$ 可得
+
+$$
+\begin{aligned}
+E(X^2)-E(X)  &=& \mbox{[}E(N^2)-E(N)][E(X_1)]^2+E(N)[E(X_1^2)-E(X_1)]\\
+            &=&  E(N)D(X_1)+E(N^2)[E(X_1)]^2-E(N)E(X_1)
+\end{aligned}
+$$
+
+ 从而
+
+$$
+\begin{aligned}
+D(X)= E(X^2)-[E(X)]^2=E(N)D(X_1)+D(N)[E(X_1)]^2
+\end{aligned}
+$$
+
+
+## 特征函数 {#sec-ch3-lecture-20}
+
+::: {.callout-note appearance="simple" icon="false"}
+## 本节导读
+
+特征函数 $\varphi_X(t)=E(e^{itX})$ 是分布的 Fourier 变换,对任意随机变量都存在,并能唯一确定其分布.独立随机变量之和对应特征函数之积,这使它成为研究卷积,分布收敛和中心极限定理的核心工具.
+:::
+
+
+::: {.callout-tip appearance="simple" icon="false"}
+## 理论主线
+
+特征函数 $\varphi_X(t)=E(e^{itX})$ 对所有实值随机变量都存在,因为被积函数的模恒为 $1$.它连续,在原点取值为 $1$,并且唯一确定概率分布.若相应矩存在,可以在原点附近通过求导获得矩,但导数存在与矩存在的对应需要满足适当条件,不能无条件反用.
+
+独立随机变量之和的特征函数等于各自特征函数之积,这把卷积化为乘法.反演公式说明如何由特征函数恢复分布,连续性定理则把特征函数的逐点收敛与分布收敛联系起来.后者是中心极限定理证明的核心工具,因此本节也是数字特征与极限定理之间的桥梁.
+:::
+
+
+#### 复随机变量及其期望 {#复随机变量及其期望 .unnumbered}
+
+::: {#def-ch3-018}
+若 $X (\omega),Y (\omega)$ 为定义在 $\Omega$ 上的实值随机变量,则称 $Z (\omega)=X (\omega)+iY (\omega)$ 为复随机变量;称 $\overline{Z}=X (\omega)-iY (\omega)$ 为 $Z (\omega)$ 的复共轭随机变量;称 $|Z|:=\sqrt{X^2+Y^2}$ 为复随机变量 $Z$ 的模.
+:::
+
+::: {#def-ch3-019}
+若随机变量 $X,Y$ 的期望 $E (X),E (Y)$ 都存在,则复随机变量 $Z$ 的数学期望定义为 $E (Z):=E (X)+iE (Y)$.
+:::
+
+$Z_1=X_1+iY_1$ 与 $Z_2=X_2+iY_2$ 独立当且仅当 $(X_1,Y_1)$ 与 $(X_2,Y_2)$ 独立; 同时,$E(e^{iX})=E(\cos X)+i E(\sin X)$; 此外,$|e^{iX}|=\sqrt{\cos^2 X+\sin^2 X}=1$; 若 $X,Y$ 独立,则 $e^{iX}$ 与 $e^{iY}$ 也独立.
+
+#### 特征函数的定义 {#特征函数的定义 .unnumbered}
+
+::: {#def-ch3-020}
+设 $X$ 是一个随机变量,称
+
+$$
+\begin{aligned}
+\varphi(t)&:=&E(e^{itX})= E[\cos(tX)]+iE[\sin(tX)]\\
+            &=& \int_{-\infty}^{+\infty}\cos(tx)dF(x)+i\int_{-\infty}^{+\infty}\sin(tx)dF(x)\\
+            &=& \int_{-\infty}^{+\infty}e^{itx}dF(x), \quad -\infty <t<+\infty
+\end{aligned}
+$$
+
+ 为 $X$ 的特征函数.特别的,
+
+如果 $X$ 为离散型随机变量,其分布列为 $p_k=P (X=x_k)$, 则
+
+$$
+\begin{aligned}
+\varphi(t)=\sum_{k=1}^{+\infty}e^{itx_k}p_k, \quad -\infty <t<+\infty;
+\end{aligned}
+$$
+
+ 同时,如果 $X$ 为连续型随机变量,其分布密度为 $p (x)$, 则
+
+$$
+\begin{aligned}
+\varphi(t)=\int_{-\infty}^{+\infty}e^{itx}p(x)dx, \quad -\infty <t<+\infty;
+\end{aligned}
+$$
+
+
+:::
+
+#### 特征函数的性质 I {#特征函数的性质-i .unnumbered}
+
+1.  由 $\varphi (t)=E[\cos (tX)]+iE[\sin (tX)]$ 知,特征函数总是存在的;
+
+2.  $\varphi (0)=1, |\varphi (t)|\le 1$: $\varphi (0)=E (1)=1$, 而
+
+$$
+\begin{aligned}
+|\varphi(t)|&=&|E[\cos(tX)]+iE[\sin(tX)]|= \big[(E[\cos(tX)])^2+(E[\sin(tX)])^2\big]^{1/2}\\
+                &\le& \big[E[\cos^2(tX)]+E[\sin^2(tX)]\big]^{1/2}= 1;
+\end{aligned}
+$$
+
+
+3.  $\varphi(-t)=\overline{\varphi(t)}$: $\varphi(-t)=E[\cos(tX)]-iE[\sin(tX)]=\overline{\varphi(t)}$;
+
+4.  若 $Y=aX+b$, 其中 $a,b$ 为常数,则 $\varphi_Y (t)=e^{ibt}\varphi_X (at)$, 事实上,
+
+$$
+\begin{aligned}
+&&\varphi_Y(t)= E[e^{it(aX+b)}]=E[\cos(t(aX+b))]+iE[\sin(t(aX+b))]\\
+                    &&= E[\cos(taX)\cos(tb)-\sin(taX)\sin(tb)]+iE[\sin(taX)\cos(tb)+\cos(taX)\sin(tb)]\\
+                    &&= \cos(tb)\big(E[\cos(taX)]+iE[\sin(taX)]\big)+i\sin(tb)\big(E[\cos(taX)]+iE[\sin(taX)]\big)\\
+                    &&=  e^{itb}Ee^{itaX}=e^{itb}\varphi_X(at)
+\end{aligned}
+$$
+
+
+#### 特征函数的性质 II {#特征函数的性质-ii .unnumbered}
+
+1.  若 $X,Y$ 独立,则 $\varphi_{X+Y}(t)=\varphi_X (t)\varphi_Y (t)$, 事实上,
+
+$$
+\begin{aligned}
+&&\varphi_{X+Y}(t)=E(e^{it(X+Y)})= E(e^{itX}e^{itY})\\
+                &&= E[(\cos(tX)+i\sin(tX))(\cos(tY)+i\sin(tY))]\\
+                &&= E[(\cos(tX)+i\sin(tX))\cos(tY)]+iE[(\cos(tX)+i\sin(tX))\sin(tY)]\\
+                &&= E[\cos(tY)]E[e^{itX}]+iE[\sin(tY)]E[e^{itX}]\\
+                &&= E(e^{itX})E(e^{itY})
+\end{aligned}
+$$
+
+
+2.  更一般的,若 $X_1,X_2,\cdots,X_n$ 相互独立,则对于 $Y=X_1+\cdots+X_n$ 的特征函数有
+
+$$
+\begin{aligned}
+\varphi_Y(t)=\Pi_{k=1}^n\varphi_{X_k}(t)
+\end{aligned}
+$$
+
+
+#### 特征函数的性质 III {#特征函数的性质-iii .unnumbered}
+
+1.  如果 $E (X^k)$ 存在,则
+
+$$
+\begin{aligned}
+\varphi^{(k)}(t)=i^kE[X^ke^{itX}], \quad     \varphi^{(k)}(0)=i^kE[X^k]
+\end{aligned}
+$$
+
+ 事实上,
+
+$$
+\begin{aligned}
+\dfrac{d^k}{dt^k}\varphi(t)=  \dfrac{d^k}{dt^k}E[e^{itX}]= E[\dfrac{d^k}{dt^k}e^{itX}]= E[(iX)^ke^{itX}]= i^kE[X^ke^{itX}]
+\end{aligned}
+$$
+
+
+#### 特征函数的性质 IV {#特征函数的性质-iv .unnumbered}
+
+1.  $\varphi (t)$ 在 $(-\infty,+\infty)$ 上一致连续:
+
+$$
+\begin{aligned}
+&&|\varphi(t+h)-\varphi(t)|= |E(e^{i(t+h)X})-E(e^{itX})|= |E[e^{itX}(e^{ihX}-1)]|\\
+                &&\le E|e^{itX}(e^{ihX}-1)|= E|e^{ihX}-1|= \int_{-\infty}^{+\infty}|e^{ihx}-1|dF_X(x)\\
+                &&= \int_{|x|>A}|e^{ihx}-1|dF_X(x)+\int_{-A}^A|e^{ihx}-1|dF_X(x)\\
+                &&\le 2 \int_{|x|>A}dF_X(x)+\int_{-A}^A|hx|dF_X(x)\\
+                &&\le 2P(|X|>A)+hAP(|X|\le A)\le  2P(|X|>A)+hA
+\end{aligned}
+$$
+
+ 选取 $A$ 使得 $P (|X|>A)\le \epsilon/4$, $h\le \delta=\dfrac{\epsilon}{2A}$, 则只要 $|h|\le \delta$ 必有
+
+$$
+\begin{aligned}
+|\varphi(t+h)-\varphi(t)|\le 2P(|X|>A)+hA\le \epsilon
+\end{aligned}
+$$
+
+
+#### 特征函数的性质 V {#特征函数的性质-v .unnumbered}
+
+1.  $\varphi (t)$ 是非负定函数,即对任意的正整数 $n$ 及 $n$ 个实数 $t_1,\cdots, t_n$ 及 $n$ 个复数 $z_1,\cdots, z_n$, 均有
+
+$$
+\begin{aligned}
+\sum_{k=1}^n\sum_{j=1}^n\varphi(t_k-t_j)z_k\bar{z}_j\ge 0
+\end{aligned}
+$$
+
+ **证明.** 由特征函数的定义可得
+
+$$
+\begin{aligned}
+\sum_{k=1}^n\sum_{j=1}^n\varphi(t_k-t_j)z_k\bar{z}_j&=& \sum_{k=1}^n\sum_{j=1}^nz_k\bar{z}_jE[e^{i(t_k-t_j)X}]=\sum_{k=1}^n\sum_{j=1}^nE[z_ke^{it_kX}\bar{z}_j\overline{e^{it_jX}}]\\
+                    &=& E[\sum_{k=1}^nz_ke^{it_kX}\sum_{j=1}^n\overline{z_je^{it_jX}}]= E\big[|\sum_{k=1}^nz_ke^{it_kX}|^2\big]\ge 0
+\end{aligned}
+$$
+
+
+#### 常用分布的特征函数 I {#常用分布的特征函数-i .unnumbered}
+
+首先,单点分布 $P (X=a)=1$: $\varphi (t)=e^{ita}$; 接着,两点分布 $P (X=x)=p^x (1-p)^{1-x}, x=0,1$: $\varphi (t)=pe^{it}+(1-p)$; 另一方面,泊松分布:$\varphi (t)=\sum_{k=0}^{+\infty} e^{ikt}\dfrac{\lambda^k}{k!} e^{-\lambda}=e^{\lambda e^{it}} e^{-\lambda}=e^{\lambda (e^{it}-1)}$; 于是,均匀分布 $U (a,b)$:$\varphi (t)=\int_a^b\dfrac{e^{itx}}{b-a} dx=\dfrac{e^{ibt}-e^{iat}}{it (b-a)}$; 最后,标准正态分布:
+
+$$
+\begin{aligned}
+\varphi(t)&=& \int_{-\infty}^{+\infty}e^{itx}\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}dx\\
+            &=& \dfrac{1}{\sqrt{2\pi}}\bigg(\int_{-\infty}^{+\infty}\cos(tx) e^{-\frac{x^2}{2}}dx+i\int_{-\infty}^{+\infty}\sin(tx) e^{-\frac{x^2}{2}}dx\bigg)\\
+            &=& \dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\cos(tx) e^{-\frac{x^2}{2}}dx
+\end{aligned}
+$$
+
+
+#### 常用分布的特征函数 II {#常用分布的特征函数-ii .unnumbered}
+
+故
+
+$$
+\begin{aligned}
+\varphi'(t)&=& -\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}x\sin(tx) e^{-\frac{x^2}{2}}dx= \dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\sin(tx) de^{-\frac{x^2}{2}}\\
+        &=& -\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}t\cos(tx) e^{-\frac{x^2}{2}}dx= -t\varphi(t)
+\end{aligned}
+$$
+
+ 从而
+
+$$
+\begin{aligned}
+\dfrac{d}{dt}[\varphi(t)e^{t^2/2}]=[\varphi'(t)+t\varphi(t)]e^{t^2/2}=0
+\end{aligned}
+$$
+
+ 故 $\varphi (t) e^{t^2/2}=C$, 再利用 $C=\varphi (0)=1$ 得
+
+$$
+\begin{aligned}
+\varphi(t)=e^{-t^2/2}.
+\end{aligned}
+$$
+
+
+#### 常用分布的特征函数 III {#常用分布的特征函数-iii .unnumbered}
+
+指数分布:
+
+$$
+\begin{aligned}
+\varphi(t)=\int_0^\infty e^{itx}\lambda e^{-\lambda x}dx=\bigg(1-\dfrac{it}{\lambda}\bigg)^{-1}
+\end{aligned}
+$$
+
+ 同时,二项分布: $Y\sim B (n,p)$. 注意到 $Y=X_1+\cdots+X_n$, 其中 $X_i$ 为独立同分布的随机变量,且 $X_i\sim B (1,p)$, 故 $$\varphi_Y(t)=\Pi_{k=1}^n(pe^{it}+q)=(pe^{it}+q)^n, \quad q=1-p$$ 此外,一般正态分布: $Y\sim N (\mu,\sigma^2)$, 则由 $X:=\dfrac{Y-\mu}{\sigma}\sim N (0,1)$ 及 $Y=\sigma X+\mu$ 可得
+
+$$
+\begin{aligned}
+\varphi_Y(t)=e^{i\mu t}\varphi_X(\sigma t)=e^{i\mu t-\frac{\sigma^2t^2}{2}}
+\end{aligned}
+$$
+
+
+#### 常用分布的特征函数 IV {#常用分布的特征函数-iv .unnumbered}
+
+伽玛分布:$Y\sim \Gamma (n,\lambda)$. 注意到 $Y=X_1+\cdots+X_n$, 其中 $X_i$ 独立同指数分布即 $X_i\sim \exp (\lambda)$, 故
+
+$$
+\begin{aligned}
+\varphi_Y(t)=\Pi_{k=1}^n(1-\dfrac{it}{\lambda})^{-1}=(1-\dfrac{it}{\lambda})^{-n}
+\end{aligned}
+$$
+
+ 更进一步,当 $Y\sim \Gamma (\alpha,\lambda)$, 我们有
+
+$$
+\begin{aligned}
+\varphi_Y(t)=(1-\dfrac{it}{\lambda})^{-\alpha}
+\end{aligned}
+$$
+
+ 同时,$\chi^2 (n)$ 分布:因为 $\chi^2 (n)=\Gamma (n/2,1/2)$, 故其特征函数为
+
+$$
+\begin{aligned}
+\varphi(t)=(1-2it)^{-n/2}
+\end{aligned}
+$$
+
+
+::: {#exm-ch3-009}
+利用特征函数的方法求 $\Gamma (\alpha,\lambda)$ 分布的数学期望与方差.
+:::
+
+**解.** $\Gamma$ 分布的特征函数及其导数分别为
+
+$$
+\begin{aligned}
+\varphi(t)&=& \big(1-\dfrac{it}{\lambda}\big)^{-\alpha}\\
+        \varphi'(t)&=& \dfrac{i\alpha}{\lambda}\big(1-\dfrac{it}{\lambda}\big)^{-\alpha-1},\quad  \varphi'(0)=\dfrac{i\alpha}{\lambda}\\
+        \varphi''(t)&=& \dfrac{i^2\alpha(\alpha+1)}{\lambda^2}\big(1-\dfrac{it}{\lambda}\big)^{-\alpha-2}, \quad  \varphi''(0)=-\dfrac{\alpha(\alpha+1)}{\lambda^2}
+\end{aligned}
+$$
+
+ 故由 $\varphi^{(k)}(0)=i^kE (X^k)$ 知,
+
+$$
+\begin{aligned}
+E(X)&=&\dfrac{\varphi'(0)}{i}=\dfrac{\alpha}{\lambda},\quad E(X^2)=\dfrac{\varphi''(0)}{i^2}=\dfrac{\alpha(\alpha+1)}{\lambda^2}\\
+        D(X)&=& E(X^2)-(EX)^2= \dfrac{\alpha(\alpha+1)}{\lambda^2}-\dfrac{\alpha^2}{\lambda^2}= \dfrac{\alpha}{\lambda^2}
+\end{aligned}
+$$
+
+
+#### 特征函数与分布函数之间的关系:相互唯一决定 {#特征函数与分布函数之间的关系相互唯一决定 .unnumbered}
+
+::: {#thm-ch3-035}
+设 $F (x)$ 与 $\varphi (t)$ 分别为随机变量 $X$ 的分布函数和特征函数,则对 $F (x)$ 的任意两个连续点 $x_1<x_2$ 有
+
+$$
+\begin{aligned}
+F(x_2)-F(x_1)=\lim_{T\rightarrow\infty}\dfrac{1}{2\pi}\int_{-T}^T\dfrac{e^{-itx_1}-e^{-itx_2}}{it}\varphi(t)dt
+\end{aligned}
+$$
+
+
+:::
+
+::: {#thm-ch3-036}
+随机变量的分布函数由其特征函数唯一决定.
+:::
+
+**证明.** 在逆转公式中令 $x_2=x, x_1=y\rightarrow -\infty$ 可得
+
+$$
+\begin{aligned}
+F(x)=\lim_{y\rightarrow-\infty}\lim_{T\rightarrow\infty}\dfrac{1}{2\pi}\int_{-T}^T\dfrac{e^{-ity}-e^{-itx}}{it}\varphi(t)dt
+\end{aligned}
+$$
+
+ 而由分布函数本身是右连续可知,分布函数任一点的取值可由连续点上的值唯一决定.
+
+#### 狄利克雷积分 I {#狄利克雷积分-i .unnumbered}
+
+::: {#lem-ch3-001}
+令 $$I(a,T)=\int_0^T \dfrac{\sin at}{t}dt,\quad{\rm sgn}\{a\}:=\left\{
+        \begin{array}{rl}
+            -1,& a<0,\\
+            0,& a=0,\\
+            1,& a>0,
+        \end{array}\right.$$ 则 $$\lim_{T\rightarrow+\infty}I(a,T)=\lim_{T\rightarrow+\infty}\int_0^T \dfrac{\sin at}{t}dt=\dfrac{\pi}{2}
+        {\rm sgn}\{a\}$$
+:::
+
+**证明.** 注意到如果作积分换元 $y=at$ 可得
+
+$$
+\begin{aligned}
+\lim_{T\rightarrow+\infty}I(a,T)={\rm sgn}\{a\}\lim_{T\rightarrow+\infty}I(1,T)
+\end{aligned}
+$$
+
+
+#### 狄利克雷积分 II {#狄利克雷积分-ii .unnumbered}
+
+只需证明
+
+$$
+\begin{aligned}
+\lim_{T\rightarrow+\infty}I(1,T)=\lim_{T\rightarrow+\infty}\int_0^T\dfrac{\sin t}{t}dt=\dfrac{\pi}{2}.
+\end{aligned}
+$$
+
+ 注意到 $\dfrac{1}{t}=\int_0^{+\infty} e^{-ut} du$, 故
+
+$$
+\begin{aligned}
+I(1,T)&=& \int_0^T\int_0^{+\infty}e^{-ut}\sin tdu dt= \int_0^{+\infty} \bigg[\int_0^Te^{-ut}\sin tdt\bigg] du\\
+        &=&  \int_0^{+\infty}\bigg[\dfrac{1}{1+u^2}-\dfrac{1}{1+u^2}e^{-uT}(u\sin T+\cos T)\bigg]du \\
+        &=& \dfrac{\pi}{2}- \int_0^{+\infty}\dfrac{u\sin T+\cos T}{1+u^2}e^{-uT}du\rightarrow  \dfrac{\pi}{2}
+\end{aligned}
+$$
+
+
+#### 逆转公式的证明 {#逆转公式的证明 .unnumbered}
+
+**证明.** 考虑积分
+
+$$
+\begin{aligned}
+J(T)&=& \dfrac{1}{2\pi}\int_{-T}^T\dfrac{e^{-itx_1}-e^{-itx_2}}{it}\varphi(t)dt\\
+        &=& \dfrac{1}{2\pi}\int_{-T}^T\bigg[\int_{-\infty}^{+\infty}\dfrac{e^{-itx_1}-e^{-itx_2}}{it}e^{itx}dF(x)\bigg]dt\\
+        &=& \dfrac{1}{2\pi}\int_{-\infty}^{+\infty}\bigg[\int_{-T}^T\dfrac{e^{it(x-x_1)}-e^{it(x-x_2)}}{it}dt\bigg]dF(x)\\
+        &=& \dfrac{1}{\pi}\int_{-\infty}^{+\infty}\bigg[\int_0^T\dfrac{\sin t(x-x_1)}{t}dt-\int_0^T\dfrac{\sin t(x-x_2)}{t}dt\bigg]dF(x)\\
+        &=& \dfrac{1}{\pi}\int_{-\infty}^{+\infty}\big[I(x-x_1,T)-I(x-x_2,T)\big]dF(x)\\
+        &\rightarrow& \dfrac{1}{\pi}\dfrac{\pi}{2}\int_{-\infty}^{+\infty}\big[{\rm sgn}\{x-x_1\}-{\rm sgn}\{x-x_2\}\big]dF(x) \qquad T\rightarrow+\infty\\
+        &=&     \int_{x_1}^{x_2}dF(x)=F(x_2)-F(x_1)
+\end{aligned}
+$$
+
+
+#### 逆转公式的一般情形 {#逆转公式的一般情形 .unnumbered}
+
+::: {#thm-ch3-037}
+设 $F (x)$ 与 $\varphi (t)$ 分别为随机变量 $X$ 的分布函数和特征函数,则对任意的 $x_1,x_2\in R$ 有
+
+$$
+\begin{aligned}
+\dfrac{F(x_2-0)+F(x_2)}{2}-\dfrac{F(x_1-0)+F(x_1)}{2}=\lim_{T\rightarrow\infty}\dfrac{1}{2\pi}\int_{-T}^T\dfrac{e^{-itx_1}-e^{-itx_2}}{it}\varphi(t)dt
+\end{aligned}
+$$
+
+
+:::
+
+#### 连续型分布情形下的逆转公式 {#连续型分布情形下的逆转公式 .unnumbered}
+
+::: {#thm-ch3-038}
+若 $X$ 为连续型随机变量,其密度函数为 $p (x)$, 其特征函数为 $$\varphi(t)=\int_{-\infty}^{+\infty}e^{itx}p(x)dx,$$ 如果 $\int_{-\infty}^{+\infty}|\varphi (t)|dt<+\infty$, 则
+
+$$
+\begin{aligned}
+p(x)=\dfrac{1}{2\pi}\int_{-\infty}^{+\infty}e^{-itx}\varphi(t)dt
+\end{aligned}
+$$
+
+
+:::
+
+**证明.** 由分布密度的定义可知
+
+$$
+\begin{aligned}
+p(x)&=& \lim_{h\rightarrow 0}\dfrac{F(x+h)-F(x)}{h}= \lim_{h\rightarrow 0}\dfrac{1}{2\pi}\int_{-\infty}^{+\infty}\dfrac{e^{-itx}-e^{-it(x+h)}}{it\cdot h}\varphi(t)dt\\
+        &=&\dfrac{1}{2\pi}\int_{-\infty}^{+\infty} \lim_{h\rightarrow 0}\dfrac{e^{-ith}-1}{-it\cdot h}e^{-itx}\varphi(t)dt= \dfrac{1}{2\pi}\int_{-\infty}^{+\infty}e^{-itx}\varphi(t)dt
+\end{aligned}
+$$
+
+
+## 本章小结 {#本章小结 .unnumbered}
+
+数字特征以较低维度概括分布.期望是关于概率测度的积分,线性性质不要求独立;方差度量围绕均值的平方偏差,并满足方差分解.协方差与相关系数只刻画线性依赖,独立通常推出不相关,但反向一般不成立.使用这些量时必须先检查相关矩是否存在.
+
+条件数学期望是信息条件下的平均与预测,塔式性质体现了逐层消去信息的原则.母函数适合非负整数值变量,特征函数则对所有概率分布存在且唯一确定分布.对于独立和,生成函数的乘法结构是计算分布,证明极限定理以及理解卷积的共同纽带.
+
+## 本章复习与思考 {#本章复习与思考 .unnumbered}
+
+1.  证明若 $E|X|<\infty$,则 $E(aX+b)=aE(X)+b$;指出该结论为何不需要独立性.
+
+2.  从定义证明 $\operatorname{Var}(X)=E(X^2)-[E(X)]^2$,并据此求二项分布和泊松分布的方差.
+
+3.  使用 Markov 不等式推导 Chebyshev 不等式,并讨论等号可能成立的情形.
+
+4.  给出两个不独立但协方差为零的随机变量,计算验证并解释不相关的局限.
+
+5.  证明协方差矩阵是半正定矩阵;反之,讨论任意半正定矩阵能否作为某个随机向量的协方差矩阵.
+
+6.  设 $N\sim\operatorname{Poisson}(\lambda)$,在给定 $N$ 后,$X\mid N\sim\operatorname{Bin}(N,p)$.利用条件数学期望与条件方差求 $E(X)$ 和 $\operatorname{Var}(X)$.
+
+7.  求泊松分布的概率母函数,并利用它证明独立泊松随机变量之和仍服从泊松分布.
+
+8.  求正态分布的特征函数,并利用特征函数说明独立正态随机变量的线性组合仍为正态分布.

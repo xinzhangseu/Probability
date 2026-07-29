@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; 随机变量的收敛性 – ElegantBook PDF Template</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapter/template_chapter1.html" rel="next">
+<link href="../chapter/P3.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6ae065866b9700ba6c603111edf10198.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-bd9bcc431afe3f9758ea9c36db86c2b9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-6ae065866b9700ba6c603111edf10198.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapter/P4.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">随机变量的收敛性</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/openscapes_hex.png" alt="Openscapes hex logo" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/openscapes_hex.png" alt="Openscapes hex logo" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">ElegantBook PDF Template</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://yourwebsite.com" title="Your Website" class="quarto-navigation-tool px-1" aria-label="Your Website"><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/yourusername/yourrepo" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/yourusername" title="My Twitter" class="quarto-navigation-tool px-1" aria-label="My Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="../ElegantBook-PDF-Template.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="切换深色模式"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/P1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">测度与概率</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/P2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">随机变量</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/P3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">随机变量的数字特征</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/P4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">随机变量的收敛性</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/template_chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ElegantBook PDF 扩展测试文档</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">简介</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">定理环境测试</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">其他环境测试</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">列表环境测试</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">数学公式测试</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">图表测试</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">章后习题</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">高级主题</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">随机控制理论初步</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">金融保险应用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter1/11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">习题</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">测试</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter2/01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter2/02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">test for cosmo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/chapter3/01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">This is chapter 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/template_references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapter/ref.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">目录</h2>
+   
+  <ul class="collapse">
+  <li><a href="#本章学习目标" id="toc-本章学习目标" class="nav-link active" data-scroll-target="#本章学习目标">本章学习目标</a></li>
+  <li><a href="#sec-ch4-lecture-21" id="toc-sec-ch4-lecture-21" class="nav-link" data-scroll-target="#sec-ch4-lecture-21"><span class="header-section-number">4.1</span> 随机变量的收敛方式</a></li>
+  <li><a href="#sec-ch4-lecture-22" id="toc-sec-ch4-lecture-22" class="nav-link" data-scroll-target="#sec-ch4-lecture-22"><span class="header-section-number">4.2</span> 大数定律</a></li>
+  <li><a href="#sec-ch4-lecture-23" id="toc-sec-ch4-lecture-23" class="nav-link" data-scroll-target="#sec-ch4-lecture-23"><span class="header-section-number">4.3</span> 中心极限定理</a></li>
+  <li><a href="#本章小结" id="toc-本章小结" class="nav-link" data-scroll-target="#本章小结">本章小结</a></li>
+  <li><a href="#本章复习与思考" id="toc-本章复习与思考" class="nav-link" data-scroll-target="#本章复习与思考">本章复习与思考</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch4-convergence" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">随机变量的收敛性</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>概率论中的极限定理研究大量随机因素共同作用时出现的稳定规律.由于随机变量既是样本点的函数又具有分布,序列趋近可以在不同层面定义:逐样本点比较产生几乎处处收敛,比较偏离概率产生依概率收敛,比较矩产生 <span class="math inline">L^p</span> 收敛,而只比较分布则产生依分布收敛.不同收敛方式对应不同强度的信息.</p>
+<p>在收敛概念的基础上,大数定律说明样本平均趋近总体均值,中心极限定理描述中心化,标准化后的误差趋近正态分布.前者给出一致性,后者给出波动尺度与近似分布.本章既重视定理条件,也强调如何把抽象极限结论转化为概率近似和统计解释.</p>
+<section id="本章学习目标" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="本章学习目标">本章学习目标</h2>
+<ul>
+<li><p>准确表述几乎处处,依概率,<span class="math inline">L^p</span> 与依分布收敛;</p></li>
+<li><p>掌握常用收敛方式之间的蕴含关系与反例;</p></li>
+<li><p>理解弱大数定律和强大数定律的条件,结论及统计意义;</p></li>
+<li><p>掌握独立同分布中心极限定理及其标准化步骤;</p></li>
+<li><p>能判断一个实际问题应使用大数定律还是中心极限定理.</p></li>
+</ul>
+</section>
+<section id="sec-ch4-lecture-21" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-ch4-lecture-21"><span class="header-section-number">4.1</span> 随机变量的收敛方式</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>本节导读
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>随机变量序列的趋近可以从样本点,平均误差,偏差概率或分布函数等不同角度定义.几乎处处收敛,<span class="math inline">L^p</span> 收敛,依概率收敛和依分布收敛强弱不同;辨清它们的含义与关系,是理解概率极限定理的前提.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>理论主线
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>各种收敛方式比较的是不同对象.几乎处处收敛要求除一个零概率集合外逐点收敛;依概率收敛只要求显著偏差的概率趋于零;<span class="math inline">L^p</span> 收敛控制平均 <span class="math inline">p</span> 次误差;依分布收敛则只比较分布函数在极限分布连续点处的行为.量词顺序和例外集合是否依赖于误差阈值,是理解这些定义的关键.</p>
+<p>一般而言,<span class="math inline">L^p</span> 收敛和几乎处处收敛都蕴含依概率收敛,依概率收敛蕴含依分布收敛;反向通常不成立.依概率收敛可以抽取几乎处处收敛子列,而当极限为常数时,依分布收敛与依概率收敛等价.讨论任何蕴含关系时,都应同时说明条件并准备反例.</p>
+</div>
+</div>
+<section id="随机变量的几种收敛性" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="随机变量的几种收敛性">随机变量的几种收敛性</h4>
+<p><span style="color: red">几乎必然收敛:</span> 如果</p>
+<p><span class="math display">
+\begin{aligned}
+P(\{\omega:\lim_{n\rightarrow\infty}X_n(\omega)=X(\omega)\})=1,
+\end{aligned}
+</span></p>
+<p>则称随机变量列 <span class="math inline">\{X_n\}</span> 几乎必然收敛到 <span class="math inline">X</span>, 记作 <span class="math inline">X_n\stackrel{a.e.}{\rightarrow} X</span>, 或 <span class="math inline">X_n\rightarrow X, a.s.</span> <span style="color: red">依概率收敛:</span> 如果对任意的 <span class="math inline">\epsilon&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|X_n(\omega)-X(\omega)|&gt;\epsilon)=0,
+\end{aligned}
+</span></p>
+<p>则称 <span class="math inline">X_n</span> 依概率收敛到 <span class="math inline">X</span>, 记作 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span>. <span style="color: red"><span class="math inline">r</span> 阶平均收敛:</span> 设 <span class="math inline">r&gt;0</span> 为常数,如果随机变量 <span class="math inline">X</span> 与 <span class="math inline">X_n (n\geq 1)</span> 的 <span class="math inline">r</span> 阶矩皆有限,并且有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}E|X_n-X|^r=0,
+\end{aligned}
+</span></p>
+<p>则称 <span class="math inline">\{X_n\}</span> 为 <span class="math inline">r</span> 阶平均收敛到 <span class="math inline">X</span>, 简称 <span class="math inline">r</span> 阶收敛,记作 <span class="math inline">X_n\stackrel{L^r}{\rightarrow} X</span>.</p>
+</section>
+<section id="几乎必然收敛的刻划与性质" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="几乎必然收敛的刻划与性质">几乎必然收敛的刻划与性质</h4>
+<p>若记 <span class="math inline">E:=\{\omega: \lim_{n\rightarrow\infty} X_n (\omega)=X (\omega)\}</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+E=\cap_{m=1}^\infty\cup_{k=1}^\infty\cap_{n=k}^\infty\{\omega:|X_n(\omega)-X(\omega)|&lt;\dfrac{1}{m}\}\in \mathcal{F};
+\end{aligned}
+</span></p>
+<p>同时,<span class="math inline">X_n\stackrel{a.s.}{\rightarrow} X</span> 等价于 <span class="math inline">P (E)=1</span> 或 <span class="math inline">P (\bar{E})=0</span>; 此外,<span class="math inline">X_n\stackrel{a.s.}{\rightarrow} X</span> 的充分必要条件是对任意的 <span class="math inline">\epsilon&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{k\rightarrow\infty}P(\cup_{n=k}^\infty|X_n-X|\geq \epsilon)=0
+\end{aligned}
+</span></p>
+<p>若 <span class="math inline">X_n\stackrel{a.s.}{\rightarrow} X</span>, 则 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span>.</p>
+</section>
+<section id="依概率收敛不能推出几乎必然收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="依概率收敛不能推出几乎必然收敛">依概率收敛不能推出几乎必然收敛</h4>
+<div id="exm-ch4-001" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.1</strong></span> 取 <span class="math inline">\Omega=[0,1), \mathcal{F}</span> 为区间 <span class="math inline">[0,1)</span> 上的Borel 集类,<span class="math inline">P</span> 为Lebesgue 测度.令</p>
+<p><span class="math display">
+\begin{aligned}
+X_{11}(\omega)=1; \quad
+            X_{21}(\omega)=\left\{
+            \begin{array}{ll}
+                1, &amp;\omega\in [0,\frac{1}{2}),\\
+                0, &amp;\omega\in [\frac{1}{2},1);
+            \end{array}
+            \right.\quad
+            X_{22}(\omega)=\left\{
+            \begin{array}{ll}
+                1, &amp;\omega\in [\frac{1}{2},1),\\
+                0, &amp;\omega\in [0,\frac{1}{2});
+            \end{array}
+            \right.
+\end{aligned}
+</span></p>
+<p>一般地,对每个自然数 <span class="math inline">k</span>, 将 <span class="math inline">[0,1)</span> 等分为 <span class="math inline">k</span> 个区间,并取</p>
+<p><span class="math display">
+\begin{aligned}
+X_{ki}(\omega)=\left\{
+            \begin{array}{ll}
+                1, &amp;\omega\in [\frac{i-1}{k},\frac{i}{k}),\\
+                0, &amp;\mbox{其他},
+            \end{array}
+            \right. i=1,\cdots, k
+\end{aligned}
+</span></p>
+<p>定义</p>
+<p><span class="math display">
+\begin{aligned}
+Y_1=X_{11}, Y_2=X_{21}, Y_2=X_{22}, Y_3=X_{31}, \cdots
+\end{aligned}
+</span></p>
+<p>对于随机变量序列 <span class="math inline">Y_n</span>, 对任意的 <span class="math inline">\epsilon&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+P(|X_{ki}(\omega)|\geq \epsilon)\leq \dfrac{1}{k}\rightarrow 0,
+\end{aligned}
+</span></p>
+<p>但是收敛的点集 <span class="math inline">E=\emptyset</span>, 即 <span class="math inline">Y_n</span> 不几乎必然收敛.</p>
+</div>
+</section>
+<section id="r-阶收敛与依概率收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="r-阶收敛与依概率收敛"><span class="math inline">r</span> 阶收敛与依概率收敛</h4>
+<div id="lem-ch4-001" class="theorem lemma">
+<p><span class="theorem-title"><strong>引理 4.1</strong></span> (Markov 不等式) 设随机变量 <span class="math inline">X</span> 的 <span class="math inline">r</span> 阶矩有限,则对任意 <span class="math inline">\epsilon&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+P(|X|\geq  \epsilon)\leq \dfrac{1}{\epsilon^r}E|X|^r
+\end{aligned}
+</span></p>
+</div>
+<div id="thm-ch4-001" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.1</strong></span> 若 <span class="math inline">X_n\stackrel{L^r}{\rightarrow} X</span>, 则 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span>. 反之不真.</p>
+</div>
+<div id="exm-ch4-002" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.2</strong></span> 仍取区间 <span class="math inline">(0,1)</span> 上的几何概率空间 <span class="math inline">(\Omega,\mathcal{F}, P)</span>. 固定 <span class="math inline">r&gt;0</span>, 令</p>
+<p><span class="math display">
+\begin{aligned}
+X_n(\omega)=\left\{
+            \begin{array}{ll}
+                n^{1/r},&amp;\omega\in (0, 1/n),\\
+                0, &amp;\omega\in [1/n,1),
+            \end{array}
+            \right. \quad X(\omega)=0.
+\end{aligned}
+</span></p>
+<p>易知 <span class="math inline">X_n\stackrel{a.s.}{\rightarrow} X</span>, 从而 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span>, 但 <span class="math inline">X_n\stackrel{L^r}{\nrightarrow} X</span>.</p>
+</div>
+</section>
+<section id="依分布收敛-弱收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="依分布收敛-弱收敛">依分布收敛 (弱收敛)</h4>
+<div id="def-ch4-001" class="theorem definition">
+<p><span class="theorem-title"><strong>定义 4.1</strong></span> 设随机变量 <span class="math inline">X,X_1, X_2,\cdots,</span> 的分布函数分别为 <span class="math inline">F (x), F_1 (x),F_2 (x),\cdots,</span>, 如果对 <span class="math inline">F (x)</span> 的任一连续点 <span class="math inline">x</span> 均有</p>
+<p><span id="eq-ch4-weakdefn"><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow}F_n(x)=F(x),
+\end{aligned}
+\tag{4.1}</span></span></p>
+<p>则称 <span class="math inline">\{F_n (x)\}</span> 弱收敛于 <span class="math inline">F (x)</span>, 记作 <span class="math inline">F_n (x)\stackrel{W}{\rightarrow} F (x)</span>. 此时也称 <span class="math inline">\{X_n\}</span> 按分布收敛于 <span class="math inline">X</span>, 记作 <span class="math inline">X_n\stackrel{W}{\rightarrow} X</span>.</p>
+</div>
+<div id="rem-ch4-001" class="proof remark">
+<p><span class="proof-title"><em>注记 4.1</em>. </span>后面我们用<span class="math inline">C_F</span>表示函数<span class="math inline">F(x)</span>的连续点集, 即 <span class="math display">C_F:=\{x: x\mbox{为}F(x)\mbox{的连续点}  \}</span></p>
+</div>
+</section>
+<section id="为何要求分布函数在连续点收敛而不是每一点收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="为何要求分布函数在连续点收敛而不是每一点收敛">为何要求分布函数在连续点收敛,而不是每一点收敛</h4>
+<div id="exm-ch4-003" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.3</strong></span> 考虑随机变量序列 <span class="math inline">\{X_n\}</span> 服从如下退化分布</p>
+<p><span class="math display">
+\begin{aligned}
+P(X_n=\frac{1}{n})=1, n=1,2,\cdots,
+\end{aligned}
+</span></p>
+<p>它们的分布函数分别为 <span class="math inline">F_n (x)=\left\{
+        \begin{array}{ll}
+            0, &amp; x&lt;\frac{1}{n}\\
+            1, &amp;x\ge \frac{1}{n}
+        \end{array}
+        \right.</span></p>
+<p>则在点点收敛要求下,<span class="math inline">\{F_n (x)\}</span> 的极限函数为</p>
+<p><span class="math display">
+\begin{aligned}
+g(x)=\left\{
+                \begin{array}{ll}
+                    0, &amp; x\le 0\\
+                    1, &amp;x&gt;0
+                \end{array}
+                \right.
+\end{aligned}
+</span></p>
+<p>显然上述极限不满足右连续性,即 <span class="math inline">g (x)</span> 不是一个分布函数. 同时,因为 <span class="math inline">F_n (x)</span> 在 <span class="math inline">x=1/n</span> 处有跳跃,故当 <span class="math inline">n\rightarrow\infty</span> 时,跳跃点的位置趋于 0, 很自然的认为 <span class="math inline">\{F_n (x)\}</span> 应该收敛于点 <span class="math inline">x=0</span> 的退化分布,即 <span class="math inline">F (x)=\left\{
+            \begin{array}{ll}
+                0, &amp; x&lt;0\\
+                1, &amp;x\ge 0
+            \end{array}
+            \right.</span>. 但是对任意的 <span class="math inline">n</span>, 有 <span class="math inline">F_n (0)=0</span>, 而 <span class="math inline">F (0)=1</span>, 所以 <span class="math inline">\lim_{n\rightarrow\infty} F_n (0)=0\neq 1=F (0)</span>, 而这个不收敛的点恰为 <span class="math inline">F (x)</span> 的不连续点.</p>
+</div>
+</section>
+<section id="依概率收敛与依分布收敛的关系" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="依概率收敛与依分布收敛的关系">依概率收敛与依分布收敛的关系</h4>
+<div id="thm-ch4-002" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.2</strong></span> 若 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span>, 则 <span class="math inline">X_n\stackrel{W}{\rightarrow} X</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;设随机变量 <span class="math inline">X,X_1, X_2,\cdots,</span> 的分布函数分别为 <span class="math inline">F (x), F_1 (x),F_2 (x),\cdots,</span> 只需证在 <span class="math inline">F (x)</span> 的连续点上均有 <span class="math inline">F_n (x)\rightarrow F (x)</span> 即可. 而要证明这一点我们只需要说明,对任意的 <span class="math inline">x</span> 均有</p>
+<p><span class="math display">
+\begin{aligned}
+F(x-0)\le \liminf_{n\rightarrow\infty} F_n(x)\le \limsup_{n\rightarrow\infty} F_n(x)\le F(x+0)
+\end{aligned}
+</span></p>
+<p>注意到,对任意的 <span class="math inline">x'&lt;x</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+\{X\le x'\}&amp;=&amp;\{X_n\le x, X\le x'\}\cup\{X_n&gt;x,X\le x'\}\\
+         &amp;\subset&amp;\{X_n\le x\}\cup\{|X_n-X|\ge x-x'\}
+\end{aligned}
+</span></p>
+<p>从而有 <span class="math inline">F (x')\le F_n (x)+P (|X_n-X|\ge x-x')</span>. 再由 <span class="math inline">X_n\stackrel{P}{\rightarrow} X</span> 知</p>
+<p><span class="math display">
+\begin{aligned}
+F(x')\le \liminf_{n\rightarrow\infty}F_n(x)  \Rightarrow F(x-0)\le \liminf_{n\rightarrow\infty}F_n(x)
+\end{aligned}
+</span></p>
+<p>类似可证,当 <span class="math inline">x''&gt;x</span> 时,<span class="math inline">\limsup_{n\rightarrow\infty} F_n (x)\le F (x+0)</span>.</p>
+</section>
+<section id="依分布收敛无法推出依概率收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="依分布收敛无法推出依概率收敛">依分布收敛无法推出依概率收敛</h4>
+<div id="exm-ch4-004" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.4</strong></span> 设随机变量 <span class="math inline">X</span> 的分布列为</p>
+<p><span class="math display">
+\begin{aligned}
+P(X=-1)=P(X=1)=1/2
+\end{aligned}
+</span></p>
+<p>令 <span class="math inline">X_n=-X</span>, 则 <span class="math inline">X_n</span> 与 <span class="math inline">X</span> 同分布,即 <span class="math inline">X_n</span> 与 <span class="math inline">X</span> 有相同的分布,故 <span class="math inline">X_n\stackrel{W}{\rightarrow} X</span>, 但对任意的 <span class="math inline">\epsilon\in (0,2)</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+P(|X_n-X|\ge \epsilon)= P(2|X|\ge \epsilon)=1\nrightarrow 0
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="若-x_n-依分布收敛至常数-c-则-x_n-概率收敛至常数-c" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="若-x_n-依分布收敛至常数-c-则-x_n-概率收敛至常数-c">若 <span class="math inline">X_n</span> 依分布收敛至常数 <span class="math inline">c</span>, 则 <span class="math inline">X_n</span> 概率收敛至常数 <span class="math inline">c</span></h4>
+<div id="thm-ch4-003" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.3</strong></span> 若 <span class="math inline">c</span> 为常数,则 <span class="math inline">X_n\stackrel{P}{\rightarrow} c\Leftrightarrow X_n\stackrel{W}{\rightarrow} c</span></p>
+</div>
+<p>只需证明充分性即可.记 <span class="math inline">X_n</span> 的分布函数为 <span class="math inline">F_n (x), n=1,2,\cdots,</span> 常数 <span class="math inline">c</span> 的分布函数为 <span class="math inline">F (x)=\left\{
+    \begin{array}{ll}
+        0, &amp;x&lt;c,\\
+        1, &amp;x\ge c.
+    \end{array}\right.</span> 故对任意的 <span class="math inline">\epsilon&gt;0</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+P(|X_n-c|\ge \epsilon)&amp;=&amp; P(X_n\ge c+\epsilon)+P(X_n\le c-\epsilon)\\
+        &amp;\le&amp;  P(X_n&gt; c+\epsilon/2)+P(X_n\le c-\epsilon)\\
+        &amp;=&amp; 1-F_n(c+\epsilon/2)+F_n(c-\epsilon)\\
+        &amp;\rightarrow&amp;  1-F(c+\epsilon/2)+F(c-\epsilon)=0
+\end{aligned}
+</span></p>
+<p>从而 <span class="math inline">X_n\stackrel{P}{\rightarrow} c</span>.</p>
+</section>
+<section id="弱收敛的充分条件" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="弱收敛的充分条件">弱收敛的充分条件</h4>
+<div id="thm-ch4-004" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.4</strong></span> 设 <span class="math inline">F (x), F_n (x)(n\geq 1)</span> 均为分布函数,如果对于 <span class="math inline">F(x)</span>的连续点集<span class="math inline">C_F</span> 的某个稠密子集 <span class="math inline">D</span> 上的一切 <span class="math inline">x</span> 均有</p>
+<p><span id="eq-ch4-wchou"><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}F_n(x)=F(x), \forall x\in D
+\end{aligned}
+\tag{4.2}</span></span></p>
+<p>则 <span class="math inline">F_n\stackrel{W}\rightarrow F</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;由 <span class="math inline">D \subset C_{F}</span> 立得必要性.下设@eq-ch4-wchou 式成立. 对任何 <span class="math inline">x \in C_{F}</span>,取 <span class="math display">y&lt;x&lt;z \text{且} y, z \in D,</span> 则有</p>
+<p><span class="math display">
+\begin{aligned}
+F_{n}(y) \leq F_{n}(x) \leq F_{n}(z).
+\end{aligned}
+</span></p>
+<p>上式令 <span class="math inline">n \rightarrow \infty</span>并利用@eq-ch4-wchou 式可得 <span class="math display">F(y)=\lim _{n} F_{n}(y) \leq \varliminf_{n} F_{n}(x) \leq \varlimsup_{n} F_{n}(x) \leq \lim _{n} F_{n}(z)=F(z) .</span></p>
+<p>再令 <span class="math inline">y \uparrow x</span> 及 <span class="math inline">z \downarrow x</span> 便得证@eq-ch4-weakdefn 式. 即 <span class="math inline">F_{n} \xrightarrow{W} F</span> .证毕.</p>
+</section>
+<section id="helly-第一定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第一定理">Helly 第一定理</h4>
+<div id="thm-ch4-005" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.5</strong></span> (Helly 第一定理)任意分布函数列 <span class="math inline">F_n(x)</span> 均存在子列<span class="math inline">F_{n(k)}(x)</span>以及一个有界,非降,右连续的函数<span class="math inline">F(x)</span>使得对任意的<span class="math inline">x\in C_F</span>, 均有 <span class="math display">\lim _{k \rightarrow \infty} F_{n(k)}(x)=F(x).</span></p>
+</div>
+<div id="rem-ch4-002" class="proof remark">
+<p><span class="proof-title"><em>注记 4.2</em>. </span>极限函数 <span class="math inline">F(x)</span> 不一定为分布函数. 比如, 若<span class="math inline">a+b+c=1</span>, <span class="math inline">G(x)</span>为分布函数, 令<span class="math inline">F_{n}(x)=a 1_{(x \geq n)}+b 1_{(x \geq-n)}+c G(x)</span>, 则易知 <span class="math display">F_{n}(x) \rightarrow F(x)=b+c G(x),</span> 但 <span class="math display">\lim _{x \downarrow-\infty} F(x)=b\neq 0, \quad  \lim _{x \uparrow \infty} F(x)=b+c=1-a\neq 1</span></p>
+</div>
+</section>
+<section id="helly-第一定理证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第一定理证明">Helly 第一定理证明</h4>
+<p>令 <span class="math inline">q_{1}, q_{2}, \ldots</span> 为有理数排列, <span class="math inline">m_{0}(j) \equiv j</span>. 由于对每个<span class="math inline">k</span>, <span class="math display">F_{m}\left(q_{k}\right) \in[0,1], \quad \forall m\geq 1.</span> 因此, 存在<span class="math inline">m_{k-1}(j)</span>的子列<span class="math inline">m_{k}(j)</span>使得 <span class="math display">\lim_{j \rightarrow \infty}F_{m_{k}(j)}(q_{k}) = G(q_{k}).</span> 令 <span class="math inline">F_{n(k)}(x):=F_{m_k(k)}(x)</span>, 则 <span class="math display">\lim_{k \rightarrow \infty}F_{n(k)}(q) = G(q),\quad  \forall q \in \mathbb{Q}.</span> 令<span class="math inline">F(x)=\inf \{G(q): q \in \mathbb{Q}, q&gt;x\}</span>, 则易知<span class="math inline">F(x)</span>右连续. 事实上, <span class="math display">\begin{aligned}
+    \lim _{x_{n} \downarrow x} F\left(x_{n}\right) &amp; = \inf \left\{G(q): q \in \mathbb{Q}, q&gt;x_{n} \text { 对某个 } n\right\} \\
+    &amp; = \inf \{G(q): q \in \mathbb{Q}, q&gt;x\}= F(x)
+    \end{aligned}</span></p>
+</section>
+<section id="helly-第一定理证明ii" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第一定理证明ii">Helly 第一定理证明II</h4>
+<p>首先,右连续性证明方法2:对任何 <span class="math inline">\varepsilon&gt;0</span>, 总存在 <span class="math inline">q_{k}&gt;x</span> 使 <span class="math inline">G\left(q_{k}\right)&lt;F(x)+\varepsilon</span>, 且对于一切 <span class="math inline">y \in\left(x, q_{k}\right)</span> 有 <span class="math display">F(x)\leq F(y)\leq G\left(q_{k}\right)&lt;F(x)+\varepsilon .</span> 先令 <span class="math inline">y \downarrow x</span> ,再令 <span class="math inline">\varepsilon \downarrow 0</span> 得 <span class="math inline">F(x)\leq F(x+0) \leq F(x)</span>. 右连续得证. 令<span class="math inline">x\in C_F</span>并取<span class="math inline">r_1,r_2,r_3\in\mathbb{Q}</span>使得<span class="math inline">r_{1}&lt;r_{2}&lt;x&lt;r_3</span>, 则 <span class="math display">F(x)-\epsilon&lt;F\left(r_{1}\right) \leq F\left(r_{2}\right) \leq F(x) \leq F(r_3)&lt;F(x)+\epsilon</span> 由于 <span class="math display">F_{n(k)}\left(r_{2}\right) \rightarrow G\left(r_{2}\right) \geq F\left(r_{1}\right), \quad  F_{n(k)}(r_3) \rightarrow G(r_3) \leq F(r_3),</span> 因此, 当<span class="math inline">k</span>充分大时, <span class="math display">F(x)-\epsilon&lt;F_{n(k)}\left(r_{2}\right) \leq F_{n(k)}(x) \leq F_{n(k)}(r_3)&lt;F(x)+\epsilon</span> 综上可知 <span class="math display">\lim_{k \rightarrow \infty}F_{n(k)}(x) = F(x), \quad x\in C_F.</span></p>
+</section>
+<section id="胎紧tight" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="胎紧tight">胎紧(tight)</h4>
+<div id="def-ch4-002" class="theorem definition">
+<p><span class="theorem-title"><strong>定义 4.2</strong></span> 设随机变量<span class="math inline">X_n</span>的分布函数为<span class="math inline">F_n(x)</span>, 我们称分布函数列<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>为胎紧的(tight), 如果对任意的<span class="math inline">\epsilon&gt;0</span>, 存<span class="math inline">M_{\epsilon}</span>使得 <span class="math display">\sup_{n\geq 1}P(|X_n|&gt;M_{\epsilon})\leq\epsilon.</span></p>
+</div>
+<div id="thm-ch4-006" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.6</strong></span> 分布函数列<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的(tight)的当且仅当对任意的<span class="math inline">\epsilon&gt;0</span>, 存<span class="math inline">M_{\epsilon}</span>使得<span class="math inline">\sup_{n\geq 1} \big(1-F_{n}\left(M_{\epsilon}\right)+F_{n}\left(-M_{\epsilon}\right) \big)\leq \epsilon</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;充分性, 若<span class="math inline">\sup_{n\geq 1} \big(1-F_{n}\left(M_{\epsilon}\right)+F_{n}\left(-M_{\epsilon}\right) \big)\leq \epsilon</span>, 则由</p>
+<p><span class="math display">
+\begin{aligned}
+\sup_{n\geq 1}P(|X_n|&gt;M_{\epsilon})&amp;=\sup_{n\geq 1}\big(1-F_n(M_{\epsilon})+P(X_n&lt;M_{\epsilon})\big)\\
+        &amp;\leq \sup_{n\geq 1}\big(1-F_{n}\left(M_{\epsilon}\right)+F_{n}\left(-M_{\epsilon}\right)\big)\leq \epsilon
+\end{aligned}
+</span></p>
+<p>知分布函数列<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的. 反之, 取<span class="math inline">K_\epsilon=M_\epsilon+\delta, \delta&gt;0</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+\sup_{n\geq 1}\big(1-F_{n}\left(K_{\epsilon}\right)+F_{n}\left(-K_{\epsilon}\right)\big)&amp;\leq \sup_{n\geq 1}\big(1-F_{n}\left(M_{\epsilon}\right)+P(X_n&lt;-M_\epsilon)\big)\\
+        &amp;=\sup_{n\geq 1}P(|X_n|&gt;M_{\epsilon})\leq  \epsilon
+\end{aligned}
+</span></p>
+</section>
+<section id="胎紧与分布函数列收敛" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="胎紧与分布函数列收敛">胎紧与分布函数列收敛</h4>
+<div id="thm-ch4-007" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.7</strong></span> 分布函数列<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>的子序列收敛到某个分布函数<span class="math inline">F(x)</span>当且仅当<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;</p>
+<p>首先,假设<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的, 且<span class="math inline">F_{n(k)}(x) \rightarrow F(x)</span>. 下证 <span class="math inline">F(x)</span>为分布函数, 即证: <span class="math inline">F(+\infty)-F(-\infty)=1</span>. 令 <span class="math inline">r, s\in C_F</span>且<span class="math inline">r&lt;-M_{\epsilon}, s&gt;M_{\epsilon}</span>, 由 <span class="math inline">F_{n}(r) \rightarrow F(r), \ F_{n}(s) \rightarrow F(s)</span> 得 <span class="math display">\begin{aligned}
+1-F(s)+F(r)  &amp;= \lim _{k \rightarrow \infty} \big(1-F_{n(k)}(s)+F_{n(k)}(r) \big)\\
+&amp; \leq\lim _{k \rightarrow \infty} \sup_{k\geq 1}\big(1-F_{n(k)}(M_{\epsilon})+F_{n(k)}(-M_{\epsilon}) \big)\\
+&amp;\leq  \sup_{n\geq 1} \big(1-F_{n}\left(M_{\epsilon}\right)+F_{n}\left(-M_{\epsilon}\right)\big) \leq  \epsilon
+\end{aligned}</span> 令<span class="math inline">r\rightarrow-\infty, s\rightarrow\infty</span>后再令<span class="math inline">\epsilon\rightarrow 0</span>可得<span class="math inline">F(+\infty)-F(-\infty)=1</span></p>
+</section>
+<section id="定理证明续" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="定理证明续">定理证明续</h4>
+<p>若极限函数是分布函数,下面用反证法证明<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的. 若<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>不是胎紧的, 则存在<span class="math inline">\epsilon&gt;0</span>以及子列<span class="math inline">n(k)</span>使得对任意的<span class="math inline">k</span>均有 <span class="math display">1-F_{n(k)}(k)+F_{n(k)}(-k) \geq \epsilon,</span> 由Helly第一定理可知, <span class="math inline">\{F_{n(k)}(x)\}_{k\geq 1}</span> 存在子列<span class="math inline">\{F_{n\left(k_{j}\right)}\}_{j\geq 1}\rightarrow F(x)</span>. 令<span class="math inline">r, s\in C_F</span>, <span class="math inline">r&lt;0&lt;s</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+1-F(s)+F(r)  &amp;= \lim _{j \rightarrow \infty} \big(1-F_{n\left(k_{j}\right)}(s)+F_{n\left(k_{j}\right)}(r)\big)
+         \\
+        &amp;\geq  \liminf _{j \rightarrow \infty} \big(1-F_{n\left(k_{j}\right)}\left(k_{j}\right)+F_{n\left(k_{j}\right)}\left(-k_{j}\right)\big) \geq  \epsilon
+\end{aligned}
+</span></p>
+<p>令<span class="math inline">s \rightarrow \infty, r \rightarrow-\infty</span>可知<span class="math inline">F(x)</span>不是分布函数, 与假设矛盾.</p>
+</section>
+<section id="helly-第二定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第二定理">Helly 第二定理</h4>
+<div id="thm-ch4-008" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.8</strong></span> (Helly 第二定理) 设分布函数列 <span class="math inline">\{F_n(x)\}</span> 弱收敛于分布函数 <span class="math inline">F (x)</span>当且仅当对任何有界连续函数 <span class="math inline">g(x)</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+\int_{\mathbb{R}}g(x)dF_n(x)\rightarrow\int_{\mathbb{R}}g(x)dF(x).
+\end{aligned}
+</span></p>
+<p>或等价的 <span class="math display">E[g(X_n)]\rightarrow E[g(X)].</span></p>
+</div>
+</section>
+<section id="一个引理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一个引理">一个引理</h4>
+<div id="thm-ch4-009" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.9</strong></span> 若分布函数列 <span class="math inline">\{F_n(x)\}_{n\geq 1}</span> 弱收敛于分布函数 <span class="math inline">F (x)</span>, 则存在分布函数为<span class="math inline">F_n(x)</span>的随机变量序列<span class="math inline">\{Y_n\}_{n\geq 1}</span>及分布函数为<span class="math inline">F(x)</span>的随机变量<span class="math inline">Y</span>, 使得<span class="math inline">Y_n\rightarrow Y, a.s.</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;</p>
+<p>令<span class="math inline">\Omega=(0,1), \mathcal{F}=\mathcal{B}((0,1))</span>, <span class="math inline">P</span> 为<span class="math inline">(0,1)</span>上的Lebesgue测度. 令</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;Y_{n}(y)=F_n^{-1}(y):=\sup \{x: F_{n}(x)&lt;y\}\\
+            &amp;Y(y)=F^{-1}(y):=\sup \{x: F(x)&lt;y\}\\
+            &amp;a_{y}=\sup \{x: F(x)&lt;y\}, \quad b_{y}=\inf \{x: F(x)&gt;y\}\\
+            &amp;\Omega_0=\{y:\left(a_{y}, b_{y}\right)=\emptyset\}
+\end{aligned}
+</span></p>
+<p>由于<span class="math inline">\left(a_{y}, b_{y}\right)</span>互不相交且每个非空区间均包含不同的有理数, 因此可知 <span class="math inline">\Omega-\Omega_0</span> 中的元素个数可数, 从而<span class="math inline">P(\Omega-\Omega_0)=0</span>.</p>
+</section>
+<section id="引理证明续" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理证明续">引理证明(续)</h4>
+<p>首先,下证, 对任意的<span class="math inline">y \in \Omega_{0}</span>, 我们有<span class="math inline">F_{n}^{-1}(y) \rightarrow F^{-1}(y)</span>. 首先, 证明<span class="math inline">{\liminf _{n \rightarrow \infty} F_{n}^{-1}(y) \geq F^{-1}(y)}</span>, 其中,令 <span class="math inline">x\in C_F</span>使得<span class="math inline">x&lt;F^{-1}(y)</span>, 则由<span class="math inline">y\in \Omega_0</span>知<span class="math inline">F(x)&lt;y</span>; 由<span class="math inline">x\in C_F</span>以及<span class="math inline">F_n(x)\rightarrow F(x)</span>可知, 当<span class="math inline">n</span>充分大时, <span class="math inline">F_n(x)&lt;y</span>, 也即 <span class="math inline">F_n^{-1}(y)\geq x</span>; 令<span class="math inline">n\rightarrow\infty</span>取下极限后再令<span class="math inline">x\rightarrow F^{-1}(y)</span>可得本结果. 其次, 证明<span class="math inline">{\lim \sup _{n \rightarrow \infty} F_{n}^{-1}(y) \leq F^{-1}(y)}</span> 其中,令 <span class="math inline">x\in C_F</span>使得<span class="math inline">x&gt;F^{-1}(y)</span>, 则由<span class="math inline">y\in \Omega_0</span>知<span class="math inline">F(x)&gt;y</span>; 由<span class="math inline">x\in C_F</span>以及<span class="math inline">F_n(x)\rightarrow F(x)</span>可知, 当<span class="math inline">n</span>充分大时, <span class="math inline">F_n(x)&gt;y</span>, 也即 <span class="math inline">F_n^{-1}(y)\leq x</span>; 令<span class="math inline">n\rightarrow\infty</span>取上极限后再令<span class="math inline">x\rightarrow F^{-1}(y)</span>可得本结果.</p>
+</section>
+<section id="helly-第二定理证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第二定理证明">Helly 第二定理证明</h4>
+<p>首先,必要性 其中,由引理可知, 存在<span class="math inline">\{Y_n\}_{n\geq 1}</span>及<span class="math inline">Y</span>使得<span class="math inline">Y_n\rightarrow Y,    a.s.</span>; 由于<span class="math inline">g(x)</span>是连续函数, 从而<span class="math inline">g(Y_n)\rightarrow g(Y), a.s.</span>; 从而由控制收敛定理可知 <span class="math display">E[g(X_n)]=E[g(Y_n)]\rightarrow E[g(Y)]=E[g(X)],</span> 也即 <span class="math display">\int_{\mathbb{R}}g(x)dF_n(x)\rightarrow\int_{\mathbb{R}}g(x)dF(x).</span></p>
+</section>
+<section id="helly-第二定理证明-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="helly-第二定理证明-1">Helly 第二定理证明</h4>
+<p>首先,充分性 其中,令<span class="math display">g_{x, \epsilon}(y)=\left\{\begin{array}{ll}
+            1 &amp; y \leq x \\
+            0 &amp; y \geq x+\epsilon \\
+            -\frac{1}{\epsilon}(y-x)+1 &amp; x \leq y \leq x+\epsilon
+            \end{array}\right.</span> 由 <span class="math inline">g_{x, \epsilon}</span>的定义及连续性可知</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\limsup _{n \rightarrow \infty} P\left(X_{n} \leq x\right) \leq   \limsup _{n \rightarrow \infty} E g_{x, \epsilon}\left(X_{n}\right)= E g_{x, \epsilon}\left(X\right) \leq  P\left(X \leq x+\epsilon\right)  \\
+        &amp;\liminf _{n \rightarrow \infty} P\left(X_{n} \leq x\right) \geq  \liminf _{n \rightarrow \infty} E g_{x-\epsilon, \epsilon}\left(X_{n}\right)= E g_{x-\epsilon, \epsilon}\left(X\right) \geq  P\left(X\leq x-\epsilon\right)
+\end{aligned}
+</span></p>
+<p>令<span class="math inline">\epsilon \rightarrow 0</span> 可得</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\lim \sup _{n \rightarrow \infty} P\left(X_{n} \leq x\right) \leq   P\left(X\leq x\right),  \\
+        &amp;\lim \inf _{n \rightarrow \infty} P\left(X_{n} \leq x\right) \geq   P\left(X&lt;x\right)\stackrel{x\in C_F}{=}P\left(X \leq x\right)
+\end{aligned}
+</span></p>
+<p>由上可得, 对任意的<span class="math inline">x\in C_F</span>, 我们有 <span class="math display">\lim _{n\rightarrow \infty} F_{n}(x)=F(x).</span></p>
+</section>
+<section id="连续性定理及证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="连续性定理及证明">连续性定理及证明</h4>
+<div id="thm-ch4-010" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.10</strong></span> (连续性定理) 分布函数列 <span class="math inline">\{F_n (x)\}</span> 弱收敛到分布函数 <span class="math inline">F (x)</span> 的充分必要条件是:相应的特征函数列 <span class="math inline">\{\varphi_n (t)\}</span> 逐点收敛到相应的特征函数 <span class="math inline">\varphi (t)</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;</p>
+<p>首先,必要性显然. 事实上, 由<span class="math inline">\cos(tx), \sin(tx)</span>为有界连续函数以及Helly第二定理可知</p>
+<p><span class="math display">
+\begin{aligned}
+\varphi_n(t)&amp;:= \int_{\mathbb{R}}e^{itx}dF_n(x)
+    \\
+    &amp;= \int_{\mathbb{R}}\cos(tx)dF_n(x)+i\int_{\mathbb{R}}\sin(tx)dF_n(x)
+    \\
+    &amp;\rightarrow \int_{\mathbb{R}}\cos(tx)dF(x)+i\int_{\mathbb{R}}\sin(tx)dF(x)
+    \\
+    &amp;= \int_{\mathbb{R}}e^{itx}dF(x)
+    =:\varphi(t).
+\end{aligned}
+</span></p>
+</section>
+<section id="连续性定理证明续" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="连续性定理证明续">连续性定理证明(续)</h4>
+<p>下证充分性. 先证<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>是胎紧的.</p>
+<p>注意到</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;u^{-1} \int_{-u}^{u}\left(1-\varphi_{n}(t)\right) d t= u^{-1} \int_{-u}^{u}\int_{\mathbb{R}}\left(1-e^{itx}\right)dF_n(x) d t
+    \\ &amp;= u^{-1}\int_{\mathbb{R}}\int_{-u}^{u}\left(1-e^{itx}\right)dt dF_n(x)= 2\int_{\mathbb{R}}(1-\frac{\sin ux}{ux})dF_n(x)\\
+    &amp;\geq  2 \int_{|x|\geq\frac{2}{u}}(1-\frac{1}{|ux|})dF_n(x)\geq  \int_{|x|\geq\frac{2}{u}}dF_n(x)= P(|X_n|\geq \frac{2}{u})
+\end{aligned}
+</span></p>
+<p>另一方面,</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\lim_{n\rightarrow\infty}u^{-1} \int_{-u}^{u}\left(1-\varphi_{n}(t)\right) d t= u^{-1} \int_{-u}^{u}\left(1-\varphi(t)\right) d t \stackrel{u\rightarrow 0}{\longrightarrow}  0
+\end{aligned}
+</span></p>
+<p>从而 <span class="math display">P(|X_n|\geq \frac{2}{u})\leq  u^{-1} \int_{-u}^{u}\left(1-\varphi_{n}(t)\right) d t \leq  2 \epsilon</span></p>
+</section>
+<section id="连续性定理证明续-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="连续性定理证明续-1">连续性定理证明(续)</h4>
+<p>其次, 证明对任意的有界连续函数<span class="math inline">g(x)</span>均有 <span class="math inline">E[g(X_n)]\rightarrow E[g(X)]</span>.</p>
+<p>首先注意到, 对于<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>的任一子列<span class="math inline">\{F_{n(k)}(x)\}_{k\geq 1}</span>, 若<span class="math inline">F_{n(k)} (x)\stackrel{W}{\rightarrow} F (x)</span>, 则分布函数<span class="math inline">F(x)</span>的特征函数必为<span class="math inline">\varphi(t)</span>. 由<span class="math inline">\{F_n(x)\}_{n\geq 1}</span>的胎紧性可知, <span class="math inline">\{F_n(x)\}_{n\geq 1}</span>的任一子列<span class="math inline">\{F_{n(k)}(x)\}_{k\geq 1}</span>均存在子列<span class="math inline">\{F_{n(k_j)}(x)\}_{j\geq 1}</span>弱收敛到某个分布函数<span class="math inline">F(x)</span>, 且<span class="math inline">F(x)</span>的特征函数为<span class="math inline">\varphi(t)</span>. 由于<span class="math inline">\{F_{n(k_j)}(x)\}_{j\geq 1}</span>弱收敛到某个分布函数<span class="math inline">F(x)</span>, 故由Helly第二定理可知, 对任意的有界连续函数<span class="math inline">g(x)</span>均有 <span class="math display">\int g(x)dF_{n(k_j)}(x)\rightarrow \int g(x)dF(x)</span> 故综上可知, <span class="math inline">\int g(x)dF_{n}(x)</span>的任一子列<span class="math inline">\int g(x)dF_{n(k)}(x)</span>均存在子列<span class="math inline">\int g(x)dF_{n(k_j)}(x)\rightarrow \int g(x)dF(x)</span>. 从而, <span class="math inline">\int g(x)dF_{n}(x)\rightarrow \int g(x)dF(x)</span>, 即 <span class="math display">E[g(X_n)]\rightarrow E[g(X)].</span></p>
+</section>
+</section>
+<section id="sec-ch4-lecture-22" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-ch4-lecture-22"><span class="header-section-number">4.2</span> 大数定律</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>本节导读
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大数定律解释了样本平均为何能够稳定地估计总体均值,是频率解释和统计推断的理论支柱.弱大数定律给出依概率收敛,强大数定律给出几乎处处收敛;不同版本的差异主要体现在独立性,同分布性和矩条件上.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>理论主线
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大数定律研究部分和或样本均值的稳定性.弱大数定律给出依概率收敛,强大数定律给出几乎处处收敛;二者结论强度不同,所需条件也不能混用.独立同分布只是最常见的框架,许多版本允许非同分布,弱相关或不同的矩条件.</p>
+<p>证明大数定律的基本路线包括用方差和 Chebyshev 不等式控制偏差概率,以及用截断,最大不等式与 Borel-Cantelli 引理获得几乎处处结论.应用时必须确认被平均量的期望是否存在,并区分定理保证的渐近稳定性与有限样本下的具体误差界.</p>
+</div>
+</div>
+<section id="概率及频率" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="概率及频率">概率及频率</h4>
+<p>记 <span class="math inline">S_n</span> 为 <span class="math inline">n</span> 重伯努利试验中事件 <span class="math inline">A</span> 出现次数,称 <span class="math inline">\dfrac{S_n}{n}</span> 为事件 <span class="math inline">A</span> 出现的频率; 同时,记 <span class="math inline">p</span> 为一次试验中 <span class="math inline">A</span> 发生的概率; 此外,概率是频率的稳定值,何谓稳定值?似乎与频率的极限有关; 相应地,考虑 <span class="math inline">|\dfrac{S_n}{n}-p|</span>, 如果能类似于函数列极限情形即对任意的 <span class="math inline">\epsilon&gt;0</span>, 存在 <span class="math inline">N</span> 使得当 <span class="math inline">n\ge N</span> 时</p>
+<p><span class="math display">
+\begin{aligned}
+|\dfrac{S_n}{n}-p|&lt; \epsilon, \forall \omega\in \Omega.
+\end{aligned}
+</span></p>
+<p>相应地,但是上述情形无法做到,事实上,对任意的 <span class="math inline">\epsilon&lt;1-p</span>,</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;&amp; P(|\dfrac{S_n}{n}-p|&lt; \epsilon)\le  P(\dfrac{S_n}{n}-p&lt;\epsilon)\le  P(\dfrac{S_n}{n}-p&lt;1-p)\\
+            &amp;&amp;= P(\frac{S_n}{n}&lt;1)= 1-P(\frac{S_n}{n}=1)= 1-P(X_1=1,\cdots,X_n=1)\\
+            &amp;&amp;= 1-p^n&lt;1
+\end{aligned}
+</span></p>
+</section>
+<section id="伯努利大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="伯努利大数定律">伯努利大数定律</h4>
+<div id="thm-ch4-011" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.11</strong></span> 设 <span class="math inline">S_n</span> 为 <span class="math inline">n</span> 重伯努利试验中事件 <span class="math inline">A</span> 出现次数,<span class="math inline">p</span> 为一次试验中 <span class="math inline">A</span> 发生的概率,则对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|&lt;\epsilon)=1, \quad\mbox{或等价的}\quad \lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|\ge\epsilon)=0
+\end{aligned}
+</span></p>
+</div>
+<p><strong>证明.</strong>&nbsp;因为 <span class="math inline">S_n\sim B (n,p)</span>, 故 <span class="math inline">S_n\sim B (n,p), E (\frac{S_n}{n})=p, D (\frac{S_n}{n})=\frac{p (1-p)}{n}</span>. 从而由切比雪夫不等式可得</p>
+<p><span class="math display">
+\begin{aligned}
+1\ge P(|\frac{S_n}{n}-p|&lt;\epsilon)\ge 1-\dfrac{D(\frac{S_n}{n})}{\epsilon^2}=1-\frac{p(1-p)}{n\epsilon^2}\rightarrow 1  \quad n\rightarrow \infty
+\end{aligned}
+</span></p>
+<p>故</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|\frac{S_n}{n}-p|&lt;\epsilon)=1
+\end{aligned}
+</span></p>
+</section>
+<section id="伯努利大数定律的含义" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="伯努利大数定律的含义">伯努利大数定律的含义</h4>
+<p>首先,随着 <span class="math inline">n</span> 的增大,事件 <span class="math inline">A</span> 发生的频率 <span class="math inline">\dfrac{S_n}{n}</span> 与其概率 <span class="math inline">p</span> 的偏差大于预先给定的精度 <span class="math inline">\epsilon</span> 的可能性越来越小,要多小有多小,这便是频率稳定于概率的含义; 接着,事实上,由切比雪夫不等式可得</p>
+<p><span class="math display">
+\begin{aligned}
+P(|\frac{S_n}{n}-p|\ge\epsilon)\le \dfrac{D(\frac{S_n}{n})}{\epsilon^2}=\frac{p(1-p)}{\epsilon^2}\dfrac{1}{n}
+\end{aligned}
+</span></p>
+<p>另一方面,伯努利大数定律提供了用频率来确定概率的理论依据; 最后,比如要估计某种产品的不合格品率 <span class="math inline">p</span>, 则可从该种产品中随机抽取 <span class="math inline">n</span> 件,当 <span class="math inline">n</span> 很大时,这 <span class="math inline">n</span> 件产品中的不合格品的比例可作为不合格品率 <span class="math inline">p</span> 的估计值.</p>
+</section>
+<section id="伯努利大数定律的另一形式" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="伯努利大数定律的另一形式">伯努利大数定律的另一形式</h4>
+<p>注意到,在伯努利大数定律中,如果记 <span class="math inline">X_i=\bigg\{
+        \begin{array}{ll}
+            1,&amp; \mbox{第} i\mbox{试验} A\mbox{发生}\\
+            0,&amp; \mbox{第} i\mbox{试验} A\mbox{不发生}
+        \end{array}</span>, 则 <span class="math inline">S_n=\sum_{i=1}^nX_i</span>, 并且</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{S_n}{n}=\frac{1}{n}\sum_{i=1}^nX_i,  p=E(\frac{1}{n}\sum_{i=1}^nX_i)=\frac{1}{n}\sum_{i=1}^nE(X_i)
+\end{aligned}
+</span></p>
+<p>最后,伯努利大数定律的结论为:对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|\frac{1}{n}\sum_{i=1}^n[X_i-E(X_i)]|&lt;\epsilon)=1
+\end{aligned}
+</span></p>
+<p>也即</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{1}{n}\sum_{i=1}^n[X_i-E(X_i)]\stackrel{P}{\rightarrow}0
+\end{aligned}
+</span></p>
+</section>
+<section id="强-大数定律的一般形式" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="强-大数定律的一般形式">(强) 大数定律的一般形式</h4>
+<div id="def-ch4-003" class="theorem definition">
+<p><span class="theorem-title"><strong>定义 4.3</strong></span> 设有一随机变量序列 <span class="math inline">\{X_n\}</span>, 如果对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty} P (|\frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]|&lt;\epsilon)=1 \mbox{ 即 }  \frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]\stackrel{P}{\rightarrow} 0
+\end{aligned}
+</span></p>
+<p>则称该随机变量序列 <span class="math inline">\{X_n\}</span> 满足大数定律.如果进一步有</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{1}{n}\sum_{i=1}^n[X_i-E(X_i)]\stackrel{a.s.}{\rightarrow}0
+\end{aligned}
+</span></p>
+<p>则称 <span class="math inline">\{X_n\}</span> 满足强大数定律.</p>
+</div>
+</section>
+<section id="切比雪夫大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="切比雪夫大数定律">切比雪夫大数定律</h4>
+<div id="thm-ch4-012" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.12</strong></span> 设 <span class="math inline">\{X_n\}</span> 为一列两两不相关的随机变量序列,若每个 <span class="math inline">X_i</span> 的方差存在且有共同的上界 <span class="math inline">M</span>, 即 <span class="math inline">D (X_i)\le M, \forall i\in \mathbb{N}</span>, 则 <span class="math inline">\{X_n\}</span> 服从大数定律,即对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|\frac{1}{n}\sum_{i=1}^nX_i-\frac{1}{n}\sum_{i=1}^nE(X_i)|&lt;\epsilon)=1
+\end{aligned}
+</span></p>
+<p>特别的,若 <span class="math inline">\{X_n\}</span> 独立同分布,且 <span class="math inline">D (X_n)&lt;\infty</span>, 则 <span class="math inline">\{X_n\}</span> 服从大数定律.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;注意到</p>
+<p><span class="math display">
+\begin{aligned}
+P(|\frac{1}{n}\sum_{i=1}^nX_i-\frac{1}{n}\sum_{i=1}^nE(X_i)|\ge\epsilon)&amp;\le&amp;  \dfrac{D(\frac{1}{n}\sum_{i=1}^nX_i)}{\epsilon^2}\\
+        &amp;=&amp; \dfrac{1}{\epsilon^2}\dfrac{1}{n^2}\sum_{i=1}^nD(X_i)\\
+        &amp;\le&amp; \dfrac{1}{\epsilon^2}\dfrac{M}{n}\rightarrow 0
+\end{aligned}
+</span></p>
+</section>
+<section id="马尔科夫大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="马尔科夫大数定律">马尔科夫大数定律</h4>
+<div id="thm-ch4-013" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.13</strong></span> 设随机变量序列 <span class="math inline">\{X_n\}</span> 满足如下马尔科夫条件</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{1}{n^2}D(\sum_{i=1}^nX_i)\rightarrow 0
+\end{aligned}
+</span></p>
+<p>则 <span class="math inline">\{X_n\}</span> 服从大数定律,即对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|\frac{1}{n}\sum_{i=1}^nX_i-\frac{1}{n}\sum_{i=1}^nE(X_i)|&lt;\epsilon)=1
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="辛钦大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="辛钦大数定律">辛钦大数定律</h4>
+<div id="thm-ch4-014" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.14</strong></span> 设 <span class="math inline">\{X_n\}</span> 为一列独立同分布随机变量序列,若每个 <span class="math inline">X_i</span> 的期望存在,则 <span class="math inline">\{X_n\}</span> 服从大数定律,即对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(|\frac{1}{n}\sum_{i=1}^nX_i-\frac{1}{n}\sum_{i=1}^nE(X_i)|&lt;\epsilon)=1.
+\end{aligned}
+</span></p>
+<p>特别的,如果 <span class="math inline">E|X_i|^k, k=1,2,\cdots</span>, 存在,则 <span class="math inline">\{X_n^k\}</span> 服从大数定律.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;设 <span class="math inline">\{X_n\}</span> 独立同分布,且 <span class="math inline">E (X_i)=a, i=1,\cdots,</span>, 则只需要证明</p>
+<p><span class="math display">
+\begin{aligned}
+Y_n:=\dfrac{1}{n}\sum_{i=1}^nX_i\xlongrightarrow{P}a, \quad n\rightarrow \infty
+\end{aligned}
+</span></p>
+<p>由依概率收敛的性质,仅需证 <span class="math inline">\varphi_{Y_n}(t)\rightarrow e^{iat}</span> 即可.事实上,由</p>
+<p><span class="math display">
+\begin{aligned}
+\varphi_{Y_n}(t) &amp;=&amp;[\varphi(\frac{t}{n})]^n =[1+\varphi'(0)\frac{t}{n}+o(\frac{t}{n})]^n =[1+ia\frac{t}{n}+o(\frac{t}{n})]^n\\
+        &amp;=&amp; \exp\{\dfrac{\ln (1+ia\frac{t}{n}+o(\frac{t}{n}))}{1/n}\} \rightarrow e^{iat}
+\end{aligned}
+</span></p>
+</section>
+<section id="borel-cantelli引理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="borel-cantelli引理">Borel-Cantelli引理</h4>
+<div id="thm-ch4-015" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.15</strong></span> 对于事件列<span class="math inline">\{A_j\}</span>,有</p>
+<p>若<span class="math inline">\sum_{n=1}^\infty P(A_n)&lt;\infty</span>,则 <span class="math display">P(\limsup_{n\rightarrow\infty}A_n)=\lim_{k\rightarrow\infty}P(\cup_{n=k}^\infty A_n)=0</span> 若<span class="math inline">\{A_n\}</span>相互独立,则<span class="math inline">\sum_{n=1}^\infty P(A_n)=\infty</span>当且仅当 <span class="math display">P(\limsup_{n\rightarrow\infty}A_n)=\lim_{k\rightarrow\infty}P(\cup_{n=k}^\infty A_n)=1</span></p>
+</div>
+<p><strong>证明.</strong>&nbsp;1. 注意到<span class="math inline">\lim_{k\rightarrow\infty}P(\cup_{n=k}^\infty A_n)\le  \lim_{k\rightarrow\infty}\sum_{n=k}^\infty P(A_n) =0.</span></p>
+<p>2. 由于</p>
+<p><span class="math display">
+\begin{aligned}
+P(\cup_{n=k}^\infty A_n)&amp;=&amp; \lim_{m\rightarrow\infty}P(\cup_{n=k}^m A_n)= \lim_{m\rightarrow\infty}(1-P(\cap_{n=k}^m\overline{A}_n))\\
+      P(\cap_{n=k}^m\overline{A}_n)&amp;=&amp; \Pi_{n=k}^m P(\overline{A}_n)=\Pi_{n=k}^m(1-P(A_n))\\
+      &amp;\le&amp; \Pi_{n=k}^m \exp(-P(A_n))=\exp(-\sum_{n=k}^m P(A_n)) \stackrel{m\rightarrow\infty}{\longrightarrow} 0
+\end{aligned}
+</span></p>
+</section>
+<section id="borel-强大数定律律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="borel-强大数定律律">Borel 强大数定律律</h4>
+<div id="thm-ch4-016" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.16</strong></span> (Borel 强大数定律) 设 <span class="math inline">S_n</span> 为 <span class="math inline">n</span> 重伯努利试验中事件 <span class="math inline">A</span> 出现次数,<span class="math inline">p</span> 为一次试验中 <span class="math inline">A</span> 发生的概率,则</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{S_n}{n}\stackrel{a.s.}{\rightarrow} p
+\end{aligned}
+</span></p>
+</div>
+<p><strong>分析.</strong>&nbsp;记<span class="math inline">{A_{n}=\left\{\left|S_n / n-p\right| \geq \varepsilon\right\}}</span>, 则定理中的几乎必然收敛的充分必要条件是 <span class="math display">P\left(\limsup_{n} A_{n}\right)=0.</span></p>
+<p>再Borel-Cantelli引理可知, 只需证明 <span class="math display">\sum_{n=1}^{\infty} P\left(A_{n}\right)&lt;+\infty.</span></p>
+<p>若像证明弱大数定律那样用切贝谢夫不等式,我们只能得到 <span class="math display">P\left(A_{n}\right) \leq \frac{1}{\varepsilon^{2}} D\left(\frac{S_n}{n}\right)=\frac{p q}{n \varepsilon^{2}} \leq \frac{1}{4 n \varepsilon^{2}} .</span></p>
+</section>
+<section id="borel-强大数定律证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="borel-强大数定律证明">Borel 强大数定律证明</h4>
+<p>首先,用<span class="math inline">{r=4}</span>时的马尔科夫不等式可得<span class="math inline">P\left(A_{n}\right) \leq \dfrac{1}{\varepsilon^{4}} E\left|\frac{S_n}{n}-p\right|^{4}.</span>. 接着,将<span class="math inline">{S_n}</span>写为<span class="math inline">{n}</span>个独立伯努利分布随机变量之和<span class="math inline">{S_n=\sum_{k=1}^{n} X_{k}}</span>, 从而 <span class="math display">E\left[\left|\frac{S_n}{n}-p\right|^{4}\right]=\frac{1}{n^{4}} \sum_{1 \leq i, j, k, l \leq n} E\left[\left(X_{i}-p\right)\left(X_{j}-p\right)\left(X_{k}-p\right)\left(X_{l}-p\right)\right] .</span> 另一方面,注意<span class="math inline">{X_{1}, \cdots, X_{n}}</span>相互独立,故上式和号中仅有</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;E\left[\left(X_{i}-p\right)^{4}\right]=p q\left(p^{3}+q^{3}\right)\neq 0,\\
+      &amp;E\left[\left(X_{i}-p\right)^{2}\left(X_{j}-p\right)^{2}\right]=p^{2} q^{2}\neq 0, (i \neq j).
+\end{aligned}
+</span></p>
+<p>注意到前者共<span class="math inline">{n}</span>项,后者共<span class="math inline">C_n^2C_4^2=3 n(n-1)</span>项,故我们有 <span class="math display">E\left[\left|\frac{S_n}{n}-p\right|^{4} =\frac{p q}{n^{4}}\left[n\left(p^{3}+q^{3}\right)+3 p q\left(n^{2}-n\right)\right]&lt;\frac{1}{4 n^{2}} .\right.</span> 最后,代入马等科夫不等式右方可得<span class="math inline">P\left(A_{n}\right) \leq \dfrac{1}{4 n^{2} \varepsilon^{4}}</span>, 定理得证.</p>
+</section>
+<section id="borel强大数定律的备注" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="borel强大数定律的备注">Borel强大数定律的备注</h4>
+<div id="rem-ch4-003" class="proof remark">
+<p><span class="proof-title"><em>注记 4.3</em>. </span>上述定理证明,本质上只用到独立同分布序列的四阶中心矩 <span class="math inline">{E\left[\left(X_{k}-p\right)^{4}\right]}</span>以及<span class="math inline">{E\left[\left(X_{k}-p\right)^{2}\left(X_{j}-p\right)^{2}\right]}</span>有限, 并没有用到伯努利情形的其它特性. 所以,在四阶中心矩有限的前提下,其证明可以照搬到一般独立同分布情形. 同时,在如下定理中, 我们在明显减弱的条件下,得到一般独立同分布场合的强大数定律. 其中,证明中采用恰当选取子序列的方法,仅用切比雪夫不等式就得到了满足Borel-Cantelli引理要求的估计式.; 而且运用著名的 截尾法, 连切比雪夫不等式中方差有限的要求都可以绕过.</p>
+</div>
+</section>
+<section id="一般独立同分布情形下的强大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一般独立同分布情形下的强大数定律">一般独立同分布情形下的强大数定律</h4>
+<div id="thm-ch4-017" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.17</strong></span> 假定 <span class="math inline">\{X_n\}</span> 是相互独立同分布的随机变量序列,如果它们有有限的期望 <span class="math inline">E (X_n)=a</span>, 则强大数定律成立,即 <span class="math inline">n\rightarrow\infty</span> 时有</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{1}{n}\sum_{k=1}^nX_k\stackrel{a.s.}{\rightarrow} a.
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="分析" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="分析">分析</h4>
+<p>记部分和<span class="math inline">{S_{n}=\sum_{k=1}^{n} X_{k}}</span>. 如非负情形成立, 则有 <span class="math display">\frac{S_{n}}{n}=\frac{1}{n} \sum_{k=1}^{n} X_{k}^{+}-\frac{1}{n} \sum_{k=1}^{n} X_{k}^{-} \stackrel{a.s.}{\longrightarrow} E\left(X_{1}^{+}\right)-E\left(X_{1}^{-}\right)=a .</span> 故不妨假定<span class="math inline">{\left\{X_{k}\right\}}</span>是非负随机变量列. 注意到</p>
+<p><span class="math display">
+\begin{aligned}
+P\left\{\frac{1}{n}\left|S_{n}-E\left(S_{n}\right)\right| \geq \varepsilon\right\} \leq \frac{E[\sum_{i=1}^n(X_i-E(X_i))]^k}{\varepsilon^{k}n^k}, k=2, 4
+\end{aligned}
+</span></p>
+<p>此外,高阶矩不存在, 需要截断</p>
+<p>其中,方法1: <span class="math inline">X_{n}^{*}(\omega)={\left\{\begin{array}{ll}
+        X_{n}(\omega), &amp;     X_{n}(\omega) \leq M \\
+        0, &amp;     X_{n}(\omega)&gt;M .
+        \end{array}=X_{n}(\omega) 1_{[0, M]}\left(X_{n}(\omega)\right) .\right.}</span> 方法2: <span class="math inline">X_{n}^{*}(\omega)={\left\{\begin{array}{ll}
+        X_{n}(\omega), &amp;     X_{n}(\omega) \leq n, \\
+        0, &amp;     X_{n}(\omega)&gt;n .
+        \end{array}=X_{n}(\omega) 1_{[0, n]}\left(X_{n}(\omega)\right) .\right.}</span>; <span class="math inline">S_n^*=\sum_{i=1}^nX_i^*</span>.</p>
+</section>
+<section id="分析续" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="分析续">分析(续)</h4>
+<p>对截断方法1: 若 <span class="math inline">P\left\{X_{1}&gt;M\right\} &gt;0</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+\sum_{n=1}^{\infty} P(X_{n} \neq X_{\mathrm{n}}^{*})=\sum_{n=1}^{\infty} P(X_{n}&gt;M)=\sum_{n=1}^{\infty} P(X_{1}&gt;M) =+\infty,
+\end{aligned}
+</span></p>
+<p>无法推出<span class="math inline">X_n-X_n^*\rightarrow 0, a.s.</span>. 从而无法得到<span class="math inline">\dfrac{S_n-S_n^*}{n}\rightarrow 0, a.s.</span>. 同时,对截断方法2: <span class="math inline">\sum P(X_{n} \neq X_{\mathrm{n}}^{*})=\sum P(X_{1}&gt;n)\leq \int_{0}^{+\infty} P(X_{1}&gt;t) d t=E\left(X_{1}\right)&lt;+\infty,</span>; 故 <span class="math inline">X_n-X_n^*\rightarrow 0, a.s.</span>. 更进一步有, <span class="math inline">\dfrac{S_n-S_n^*}{n}\rightarrow 0, a.s.</span>; 注意到</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{S_n}{n}=\dfrac{S_n-S_n^*}{n}+\dfrac{S_n^*-E(S_n^*)}{n}+\dfrac{E(S_n^*)}{n}
+\end{aligned}
+</span></p>
+<p><span class="math inline">E(X_n^*)=E[X_{n}(\omega) 1_{[0, n]}\left(X_{n}(\omega)\right)]=E[X_{1}(\omega) 1_{[0, n]}\left(X_{1}(\omega)\right)]\stackrel{n\rightarrow \infty}{\longrightarrow} E(X_1)</span>; 从而<span class="math inline">\dfrac{E(S_n^*)}{n}=\dfrac{\sum_{i=1}^nE(X_i^*)}{n}\rightarrow E(X_1)=a</span>.</p>
+</section>
+<section id="分析续-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="分析续-1">分析(续)</h4>
+<p>只需证</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{S_n^*-E(S_n^*)}{n}\stackrel{a.s.}{\rightarrow}  0
+\end{aligned}
+</span></p>
+<p>注意到</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;P\left(\frac{1}n\left|S_n^{*}-E\left(S_n^{*}\right)\right| \geq \varepsilon\right) \leq \frac{D(S_n^*)}{\varepsilon^{2}n^2}= \frac{1}{\varepsilon^{2}n^2}\sum_{i=1}^nD(X_i^*)\\
+        &amp;\leq  \frac{1}{\varepsilon^{2}n^2}\sum_{i=1}^n \int_{0}^{\infty}x^21_{[0,i]}(x) d F(x)\leq \frac{1}{\varepsilon^{2}n} \int_{0}^{\infty}x^21_{[0,n]}(x) d F(x)
+\end{aligned}
+</span></p>
+<p>从而</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\sum_{n=1}^\infty P\left(\frac{1}n\left|S_n^{*}-E\left(S_n^{*}\right)\right| \geq \varepsilon\right) \leq \frac{1}{\varepsilon^{2}} \int_{0}^{\infty}x^2\sum_{n=1}^\infty \dfrac{1}{n}1_{[0,n]}(x) d F(x)
+\end{aligned}
+</span></p>
+<p>若 <span class="math inline">\sum_{n=1}^\infty \dfrac{1}{n}1_{[0,n]}(x)&lt;\dfrac{M}{x}</span>, 则由<span class="math inline">X_i</span>期望存在可知上式小于<span class="math inline">\infty</span>, 问题得证.</p>
+</section>
+<section id="分析续-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="分析续-2">分析(续)</h4>
+<p>遗憾的是, 我们无法做到 <span class="math inline">\sum_{n=1}^\infty \dfrac{1}{n}1_{[0,n]}(x)&lt;\dfrac{M}{x}</span>. 同时,但我们如果将<span class="math inline">n</span>换成特定的子列<span class="math inline">u_n=[\theta^n]\geq \frac{\theta^n}{2}</span>, 并令<span class="math inline">N</span>是使<span class="math inline">u_{n} \geq x</span>的最小自然数, 我们则有可能做到</p>
+<p><span class="math display">
+\begin{aligned}
+\sum_{n=1}^\infty \dfrac{1}{u_n}1_{[0,u_n]}(x)=\sum_{n=N}^{\infty} \frac{1}{u_{n}}\leq 2 \sum_{n=N}^{\infty} \theta^{-n}=M \theta^{-N} \leq \frac{M}{x}
+\end{aligned}
+</span></p>
+<p>综上, 我们可以证明, 对任意的<span class="math inline">\theta&gt;1</span>及相应的<span class="math inline">u_n=[\theta^n]</span>, 我们均有</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{S_{u_n}^*-E(S_{u_n}^*)}{u_n}\stackrel{a.s.}{\rightarrow}  0
+\end{aligned}
+</span></p>
+<p>从而可证</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{S_{u_{n}}}{u_{n}}  =\dfrac{S_{u_n}-S_{u_n}^*}{u_n}+\dfrac{S_{u_n}^*-E(S_{u_n}^*)}{u_n}+\dfrac{E(S_{u_n}^*)}{u_n}\stackrel{a.s.}{\rightarrow} a
+\end{aligned}
+</span></p>
+</section>
+<section id="分析续-3" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="分析续-3">分析(续)</h4>
+<p>若 <span class="math inline">u_{n} \leq k \leq u_{n+1}</span>, 则由 <span class="math inline">X_{k}</span> 的非负性知 <span class="math display">\frac{u_{n}}{u_{n+1}} \frac{S_{u_{n}}}{u_{n}} \leq \frac{S_{k}}{k} \leq \frac{u_{n+1}}{u_{n}} \frac{S_{u_{n+1}}}{u_{n+1}}</span> 同时,注意 <span class="math inline">u_{n+1} / u_{n} \rightarrow \theta</span>, 故令 <span class="math inline">n</span> 及相应的 <span class="math inline">k</span> 趋于无穷可得, 以概率 1 有 <span class="math display">\frac{1}{\theta} \cdot a \leq \liminf_{k\rightarrow\infty} \frac{S_{k}}{k} \leq \limsup_{k\rightarrow\infty} \frac{S_{k}}{k} \leq \theta\cdot a.</span> 此外,上式对任意<span class="math inline">\theta&gt;1</span>均成立, 特别的取 <span class="math inline">\theta=(\ell+1) / \ell</span>, 则以概率 1 有 <span class="math display">\frac{\ell}{\ell+1} \cdot a  \leq \liminf_{k\rightarrow\infty} \frac{S_{k}}{k} \leq \limsup_{k\rightarrow\infty} \frac{S_{k}}{k} \leq \frac{\ell+1}{\ell} \cdot a .</span> 相应地,对每个 <span class="math inline">\ell \geq 1</span>, 记上式不成立的例外集为 <span class="math inline">E_{\ell}</span>, 且取 <span class="math inline">E=\bigcup_{\ell=1}^{\infty} E_{\ell}</span>. 相应地,显然 <span class="math inline">P(E)=0</span>, 且对任意的 <span class="math inline">\omega\notin E</span>, 上式对一切 <span class="math inline">\ell \geq 1</span> 成立. 令 <span class="math inline">\ell \rightarrow \infty</span> 便得证对任意的<span class="math inline">\omega\in \bar{E}</span> 恒有 <span class="math display">\lim _{k} \frac{S_{k}}{k}=\lim _{n} \frac{1}{n} \sum_{k=1}^{n} X_{k}=a</span></p>
+</section>
+<section id="证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="证明">证明</h4>
+<p>首先,不妨假定<span class="math inline">{\left\{X_{k}\right\}}</span>是非负随机变量列. 接着,截断: <span class="math inline">X_{n}^{*}(\omega)={\left\{\begin{array}{ll}
+        X_{n}(\omega), &amp;     X_{n}(\omega) \leq n, \\
+        0, &amp;     X_{n}(\omega)&gt;n .
+        \end{array}=X_{n}(\omega) 1_{[0, n]}\left(X_{n}(\omega)\right). \right.}</span>. 令<span class="math inline">S_n^*=\sum_{i=1}^nX_i^*</span>及<span class="math inline">u_n=[\theta^n]</span>. 于是,证明: <span class="math inline">\dfrac{1}{u_{n}} S_{u_{n}} \stackrel{a.s.}{\rightarrow} a</span>. 其中,只需证明</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{S_n-S_n^*}{n}\stackrel{a.s.}{\rightarrow} 0, \quad \dfrac{S_{u_n}^*-E(S_{u_n}^*)}{u_n}\stackrel{a.s.}{\rightarrow}  0, \quad \dfrac{E(S_n^*)}{n}\rightarrow a
+\end{aligned}
+</span></p>
+<p>由<span class="math inline">\theta</span>的任意性证明 <span class="math display">\frac{S_{n}}{n}\stackrel{a.s.}{\rightarrow} a.</span></p>
+</section>
+<section id="伯努利大数定律的应用蒙特卡罗法计算定积分" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="伯努利大数定律的应用蒙特卡罗法计算定积分">伯努利大数定律的应用:蒙特卡罗法计算定积分</h4>
+<div id="exr-ch4-001" class="theorem exercise">
+<p><span class="theorem-title"><strong>习题 4.1</strong></span> 设 <span class="math inline">0\le f (x)\le 1</span>, 计算 <span class="math inline">f (x)</span> 在区间 <span class="math inline">[0,1]</span> 上的积分近似值</p>
+<p><span class="math display">
+\begin{aligned}
+J=\int_0^1f(x)dx
+\end{aligned}
+</span></p>
+</div>
+<p><strong>解.</strong>&nbsp;注意到</p>
+<p><span class="math display">
+\begin{aligned}
+J=\int_0^1f(x)dx=\int_0^1\int_0^{f(x)}dydx=P(Y\le f(X)):=p
+\end{aligned}
+</span></p>
+<p>其中 <span class="math inline">(X,Y)</span> 为方形区域 <span class="math inline">[0,1]\times [0,1]</span> 上的均匀分布.此时我们有</p>
+<p><span class="math inline">X,Y</span> 分别服从 <span class="math inline">[0,1]</span> 上的均匀分布且 <span class="math inline">X,Y</span> 独立; 故计算积分的值实际上就是计算事件 <span class="math inline">A=\{Y\le f (X)\}</span> 的概率 <span class="math inline">p</span>; 此外,<span class="math inline">(X,Y)</span> 为方形区域 <span class="math inline">[0,1]\times [0,1]</span> 均匀分布,因此可以看成在方形区域内的随机投点试验; 由伯努利大数定律知,我们可以用重复随机投点试验中事件 <span class="math inline">A</span> 出现的频率:即随机点 <span class="math inline">(X,Y)</span> 落入区域 <span class="math inline">\{(x,y):y\le f (x)\}</span> 中的频率作为 <span class="math inline">p</span> 的估计值.</p>
+</section>
+<section id="蒙特卡罗法计算定积分的具体步骤" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="蒙特卡罗法计算定积分的具体步骤">蒙特卡罗法计算定积分的具体步骤</h4>
+<ol type="1">
+<li><p>先用计算机产生 <span class="math inline">(0,1)</span> 均匀分布的 <span class="math inline">2n</span> 个随机数,组成 <span class="math inline">n</span> 对随机数 <span class="math inline">(x_i,y_i),i=1,\cdots,n</span>, 这里的 <span class="math inline">n</span> 可以很大;</p></li>
+<li><p>对 <span class="math inline">n</span> 对数据 <span class="math inline">(x_i,y_i), i=1,\cdots,n</span>, 记录满足 <span class="math inline">y_i\le f (x_i)</span> 的次数,即事件 <span class="math inline">A</span> 发生的频数 <span class="math inline">S_n</span>;</p></li>
+<li><p>根据频数 <span class="math inline">S_n</span>, 计算频率 <span class="math inline">\dfrac{S_n}{n}</span>, 即为积分 <span class="math inline">J</span> 的近似值.</p></li>
+</ol>
+</section>
+<section id="一般区间上的定积分的计算" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一般区间上的定积分的计算">一般区间上的定积分的计算</h4>
+<div id="exr-ch4-002" class="theorem exercise">
+<p><span class="theorem-title"><strong>习题 4.2</strong></span> 设 <span class="math inline">c\le g (x)\le d, x\in [a,b]</span>, 计算 <span class="math inline">g (x)</span> 在区间 <span class="math inline">[a,b]</span> 上的积分近似值</p>
+<p><span class="math display">
+\begin{aligned}
+J_{a,b}=\int_a^bg(x)dx
+\end{aligned}
+</span></p>
+</div>
+<p><strong>解.</strong>&nbsp;</p>
+<p><span class="math display">
+\begin{aligned}
+J_{a,b}&amp;=&amp;\int_a^bg(x)dx \xlongequal{x=a+(b-a)y} \int_0^1g(a+(b-a)y)(b-a)dy\\
+        &amp;=&amp; (b-a)(d-c)\int_0^1\bigg(\frac{g(a+(b-a)y)-c}{d-c}+\frac{c}{d-c}\bigg)dy\\
+        &amp;=&amp; S_0\int_0^1f(y)dy+c(b-a)
+\end{aligned}
+</span></p>
+<p>其中</p>
+<p><span class="math display">
+\begin{aligned}
+S_0=(b-a)(d-c), \quad f(y)=\frac{g(a+(b-a)y)-c}{d-c}
+\end{aligned}
+</span></p>
+</section>
+<section id="kolmogorov-极大不等式" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov-极大不等式">Kolmogorov 极大不等式</h4>
+<div id="thm-ch4-018" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.18</strong></span> (Kolmogorov 极大不等式) 设随机变量 <span class="math inline">X_1,\cdots, X_n</span> 相互独立,它们都有零期望与有限方差.令 <span class="math inline">S_n=\sum_{k=1}^nX_k</span>, 则对任意的 <span class="math inline">\epsilon&gt;0</span> 有</p>
+<p><span id="eq-ch4-klie"><span class="math display">
+\begin{aligned}
+P(\max_{1\leq k\leq n}|S_k|\geq \epsilon)\leq \dfrac{1}{\epsilon^2}E(S_n^2)=\dfrac{1}{\epsilon^2}D(S_n)
+\end{aligned}
+\tag{4.3}</span></span></p>
+</div>
+</section>
+<section id="kolmogorov-极大不等式的证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov-极大不等式的证明">Kolmogorov 极大不等式的证明</h4>
+<p>对 <span class="math inline">k=1, \cdots, n</span>, 令 <span class="math display">A_{k}=\left\{\omega:\left|S_{k}\right| \geq \varepsilon \text {; 但 }\left|S_{j}\right|&lt;\varepsilon, j=1, \cdots, k-1\right\} \text {. }</span> 同时,则 <span class="math inline">A_{k}</span> 两两不相容, 且 <span class="math display">A:=\left\{\max _{I \leq k \leq n}\left|S_{k}\right| \geq \varepsilon\right\}=\bigcup_{k=1}^{n} A_{k}</span> 故由 <span class="math inline">P\left(A_{k}\right)=E\left(1_{A_k}\right)</span> 及 <span class="math inline">A_{k}</span> 的定义可推出</p>
+<p><span id="eq-ch4-ki"><span class="math display">
+\begin{aligned}
+P\left\{\max _{1 \leq k \leq n}\left|S_{k}\right| \geq \varepsilon\right\}=\sum_{k=1}^{n} P\left(A_{k}\right) \leq \frac{1}{\varepsilon^{2}} \sum_{k=1}^{n} E\left(S_{k}^{2} 1_{A_k}\right).
+\end{aligned}
+\tag{4.4}</span></span></p>
+<p>注意到 <span class="math inline">S_{k}^{2} 1_{A_k}</span> 是 <span class="math inline">\xi_{1}, \cdots, X_{k}</span> 的函数,它与 <span class="math inline">S_{n}-S_{k}=\sum_{i=k+1}^{n} X_{i}</span> 相互独立. 故 <span class="math display">E\left[\left(S_{n}-S_{k}\right) S_{k} 1_{A_k}\right]=E\left[S_n-S_{k}\right] E\left[S_{k} 1_{A_k}\right]=0 .</span></p>
+</section>
+<section id="kolmogorov极大不等式的证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov极大不等式的证明">Kolmogorov极大不等式的证明</h4>
+<p>于是 <a href="#eq-ch4-ki" class="quarto-xref"><span>4.4</span></a> 式可进一步化为 <span class="math display">\begin{aligned}
+        &amp; P\left\{\max _{1 \leq k \leq n}\left|S_{k}\right| \geq \varepsilon\right\} \\
+        \leq &amp; \frac{1}{\varepsilon^{2}} \sum_{k=1}^{n}\left\{E\left(S_{k}^{2} 1_{A_k}\right)+2 E\left[\left(S_{n}-S_{k}\right) S_{k} 1_{A_k}\right]+E\left[\left(S_{n}-S_{k}\right)^{2} 1_{A_k}\right]\right\} \\
+        = &amp; \frac{1}{\varepsilon^{2}} E\left[S_{n}^{2} \sum_{k=1}^{n} 1_{A_k}\right]= \frac{1}{\varepsilon^{2}} E\left[S_{n}^{2} 1_A\right]\leq \frac{1}{\varepsilon^{2}} E\left(S_{n}^{2}\right)=\frac{1}{\varepsilon^{2}} D\left(S_{n}\right) .
+    \end{aligned}</span></p>
+</section>
+<section id="一个引理-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一个引理-1">一个引理</h4>
+<div id="lem-ch4-002" class="theorem lemma">
+<p><span class="theorem-title"><strong>引理 4.2</strong></span> 考虑实数列 <span class="math inline">\left\{c_{n}\right\}</span> 及其部分和数列 <span class="math inline">s_{n}=\sum_{k=1}^{n} c_{k}</span>.</p>
+<ol type="1">
+<li><p>若 <span class="math inline">c_{n} \rightarrow c</span>, 则 <span class="math inline">s_{n} / n \rightarrow c</span>;</p></li>
+<li><p>设 <span class="math inline">b_{m}=\sup \left\{\left|s_{m+k}-s_{m}\right|: k \geq 1\right\}, b=\inf \left\{b_{m}: m \geq 1\right\}</span>, 则 <span class="math inline">\sum_{n=1}^{\infty} c_{n}</span> 收敛的充分必要条件是 <span class="math inline">b=0</span>;</p></li>
+<li><p>(柯罗奈克引理) 若 <span class="math inline">\sum_{n=1}^{\infty} c_{n} / n</span> 收敛, 则 <span class="math inline">s_{n} / n \rightarrow 0</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="引理证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理证明">引理证明</h4>
+<ol type="1">
+<li>首先,对任 <span class="math inline">\varepsilon&gt;0</span>, 选 <span class="math inline">n_{1}</span> 使 <span class="math inline">n&gt;n_{1}</span> 时 <span class="math inline">\left|c_{n}-c\right|&lt;\varepsilon / 2</span>; 接着,再选 <span class="math inline">n_{2}&gt;n_{1}</span> 使 <span class="math inline">n&gt;n_{2}</span> 则 <span class="math inline">\sum_{k=1}^{n_{1}}\left|c_{k}-c\right| / n&lt;\varepsilon / 2</span>. 最后,当 <span class="math inline">n&gt;n_{2}</span> 时有</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\left|\frac{s_{n}}{n}-c\right| &amp;\leq \sum_{k=1}^{n} \frac{\left|c_{k}-c\right|}{n} \\
+        &amp;=\sum_{k=1}^{n_{1}} \frac{\left|c_{k}-c\right|}{n}+\sum_{k=n_1+1}^{n} \frac{\left|c_{k}-c\right|}{n}&lt;\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon .
+\end{aligned}
+</span></p>
+<ol start="2" type="1">
+<li>若 <span class="math inline">b=0</span>, 则对任意 <span class="math inline">\varepsilon&gt;0</span>, 存在 <span class="math inline">n_{1}</span> 使 <span class="math inline">b_{n_{1}}&lt;\varepsilon</span>. 从而对一切 <span class="math inline">k \geq 1</span> 有 <span class="math display">\left|s_{n_{1}+k}-s_{n_{1}}\right|&lt;\varepsilon.</span> 最后,这表明 <span class="math inline">\sum_{n=1}^{\infty} c_{n}</span> 收敛.逆命题证明类似.</li>
+</ol>
+</section>
+<section id="引理证明-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理证明-1">引理证明</h4>
+<ol type="1">
+<li>令 <span class="math display">t_{0}=0, \quad t_{n}=\sum_{k=1}^{n} \frac{c_{k}}{k},  n \geq 1</span> 由 <span class="math inline">c_{k}=k\left(t_{k}-t_{k-1}\right)</span> 可得 <span class="math display">s_{n+1}=\sum_{k=1}^{n+1} k t_{k}-\sum_{k=1}^{n+1} k t_{k-1}=-\sum_{k=1}^{n} t_{k}+(n+1) t_{n+1},\  n \geq 1</span> 故</li>
+</ol>
+<p><span id="eq-ch4-sn-1"><span class="math display">
+\begin{aligned}
+\frac{s_{n+1}}{n+1}=-\frac{n}{n+1} \cdot \frac{1}{n} \sum_{k=1}^{n} t_{k}+t_{n+1},\  n \geq 1
+\end{aligned}
+\tag{4.5}</span></span></p>
+<p>于是,现设 <span class="math inline">\sum_{n=1}^{\infty} c_{n} / n</span> 收敛,即其部分利序列 <span class="math inline">\left\{t_{n}\right\}</span> 收敛到有穷的极限 <span class="math inline">t</span>. 由已证得的 <span class="math inline">1</span> 知序列 <span class="math inline">\left\{\dfrac{1}{n} \sum_{k=1}^{n} t_{k}\right\}</span> 收敛到 <span class="math inline">t</span>. 由此在@eq-ch4-sn-1 式中令 <span class="math inline">n \rightarrow \infty</span> 便得证 <span class="math inline">s_{n} / n \rightarrow 0</span>.</p>
+</section>
+<section id="kolmogorov强大数定律" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov强大数定律">Kolmogorov强大数定律</h4>
+<div id="thm-ch4-019" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.19</strong></span> (Kolmogorov强大数定律)设<span class="math inline">\{X_n\}</span>是独立随机变量序列, 满足</p>
+<p><span id="eq-ch4-kllc"><span class="math display">
+\begin{aligned}
+\sum_{k=1}^\infty\dfrac{D(X_k)}{k^2}&lt;+\infty,
+\end{aligned}
+\tag{4.6}</span></span></p>
+<p>则强大数定律成立,即当 <span class="math inline">n\rightarrow\infty</span> 时有</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{1}{n}\sum_{k=1}^n[X_k-E(X_k)]\stackrel{a.s.}{\rightarrow}0.
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="kolmogorov强大数定律证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov强大数定律证明">Kolmogorov强大数定律证明</h4>
+<p>令 <span class="math inline">X_{k}'=X_{k}-E\left(X_{k}\right)</span>, 则 <span class="math inline">E\left(X_{k}'\right)=0, D\left(X_{k}'\right)=D\left(X_{k}\right)</span>. 接着,条件 <a href="#eq-ch4-kllc" class="quarto-xref"><span>4.6</span></a> 式对独立序列 <span class="math inline">\left\{X_{k}'\right\}</span> 仍成立. 另一方面,问题化为证明 <span class="math inline">n \rightarrow \infty</span> 时有 <span class="math display">\frac{1}{n} \sum_{k=1}^{n} X_{k}' \stackrel{a . s}{\longrightarrow} 0 \text {. }</span> 于是,取 <span class="math inline">S_{n}=\sum_{k=1}^{n} X_{k}' / k</span>, 并令</p>
+<p><span class="math display">
+\begin{aligned}
+b_{m}&amp;=\sup \left\{\left|S_{m+k}-S_{m}\right|, k=1,2, \cdots\right\},\\
+    b&amp;=\inf \left\{b_{m},  m=1,2, \cdots\right\}.
+\end{aligned}
+</span></p>
+<p>最后,对任意 <span class="math inline">{\varepsilon&gt;0}</span> 及自然数 <span class="math inline">n, m</span>, 由Kolmogorov极大不等式@eq-ch4-klie 可得</p>
+<p><span id="eq-ch4-klie-2"><span class="math display">
+\begin{aligned}
+P\left\{\max _{1 \leq k \leq n}\left|S_{m+k}-S_{m}\right| \geq \varepsilon\right\} \leq \frac{1}{\varepsilon^{2}} \sum_{k=m+1}^{m+n} \frac{D\left(X_{k}'\right)}{k^{2}} .
+\end{aligned}
+\tag{4.7}</span></span></p>
+</section>
+<section id="kolmogorov强大数定律证明-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov强大数定律证明-1">Kolmogorov强大数定律证明</h4>
+<p>注意到 <span class="math inline">{n \rightarrow \infty}</span> 时, <span class="math display">\max _{1 \leq k \leq n}\left|S_{m+k}-S_{m}\right| \uparrow b_{m} \geq b, (m \geq 1)</span> 故对一切 <span class="math inline">m \geq 1</span> 有 <span class="math display">\{b&gt;\varepsilon\} \subset\left\{b_{m}&gt;\varepsilon\right\} \subset \bigcup_{n=1}^{\infty}\left\{\max _{1 \leq k \leq n}\left|S_{m+k}-S_{m}\right| \geq \varepsilon\right\} .</span> 于是用概率的下连续性及 <a href="#eq-ch4-klie-2" class="quarto-xref"><span>4.7</span></a> 式可得 <span class="math display">P\{b&gt;\varepsilon\} \leq P\left\{b_{m}&gt;\varepsilon\right\} \leq \frac{1}{\varepsilon^{2}} \sum_{k=m+1}^{\infty} \frac{D\left(X_{k}'\right)}{k^{2}} .</span> 由条件 <a href="#eq-ch4-kllc" class="quarto-xref"><span>4.6</span></a> 式以及在上式中令 <span class="math inline">m \rightarrow \infty</span> 可得: <span class="math inline">{P\{b&gt;\varepsilon\}=0}</span>.</p>
+</section>
+<section id="kolmogorov强大数定律证明-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="kolmogorov强大数定律证明-2">Kolmogorov强大数定律证明</h4>
+<p>首先,取 <span class="math inline">{\varepsilon=1 / \ell}</span>, 并记使 <span class="math inline">{b&gt;1 / \ell}</span> 成立的零概集为 <span class="math inline">E_{\ell}</span>. 令<span class="math inline">E=\bigcup_{\ell=1}^{\infty} E_{\ell}</span>, 则 <span class="math inline">{P(E)=0}</span>, 且对任意的<span class="math inline">\omega\notin E</span>均有 <span class="math display">{b(\omega) \leq 1 / \ell}, \forall l\geq 1.</span> 故对任意的 <span class="math inline">\omega \notin {E}</span> 恒有 <span class="math inline">b(\omega)=0</span>. 进而, 在<span class="math inline">{\bar{E}}</span> 上 <span class="math inline">{\sum_{k=1}^{\infty} X_{k}'/ k}</span> 收敛. 故在 <span class="math inline">{\overline{E}}</span> 上 <span class="math display">{\lim _{n \rightarrow \infty} \dfrac{1}{n} \sum_{k=1}^{n} X_{k}'=0}.</span></p>
+</section>
+</section>
+<section id="sec-ch4-lecture-23" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-ch4-lecture-23"><span class="header-section-number">4.3</span> 中心极限定理</h2>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>本节导读
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大数定律说明平均值趋向何处,中心极限定理进一步描述其随机误差的渐近形状.在适当条件下,大量独立小影响之和经过中心化和标准化后近似正态分布,这一结论支撑了正态近似,置信区间和许多统计方法.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>理论主线
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>中心极限定理研究中心化和标准化后的和.对独立同分布且方差有限的随机变量,正确的标准化尺度是 <span class="math inline">\sqrt n\,\sigma</span>;若忽略减去均值或除以标准差,极限通常不会是标准正态分布.定理描述的是分布收敛,而不是样本路径收敛,也不声称每个原始变量本身服从正态分布.</p>
+<p>在非同分布情形下,Lindeberg 或 Lyapunov 条件用于排除单个变量主导总波动,并保证许多小影响共同形成正态极限.将极限定理用于近似计算时,还应检查独立性,方差规模和尾部条件,并在离散分布的正态近似中考虑连续性修正与有限样本误差.</p>
+</div>
+</div>
+<section id="中心极限定理问题的由来" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="中心极限定理问题的由来">中心极限定理:问题的由来</h4>
+<p>实际生活中,我们会经常会进行误差分析,而误差的产生是由大量微小的相互独立的随机因素叠加而成.举个例子来说:机床加工机械轴使其直径符合规定要求,加工后的机械轴的直径会受以下各种随机因素的影响: 机床振动与转速的影响; 刀具装配与磨损的影响; 钢材成份与产地的影响; 量具的误差,测量技术的影响; 车间的温度,湿度,照明,工作电压的影响等等. 若记每个因素使每个加工轴的直径产生的误差为 <span class="math inline">X_i, i=1,\cdots,n</span>, 则最终对加工轴直径产生的误差为</p>
+<p><span class="math display">
+\begin{aligned}
+Y_n=\sum_{i=1}X_i
+\end{aligned}
+</span></p>
+<p>此外,显然在实际中,我们必然要关心当 <span class="math inline">n\rightarrow\infty</span> 时 <span class="math inline">Y_n</span> 的分布是什么? 相应地,为什么我们不根据 <span class="math inline">X_i</span> 的分布用卷积公式来计算 <span class="math inline">Y_n</span> 的分布?</p>
+</section>
+<section id="一个例子" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一个例子">一个例子</h4>
+<div id="exm-ch4-005" class="theorem example">
+<p><span class="theorem-title"><strong>例 4.5</strong></span> 设 <span class="math inline">\{X_n\}</span> 为独立同分布的随机变量序列,其共同的分布为区间 <span class="math inline">(0,1)</span> 上的均匀分布.记 <span class="math inline">Y_n=\sum_{i=1}^nX_i</span>, 试计算 <span class="math inline">Y_n</span> 的分布.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/ch4-img-001.jpg" class="img-fluid figure-img" style="width:9cm"></p>
+<figcaption>uniform.jpg</figcaption>
+</figure>
+</div>
+</section>
+<section id="问题寻求-y_n-的极限分布" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="问题寻求-y_n-的极限分布">问题:寻求 <span class="math inline">Y_n</span> 的极限分布</h4>
+<p>从上面均匀分布的例子可知:</p>
+<p><span class="math display">
+\begin{aligned}
+E(Y_n)= \sum_{i=1}^nE(X_i)=\dfrac{n}{2}\rightarrow\infty\\
+            D(Y_n)= \sum_{i=1}^n D(X_i)=\dfrac{n}{12}\rightarrow\infty
+\end{aligned}
+</span></p>
+<p>同时,考虑 <span class="math inline">Y_n</span> 的极限分布时,需对 <span class="math inline">Y_n</span> 进行标准化:</p>
+<p><span class="math display">
+\begin{aligned}
+Y_n^*:=\dfrac{Y_n-E(Y_n)}{\sqrt{D(Y_n)}}
+\end{aligned}
+</span></p>
+<p>此外,在什么情况下</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(Y_n^*\le y)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^ye^{-u^2/2}du
+\end{aligned}
+</span></p>
+</section>
+<section id="独立同分布情形下的中心极限定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="独立同分布情形下的中心极限定理">独立同分布情形下的中心极限定理</h4>
+<div id="thm-ch4-020" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.20</strong></span> 设 <span class="math inline">\{X_n\}</span> 是独立同分布的随机变量序列,且 <span class="math inline">E (X_i)=\mu, D (X_i)=\sigma^2&gt;0</span> 存在,若记</p>
+<p><span class="math display">
+\begin{aligned}
+Y_n^*=\dfrac{\sum_{i=1}^nX_i-n\mu}{\sigma\sqrt{n}},
+\end{aligned}
+</span></p>
+<p>则对任意的 <span class="math inline">y\in R</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(Y_n^*\le y)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^ye^{-u^2/2}du
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="lindeberg-lévy-中心极限定理的证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="lindeberg-lévy-中心极限定理的证明">Lindeberg-Lévy 中心极限定理的证明</h4>
+<p><strong>证明.</strong>&nbsp;要证 <span class="math inline">Y_n^*</span> 依分布收敛于标准正态分布,只需要说明其特征函数收敛于标准正态分布的特征函数即可. 注意到 <span class="math inline">Y_n^*=\sum_{i=1}^n\dfrac{X_i-\mu}{\sigma\sqrt{n}}</span>. 故若记 <span class="math inline">Z_i:=X_i-\mu</span> 的特征函数为 <span class="math inline">\varphi (t)</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+\varphi(t)&amp;=&amp; \varphi(0)+\varphi'(0)t+\varphi''(0)\frac{t^2}{2}+o(t^2)\\
+        &amp;=&amp; 1+iE(Z_i)t+i^2E(Z_i^2)\frac{t^2}{2}+o(t^2)\\
+        &amp;=&amp; 1-\frac{\sigma^2t^2}{2}+o(t^2)\\
+        \varphi_{Y_n^*}&amp;=&amp; \bigg[\varphi(\frac{t}{\sigma\sqrt{n}})\bigg]^n= \bigg[1-\frac{t^2}{2n}+o(\frac{t^2}{n\sigma^2})\bigg]^n\rightarrow  e^{-t^2/2}
+\end{aligned}
+</span></p>
+</section>
+<section id="标准正态随机数的产生" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="标准正态随机数的产生">标准正态随机数的产生</h4>
+<p>首先,在随机模拟中经常会需要产生正态随机数,下面我们介绍一种利用中心极限定理通过 <span class="math inline">(0,1)</span> 上的均匀分布的随机数来产生正态分布 <span class="math inline">N (\mu,\sigma^2)</span> 随机数的方法; 接着,中心极限定理理论分析:设 <span class="math inline">X_1,\cdots,X_n,\cdots</span> 为一列独立同 <span class="math inline">(0,1)</span> 上的均匀分布的随机变量序列,则 <span class="math inline">E (X_i)=1/2, D (X_i)=1/12</span>, 故</p>
+<p><span class="math display">
+\begin{aligned}
+\dfrac{\sum_{i=1}^nX_i-n/2}{\sqrt{n/12}}\rightarrow~ \sim N(0,1)
+\end{aligned}
+</span></p>
+<p>特别的,若 <span class="math inline">n=12</span>, 则 <span class="math inline">X_1+X_2+\cdots+X_{12}-6</span> 近似服从标准正态分布. 最后,产生正态随机数的方法: 从计算机中产生 12 个 <span class="math inline">(0,1)</span> 上均匀分布随机数,记为 <span class="math inline">x_1,\cdots, x_{12}</span>; 计算 <span class="math inline">y=x_1+\cdots+x_{12}-6</span>, 由上面分析知可将 <span class="math inline">y</span> 看成 <span class="math inline">N (0,1)</span> 的一个随机数; 计算 <span class="math inline">z=\mu+\sigma y</span>, 可将 <span class="math inline">z</span> 看成 <span class="math inline">N (\mu,\sigma^2)</span> 分布的随机数; 重复上面步骤 <span class="math inline">n</span> 次,即可得到 <span class="math inline">n</span> 个 <span class="math inline">N (\mu,\sigma^2)</span> 分布随机数.</p>
+</section>
+<section id="二项分布的正态近似" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="二项分布的正态近似">二项分布的正态近似</h4>
+<div id="thm-ch4-021" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.21</strong></span> 设 <span class="math inline">n</span> 重伯努利试验中,事件 <span class="math inline">A</span> 在每次试验中出现的概率为 <span class="math inline">p\in (0,1)</span>, 记 <span class="math inline">S_n</span> 为 <span class="math inline">n</span> 重伯努利试验中事件 <span class="math inline">A</span> 出现的次数,则对任意的 <span class="math inline">y\in R</span> 均有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(\dfrac{S_n-np}{\sqrt{np(1-p)}}\le y)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^ye^{-u^2/2}du
+\end{aligned}
+</span></p>
+</div>
+<p>在上述定理中,若记 <span class="math inline">\Phi (y)=\beta, Y_n^*:=\dfrac{S_n-np}{\sqrt{np (1-p)}}</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+P(Y_n^*\le y)\approx \Phi(y)=\beta
+\end{aligned}
+</span></p>
+</section>
+<section id="独立不同分布下的中心极限定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="独立不同分布下的中心极限定理">独立不同分布下的中心极限定理</h4>
+<p>设 <span class="math inline">\{X_n\}</span> 是一个相互独立的随机变量序列,其期望与方差有限分别为</p>
+<p><span class="math display">
+\begin{aligned}
+E(X_i)=\mu_i, \quad D(X_i)=\sigma_i^2, \quad i=1,2,\cdots,
+\end{aligned}
+</span></p>
+<p>同时,考虑随机变量的和 <span class="math inline">\textcolor{red}{Y_n=X_1+\cdots+X_n}</span>, 则</p>
+<p><span class="math display">
+\begin{aligned}
+E(Y_n)=\mu_1+\cdots+\mu_n,\quad \textcolor{red}{\sigma(Y_n):=\sqrt{D(Y_n)}=\sqrt{\sigma_1^2+\cdots+\sigma_n^2}}
+\end{aligned}
+</span></p>
+<p>此外,考虑 <span class="math inline">Y_n</span> 的标准化:<span class="math inline">Y_n^*:=\dfrac{Y_n-E (Y_n)}{\sigma (Y_n)}=\sum_{i=1}^n\dfrac{X_i-\mu_i}{\sigma (Y_n)}</span>. 相应地,要求 <span class="math inline">Y_n^*</span> 中的各项 <span class="math inline">\dfrac{X_i-\mu_i}{\sigma (Y_n)}</span> 均匀的小,即对任意的 <span class="math inline">\tau&gt;0</span>, 要求事件</p>
+<p><span class="math display">
+\begin{aligned}
+A_{ni}=\left\{\big|\dfrac{X_i-\mu_i}{\sigma(Y_n)}\big|&gt;\tau\right\}=\left\{|X_i-\mu_i|&gt;\tau\sigma(Y_n)\right\}
+\end{aligned}
+</span></p>
+<p>发生的可能性小或直接要求其概率趋于 0. 相应地,为达目的,我们要求 <span class="math inline">\lim_{n\rightarrow\infty} P (\max_{1\le i\le n}|X_i-\mu_i|&gt;\tau\sigma (Y_n))=0</span>.</p>
+</section>
+<section id="lim_nrightarrowinftypmax_1le-ile-nx_i-mu_itausigmay_n0" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="lim_nrightarrowinftypmax_1le-ile-nx_i-mu_itausigmay_n0"><span class="math inline">\lim_{n\rightarrow\infty}P(\max_{1\le i\le n}|X_i-\mu_i|&gt;\tau\sigma(Y_n))=0</span></h4>
+<p>注意到</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;&amp;P(\max_{1\le i\le n}|X_i-\mu_i|&gt;\tau\sigma(Y_n))= P(\cup_{i=1}^n|X_i-\mu_i|&gt;\tau\sigma(Y_n))\\
+        &amp;&amp;\le \sum_{i=1}^nP(|X_i-\mu_i|&gt;\tau\sigma(Y_n))= \sum_{i=1}^n\int_{|x-\mu_i|&gt;\tau\sigma(Y_n)}dF_i(x)\\
+        &amp;&amp;\le  \dfrac{1}{\tau^2}\cdot\dfrac{1}{\sigma(Y_n)^2}\sum_{i=1}^n\int_{|x-\mu_i|&gt;\tau\sigma(Y_n)}(x-\mu_i)^2dF_i(x)
+\end{aligned}
+</span></p>
+<p>故只要下面的 <span style="color: red"><strong>林德伯格条件</strong></span> 满足</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty} \dfrac{1}{\sigma(Y_n)^2}\sum_{i=1}^n\int_{|x-\mu_i|&gt;\tau\sigma(Y_n)}(x-\mu_i)^2dF_i(x)=0
+\end{aligned}
+</span></p>
+<p>就可保证 <span class="math inline">Y_n^*</span> 中各加项充分的小</p>
+</section>
+<section id="林德伯格中心极限定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="林德伯格中心极限定理">林德伯格中心极限定理</h4>
+<div id="thm-ch4-022" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.22</strong></span> 设独立随机变量序列 <span class="math inline">\{X_n\}</span> 满足林德伯格条件</p>
+<p><span id="eq-ch4-lindeberg"><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty} \dfrac{1}{\sigma(Y_n)^2}\sum_{i=1}^n\int_{|x-\mu_i|&gt;\tau\sigma(Y_n)}(x-\mu_i)^2dF_i(x)=0
+\end{aligned}
+\tag{4.8}</span></span></p>
+<p>则对任意的 <span class="math inline">x</span>, 有</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}P(\dfrac{1}{\sigma(Y_n)}\sum_{i=1}^n(X_i-\mu_i)\le x)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^xe^{-u^2/2}du
+\end{aligned}
+</span></p>
+</div>
+<div id="rem-ch4-004" class="proof remark">
+<p><span class="proof-title"><em>注记 4.4</em>. </span>假设 <span class="math inline">\{X_n\}</span> 独立同分布且方差有限,则容易验证上述的林德伯格条件满足,从而我们先前在独立同分布情形下的中心极限定理是林德伯格中收极限定理的特例.</p>
+</div>
+</section>
+<section id="一个引理-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="一个引理-2">一个引理</h4>
+<div id="lem-ch4-eixtaylor" class="theorem lemma">
+<p><span class="theorem-title"><strong>引理 4.3</strong></span> 对一切 <span class="math inline">x \in R</span> 及非负整数 <span class="math inline">n</span> 有 <span class="math display">\left|e^{i x}-\sum_{k=0}^{n} \frac{(i x)^{k}}{k!}\right| \leq\left[\frac{|x|^{n+1}}{(n+1)!}\right] \wedge\left[\frac{2|x|^{n}}{n!}\right]</span></p>
+</div>
+</section>
+<section id="引理证明-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理证明-2">引理证明</h4>
+<p>根据带 Lagrange 余项的 Taylor 展开,得到 <span class="math display">\exp (\mathrm{i} x)=\sum_{k=0}^{n} \frac{(\mathrm{i} x)^{k}}{k!}+\frac{(\mathrm{i} x)^{n+1}}{(n+1)!} \exp (\mathrm{i} u),  u \in[0, x],</span> 接着,对于任意的 <span class="math inline">x \in \mathbb{R}</span> 和 <span class="math inline">n \ge 0</span>, <span class="math display">\left|\exp (\mathrm{i} x)-\sum_{k=0}^{n} \frac{(\mathrm{i} x)^{k}}{k!}\right| \leqslant \frac{|x|^{n+1}}{(n+1)!} .</span> 另一方面,当 <span class="math inline">n \ge 1</span> 时, 我们有 <span class="math display">\left|\exp (\mathrm{i} x)-\sum_{k=0}^{n} \frac{(\mathrm{i} x)^{k}}{k!}\right| \leqslant\left|\exp (\mathrm{i} x)-\sum_{k=0}^{n-1} \frac{(\mathrm{i} x)^{k}}{k!}\right|+\frac{|x|^{n}}{n!} \leqslant \frac{2|x|^{n}}{n!} .</span> 于是,当<span class="math inline">n=0</span>时, 显然有 <span class="math display">\left|\exp (\mathrm{i} x)-1\right| \le 2 .</span> 综上所述, 引理得证.</p>
+</section>
+<section id="引理证明法二" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理证明法二">引理证明(法二)</h4>
+<p>首先,用分部积分可得</p>
+<p><span id="eq-ch4-sepinte"><span class="math display">
+\begin{aligned}
+\int_{0}^{x}(x-s)^{n} e^{i s} d s=\frac{x^{n+1}}{n+1}+\frac{i}{n+1} \int_{0}^{x}(x-s)^{n+1} e^{i s} d s
+\end{aligned}
+\tag{4.9}</span></span></p>
+<p>接着,递归可得知,对一切 <span class="math inline">n \geq 0</span> 有</p>
+<p><span id="eq-ch4-digui"><span class="math display">
+\begin{aligned}
+e^{i x}=\sum_{k=0}^{n} \frac{(i x)^{k}}{k!}+\frac{i^{n+1}}{n!} \int_{0}^{x}(x-s)^{n} e^{i s} d s
+\end{aligned}
+\tag{4.10}</span></span></p>
+<p>由此推出估计式<span class="math inline">\big|e^{i x}-\sum_{k=0}^{n} \dfrac{(i x)^{k}}{k!}\big| \leq \dfrac{|x|^{n+1}}{(n+1)!}</span>. 于是,将@eq-ch4-sepinte 式中 <span class="math inline">n</span> 换为 <span class="math inline">n-1</span> ,解出右方积分并代入@eq-ch4-digui 便推出 <span class="math display">e^{i x}=\sum_{k=0}^{n} \frac{(i x)^{k}}{k!}+\frac{i^{n}}{(n-1)!} \int_{0}^{x}(x-s)^{n-1}\left(e^{i s}-1\right) d s</span> 故可得另一估计式<span class="math inline">\left|e^{i x}-\sum_{k=0}^{n} \dfrac{(i x)^{k}}{k!}\right| \leq \dfrac{2|x|^{n}}{n!}</span>. 最后,联合上述两个估计式可得引理结论.</p>
+</section>
+<section id="引理的几个常用结论" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="引理的几个常用结论">引理的几个常用结论</h4>
+<div id="rem-ch4-005" class="proof remark">
+<p><span class="proof-title"><em>注记 4.5</em>. </span>若引理中的<span class="math inline">n=0,1,2</span>, 则有</p>
+<p><span class="math display">
+\begin{aligned}
+\left|e^{i x}-1\right| &amp; \leq|x| \wedge 2 \\
+        \left|e^{i x}-1-i x\right| &amp; \leq \frac{x^{2}}{2} \wedge(2|x|) \\
+        \left|e^{i x}-1-i x+\frac{x^{2}}{2}\right| &amp; \leq\left(\frac{1}{6}|x|^{3}\right) \wedge x^{2}
+\end{aligned}
+</span></p>
+</div>
+</section>
+<section id="林德伯格中心极限定理证明" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="林德伯格中心极限定理证明">林德伯格中心极限定理证明</h4>
+<p>首先,只需证 <span class="math inline">Y_n^*:=\frac{\sum_{k=1}^n(X_k-E[X_k])}{\sqrt{D(\sum_{k=1}^nX_k)}}</span> 的特征函数列收敛到标准正态分布的特征函数,即</p>
+<p><span id="eq-ch4-celimit"><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}\phi_{n}(t)=\lim_{n\rightarrow\infty}E[e^{itY_n^*}]= \exp\{-\frac{t^2}{2}\}.
+\end{aligned}
+\tag{4.11}</span></span></p>
+<p>接着,对一切 <span class="math inline">n \geq 1</span> 及 <span class="math inline">k=1, \cdots, n</span>,令 <span class="math inline">X_{nk}=\left(X_{k}-\mu_k\right) / \sigma(Y_n)</span>, 则 <span class="math display">E\left(X_{nk}\right)=0,\quad D\left(X_{nk}\right)=\sigma_k^{2} / \sigma(Y_n)^{2}.</span> 另一方面,以 <span class="math inline">F_{n k}(x)</span> 及 <span class="math inline">\phi_{n k}(t)</span> 分别表 <span class="math inline">X_{nk}</span>的分布函数及特征函数. 于是,已知的林德伯格条件@eq-ch4-lindeberg 式化为</p>
+<p><span id="eq-ch4-lindebergcondi-2"><span class="math display">
+\begin{aligned}
+\lim _{n} \sum_{k=1}^{n} \int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)=0, \ \forall \tau&gt;0
+\end{aligned}
+\tag{4.12}</span></span></p>
+<p>最后,而待证的@eq-ch4-celimit 式变为 <span class="math inline">n \rightarrow \infty</span> 时有 <span class="math display">\phi_{n}(t)=\prod_{k=1}^{n} \phi_{n k}(t) \longrightarrow \exp\{-\frac{t^2}{2}\},  \forall t \in R</span></p>
+</section>
+<section id="林德伯格中心极限定理证明-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="林德伯格中心极限定理证明-1">林德伯格中心极限定理证明</h4>
+<p>注意到</p>
+<p><span class="math display">
+\begin{aligned}
+\phi_{nk}(t)&amp;\approx 1+\phi_{nk}'(0)t+\frac{1}{2}\phi_{nk}''(0)t^2=1+iE[X_{nk}]t+\frac{1}{2}i^2E[X_{nk}^2]t^2\\
+                    &amp;=1-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\approx \exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}\\
+            \exp\{-\frac{t^2}{2}\}&amp;=\exp\{-\frac{t^2}{2}\sum_{k=1}^n\frac{\sigma_k^2}{\sigma(Y_n)^2}\}=\prod_{k=1}^{n} \exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}
+\end{aligned}
+</span></p>
+<p>因此,欲证<span class="math inline">\phi_{n}(t)=\prod_{k=1}^{n} \phi_{n k}(t) \longrightarrow e^{-\frac{t^{2}}{2}},  \forall t \in R</span>, 只需证明</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \longrightarrow 0\\
+    &amp;\big|\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)-\prod_{k=1}^{n} \exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}\big| \longrightarrow 0
+\end{aligned}
+</span></p>
+</section>
+<section id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0">证明:<span class="math inline">\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0</span></h4>
+<p>由引理<a href="#lem-ch4-eixtaylor" data-reference-type="ref" data-reference="lem-ch4-eixtaylor">[lem-ch4-eixtaylor]</a>可知,对一切 <span class="math inline">t \in R</span> 有 <span class="math display">\big|e^{i t x}-\big(1+i t x-\frac{1}{2} t^{2} x^{2}\big)\big| \leq|t x|^{2} \wedge|t x|^{3}</span> 注意到 <span class="math inline">X_{nk}</span> 二阶矩有限,两边对 <span class="math inline">F_{n k}</span> 取积分得 <span class="math display">\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \int_{-\infty}^\infty |tx|^2\wedge |tx|^3dF_{nk}(x)</span> 另一方面,而对任何 <span class="math inline">\tau&gt;0</span> ,上式右方不超过</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\int_{(|x|&lt;\tau)}|t x|^{3} d F_{n k}(x)+\int_{(|x| \geq \tau)}(t x)^{2} d F_{n k}(x)\\
+            &amp;\leq \tau|t|^{3} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^{2}}+t^{2} \int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)
+\end{aligned}
+</span></p>
+<p>由于 <span class="math inline">\sum_{k=1}^{n} \sigma_{k}^{2} / \sigma(Y_n)^{2}=D\big(Y_n^*\big)=1</span>, 求和便推出 <span class="math display">\sum_{k=1}^{n}\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \tau|t|^{3}+t^{2} \sum_{k=1}^{n} \int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)</span></p>
+</section>
+<section id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0-1">证明:<span class="math inline">\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0</span></h4>
+<p>首先,上式先令 <span class="math inline">n \rightarrow \infty</span> 再令 <span class="math inline">\tau \downarrow 0</span>, 由@eq-ch4-lindebergcondi-2 式得 <span class="math display">\sum_{k=1}^{n}\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0,  t \in R</span> 故</p>
+<p><span class="math display">
+\begin{aligned}
+\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big|\leq  \sum_{k=1}^{n}\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0
+\end{aligned}
+</span></p>
+<p>得证.</p>
+</section>
+<section id="证明bigprod_k1nbig1-fract2-sigma_k22-sigmay_n2big-prod_k1n-exp-fract2sigma_k22sigmay_n2big-rightarrow-0" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="证明bigprod_k1nbig1-fract2-sigma_k22-sigmay_n2big-prod_k1n-exp-fract2sigma_k22sigmay_n2big-rightarrow-0">证明:<span class="math inline">\big|\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)-\prod_{k=1}^{n} \exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}\big| \rightarrow 0</span></h4>
+<p>注意到当 <span class="math inline">|z| \leq 1 / 2</span> 时有 <span class="math display">\left|e^{z}-1-z\right| \leq \frac{1}{2} \sum_{k=2}^{\infty}|z|^{k}=\frac{1}{2}|z|^{2} /(1-|z|) \leq z^{2}</span> 接着,取 <span class="math inline">z=\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}</span>, 可得</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\big|\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)-\prod_{k=1}^{n} \exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}\big|\\
+        &amp;\leq \sum_{k=1}^{n}\big|\exp\{-\frac{t^2\sigma_k^2}{2\sigma(Y_n)^2}\}-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big|\\
+        &amp;\leq \frac{t^4}{4}\sum_{k=1}^{n}\big(\frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\big)^2\leq \frac{t^{4}}{4}\left(\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\right) \sum_{k=1}^{n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\\
+        &amp;\leq \frac{t^{4}}{4}\left(\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\right)
+\end{aligned}
+</span></p>
+<p>若<span class="math inline">\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\rightarrow 0</span>, 则定理得证.</p>
+</section>
+<section id="证明-max-_1-leq-k-leq-n-fracsigma_k2sigmay_n2rightarrow-0" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="证明-max-_1-leq-k-leq-n-fracsigma_k2sigmay_n2rightarrow-0">证明: <span class="math inline">\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\rightarrow 0</span></h4>
+<p>首先,对任何 <span class="math inline">\tau&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}&amp;=D\left(X_{n k}\right)=\int_{-\infty}^{+\infty}x^2dF_{nk}(x)=\int_{|x|&lt;\tau}x^2dF_{nk}(x)+\int_{|x|\geq\tau}x^2dF_{nk}(x)\\
+    &amp;\leq \tau^{2}+\int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)\leq \tau^{2}+\sum_{k=1}^{n} \int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)
+\end{aligned}
+</span></p>
+<p>从而 <span class="math display">\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2} \leq \tau^{2}+\sum_{k=1}^{n} \int_{(|x| \geq \tau)} x^{2} d F_{n k}(x)</span> 再次令 <span class="math inline">n \rightarrow \infty</span> 及 <span class="math inline">\tau \downarrow 0</span>, 由@eq-ch4-lindebergcondi-2 式得 <span class="math display">\lim _{n}\left\{\max _{1 \leq k \leq n} \frac{\sigma_{k}^{2}}{\sigma(Y_n)^2}\right\}=0</span> 进而, 若<span class="math inline">z=\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}</span>, 当<span class="math inline">n</span>充分大时<span class="math inline">|z| \leq 1 / 2</span>.</p>
+</section>
+<section id="推出-lindeberg-条件的充分条件" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="推出-lindeberg-条件的充分条件">推出 Lindeberg 条件的充分条件</h4>
+<div id="thm-ch4-023" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.23</strong></span> 设 <span class="math inline">\{X_n\}</span> 为独立随机变量序列,如果存在常数列 <span class="math inline">\{L_n\}</span> 使得</p>
+<p><span class="math display">
+\begin{aligned}
+\max_{1\leq k\leq n}|X_k|\leq L_n, \mbox{ 且  }\  \lim_{n}\dfrac{L_n}{\sigma(Y_n)}=0
+\end{aligned}
+</span></p>
+<p>则 Lindeberg 条件成立,从而 <span class="math inline">\{X_n\}</span> 满足中心极限定理.</p>
+</div>
+<p>由假设知,对于 <span class="math inline">\tau&gt;0</span> ,存在 <span class="math inline">N</span> ,使当 <span class="math inline">n \geq N</span> 时有 <span class="math inline">2 L_{n}&lt;</span> <span class="math inline">\tau \sigma(Y_n)</span>. 因此当 <span class="math inline">n \geq N</span> 时对一切 <span class="math inline">k=1, \cdots, n</span> 有 <span class="math inline">\Omega=\left\{\left|X_{k}-\mu_{k}\right|&lt;\tau \sigma(Y_n)\right\}</span>. 故 <span class="math inline">n \geq N</span> 时有</p>
+<p><span class="math display">
+\begin{aligned}
+&amp;\frac{1}{\sigma(Y_n)^{2}} \sum_{k=1}^{n} \int_{\left|x-\mu_{k}\right|\geq \tau \sigma(Y_n)}\left(x-\mu_{k}\right)^{2} d F_{k}(x)\\
+        &amp;=\frac{1}{\sigma(Y_n)^{2}} \sum_{k=1}^{n} \int_{-\infty}^\infty\left(x-\mu_{k}\right)^{2}1_{\{\left|x-\mu_{k}\right|\geq \tau \sigma(Y_n)\}}(x) d F_{k}(x)\\
+        &amp;=\frac{1}{\sigma(Y_n)^{2}} \sum_{k=1}^{n} E[(X_k-\mu_k)^21_{\{\left|x-\mu_{k}\right|\geq \tau \sigma(Y_n)\}}(X_k) ]=0 .
+\end{aligned}
+</span></p>
+<p>最后,这表明林德伯格条件@eq-ch4-lindeberg 式成立,故 <span class="math inline">\left\{X_{n}\right\}</span> 满足中心极限定理.</p>
+</section>
+<section id="李雅普诺夫中心极限定理" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="李雅普诺夫中心极限定理">李雅普诺夫中心极限定理</h4>
+<div id="thm-ch4-024" class="theorem">
+<p><span class="theorem-title"><strong>定理 4.24</strong></span> 设 <span class="math inline">\{X_n\}</span> 为独立随机变量序列,若存在 <span class="math inline">\delta&gt;0</span> 满足</p>
+<p><span class="math display">
+\begin{aligned}
+\lim_{n\rightarrow\infty}\dfrac{1}{\sigma(Y_n)^{2+\delta}}\sum_{k=1}^nE(|X_k-\mu_k|^{2+\delta})=0,
+\end{aligned}
+</span></p>
+<p>则 <span class="math inline">\lim_{n\rightarrow\infty}P(\dfrac{1}{\sigma(Y_n)}\sum_{k=1}^n(X_k-\mu_k)\le x)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^xe^{-u^2/2}du</span>.</p>
+</div>
+<p><strong>证明.</strong>&nbsp;只要验证林德伯格条件成立. 实际上对任何 <span class="math inline">\tau&gt;0</span> 有</p>
+<p><span class="math display">
+\begin{aligned}
+&amp; \lim _{n} \frac{1}{\sigma(Y_n)^{2}} \sum_{k=1}^{n} \int_{\left(\left|x-\mu_k\right| \geq \tau \sigma(Y_n)\right)}\left(x-\mu_{k}\right)^{2} d F_{k}(x) \\
+        \leq &amp; \lim _{n} \frac{1}{\sigma(Y_n)^{2}\left(\tau \sigma(Y_n)\right)^{\delta}} \sum_{k=1}^{n} \int_{\left(\left|x-\mu_k\right| \geq \tau \sigma(Y_n)\right)}\left|x-\mu_k\right|^{2+\delta} d F_{k}(x) \\
+        \leq &amp; \lim _{n} \frac{1}{\tau^{\delta}} \frac{1}{\sigma(Y_n)^{2+\delta}} \sum_{k=1}^{n} \int_{\Re}\left|x-\mu_{k}\right|^{2+\delta} d F_{k}(x)=0 .
+\end{aligned}
+</span></p>
+<p>定理证毕.</p>
+</section>
+</section>
+<section id="本章小结" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="本章小结">本章小结</h2>
+<p>随机变量序列的收敛不是单一概念.一般而言,<span class="math inline">L^p</span> 收敛会带来依概率收敛,几乎处处收敛也蕴含依概率收敛,而依概率收敛蕴含依分布收敛;若极限为常数,依分布收敛与依概率收敛等价.反向关系通常需要额外条件或只能对子列成立.</p>
+<p>大数定律处理样本平均的稳定性,说明重复观测能够削弱随机波动;中心极限定理处理这种波动的二阶尺度,给出正态近似.应用极限定理时必须依次确认独立性,同分布性或相应替代条件,检查均值与方差是否存在,完成正确的中心化和标准化,并对有限样本近似保持必要的误差意识.</p>
+</section>
+<section id="本章复习与思考" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="本章复习与思考">本章复习与思考</h2>
+<ol type="1">
+<li><p>分别写出几乎处处收敛,依概率收敛,均方收敛和依分布收敛的定义,并说明每一定义中的量词顺序.</p></li>
+<li><p>构造依概率收敛但不几乎处处收敛的随机变量序列;再说明为何总能选出一个几乎处处收敛的子列.</p></li>
+<li><p>证明均方收敛蕴含依概率收敛,并指出证明中使用了哪个概率不等式.</p></li>
+<li><p>设 <span class="math inline">X_1,X_2,\ldots</span> 独立同分布,<span class="math inline">E(X_1)=\mu</span>,<span class="math inline">\operatorname{Var}(X_1)=\sigma^2&lt;\infty</span>.分别写出弱大数定律与中心极限定理对样本均值的结论.</p></li>
+<li><p>用 Chebyshev 不等式证明具有有限方差的独立同分布随机变量满足弱大数定律.</p></li>
+<li><p>某产品次品率为 <span class="math inline">0.02</span>,独立检查 <span class="math inline">1000</span> 件.用正态近似估计次品数至少为 <span class="math inline">30</span> 的概率,并进行连续性修正.</p></li>
+<li><p>解释为什么中心极限定理不等于任何随机变量都近似正态,并列出应用正态近似前需要检查的条件.</p></li>
+<li><p>比较大数定律和中心极限定理在参数估计中的作用:前者保证什么,后者进一步提供什么?</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+(function () {
+  function stripSectionNumber(text) {
+    return text.trim().replace(/^\\d+\\.\\d+\\s+/, "");
+  }
+
+  function initializeCurrentChapterSidebar() {
+    const sidebar = document.querySelector("#quarto-sidebar");
+    if (!sidebar) return;
+
+    const list = sidebar.querySelector(".sidebar-menu-container > ul") ||
+      sidebar.querySelector("ul.list-unstyled");
+    if (!list) return;
+
+    const items = Array.from(list.children).filter(function (item) {
+      return item.matches("li.sidebar-item");
+    });
+
+    const groups = [];
+    const pageLabels = new Map();
+    let currentGroup = null;
+    let currentSectionLabel = null;
+
+    items.forEach(function (item) {
+      const link = item.querySelector(":scope > .sidebar-item-container a.sidebar-link");
+      if (!link) {
+        currentGroup = null;
+        return;
+      }
+
+      const chapterNumber = link.querySelector(".chapter-number");
+      if (chapterNumber) {
+        currentGroup = {
+          chapter: item,
+          number: chapterNumber.textContent.trim(),
+          sections: []
+        };
+        groups.push(currentGroup);
+        item.classList.add("book-chapter-item");
+        return;
+      }
+
+      const path = new URL(link.href, window.location.href).pathname;
+      const isSectionPage = path.split("/").some(function (part) {
+        return /^chapter[0-9]+$/.test(part);
+      });
+      if (currentGroup && isSectionPage) {
+        const menuText = link.querySelector(".menu-text") || link;
+        const title = stripSectionNumber(menuText.textContent);
+        const label = currentGroup.number + "." + (currentGroup.sections.length + 1) + " " + title;
+
+        menuText.textContent = label;
+        pageLabels.set(path, label);
+        currentGroup.sections.push(item);
+        item.classList.add("book-section-item");
+
+        if (link.matches(".active, [aria-current='page']")) {
+          currentSectionLabel = label;
+        }
+      } else {
+        currentGroup = null;
+      }
+    });
+
+    groups.forEach(function (group) {
+      const isCurrent =
+        !!group.chapter.querySelector("a.sidebar-link.active, a[aria-current='page']") ||
+        group.sections.some(function (item) {
+          return !!item.querySelector("a.sidebar-link.active, a[aria-current='page']");
+        });
+
+      group.chapter.classList.toggle("current-book-chapter", isCurrent);
+      const chapterLink = group.chapter.querySelector("a.sidebar-link");
+      if (chapterLink) chapterLink.setAttribute("aria-expanded", String(isCurrent));
+
+      group.sections.forEach(function (item) {
+        item.hidden = !isCurrent;
+      });
+    });
+
+    if (currentSectionLabel) {
+      const titleBlock = document.querySelector("header#title-block-header");
+      if (titleBlock) {
+        titleBlock.classList.add("section-title-block");
+        titleBlock.style.setProperty("display", "block", "important");
+        titleBlock.style.setProperty("width", "100%", "important");
+        titleBlock.style.setProperty("text-align", "left", "important");
+      }
+
+      const heading =
+        (titleBlock && titleBlock.querySelector("h1.title")) ||
+        document.querySelector("main.content h1");
+      if (heading) {
+        heading.textContent = currentSectionLabel;
+        heading.style.setProperty("width", "100%", "important");
+        heading.style.setProperty("text-align", "left", "important");
+      }
+
+      const titleParts = document.title.split("–");
+      titleParts[0] = currentSectionLabel + " ";
+      document.title = titleParts.join("–");
+    }
+
+    document.querySelectorAll("nav.page-navigation a.pagination-link").forEach(function (link) {
+      const path = new URL(link.href, window.location.href).pathname;
+      const label = pageLabels.get(path);
+      const text = link.querySelector(".nav-page-text");
+      if (label && text) text.textContent = label;
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCurrentChapterSidebar);
+  } else {
+    initializeCurrentChapterSidebar();
+  }
+})();
+</script>
+<div id="comments" class="comments-wrapper">
+  <div class="giscus"></div>
+</div>
+
+<script>
+(function () {
+  function currentGiscusTheme() {
+    const htmlTheme = document.documentElement.getAttribute("data-bs-theme");
+    const body = document.body;
+    const isDark =
+      htmlTheme === "dark" ||
+      body.classList.contains("quarto-dark");
+    return isDark ? "dark" : "light";
+  }
+
+  function updateGiscusTheme() {
+    const frame = document.querySelector(".giscus-frame");
+    if (!frame || !frame.contentWindow) return;
+    frame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: currentGiscusTheme() } } },
+      "https://giscus.app"
+    );
+  }
+
+  function initializeComments() {
+    const comments = document.querySelector("#comments");
+    const navigation = document.querySelector("nav.page-navigation");
+    const container = comments && comments.querySelector(".giscus");
+
+    if (!comments || !container) return;
+
+    // Place the discussion below the previous/next section navigation.
+    if (navigation) {
+      navigation.insertAdjacentElement("afterend", comments);
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("data-repo", "xinzhangseu/Probability");
+    script.setAttribute("data-repo-id", "R_kgDOTdREOQ");
+    script.setAttribute("data-category", "Comments");
+    script.setAttribute("data-category-id", "DIC_kwDOTdREOc4DBkQP");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", currentGiscusTheme());
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    container.appendChild(script);
+
+    // Keep Giscus synchronized with Quarto's own light/dark mode.
+    const themeObserver = new MutationObserver(updateGiscusTheme);
+    themeObserver.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-bs-theme"]
+    });
+
+    const frameObserver = new MutationObserver(function () {
+      const frame = container.querySelector(".giscus-frame");
+      if (!frame) return;
+      frame.addEventListener("load", updateGiscusTheme, { once: true });
+      updateGiscusTheme();
+      frameObserver.disconnect();
+    });
+    frameObserver.observe(container, { childList: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeComments);
+  } else {
+    initializeComments();
+  }
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/your-site\.example\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapter/P3.html" class="pagination-link" aria-label="随机变量的数字特征">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">随机变量的数字特征</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapter/template_chapter1.html" class="pagination-link" aria-label="ElegantBook PDF 扩展测试文档">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ElegantBook PDF 扩展测试文档</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="faux-block"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2024-2025 Your Name</span> <span class="faux-block">All content licensed under<br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> <i class="fa-brands fa-creative-commons-sa" aria-label="creative-commons-sa"></i> Creative Commons CC BY-SA 4.0</a></span></p>
+</div>   
+    <div class="nav-footer-center">
+<p><span class="faux-block"><i class="fa-brands fa-orcid" aria-label="orcid"></i> <strong>ORCID</strong> <a href="https://orcid.org/0000-0000-0000-0001">0000-0000-0000-0001</a></span> <span class="faux-block"><i class="fa-solid fa-key" aria-label="key"></i> <a href="pgp_placeholder.asc.txt">PGP public key</a>   <i class="fa-solid fa-fingerprint" aria-label="fingerprint"></i> Fingerprint:<br><span class="fingerprint">XXXX XXXX XXXX XXXX XXXX</span></span></p>
+</div>
+    <div class="nav-footer-right">
+<p><span class="faux-block">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a></span> <span class="faux-block"><a href="https://github.com/yourusername/yourrepo">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></span></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

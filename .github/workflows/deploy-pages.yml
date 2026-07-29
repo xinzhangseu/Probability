@@ -38,17 +38,13 @@ jobs:
           sudo apt-get install -y             fontconfig             fonts-noto-cjk             fonts-noto-cjk-extra             libcurl4-openssl-dev             xz-utils
           sudo fc-cache -f -v
 
-      - name: Verify TinyTeX and fonts locally
+      - name: Verify Quarto and fonts locally
         shell: bash
         run: |
           set -euo pipefail
 
           echo "Quarto version:"
           quarto --version
-
-          echo "XeLaTeX:"
-          command -v xelatex
-          xelatex --version | head -n 1
 
           echo "Chinese fonts:"
           fc-match "Noto Serif CJK SC" | tee /tmp/noto-serif-match.txt

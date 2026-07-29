@@ -20,7 +20,16 @@
 \let\postulate\relax\let\endpostulate\relax
 \let\solution\relax\let\endsolution\relax
 \let\remark\relax\let\endremark\relax
+\let\example\relax\let\endexample\relax
 \makeatother
+
+% Restore the ElegantBook example environment after Quarto has created
+% the example counter. Reuse that counter instead of declaring it again.
+\renewcommand{\theexample}{\thechapter.\arabic{example}}
+\newenvironment{example}[1][]{
+  \refstepcounter{example}
+  \par\noindent\textbf{\color{main}示例 \theexample #1 }\rmfamily}{
+  \par\ignorespacesafterend}
 
 % Now define with simple \DeclareTColorBox (O{} for optional name)
 % Note: Quarto puts \protect\hypertarget{}{}\label{} tokens BEFORE the theorem body.

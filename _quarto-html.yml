@@ -2,6 +2,10 @@
 book:
   chapters:
     - index.qmd
+    - chapter/P1.qmd
+    - chapter/P2.qmd
+    - chapter/P3.qmd
+    - chapter/P4.qmd
     - chapter/template_chapter1.qmd
     - chapter/chapter1/01.qmd
     - chapter/chapter1/02.qmd

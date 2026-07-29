@@ -229,13 +229,15 @@
 %   \par\ignorespacesafterend}
 
 % Exercise environment
-\newcounter{exercise}[chapter]
-\renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
-\newenvironment{exercise}[1][]{
-  \refstepcounter{exercise}
-  \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
-  \textbf{\color{main}练习 \theexercise #1 }\rmfamily}{
-  \par\ignorespacesafterend}
+% The original definition is retained below as comments. The active definition
+% is moved to before-body.tex so it runs after Quarto's automatic theorem setup.
+% \newcounter{exercise}[chapter]
+% \renewcommand{\theexercise}{\thechapter.\arabic{exercise}}
+% \newenvironment{exercise}[1][]{
+%   \refstepcounter{exercise}
+%   \par\noindent\makebox[-3pt][r]{\scriptsize\color{red!90}\HandPencilLeft\quad}
+%   \textbf{\color{main}练习 \theexercise #1 }\rmfamily}{
+%   \par\ignorespacesafterend}
 
 % Problem environment
 \newcounter{problem}[chapter]

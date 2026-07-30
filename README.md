@@ -13,7 +13,7 @@
   - 定义类（绿色框 ♣）：definition, example, exercise, problem
   - 定理类（橙色框 ♥）：theorem, lemma, corollary, axiom, postulate
   - 命题类（蓝色框 ♠）：proposition, note, assumption, conclusion, property
-- **中文全流程** — 定理标签、目录标题、参考文献标题均为中文；PDF 默认使用 Noto CJK SC 字体
+- **中文全流程** — 定理标签、目录标题、参考文献标题均为中文；PDF 默认使用 TeX Live 自带的 Fandol 字体
 - **参考文献** — natbib 编号制 + `plainnat-doi.bst`（DOI 超链接支持），引用格式 `[1]`, `[1,2,5]`
 - **特殊环境** — introduction（章节导读 double-column 框）、problemset（章后习题，装饰标题）
 - **公式编号** — 仅带 `{#eq-xxx}` 标签的公式编号，无标签公式不编号；编号格式 `(1.1)`, `(1.2)` 按章编号；交叉引用自动加括号
@@ -243,9 +243,10 @@ quarto render --profile pdf --to elegantbook-pdf
 
 也可以通过 `_quarto.yml` 的 `profile.group` 为 RStudio 设置默认 profile。
 
-### `Noto Serif CJK SC` 字体缺失
+### 选择 Noto 后提示 `Noto Serif CJK SC` 字体缺失
 
-PDF 配置使用以下字体：
+默认 Fandol 配置不需要安装额外的系统中文字体。如果在 `_quarto.yml` 中改用
+Noto，可以设置：
 
 ```yaml
 CJKmainfont: "Noto Serif CJK SC"
@@ -489,16 +490,74 @@ $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0} $$ {#eq-maxwell}  <!-- �
 ### 修改中文字体
 
 当前字体由 `_quarto.yml` 的 `CJKmainfont`、`CJKsansfont` 和 `CJKmonofont`
-配置，默认使用 Noto Serif/Sans CJK SC。也可以取消
-`header-includes.tex` 中的 `\setCJK...` 示例注释，改用系统字体。
-
-Windows / Linux 用户需改为：
+配置。扩展提供 `CJKmainfontoptions`、`CJKsansfontoptions` 和
+`CJKmonofontoptions`，可分别指定正规体、粗体、斜体和 CMap。为了让 YAML
+保持字体配置的唯一来源，`header-includes.tex` 默认使用：
 
 ```latex
-\setCJKmainfont{SimSun}[BoldFont=SimHei, ItalicFont=KaiTi]
-\setCJKsansfont{SimHei}
-\setCJKmonofont{FangSong}
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex}
 ```
+
+当前 Fandol 精细配置示例：
+
+```yaml
+CJKmainfontoptions:
+  - "cmap=UniGB-UTF16-H"
+  - "BoldFont=FandolSong-Bold.otf"
+  - "ItalicFont=FandolKai-Regular.otf"
+CJKsansfontoptions:
+  - "cmap=UniGB-UTF16-H"
+  - "BoldFont=FandolHei-Bold.otf"
+CJKmonofontoptions:
+  - "cmap=UniGB-UTF16-H"
+
+format:
+  elegantbook-pdf:
+    CJKmainfont: "FandolSong-Regular.otf"
+    CJKsansfont: "FandolHei-Regular.otf"
+    CJKmonofont: "FandolFang-Regular.otf"
+```
+
+#### 使用 Fandol 的最简设置
+
+如果不需要通过 YAML 分别控制粗体、斜体和等宽字体，最简便的方法是直接使用
+`ctex` 自带的 Fandol 字体方案。
+
+第一步，在 `_extensions/elegantbook/includes/header-includes.tex` 中将：
+
+```latex
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex}
+```
+
+改为：
+
+```latex
+\usepackage[UTF8,scheme=plain,fontset=fandol]{ctex}
+```
+
+第二步，注释或删除 `_quarto.yml` 中的 CJK 字体及字体选项：
+
+```yaml
+# CJKmainfontoptions:
+#   - "cmap=UniGB-UTF16-H"
+#   - "BoldFont=FandolSong-Bold.otf"
+#   - "ItalicFont=FandolKai-Regular.otf"
+# CJKsansfontoptions:
+#   - "cmap=UniGB-UTF16-H"
+#   - "BoldFont=FandolHei-Bold.otf"
+# CJKmonofontoptions:
+#   - "cmap=UniGB-UTF16-H"
+
+format:
+  elegantbook-pdf:
+    # CJKmainfont: "FandolSong-Regular.otf"
+    # CJKsansfont: "FandolHei-Regular.otf"
+    # CJKmonofont: "FandolFang-Regular.otf"
+```
+
+此时 `ctex` 会自动配置 FandolSong、FandolHei、FandolKai 和 FandolFang，
+包括真正的粗体和楷体。Fandol 随 TeX Live/TinyTeX 提供，因此 macOS、本地
+RStudio 和 GitHub Actions 不需要另行安装中文系统字体。
 
 ### 修改定理环境标签
 
@@ -538,7 +597,8 @@ years: "2026"
 
 ### 字体
 
-- **中文字体**：Noto Serif CJK SC、Noto Sans CJK SC、Noto Sans Mono CJK SC
+- **默认中文字体**：FandolSong、FandolHei、FandolKai、FandolFang（随 TeX Live/TinyTeX 提供）
+- **可选中文字体**：Noto Serif/Sans/Mono CJK SC，或 XeLaTeX 可识别的其他字体
 - **英文字体**：Times New Roman（需单独安装或通过 `mainfont` 配置）
 
 ### 其他
@@ -551,13 +611,16 @@ years: "2026"
 ## 已知限制
 
 1. **ElegantBook 特有功能不完整**：封面装饰花纹、版本历史表等功能尚未完全移植
-2. **中文字体平台依赖**：当前中文字体配置为 macOS 默认字体；Windows/Linux 需手动修改
+2. **自定义字体依赖**：改用 Noto 或其他系统字体时，本地与 CI 环境都必须安装并能识别相同字体；默认 Fandol 不受此限制
 3. **颜色主题固定为 Blue**：切换其他 ElegantBook 内置主题（Green, Cyan, Custom 等）需手动编辑 `header-includes.tex`
 4. **PDF 编译需多次 xelatex + bibtex**：Quarto 自动处理，但首次编译较慢
 5. **`page-footer` 中的 `{{< fa >}}` 短代码在 PDF 编译时报 warning**：这不影响 PDF 输出，可忽略；如需消除，将 `page-footer` 从 `book:` 层移到 `format: html:` 层
 
 ## 版本历史
 
+- **未发布**
+  - 增加三组独立的 CJK 字体选项，可从 `_quarto.yml` 分别配置正文、无衬线和等宽字体
+  - 默认使用 Fandol 正规体、真实粗体、楷体和仿宋，并记录 `fontset=fandol` 最简配置
 - **v1.0.0** (2026-06-13) — 初始版本
   - ElegantBook Blue 主题完整移植
   - 12 种定理环境 + 10 种其他环境 + introduction / problemset

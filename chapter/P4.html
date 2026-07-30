@@ -644,7 +644,7 @@ X_{11}(\omega)=1; \quad
 X_{ki}(\omega)=\left\{
             \begin{array}{ll}
                 1, &amp;\omega\in [\frac{i-1}{k},\frac{i}{k}),\\
-                0, &amp;\mbox{其他},
+                0, &amp;\text{其他},
             \end{array}
             \right. i=1,\cdots, k
 \end{aligned}
@@ -704,7 +704,7 @@ X_n(\omega)=\left\{
 <p>则称 <span class="math inline">\{F_n (x)\}</span> 弱收敛于 <span class="math inline">F (x)</span>, 记作 <span class="math inline">F_n (x)\stackrel{W}{\rightarrow} F (x)</span>. 此时也称 <span class="math inline">\{X_n\}</span> 按分布收敛于 <span class="math inline">X</span>, 记作 <span class="math inline">X_n\stackrel{W}{\rightarrow} X</span>.</p>
 </div>
 <div id="rem-ch4-001" class="proof remark">
-<p><span class="proof-title"><em>注记 4.1</em>. </span>后面我们用<span class="math inline">C_F</span>表示函数<span class="math inline">F(x)</span>的连续点集, 即 <span class="math display">C_F:=\{x: x\mbox{为}F(x)\mbox{的连续点}  \}</span></p>
+<p><span class="proof-title"><em>注记 4.1</em>. </span>后面我们用<span class="math inline">C_F</span>表示函数<span class="math inline">F(x)</span>的连续点集, 即 <span class="math display">C_F:=\{x: x\text{为}F(x)\text{的连续点}  \}</span></p>
 </div>
 </section>
 <section id="为何要求分布函数在连续点收敛而不是每一点收敛" class="level4 unnumbered">
@@ -1047,7 +1047,7 @@ F_{n}(y) \leq F_{n}(x) \leq F_{n}(z).
 <p><span class="theorem-title"><strong>定理 4.11</strong></span> 设 <span class="math inline">S_n</span> 为 <span class="math inline">n</span> 重伯努利试验中事件 <span class="math inline">A</span> 出现次数,<span class="math inline">p</span> 为一次试验中 <span class="math inline">A</span> 发生的概率,则对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
 <p><span class="math display">
 \begin{aligned}
-\lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|&lt;\epsilon)=1, \quad\mbox{或等价的}\quad \lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|\ge\epsilon)=0
+\lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|&lt;\epsilon)=1, \quad\text{或等价的}\quad \lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|\ge\epsilon)=0
 \end{aligned}
 </span></p>
 </div>
@@ -1078,8 +1078,8 @@ P(|\frac{S_n}{n}-p|\ge\epsilon)\le \dfrac{D(\frac{S_n}{n})}{\epsilon^2}=\frac{p(
 <h4 class="unnumbered anchored" data-anchor-id="伯努利大数定律的另一形式">伯努利大数定律的另一形式</h4>
 <p>注意到,在伯努利大数定律中,如果记 <span class="math inline">X_i=\bigg\{
         \begin{array}{ll}
-            1,&amp; \mbox{第} i\mbox{试验} A\mbox{发生}\\
-            0,&amp; \mbox{第} i\mbox{试验} A\mbox{不发生}
+            1,&amp; \text{第} i\text{试验} A\text{发生}\\
+            0,&amp; \text{第} i\text{试验} A\text{不发生}
         \end{array}</span>, 则 <span class="math inline">S_n=\sum_{i=1}^nX_i</span>, 并且</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1105,7 +1105,7 @@ P(|\frac{S_n}{n}-p|\ge\epsilon)\le \dfrac{D(\frac{S_n}{n})}{\epsilon^2}=\frac{p(
 <p><span class="theorem-title"><strong>定义 4.3</strong></span> 设有一随机变量序列 <span class="math inline">\{X_n\}</span>, 如果对任意的 <span class="math inline">\epsilon&gt;0</span>, 有</p>
 <p><span class="math display">
 \begin{aligned}
-\lim_{n\rightarrow\infty} P (|\frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]|&lt;\epsilon)=1 \mbox{ 即 }  \frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]\stackrel{P}{\rightarrow} 0
+\lim_{n\rightarrow\infty} P (|\frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]|&lt;\epsilon)=1 \text{ 即 }  \frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]\stackrel{P}{\rightarrow} 0
 \end{aligned}
 </span></p>
 <p>则称该随机变量序列 <span class="math inline">\{X_n\}</span> 满足大数定律.如果进一步有</p>
@@ -1756,7 +1756,7 @@ e^{i x}=\sum_{k=0}^{n} \frac{(i x)^{k}}{k!}+\frac{i^{n+1}}{n!} \int_{0}^{x}(x-s)
 </section>
 <section id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0">证明:<span class="math inline">\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0</span></h4>
-<p>由引理<a href="#lem-ch4-eixtaylor" data-reference-type="ref" data-reference="lem-ch4-eixtaylor">[lem-ch4-eixtaylor]</a>可知,对一切 <span class="math inline">t \in R</span> 有 <span class="math display">\big|e^{i t x}-\big(1+i t x-\frac{1}{2} t^{2} x^{2}\big)\big| \leq|t x|^{2} \wedge|t x|^{3}</span> 注意到 <span class="math inline">X_{nk}</span> 二阶矩有限,两边对 <span class="math inline">F_{n k}</span> 取积分得 <span class="math display">\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \int_{-\infty}^\infty |tx|^2\wedge |tx|^3dF_{nk}(x)</span> 另一方面,而对任何 <span class="math inline">\tau&gt;0</span> ,上式右方不超过</p>
+<p>由 <a href="#lem-ch4-eixtaylor" class="quarto-xref">引理&nbsp;<span>4.3</span></a> 可知,对一切 <span class="math inline">t \in R</span> 有 <span class="math display">\big|e^{i t x}-\big(1+i t x-\frac{1}{2} t^{2} x^{2}\big)\big| \leq|t x|^{2} \wedge|t x|^{3}</span> 注意到 <span class="math inline">X_{nk}</span> 二阶矩有限,两边对 <span class="math inline">F_{n k}</span> 取积分得 <span class="math display">\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \int_{-\infty}^\infty |tx|^2\wedge |tx|^3dF_{nk}(x)</span> 另一方面,而对任何 <span class="math inline">\tau&gt;0</span> ,上式右方不超过</p>
 <p><span class="math display">
 \begin{aligned}
 &amp;\int_{(|x|&lt;\tau)}|t x|^{3} d F_{n k}(x)+\int_{(|x| \geq \tau)}(t x)^{2} d F_{n k}(x)\\
@@ -1805,7 +1805,7 @@ e^{i x}=\sum_{k=0}^{n} \frac{(i x)^{k}}{k!}+\frac{i^{n+1}}{n!} \int_{0}^{x}(x-s)
 <p><span class="theorem-title"><strong>定理 4.23</strong></span> 设 <span class="math inline">\{X_n\}</span> 为独立随机变量序列,如果存在常数列 <span class="math inline">\{L_n\}</span> 使得</p>
 <p><span class="math display">
 \begin{aligned}
-\max_{1\leq k\leq n}|X_k|\leq L_n, \mbox{ 且  }\  \lim_{n}\dfrac{L_n}{\sigma(Y_n)}=0
+\max_{1\leq k\leq n}|X_k|\leq L_n, \text{ 且  }\  \lim_{n}\dfrac{L_n}{\sigma(Y_n)}=0
 \end{aligned}
 </span></p>
 <p>则 Lindeberg 条件成立,从而 <span class="math inline">\{X_n\}</span> 满足中心极限定理.</p>

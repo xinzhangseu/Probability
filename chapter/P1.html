@@ -1031,19 +1031,19 @@ window.Quarto = {
 </section>
 <section id="硬币抛-3-次的随机试验" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="硬币抛-3-次的随机试验">硬币抛 3 次的随机试验</h4>
-<p><span style="color: cyan">样本点:</span>正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反,共 8 种可能结果; 同时,<span style="color: cyan">基本事件:</span> {正正正},{正正反},{正反正}, {反正正},{正反反},{反正反},{反反正},{反反反}, 共 8 个基本事件; 此外, <span class="math display">\Omega:=\{\mbox{正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反}\}</span> 相应地,<span style="color: cyan">随机事件:</span></p>
+<p><span style="color: cyan">样本点:</span>正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反,共 8 种可能结果; 同时,<span style="color: cyan">基本事件:</span> {正正正},{正正反},{正反正}, {反正正},{正反反},{反正反},{反反正},{反反反}, 共 8 个基本事件; 此外, <span class="math display">\Omega:=\{\text{正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反}\}</span> 相应地,<span style="color: cyan">随机事件:</span></p>
 <p><span class="math display">
 \begin{aligned}
-A&amp;:=&amp;\{\mbox{至少出现两次正面}\}\\
-       &amp;=&amp;\{\mbox{正正正,正正反,正反正,反正正}\} \\
-      B&amp;:=&amp;\{\mbox{三次均为正面}\}=\{\mbox{正正正}\}\\
+A&amp;:=&amp;\{\text{至少出现两次正面}\}\\
+       &amp;=&amp;\{\text{正正正,正正反,正反正,反正正}\} \\
+      B&amp;:=&amp;\{\text{三次均为正面}\}=\{\text{正正正}\}\\
       \cdots
 \end{aligned}
 </span></p>
 </section>
 <section id="样本空间示例" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="样本空间示例">样本空间示例</h4>
-<p>掷一枚骰子, 观察出现的点数. 则 <span class="math inline">\Omega=\{1, 2, 3, 4, 5, 6\}</span>. 同时,考察某一地区的年降雨量,则<span class="math inline">\Omega=\{x|0\le x&lt;T\}</span>,这里<span class="math inline">T</span>表示某个常数, 表示降雨量不会超过<span class="math inline">T</span>. 此外,将一枚硬币抛两次,考察正反面出现的情况, 则 <span class="math display">\Omega=\{\mbox{正正,正反,反正,反反}\}.</span> 相应地,将一枚硬币抛两次,考察正面出现的次数, 则<span class="math inline">\Omega=\{0, 1, 2\}</span>. 相应地,先后掷两次骰子,考察两次骰子的点数, 则 <span class="math display">\Omega=\{(a_1, a_2), a_i\in \{1,2,\cdots, 6\}, i=1,2\}.</span></p>
+<p>掷一枚骰子, 观察出现的点数. 则 <span class="math inline">\Omega=\{1, 2, 3, 4, 5, 6\}</span>. 同时,考察某一地区的年降雨量,则<span class="math inline">\Omega=\{x|0\le x&lt;T\}</span>,这里<span class="math inline">T</span>表示某个常数, 表示降雨量不会超过<span class="math inline">T</span>. 此外,将一枚硬币抛两次,考察正反面出现的情况, 则 <span class="math display">\Omega=\{\text{正正,正反,反正,反反}\}.</span> 相应地,将一枚硬币抛两次,考察正面出现的次数, 则<span class="math inline">\Omega=\{0, 1, 2\}</span>. 相应地,先后掷两次骰子,考察两次骰子的点数, 则 <span class="math display">\Omega=\{(a_1, a_2), a_i\in \{1,2,\cdots, 6\}, i=1,2\}.</span></p>
 </section>
 <section id="样本空间示例-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="样本空间示例-1">样本空间示例</h4>
@@ -1063,7 +1063,7 @@ A&amp;:=&amp;\{\mbox{至少出现两次正面}\}\\
 <p><span class="theorem-title"><strong>定义 1.1</strong></span> () 记为 <span class="math inline">A\cup B</span>, 其含义为:事件<span class="math inline">A</span>和事件<span class="math inline">B</span>至少有一个发生, 即由事件<span class="math inline">A</span>与<span class="math inline">B</span>中所有的样本点组成的新事件. 用数学符号来描述即为:</p>
 <p><span class="math display">
 \begin{aligned}
-A\cup B:=\{\omega\in \Omega: \omega\in A, \mbox{ 或 } \omega\in B\}
+A\cup B:=\{\omega\in \Omega: \omega\in A, \text{ 或 } \omega\in B\}
 \end{aligned}
 </span></p>
 </div>
@@ -1083,7 +1083,7 @@ A\cup B:=\{\omega\in \Omega: \omega\in A, \mbox{ 或 } \omega\in B\}
 <p><span class="theorem-title"><strong>定义 1.2</strong></span> () 记为 <span class="math inline">A\cap B</span>或 <span class="math inline">AB</span>, 其含义为:事件<span class="math inline">A</span>和事件<span class="math inline">B</span>同时发生, 即由事件<span class="math inline">A</span>与<span class="math inline">B</span>中公共的样本点组成的新事件. 用数学符号来描述即为:</p>
 <p><span class="math display">
 \begin{aligned}
-A\cap B:=\{\omega\in \Omega: \omega\in A \mbox{ 且 } \omega\in B\}
+A\cap B:=\{\omega\in \Omega: \omega\in A \text{ 且 } \omega\in B\}
 \end{aligned}
 </span></p>
 </div>
@@ -1103,7 +1103,7 @@ A\cap B:=\{\omega\in \Omega: \omega\in A \mbox{ 且 } \omega\in B\}
 <p><span class="theorem-title"><strong>定义 1.3</strong></span> () 记为<span class="math inline">A-B</span>或<span class="math inline">A\backslash B</span>, 其含义为:事件<span class="math inline">A</span>发生且事件<span class="math inline">B</span>不发生, 即由在<span class="math inline">A</span>中而不在<span class="math inline">B</span>中的样本点组成的新事件. 用数学符号来描述即为:</p>
 <p><span class="math display">
 \begin{aligned}
-A-B:=\{\omega\in \Omega: \omega\in  A \mbox{ 且 } \omega\notin B\}
+A-B:=\{\omega\in \Omega: \omega\in  A \text{ 且 } \omega\notin B\}
 \end{aligned}
 </span></p>
 </div>
@@ -1143,7 +1143,7 @@ A-B:=\{\omega\in \Omega: \omega\in  A \mbox{ 且 } \omega\notin B\}
 <p><span class="theorem-title"><strong>定义 1.5</strong></span> () 记为<span class="math inline">A\Delta B</span>, 其含义为:事件<span class="math inline">A</span>与<span class="math inline">B</span>中恰有一个事件发生. 用数学符号来描述即为:</p>
 <p><span class="math display">
 \begin{aligned}
-A\Delta B:=\{\omega\in \Omega: \omega\in A\cup B \mbox{ 且 } \omega\notin A\cap B\}\textcolor{red}{=(A-B)\cup (B-A)}
+A\Delta B:=\{\omega\in \Omega: \omega\in A\cup B \text{ 且 } \omega\notin A\cap B\}\textcolor{red}{=(A-B)\cup (B-A)}
 \end{aligned}
 </span></p>
 </div>
@@ -1263,8 +1263,8 @@ A\cap B=\{1,3,5\}\cap \{2,4,6\}=\emptyset
 \begin{aligned}
 1_A(\omega)=\left\{
             \begin{array}[l]{ll}
-                1, &amp;\mbox{如果}\omega\in A;\\
-                0, &amp;\mbox{如果}\omega\notin A.
+                1, &amp;\text{如果}\omega\in A;\\
+                0, &amp;\text{如果}\omega\notin A.
             \end{array}
             \right.
 \end{aligned}
@@ -1281,9 +1281,9 @@ A\cap B=\{1,3,5\}\cap \{2,4,6\}=\emptyset
 <p><span class="math display">
 \begin{aligned}
 \limsup_{n\rightarrow\infty}A_n&amp;=&amp;\{\omega:\sum_{n=1}^\infty 1_{A_n}(\omega)=\infty\}\\
-            &amp;=&amp;\{\omega: \omega\mbox{属于无穷多个}A_n\}\\
+            &amp;=&amp;\{\omega: \omega\text{属于无穷多个}A_n\}\\
             \liminf_{n\rightarrow\infty}A_n&amp;=&amp;\{\omega:\sum_{n=1}^\infty 1_{\bar{A_n}}(\omega)&lt;\infty\}\\
-            &amp;=&amp;\{\omega:\mbox{除去有限多个}A_n\mbox{外},\omega\mbox{属于余下所有的}A_n\}
+            &amp;=&amp;\{\omega:\text{除去有限多个}A_n\text{外},\omega\text{属于余下所有的}A_n\}
 \end{aligned}
 </span></p>
 </div>
@@ -1398,8 +1398,8 @@ P(A)=\dfrac{|A|}{|\Omega|}, \ \forall A\in \mathcal{F}
 <div id="exm-ch1-013" class="theorem example">
 <p><span class="theorem-title"><strong>例 1.13</strong></span> 若屋子里有 <span class="math inline">k</span> 个人,假设每个人的生日都等可能为一年 365 天中的一天 (不考虑 2 月 29 日的情况),而且每个人的生日是相互独立的 (假设这里不存在双胞胎).试问:屋内有两个及以上的人在同一天过生日的概率是多少?</p>
 </div>
-<p><strong>解.</strong>&nbsp;<span class="math inline">k</span> 个人中没有人生日相同的概率为 <span class="math display">P (\mbox{没有人生日相同})=\dfrac{365\cdot364\cdots (365-k+1)}{365^k}</span></p>
-<p>故至少有两个人生日相同的概率为 <span class="math display">P (\mbox{至少有两个人生日相同})=1-\dfrac{365\cdot364\cdots (365-k+1)}{365^k}</span></p>
+<p><strong>解.</strong>&nbsp;<span class="math inline">k</span> 个人中没有人生日相同的概率为 <span class="math display">P (\text{没有人生日相同})=\dfrac{365\cdot364\cdots (365-k+1)}{365^k}</span></p>
+<p>故至少有两个人生日相同的概率为 <span class="math display">P (\text{至少有两个人生日相同})=1-\dfrac{365\cdot364\cdots (365-k+1)}{365^k}</span></p>
 <p>可以绘制至少两个人生日相同的概率随 <span class="math inline">k</span> 变化的函数图.概率首次超过 <span class="math inline">0.5</span> 是在 <span class="math inline">k=23</span>, 当 <span class="math inline">k=57</span> 时,这个概率超过了 99%.</p>
 <div id="exm-ch1-014" class="theorem example">
 <p><span class="theorem-title"><strong>例 1.14</strong></span> 甲乙丙丁四人进行乒乓球双打练习,两人一对地结为对打的双方,有多少种不同的结对方式?</p>
@@ -1455,7 +1455,7 @@ C_6^2\cdot C_4^2= \dfrac{6!}{4!\cdot 2!}\dfrac{4!}{2!\cdot 2!}  = \dfrac{6!}{2! 
 <div id="exm-ch1-017" class="theorem example">
 <p><span class="theorem-title"><strong>例 1.17</strong></span> 一批产品有 <span class="math inline">N</span> 个,其中废品有 <span class="math inline">M</span> 个.现从中随机取出 <span class="math inline">n</span> 个,在以下两种情形下,分别求 其中恰好有 <span class="math inline">m</span> 个废品 这一事件的概率.(1) 有放回地选取;(2) 不放回地选取.</p>
 </div>
-<p><strong>解.</strong>&nbsp;记 <span class="math inline">A = \{\mbox{其中恰好有} m \mbox{个废品}\}</span>, 则</p>
+<p><strong>解.</strong>&nbsp;记 <span class="math inline">A = \{\text{其中恰好有} m \text{个废品}\}</span>, 则</p>
 <p>有放回情形: <span class="math inline">|\Omega| = N^n, |A| = C_n^mM^m (N - M)^{n-m}</span>, 所以</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1557,7 +1557,7 @@ P(A)=\frac{S_A}{S_{\Omega}}
 <p><span class="math display">
 \begin{aligned}
 \Omega&amp;=&amp;\{(\varphi,x):0\le x\le d/2, 0\le\varphi \le \pi/2\}\\
-            A&amp;=&amp;\{\mbox{针与平行线相交}\}\\
+            A&amp;=&amp;\{\text{针与平行线相交}\}\\
             &amp;=&amp;\{(\varphi,x):x\leq \frac{l}{2}\sin\varphi\}
 \end{aligned}
 </span></p>
@@ -1704,7 +1704,7 @@ P(A)=\frac{S_A}{S_\Omega}=\frac{60^2-40^2}{60^2}=\frac{5}{9}.
 <h3 class="anchored" data-anchor-id="黎曼积分">黎曼积分</h3>
 <section id="黎曼积分-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="黎曼积分-1">黎曼积分</h4>
-<p>函数 <span class="math inline">f:[a,b]\mapsto \mathbb{R}</span>; 同时,分割 <span class="math inline">\Delta</span>: <span class="math inline">a=x_0&lt;x_1&lt;\cdots&lt;x_n=b</span>; 此外,黎曼和: <span class="math display">I(f,\Delta):=\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i), \ \mbox{其中} \xi_i\in[x_i,x_{i+1}];</span> 令<span class="math inline">|\Delta|:=\max_{1\leq i\leq n}|x_i-x_{i-1}|</span>, 则若 <span class="math display">\lim_{|\Delta|\rightarrow 0}I(f,\Delta)=\lim_{|\Delta|\rightarrow 0}\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i)=L:=\int_a^bf(x)dx,</span> 则称 <span class="math inline">L</span> 为函数 <span class="math inline">f</span> 在区间 <span class="math inline">[a,b]</span> 的积分, 并称函数 <span class="math inline">f</span> 是黎曼可积的.</p>
+<p>函数 <span class="math inline">f:[a,b]\mapsto \mathbb{R}</span>; 同时,分割 <span class="math inline">\Delta</span>: <span class="math inline">a=x_0&lt;x_1&lt;\cdots&lt;x_n=b</span>; 此外,黎曼和: <span class="math display">I(f,\Delta):=\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i), \ \text{其中} \xi_i\in[x_i,x_{i+1}];</span> 令<span class="math inline">|\Delta|:=\max_{1\leq i\leq n}|x_i-x_{i-1}|</span>, 则若 <span class="math display">\lim_{|\Delta|\rightarrow 0}I(f,\Delta)=\lim_{|\Delta|\rightarrow 0}\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i)=L:=\int_a^bf(x)dx,</span> 则称 <span class="math inline">L</span> 为函数 <span class="math inline">f</span> 在区间 <span class="math inline">[a,b]</span> 的积分, 并称函数 <span class="math inline">f</span> 是黎曼可积的.</p>
 </section>
 <section id="黎曼积分示意图" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="黎曼积分示意图">黎曼积分示意图</h4>
@@ -1718,8 +1718,8 @@ P(A)=\frac{S_A}{S_\Omega}=\frac{60^2-40^2}{60^2}=\frac{5}{9}.
 <section id="黎曼积分的缺点" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="黎曼积分的缺点">黎曼积分的缺点</h4>
 <p>一些很简单的函数不是黎曼可积的, 如Dirichlet 函数: <span class="math display">D(x):=\left\{\begin{array}{ll}
-            1, &amp; x \mbox{是有理数},\\
-            0, &amp; x \mbox{是无理数}.
+            1, &amp; x \text{是有理数},\\
+            0, &amp; x \text{是无理数}.
         \end{array}\right.</span> 同时,需要一致收敛条件来保证函数积分与极限运算的次序交换, 即若 <span class="math inline">f_n(x)</span> 一致收敛且黎曼可积, 则 <span class="math display">\lim_{n\rightarrow\infty}\int_a^bf_n(x)dx=\int_a^b\lim_{n\rightarrow\infty}f_n(x)dx</span> 此外,黎曼可积函数空间不完备, 即存在黎曼可积函数列 <span class="math inline">f_n(x)</span> 逐点收敛到函数 <span class="math inline">f(x)</span>, 但 <span class="math inline">f(x)</span> 不是黎曼可积.</p>
 </section>
 <section id="黎曼积分的等价定义i" class="level4 unnumbered">
@@ -1753,7 +1753,7 @@ M_i(\Delta)&amp;:=\sup_{x_{i-1}\leq x\leq x_i}f(x), \  m_i(\Delta):=\inf_{x_{i-1
 <h4 class="unnumbered anchored" data-anchor-id="黎曼积分的等价定义ii-1">黎曼积分的等价定义(II)</h4>
 <div id="def-ch1-014" class="theorem definition">
 <p><span class="theorem-title"><strong>定义 1.14</strong></span> (Darboux integral 达布积分) 设函数 <span class="math inline">f:[a,b]\mapsto \mathbb{R}</span> 为有界函数, 则</p>
-<p>称<span class="math display">\underline{\int_a^b}f(x)dx:=\sup_{g\leq f,\  g\mbox{为阶梯函数}}p.c.\int_a^bg(x)dx</span> 为函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上的达布下积分; 称<span class="math display">\overline{\int_a^b}f(x)dx:=\inf_{h\geq f,\  h\mbox{为阶梯函数}}p.c.\int_a^bh(x)dx</span> 为函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上的达布上积分; 显然, <span class="math inline">\underline{\int_a^b}f(x)dx\leq \overline{\int_a^b}f(x)dx</span>. 如果 <span class="math display">\underline{\int_a^b}f(x)dx=\overline{\int_a^b}f(x)dx,</span> 则称函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上达布可积.</p>
+<p>称<span class="math display">\underline{\int_a^b}f(x)dx:=\sup_{g\leq f,\  g\text{为阶梯函数}}p.c.\int_a^bg(x)dx</span> 为函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上的达布下积分; 称<span class="math display">\overline{\int_a^b}f(x)dx:=\inf_{h\geq f,\  h\text{为阶梯函数}}p.c.\int_a^bh(x)dx</span> 为函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上的达布上积分; 显然, <span class="math inline">\underline{\int_a^b}f(x)dx\leq \overline{\int_a^b}f(x)dx</span>. 如果 <span class="math display">\underline{\int_a^b}f(x)dx=\overline{\int_a^b}f(x)dx,</span> 则称函数 <span class="math inline">f(x)</span> 在 <span class="math inline">[a,b]</span> 上达布可积.</p>
 </div>
 </section>
 <section id="黎曼积分的等价定义ii-2" class="level4 unnumbered">
@@ -1847,13 +1847,13 @@ m(E_k):=\int_{a}^{b}1_{E_k}(x)dx,
 <section id="区间矩形基本集及其测度" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="区间矩形基本集及其测度">区间,矩形,基本集及其测度</h4>
 <p>区间 <span class="math inline">I\subset\mathbb{R}</span> : <span class="math inline">[a,b],\  [a,b),\  (a,b), \cdots</span>;</p>
-<p>同时,矩形 <span class="math inline">B\subset\mathbb{R}^d</span>: <span class="math inline">B:=I_1\times \cdots\times I_d</span>, 其中<span class="math inline">I_i</span> 为区间; 此外,矩形的测度: <span class="math inline">|B|:=|I_1|\times|I_2|\times\cdots\times|I_d|</span>. 相应地,基本集 <span class="math inline">E\subset\mathbb{R}^d</span>: 能够表示为有限个矩形的并的集合; 其中,更进一步, 可以证明基本集一定可以表示为有限个不相交矩形的并, 即 <span class="math display">E=\cup_{i=1}^kB_i, \mbox{其中} B_i, i=1,\cdots, k, \mbox{为矩形且互不相交};</span> 我们将 <span class="math inline">m(E):=|B_1|+|B_2|+\cdots+|B_k|</span> 称为基本集 <span class="math inline">E</span> 的基本测度.</p>
+<p>同时,矩形 <span class="math inline">B\subset\mathbb{R}^d</span>: <span class="math inline">B:=I_1\times \cdots\times I_d</span>, 其中<span class="math inline">I_i</span> 为区间; 此外,矩形的测度: <span class="math inline">|B|:=|I_1|\times|I_2|\times\cdots\times|I_d|</span>. 相应地,基本集 <span class="math inline">E\subset\mathbb{R}^d</span>: 能够表示为有限个矩形的并的集合; 其中,更进一步, 可以证明基本集一定可以表示为有限个不相交矩形的并, 即 <span class="math display">E=\cup_{i=1}^kB_i, \text{其中} B_i, i=1,\cdots, k, \text{为矩形且互不相交};</span> 我们将 <span class="math inline">m(E):=|B_1|+|B_2|+\cdots+|B_k|</span> 称为基本集 <span class="math inline">E</span> 的基本测度.</p>
 </section>
 <section id="约当测度jordan-measure" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="约当测度jordan-measure">约当测度(Jordan Measure)</h4>
 <div id="def-ch1-015" class="theorem definition">
 <p><span class="theorem-title"><strong>定义 1.15</strong></span> (约当测度) 令 <span class="math inline">E</span> 为 <span class="math inline">\mathbb{R}^d</span> 的有界子集.</p>
-<p>称 <span class="math display">m_{*,J}(E):=\sup_{A\subset E, A\mbox{为基本集}}m(A)</span> 为约当内测度; 同时,称 <span class="math display">m^{*,J}(E):=\inf_{A\supset E, A\mbox{为基本集}}m(A)</span> 为约当外测度; 此外,称 <span class="math inline">E</span> 为约当可测的, 如果 <span class="math display">m_{*,J}(E)=m^{*,J}(E).</span>此 时称 <span class="math inline">m(E):=m_{*,J}(E)=m^{*,J}(E)</span> 为集合 <span class="math inline">E</span> 的约当测度.</p>
+<p>称 <span class="math display">m_{*,J}(E):=\sup_{A\subset E, A\text{为基本集}}m(A)</span> 为约当内测度; 同时,称 <span class="math display">m^{*,J}(E):=\inf_{A\supset E, A\text{为基本集}}m(A)</span> 为约当外测度; 此外,称 <span class="math inline">E</span> 为约当可测的, 如果 <span class="math display">m_{*,J}(E)=m^{*,J}(E).</span>此 时称 <span class="math inline">m(E):=m_{*,J}(E)=m^{*,J}(E)</span> 为集合 <span class="math inline">E</span> 的约当测度.</p>
 </div>
 </section>
 <section id="如何理解约当可测集的定义以一维情形为例" class="level4 unnumbered">
@@ -1861,10 +1861,10 @@ m(E_k):=\int_{a}^{b}1_{E_k}(x)dx,
 <p>假设 <span class="math inline">E\subset [a,b]</span>. 注意到</p>
 <p><span class="math display">
 \begin{aligned}
-m_{*,J}(E)&amp;=\sup_{A\subset E, A\mbox{为基本集}}m(A)\\
-  &amp;=\sup_{A\subset E, A\mbox{为基本集}}\big((b-a)-m([a,b]-A)\big)\\
-            &amp;=\sup_{K\supset [a,b]-E, K\mbox{为基本集}}\big((b-a)-m(K)\big)\\
-            &amp;=(b-a)-\inf_{K\supset [a,b]-E, K\mbox{为基本集}}m(K)\\
+m_{*,J}(E)&amp;=\sup_{A\subset E, A\text{为基本集}}m(A)\\
+  &amp;=\sup_{A\subset E, A\text{为基本集}}\big((b-a)-m([a,b]-A)\big)\\
+            &amp;=\sup_{K\supset [a,b]-E, K\text{为基本集}}\big((b-a)-m(K)\big)\\
+            &amp;=(b-a)-\inf_{K\supset [a,b]-E, K\text{为基本集}}m(K)\\
             &amp;=(b-a)-m^{*,J}([a,b]-E).
 \end{aligned}
 </span></p>
@@ -1904,15 +1904,15 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
 </section>
 <section id="lebesgue外测度" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="lebesgue外测度">Lebesgue外测度</h4>
-<p>外测度<span class="math inline">m^*(E)</span>: <span class="math display">m^*(E):=\inf_{\cup_{i=1}^\infty B_i\supset E, B_i, i\geq 1, \mbox{为矩形}}\sum_{i=1}^\infty |B_i|</span> 同时,显然, <span class="math inline">m^*(E)\leq m^{*,J}(E)</span>, 且存在<span class="math inline">E\subset\mathbb{R}^d</span>使得不等号严格成立; 此外,外测度具有次可加性, 即对任意的<span class="math inline">E_i, i\geq 1</span>,均有 <span class="math display">m^*(\cup_{i=1}^\infty E_i)\leq \sum_{i=1}^\infty m^*(E_i).</span></p>
+<p>外测度<span class="math inline">m^*(E)</span>: <span class="math display">m^*(E):=\inf_{\cup_{i=1}^\infty B_i\supset E, B_i, i\geq 1, \text{为矩形}}\sum_{i=1}^\infty |B_i|</span> 同时,显然, <span class="math inline">m^*(E)\leq m^{*,J}(E)</span>, 且存在<span class="math inline">E\subset\mathbb{R}^d</span>使得不等号严格成立; 此外,外测度具有次可加性, 即对任意的<span class="math inline">E_i, i\geq 1</span>,均有 <span class="math display">m^*(\cup_{i=1}^\infty E_i)\leq \sum_{i=1}^\infty m^*(E_i).</span></p>
 </section>
 <section id="lebesgue内测度及可测集如何定义" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="lebesgue内测度及可测集如何定义">Lebesgue内测度及可测集如何定义</h4>
-<p>内测度<span class="math inline">m_*(E)</span>如何定义? 其中,如果定义 <span class="math display">m_*(E):=\sup_{\cup_{i=1}^\infty B_i\subset E, B_i, i\geq 1, \mbox{为矩形}}\sum_{i=1}^\infty |B_i|.</span> 可以证明 <span class="math display">m_*(E)=m_{*,J}(E).</span> 由于可数矩形并的余集不一定是可数矩形的并, 因此, 若以此处定义的内外测度相等定义Lebesgue可测集, 我们无法像约当可测集那样得到外测度的可加性.; 若<span class="math inline">E\subset [a,b]</span>, 则由外测度的次可加性可知 <span class="math display">m^*(E)\geq (b-a)-m^*([a,b]-E).</span> 因此, 若定义<span class="math inline">m_*(E)=(b-a)-m^*([a,b]-E)</span>为Lebesgue内测度,并由内外测度相等定义Lebesgue可测集, 则可以得到Lebesgue外测度的可加性, 即 <span class="math display">m^*([a,b])=m^*(E)+m^*([a,b]-E)=m^*([a,b]\cap E)+m^*([a,b]\cap \bar{E}).</span></p>
+<p>内测度<span class="math inline">m_*(E)</span>如何定义? 其中,如果定义 <span class="math display">m_*(E):=\sup_{\cup_{i=1}^\infty B_i\subset E, B_i, i\geq 1, \text{为矩形}}\sum_{i=1}^\infty |B_i|.</span> 可以证明 <span class="math display">m_*(E)=m_{*,J}(E).</span> 由于可数矩形并的余集不一定是可数矩形的并, 因此, 若以此处定义的内外测度相等定义Lebesgue可测集, 我们无法像约当可测集那样得到外测度的可加性.; 若<span class="math inline">E\subset [a,b]</span>, 则由外测度的次可加性可知 <span class="math display">m^*(E)\geq (b-a)-m^*([a,b]-E).</span> 因此, 若定义<span class="math inline">m_*(E)=(b-a)-m^*([a,b]-E)</span>为Lebesgue内测度,并由内外测度相等定义Lebesgue可测集, 则可以得到Lebesgue外测度的可加性, 即 <span class="math display">m^*([a,b])=m^*(E)+m^*([a,b]-E)=m^*([a,b]\cap E)+m^*([a,b]\cap \bar{E}).</span></p>
 </section>
 <section id="lebesgue内外测度的等价定义" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="lebesgue内外测度的等价定义">Lebesgue内外测度的等价定义</h4>
-<p>外测度: <span class="math display">m^*(E):=\inf_{U\supset E, U\mbox{为开集}}m^*(U).</span> 同时,Lebesgue内测度: <span class="math display">m_*(E):=\sup_{U\subset E, U\mbox{为闭集}}m^*(U).</span> 若 <span class="math display">m_*(E)=m^*(E),</span> 则称<span class="math inline">E</span>为Lebesgue可测集.</p>
+<p>外测度: <span class="math display">m^*(E):=\inf_{U\supset E, U\text{为开集}}m^*(U).</span> 同时,Lebesgue内测度: <span class="math display">m_*(E):=\sup_{U\subset E, U\text{为闭集}}m^*(U).</span> 若 <span class="math display">m_*(E)=m^*(E),</span> 则称<span class="math inline">E</span>为Lebesgue可测集.</p>
 </section>
 <section id="lebesgue可测集的卡拉西奥多里准则" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="lebesgue可测集的卡拉西奥多里准则">Lebesgue可测集的卡拉西奥多里准则</h4>
@@ -1950,7 +1950,7 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
 <h4 class="unnumbered anchored" data-anchor-id="由lebesgue测度到一般抽象测度">由Lebesgue测度到一般抽象测度</h4>
 <ul>
 <li><p>要度量集合元素的全体: <span class="math inline">\Omega</span></p></li>
-<li><p>测度的适用范围(定义域): <span class="math inline">\mathcal{F}:=\{A\subset \Omega:A\mbox{可测}\}</span>, 通常要求<span class="math inline">\mathcal{F}</span>为<span class="math inline">\sigma</span>-代数</p></li>
+<li><p>测度的适用范围(定义域): <span class="math inline">\mathcal{F}:=\{A\subset \Omega:A\text{可测}\}</span>, 通常要求<span class="math inline">\mathcal{F}</span>为<span class="math inline">\sigma</span>-代数</p></li>
 <li><p>通常称<span class="math inline">(\Omega, \mathcal{F})</span>为可测空间</p></li>
 <li><p>测度的定义: 称定义在<span class="math inline">\mathcal{F}</span>的集函数<span class="math inline">\mu(\cdot)</span>为测度, 如果</p>
 <ol type="1">
@@ -1981,7 +1981,7 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
 <p><span class="theorem-title"><strong>定义 1.16</strong></span> <span style="color: cyan">(概率的公理化定义)</span> 设<span class="math inline">\Omega</span>为样本空间, <span class="math inline">\mathcal{F}</span>为<span class="math inline">\Omega</span>的某些子集组成的<span class="math inline">\sigma</span>-代数(事件域), 若定义在<span class="math inline">\mathcal{F}</span>上的集函数<span class="math inline">P(\cdot)</span>满足</p>
 <ol type="1">
 <li><p>非负性: <span class="math inline">P(A)\geq 0</span>;</p></li>
-<li><p>正则性: <span class="math inline">P(\Omega)=1\textcolor{red}{\Rightarrow P(\emptyset)=0 (\mbox{结合可列可加性})}</span>;</p></li>
+<li><p>正则性: <span class="math inline">P(\Omega)=1\textcolor{red}{\Rightarrow P(\emptyset)=0 (\text{结合可列可加性})}</span>;</p></li>
 <li><p>可列可加性: 若<span class="math inline">A_i,i=1,2,\cdots</span> 互不相交, 则 <span class="math display">P(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty P(A_i).</span></p></li>
 </ol>
 <p>则称<span class="math inline">P</span>为<span class="math inline">(\Omega,\mathcal{F})</span>上的概率测度,简称概率,称<span class="math inline">(\Omega,\mathcal{F},P)</span>为概率空间.</p>
@@ -1992,10 +1992,10 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
 <p>从概率的定义可以看出, 概率是全集度量为 <span class="math inline">1</span> 的测度; 同时,,只不过概率是用来衡量随机事件发生可能性大小的一种度量, 其在全集上的度量为 <span class="math inline">1</span>; 此外,同一随机试验得到的可测空间<span class="math inline">(\Omega,\mathcal{F})</span>, 可定义不同的概率. 其中,对于抛一枚硬币这一随机试验,</p>
 <p><span class="math display">
 \begin{aligned}
-\Omega=\{\mbox{正,反}\}, \mbox{ 选取} \mathcal{F}=\{\emptyset, \{\mbox{正}\}, \{\mbox{反}\}, \Omega\};
+\Omega=\{\text{正,反}\}, \text{ 选取} \mathcal{F}=\{\emptyset, \{\text{正}\}, \{\text{反}\}, \Omega\};
 \end{aligned}
 </span></p>
-<p>我们可以构造概率<span class="math inline">P_1(\cdot)</span>: <span class="math display">P_1(\emptyset)=0, P_1(\{\mbox{正}\})=1/2,  P_1(\{\mbox{反}\})=1/2,  P_1(\Omega)=1;</span> 也可以构造概率<span class="math inline">P_2(\cdot)</span>: 其中<span class="math inline">p+q=1</span>, <span class="math display">P_2(\emptyset)=0, P_2(\{\mbox{正}\})=p,  P_2(\{\mbox{反}\})=q,  P_1(\Omega)=1.</span></p>
+<p>我们可以构造概率<span class="math inline">P_1(\cdot)</span>: <span class="math display">P_1(\emptyset)=0, P_1(\{\text{正}\})=1/2,  P_1(\{\text{反}\})=1/2,  P_1(\Omega)=1;</span> 也可以构造概率<span class="math inline">P_2(\cdot)</span>: 其中<span class="math inline">p+q=1</span>, <span class="math display">P_2(\emptyset)=0, P_2(\{\text{正}\})=p,  P_2(\{\text{反}\})=q,  P_1(\Omega)=1.</span></p>
 </section>
 </section>
 <section id="可测空间与测度空间" class="level3">
@@ -2078,7 +2078,7 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
 </ol>
 </div>
 <p><strong>证明.</strong>&nbsp;</p>
-<p>若 <span class="math inline">\mathcal{F}_t, t\in T</span> 为一族 <span class="math inline">\sigma</span>-代数,则 <span class="math inline">\cap_{t\in T}\mathcal{F}_t</span> 仍为 <span class="math inline">\sigma</span>-代数; 令 <span class="math inline">C^{\#}:=\{\mathcal{B}:\mathcal{B}\mbox{为}\sigma-\mbox{代数}, \mathcal{C}\subset \mathcal{B}\}</span>; 令 <span class="math inline">\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}</span>, 则易证 <span class="math inline">\mathcal{C}_0</span> 即为定理所求之 <span class="math inline">\sigma</span>-代数.</p>
+<p>若 <span class="math inline">\mathcal{F}_t, t\in T</span> 为一族 <span class="math inline">\sigma</span>-代数,则 <span class="math inline">\cap_{t\in T}\mathcal{F}_t</span> 仍为 <span class="math inline">\sigma</span>-代数; 令 <span class="math inline">C^{\#}:=\{\mathcal{B}:\mathcal{B}\text{为}\sigma-\text{代数}, \mathcal{C}\subset \mathcal{B}\}</span>; 令 <span class="math inline">\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}</span>, 则易证 <span class="math inline">\mathcal{C}_0</span> 即为定理所求之 <span class="math inline">\sigma</span>-代数.</p>
 <div id="rem-ch1-006" class="proof remark">
 <p><span class="proof-title"><em>注记 1.6</em>. </span>首先,<span class="math inline">\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}</span> 是包含集类 <span class="math inline">\mathcal{C}</span> 的最小 <span class="math inline">\sigma</span>-代数; 最后,一般也称 <span class="math inline">\mathcal{C}_0</span> 为集类 <span class="math inline">\mathcal{C}</span> 的生成 <span class="math inline">\sigma</span>-代数,后面我们常用 <span class="math inline">\sigma (\mathcal{C})</span> 表示 <span class="math inline">\mathcal{C}_0</span>.</p>
 </div>
@@ -2128,8 +2128,8 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
             \mathcal{C}_3&amp;=&amp;\{[a,b]:-\infty&lt; a\leq b&lt;+\infty\}\\
             \mathcal{C}_4&amp;=&amp;\{[a,b):-\infty&lt; a\leq b\leq+\infty\}\\
             \mathcal{C}_5&amp;=&amp;\{(a,b):-\infty\leq a\leq b\leq+\infty\}\\
-            \mathcal{C}_6&amp;=&amp;\{A\subset\mathbb{R}:A\mbox{为开集}\}\\
-            \mathcal{C}_7&amp;=&amp;\{A\subset\mathbb{R}:A\mbox{为闭集}\}
+            \mathcal{C}_6&amp;=&amp;\{A\subset\mathbb{R}:A\text{为开集}\}\\
+            \mathcal{C}_7&amp;=&amp;\{A\subset\mathbb{R}:A\text{为闭集}\}
 \end{aligned}
 </span></p>
 <p>则以上 7 个集类的生成 <span class="math inline">\sigma</span>-代数均相同,即</p>
@@ -2151,8 +2151,8 @@ E_+ &amp;:=\{(x,t):x\in[a,b], 0\leq f(x)\leq t\}\\ E_-&amp;:=\{(x,t):x\in[a,b], 
             \mathcal{S}_3&amp;=&amp;\{[a_1,b_1]\times\cdots\times[a_d,b_d]:-\infty&lt; a_i\leq b_i&lt;+\infty, 1\leq i\leq d\}\\
             \mathcal{S}_4&amp;=&amp;\{[a_1,b_1)\times\cdots\times [a_d,b_d):-\infty&lt; a_i\leq b_i\leq+\infty, 1\leq i\leq d\}\\
             \mathcal{S}_5&amp;=&amp;\{(a_1,b_1)\times\cdots\times(a_d,b_d):-\infty\leq a_i\leq b_i\leq+\infty, 1\leq i\leq d\}\\
-            \mathcal{S}_6&amp;=&amp;\{A\subset\mathbb{R}^d:A\mbox{为开集}\}\\
-            \mathcal{S}_7&amp;=&amp;\{A\subset\mathbb{R}^d:A\mbox{为闭集}\}
+            \mathcal{S}_6&amp;=&amp;\{A\subset\mathbb{R}^d:A\text{为开集}\}\\
+            \mathcal{S}_7&amp;=&amp;\{A\subset\mathbb{R}^d:A\text{为闭集}\}
 \end{aligned}
 </span></p>
 <p>则以上 7 个集类的生成 <span class="math inline">\sigma</span>-代数均相同,即</p>
@@ -2182,7 +2182,7 @@ A,B\in \mathcal{C}\Rightarrow A\cap B\in \mathcal{C}, \bar{A}\in \mathcal{C};
 <p>此外,称<span class="math inline">\mathcal{C}</span>为单调类, 如果<span class="math inline">\mathcal{C}</span>关于单调极限运算封闭, 即</p>
 <p><span class="math display">
 \begin{aligned}
-A_n\in \mathcal{C}, A_n\uparrow A \mbox{ 或 } A_n\downarrow A \Rightarrow A\in \mathcal{C}
+A_n\in \mathcal{C}, A_n\uparrow A \text{ 或 } A_n\downarrow A \Rightarrow A\in \mathcal{C}
 \end{aligned}
 </span></p>
 <p>相应地,称<span class="math inline">\mathcal{C}</span>为<span class="math inline">\lambda</span>类, 如果<span class="math inline">\Omega\in \mathcal{C}</span>并且<span class="math inline">\mathcal{C}</span>对真差运算及上升极限运算封闭, 即 其中,<span class="math inline">\Omega\in \mathcal{C}</span>; <span class="math inline">A, B\in \mathcal{C}, B\subset A\Rightarrow A-B\in \mathcal{C}</span>; <span class="math inline">A_n\in \mathcal{C}, n\geq 1, A_n\uparrow A\Rightarrow A\in \mathcal{C}</span>.</p>
@@ -2216,7 +2216,7 @@ A_n\in \mathcal{C}, A_n\uparrow A \mbox{ 或 } A_n\downarrow A \Rightarrow A\in 
 </section>
 <section id="如何应用单调类定理" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="如何应用单调类定理">如何应用单调类定理</h4>
-<p>问题: 如何证明某<span class="math inline">\sigma-</span>代数<span class="math inline">\mathcal{F}</span>中的所有元素都具有某种性质(<span class="math inline">P</span>)? 同时,步骤: <span class="math inline">\mathcal{G}:=\{A\in \mathcal{F}: A\mbox{具有性质}(P)\}</span>; 找到某一集类<span class="math inline">\mathcal{C}</span>为代数或<span class="math inline">\pi</span>类且具有以下性质:</p>
+<p>问题: 如何证明某<span class="math inline">\sigma-</span>代数<span class="math inline">\mathcal{F}</span>中的所有元素都具有某种性质(<span class="math inline">P</span>)? 同时,步骤: <span class="math inline">\mathcal{G}:=\{A\in \mathcal{F}: A\text{具有性质}(P)\}</span>; 找到某一集类<span class="math inline">\mathcal{C}</span>为代数或<span class="math inline">\pi</span>类且具有以下性质:</p>
 <p><span class="math display">
 \begin{aligned}
 \mathcal{C}\subset \mathcal{G}, \quad  \sigma(\mathcal{C})=\mathcal{F};
@@ -2603,7 +2603,7 @@ A\cup B=A\cup (B-AB).
 <h4 class="unnumbered anchored" data-anchor-id="条件概率的引入-2">条件概率的引入</h4>
 <div id="exm-ch1-031" class="theorem example">
 <p><span class="theorem-title"><strong>例 1.31</strong></span> 考察有两个小孩的家庭,其样本空间为<span class="math inline">\Omega:=\{bb,bg,gb,gg\}</span>,其中<span class="math inline">b, g</span>分别表男孩与女孩,<span class="math inline">bg</span>表示大的是男孩,小的是女孩,其他样本点类似说明. 在<span class="math inline">\Omega</span>中的四个样本点可能情况下,我们讨论如下事件的概率:</p>
-<p>事件<span class="math inline">A:=\{\mbox{家中至少有一个女孩}\}</span>发生的概率为<span class="math inline">P(A)=\dfrac{3}{4}</span>. 若已知<span class="math inline">B:=\{\mbox{家中至少有一个男孩}\}</span>发生,再求<span class="math inline">A</span>发生的概率为</p>
+<p>事件<span class="math inline">A:=\{\text{家中至少有一个女孩}\}</span>发生的概率为<span class="math inline">P(A)=\dfrac{3}{4}</span>. 若已知<span class="math inline">B:=\{\text{家中至少有一个男孩}\}</span>发生,再求<span class="math inline">A</span>发生的概率为</p>
 <p><span class="math display">
 \begin{aligned}
 P(A|B)=\frac{2}{3}
@@ -2848,7 +2848,7 @@ P(A| B,E)=\frac{P(B| A,E)P(A| E)}{P(B| E)}
 </section>
 <section id="条件性思维谬误控方证人的错误-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="条件性思维谬误控方证人的错误-1">条件性思维谬误:控方证人的错误</h4>
-<p>这个所谓的专家将两个不同的条件概率混淆了: <span class="math inline">P (\mbox{清白 | 证据})</span> 和 <span class="math inline">P (\mbox{证据 | 清白})</span> 是不一样的. 其中,专家 1 声称:如果在被告人是清白的情况下,两个孩子死亡的概率很低;那就是说 <span class="math inline">P (\mbox{证据 | 清白})</span> 非常小.; 但人们感兴趣的是,给定现在所有的证据 (孩子均死) 条件下,报告人仍清白的概率,即 <span class="math inline">P (\mbox{清白 | 证据})</span>.; 由贝叶斯准则可知,<span class="math display">P (\mbox{清白 | 证据})=\frac{P (\mbox{证据 | 清白}) P (\mbox{清白})}{P (\mbox{证据})},</span> 所以为了计算 <span class="math inline">P (\mbox{清白 | 证据})</span>, 这里需要考虑 <span class="math inline">P (\mbox{清白})</span>, 也就是被告清白的先验概率.这个概率是很高的; 虽然 SIDS 造成两个婴儿死亡是很罕见的,但是蓄意杀害两个婴儿的情况也很少见! 基于现有证据的后验概率是对很低的 <span class="math inline">P (\mbox{证据 | 清白})</span> 和很高的 <span class="math inline">P (\mbox{清白})</span> 的一个平衡.专家的结果 <span class="math inline">(1/8500)^2</span> 是有问题的,它只是整个计算式中的一部分.</p>
+<p>这个所谓的专家将两个不同的条件概率混淆了: <span class="math inline">P (\text{清白 | 证据})</span> 和 <span class="math inline">P (\text{证据 | 清白})</span> 是不一样的. 其中,专家 1 声称:如果在被告人是清白的情况下,两个孩子死亡的概率很低;那就是说 <span class="math inline">P (\text{证据 | 清白})</span> 非常小.; 但人们感兴趣的是,给定现在所有的证据 (孩子均死) 条件下,报告人仍清白的概率,即 <span class="math inline">P (\text{清白 | 证据})</span>.; 由贝叶斯准则可知,<span class="math display">P (\text{清白 | 证据})=\frac{P (\text{证据 | 清白}) P (\text{清白})}{P (\text{证据})},</span> 所以为了计算 <span class="math inline">P (\text{清白 | 证据})</span>, 这里需要考虑 <span class="math inline">P (\text{清白})</span>, 也就是被告清白的先验概率.这个概率是很高的; 虽然 SIDS 造成两个婴儿死亡是很罕见的,但是蓄意杀害两个婴儿的情况也很少见! 基于现有证据的后验概率是对很低的 <span class="math inline">P (\text{证据 | 清白})</span> 和很高的 <span class="math inline">P (\text{清白})</span> 的一个平衡.专家的结果 <span class="math inline">(1/8500)^2</span> 是有问题的,它只是整个计算式中的一部分.</p>
 </section>
 <section id="monty-hall三门问题" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="monty-hall三门问题">Monty Hall三门问题</h4>
@@ -2870,12 +2870,12 @@ P(A| B,E)=\frac{P(B| A,E)P(A| E)}{P(B| E)}
 . 同时,不失一般性, 可以假设选手选择的是<span class="math inline">1</span>号门. 令</p>
 <p><span class="math display">
 \begin{aligned}
-A&amp;=\{\mbox{换门得到车} \} \\
-      B&amp;=\{\mbox{不换门得到车} \}\\
-     C_i&amp;:=\{\mbox{车在第}i \mbox{扇门后面} \}, i=1,2,3.
+A&amp;=\{\text{换门得到车} \} \\
+      B&amp;=\{\text{不换门得到车} \}\\
+     C_i&amp;:=\{\text{车在第}i \text{扇门后面} \}, i=1,2,3.
 \end{aligned}
 </span></p>
-<p>相应地,显然, <span class="math inline">P(B)=P( \mbox{不换门得到车} )=1/3</span>. 相应地,则由全概率公式</p>
+<p>相应地,显然, <span class="math inline">P(B)=P( \text{不换门得到车} )=1/3</span>. 相应地,则由全概率公式</p>
 <p><span class="math display">
 \begin{aligned}
 P(A)&amp;=P(A|C_1)\cdot\frac{1}{3}+P(A|C_2)\cdot\frac{1}{3}+P(A|C_3)\cdot\frac{1}{3}\\
@@ -2900,14 +2900,14 @@ P(A)&amp;=P(A|C_1)\cdot\frac{1}{3}+P(A|C_2)\cdot\frac{1}{3}+P(A|C_3)\cdot\frac{1
 <p>以概率<span class="math inline">p</span>向右移动到<span class="math inline">i+1</span>. 同时,以概率<span class="math inline">q</span>向左移动到<span class="math inline">i-1</span>, 其中<span class="math inline">p,q&gt;0, p+q=1</span>. 此外,我们把质点的上述运动称之为随机徘徊或随机游动</p>
 <p>相应地,考虑数轴上的两个<span style="color: cyan">吸收壁<span class="math inline">0</span>与<span class="math inline">a(a&gt;1)</span></span>:质点运动到<span class="math inline">0</span>或<span class="math inline">a</span>之后就永远不再移动. 相应地,现求自<span class="math inline">i(0&lt;i&lt;a)</span>出发的质点将被<span class="math inline">0</span>或<span class="math inline">a</span>吸收的概率.</p>
 </div>
-<p><strong>解.</strong>&nbsp;令 <span class="math inline">E_i=\{\mbox{质点自}i\mbox{出发}\}, F=\{\mbox{质点在}0\mbox{被吸收}\}, G=\{\mbox{质点在}a\mbox{被吸收}\}</span>.</p>
+<p><strong>解.</strong>&nbsp;令 <span class="math inline">E_i=\{\text{质点自}i\text{出发}\}, F=\{\text{质点在}0\text{被吸收}\}, G=\{\text{质点在}a\text{被吸收}\}</span>.</p>
 <p>下面对<span class="math inline">i=0,1,\cdots,a</span> 计算</p>
 <p><span class="math display">
 \begin{aligned}
 P_i=P(F|E_i), \quad Q_i=P(G|E_i)
 \end{aligned}
 </span></p>
-<p>记<span class="math inline">B=\{\mbox{质点第一次向左移动 1 单位}\}</span>并以第 1 次可能的运动情 况为条件进行全概率展开可得</p>
+<p>记<span class="math inline">B=\{\text{质点第一次向左移动 1 单位}\}</span>并以第 1 次可能的运动情 况为条件进行全概率展开可得</p>
 <p><span class="math display">
 \begin{aligned}
 Q_i&amp;=&amp;P(GB|E_i)+P(G\bar{B}|E_i)\\
@@ -2943,7 +2943,7 @@ Q_{i+1}-Q_i=\bigg(\dfrac{q}{p}\bigg)^iQ_1, \quad i=1,\cdots, a-1.
 Q_1=\bigg[\sum_{i=0}^{a-1}\bigg(\dfrac{q}{p}\bigg)^{i}\bigg]^{-1}=\dfrac{1-q/p}{1-(q/p)^a}
 \end{aligned}
 </span></p>
-<p>再将(<a href="#eq-ch1-ditui2" data-reference-type="ref" data-reference="eq-ch1-ditui2">[eq-ch1-ditui2]</a>)式对<span class="math inline">i=1,\cdots, i-1</span>求和并将上述<span class="math inline">Q_1</span>代入可得</p>
+<p>再将 <a href="#eq-ch1-ditui2" class="quarto-xref"><span>1.9</span></a> 对<span class="math inline">i=1,\cdots, i-1</span>求和并将上述<span class="math inline">Q_1</span>代入可得</p>
 <p><span class="math display">
 \begin{aligned}
 Q_i=\dfrac{1-(q/p)^i}{1-(q/p)^a}, \quad i=0,\cdots, a.
@@ -3007,12 +3007,12 @@ P_i=\left\{
 <h4 class="unnumbered anchored" data-anchor-id="敏感性问题调查-1">敏感性问题调查</h4>
 <p><strong><span style="color: red">问题:</span></strong> 假若我们有<span class="math inline">n</span>张问卷, 其中<span class="math inline">k</span>张回答是, 我们如何确定选定红球回答问题 B 为是的概率?</p>
 <p><strong><span style="color: red">已知:</span></strong></p>
-<p>红白球的比例, 即<span class="math inline">P(\mbox{红球}):=\pi, P(\mbox{白球})=1-\pi</span>; 同时,<span class="math inline">P(\mbox{是}|\mbox{白球})=0.5</span>; 此外,<span class="math inline">P(\mbox{是})\approx \dfrac{k}{n}</span>.</p>
-<p><strong><span style="color: red">待求:</span></strong> <span class="math inline">p:=P(\mbox{是}|\mbox{红球})</span>.</p>
+<p>红白球的比例, 即<span class="math inline">P(\text{红球}):=\pi, P(\text{白球})=1-\pi</span>; 同时,<span class="math inline">P(\text{是}|\text{白球})=0.5</span>; 此外,<span class="math inline">P(\text{是})\approx \dfrac{k}{n}</span>.</p>
+<p><strong><span style="color: red">待求:</span></strong> <span class="math inline">p:=P(\text{是}|\text{红球})</span>.</p>
 <p>****解.<strong>&nbsp;</strong> 由全概率公式可得</p>
 <p><span class="math display">
 \begin{aligned}
-P(\mbox{是})=P(\mbox{白球})P(\mbox{是}|\mbox{白球})+P(\mbox{红球})P(\mbox{是}|\mbox{红球})
+P(\text{是})=P(\text{白球})P(\text{是}|\text{白球})+P(\text{红球})P(\text{是}|\text{红球})
 \end{aligned}
 </span></p>
 <p>即</p>
@@ -3105,11 +3105,11 @@ P\left(X_{n+1} | Z_{1}, \cdots, Z_{n+1}\right)&amp;=&amp;  \frac{P\left(X_{n+1},
 <p><span class="proof-title"><em>解 1.6</em>. </span>假设每个孩子都是女孩和男孩的可能性相同且不相关,那么</p>
 <p><span class="math display">
 \begin{aligned}
-&amp;P (\mbox{都是女孩 | 至少有一个是女孩})
+&amp;P (\text{都是女孩 | 至少有一个是女孩})
             \\
-            &amp;=\frac{P (\mbox{都是女孩,至少有一个是女孩})}{P (\mbox{至少有一个是女孩})}=\frac{1/4}{3/4}=1/3\\
-            &amp; P (\mbox{都是女孩 | 年长的是女孩})\\
-            &amp;=\frac{P (\mbox{都是女孩,年长的是女孩})}{P (\mbox{年长的是女孩})}=\frac{1/4}{1/2}=1/2
+            &amp;=\frac{P (\text{都是女孩,至少有一个是女孩})}{P (\text{至少有一个是女孩})}=\frac{1/4}{3/4}=1/3\\
+            &amp; P (\text{都是女孩 | 年长的是女孩})\\
+            &amp;=\frac{P (\text{都是女孩,年长的是女孩})}{P (\text{年长的是女孩})}=\frac{1/4}{1/2}=1/2
 \end{aligned}
 </span></p>
 </div>
@@ -3135,11 +3135,11 @@ P\left(X_{n+1} | Z_{1}, \cdots, Z_{n+1}\right)&amp;=&amp;  \frac{P\left(X_{n+1},
 <p><span class="proof-title"><em>解 1.8</em>. </span>由条件概率的定义,可得:</p>
 <p><span class="math display">
 \begin{aligned}
-\ P (\mbox{两个都是女孩 | 至少有一个是冬天出生的女孩})\\
-            =\frac{P (\mbox{两个都是女孩,至少有一个是冬天出生的女孩})}{P (\mbox{至少有一个是冬天出生的女孩})}
+\ P (\text{两个都是女孩 | 至少有一个是冬天出生的女孩})\\
+            =\frac{P (\text{两个都是女孩,至少有一个是冬天出生的女孩})}{P (\text{至少有一个是冬天出生的女孩})}
 \end{aligned}
 </span></p>
-<p>由于指定的孩子是在冬天出生的女孩的概率为 <span class="math inline">1/8</span>, 所以,<span class="math display">P (\mbox{至少有一个是在冬天出生的女孩}) = 1 - (7/8)^2.</span></p>
+<p>由于指定的孩子是在冬天出生的女孩的概率为 <span class="math inline">1/8</span>, 所以,<span class="math display">P (\text{至少有一个是在冬天出生的女孩}) = 1 - (7/8)^2.</span></p>
 </div>
 </section>
 <section id="男孩女孩概率问题续冬天出生的女孩-1" class="level4 unnumbered">
@@ -3147,18 +3147,18 @@ P\left(X_{n+1} | Z_{1}, \cdots, Z_{n+1}\right)&amp;=&amp;  \frac{P\left(X_{n+1},
 <p>利用性别和季节是相互独立的假设,得到:</p>
 <p><span class="math display">
 \begin{aligned}
-&amp;P (\mbox{两个都是女孩,至少有一个是冬天出生的女孩})\\
-            &amp;=P (\mbox{两个都是女孩,至少有一个是冬天出生的})\\
-            &amp;=(1/4) P (\mbox{至少有一个是冬天出生的女孩})\\
-            &amp;=(1/4) (1-P (\mbox{所有孩子都不是在冬天出生的})
+&amp;P (\text{两个都是女孩,至少有一个是冬天出生的女孩})\\
+            &amp;=P (\text{两个都是女孩,至少有一个是冬天出生的})\\
+            &amp;=(1/4) P (\text{至少有一个是冬天出生的女孩})\\
+            &amp;=(1/4) (1-P (\text{所有孩子都不是在冬天出生的})
 \end{aligned}
 </span></p>
-<p>合在一起得到,<span class="math display">P (\mbox{两个都是女孩 | 至少有一个是冬天出生的女孩})=7/15</span></p>
+<p>合在一起得到,<span class="math display">P (\text{两个都是女孩 | 至少有一个是冬天出生的女孩})=7/15</span></p>
 </section>
 <section id="结绳问题" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="结绳问题">结绳问题</h4>
 <div id="exm-ch1-041" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.41</strong></span> &nbsp;<span class="math inline">n</span>根绳<span class="math inline">2n</span>个头两两相接, 求<span class="math inline">A=\{\mbox{恰好结成} n\mbox{个圈}\}</span>的概率.</p>
+<p><span class="theorem-title"><strong>例 1.41</strong></span> &nbsp;<span class="math inline">n</span>根绳<span class="math inline">2n</span>个头两两相接, 求<span class="math inline">A=\{\text{恰好结成} n\text{个圈}\}</span>的概率.</p>
 </div>
 <p>设想 <span class="math inline">2n</span> 个头排成一行,规定将第 <span class="math inline">2k-1</span> 个头与第 <span class="math inline">2k</span> 个端头相接; 令 <span class="math inline">B_i</span> 表示第 <span class="math inline">i</span> 根绳的头与尾恰好相接,则 <span class="math inline">A=B_1B_2\cdots B_n</span>; 若以 <span class="math inline">n (A)</span> 表示事件 <span class="math inline">A</span> 所包含的样本点个数,则易知</p>
 <p><span class="math display">
@@ -3190,12 +3190,12 @@ P(A)&amp;= P(B_1B_2\cdots B_n)= P(B_1)P(B_2|B_1)\cdots P(B_n|B_1\cdots B_{n-1})\
 </section>
 <section id="取球问题-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="取球问题-2">取球问题</h4>
-<p>记 <span class="math inline">B_n</span>={在 <span class="math inline">1-\dfrac{1}{2^n}</span> 时刻 <span class="math inline">1</span> 号球未被取出 }, 易知 <span class="math inline">A_1=\bigcap\limits_{n=1}^{\infty} B_n</span>; 令 <span class="math inline">C_m=\bigcap\limits_{n=1}^{m} B_n</span>, 则有 <span class="math display">C_m=\bigcap\limits_{n=1}^{m} B_n\supset\bigcap\limits_{n=1}^{m+1} B_n=C_{m+1},\mbox{ 且 } \lim_{m\rightarrow\infty} C_m=A_1;</span> 由概率的上连续性知 <span class="math display">P (A_1)= P\big (\lim_{m\rightarrow\infty} C_m\big)=\lim_{m\rightarrow\infty} P\big (C_m\big);</span> 相应地,下面求 <span class="math inline">P (C_m)</span>, 即 <span class="math inline">P\big (\bigcap_{n=1}^{m} B_n\big)=\prod_{n=1}^{m}\frac{9n}{9n+1}=\prod_{n=1}^{m}\left (1-\frac{1}{9n+1}\right)</span>; 其中,<span class="math inline">B_1</span>: 在 <span class="math inline">1/2</span> 时刻,盒中 <span class="math inline">10</span> 个球,<span class="math inline">1</span> 号球未被取出,故 <span class="math inline">P (B_1)=\frac{9}{10}</span>; <span class="math inline">B_2</span>: 在 <span class="math inline">3/4</span> 时刻,盒中 <span class="math inline">19</span> 个球,<span class="math inline">1</span> 号球未被取出,故 <span class="math inline">P (B_2|B_1)=\frac{18}{19}</span>; <span class="math inline">B_n</span>: <span class="math inline">P(B_n|B_1B_2\cdots B_{n-1})=\frac{9n}{9n+1}.</span>. 相应地,<span class="math inline">P (A_1)=\prod_{n=1}^{\infty}\big (1-\frac{1}{9n+1}\big)=0.</span> 同理可证 <span class="math inline">P (A_k)=0,\,k=2,3,\cdots</span>.</p>
+<p>记 <span class="math inline">B_n</span>={在 <span class="math inline">1-\dfrac{1}{2^n}</span> 时刻 <span class="math inline">1</span> 号球未被取出 }, 易知 <span class="math inline">A_1=\bigcap\limits_{n=1}^{\infty} B_n</span>; 令 <span class="math inline">C_m=\bigcap\limits_{n=1}^{m} B_n</span>, 则有 <span class="math display">C_m=\bigcap\limits_{n=1}^{m} B_n\supset\bigcap\limits_{n=1}^{m+1} B_n=C_{m+1},\text{ 且 } \lim_{m\rightarrow\infty} C_m=A_1;</span> 由概率的上连续性知 <span class="math display">P (A_1)= P\big (\lim_{m\rightarrow\infty} C_m\big)=\lim_{m\rightarrow\infty} P\big (C_m\big);</span> 相应地,下面求 <span class="math inline">P (C_m)</span>, 即 <span class="math inline">P\big (\bigcap_{n=1}^{m} B_n\big)=\prod_{n=1}^{m}\frac{9n}{9n+1}=\prod_{n=1}^{m}\left (1-\frac{1}{9n+1}\right)</span>; 其中,<span class="math inline">B_1</span>: 在 <span class="math inline">1/2</span> 时刻,盒中 <span class="math inline">10</span> 个球,<span class="math inline">1</span> 号球未被取出,故 <span class="math inline">P (B_1)=\frac{9}{10}</span>; <span class="math inline">B_2</span>: 在 <span class="math inline">3/4</span> 时刻,盒中 <span class="math inline">19</span> 个球,<span class="math inline">1</span> 号球未被取出,故 <span class="math inline">P (B_2|B_1)=\frac{18}{19}</span>; <span class="math inline">B_n</span>: <span class="math inline">P(B_n|B_1B_2\cdots B_{n-1})=\frac{9n}{9n+1}.</span>. 相应地,<span class="math inline">P (A_1)=\prod_{n=1}^{\infty}\big (1-\frac{1}{9n+1}\big)=0.</span> 同理可证 <span class="math inline">P (A_k)=0,\,k=2,3,\cdots</span>.</p>
 </section>
 <section id="罐子模型波利亚模型" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="罐子模型波利亚模型">罐子模型(波利亚模型)</h4>
 <div id="exm-ch1-043" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.43</strong></span> 设罐中有 <span class="math inline">b</span> 个黑球,<span class="math inline">r</span> 个红球,每次随机的取出一球,取出后将原球放回,还加进 <span class="math inline">c</span> 个同色球和 <span class="math inline">d</span> 个异色球.记 <span class="math inline">B_i:=\{\mbox{第} i\mbox{次取出的是黑球}\}, R_j:=\{\mbox{第} j\mbox{次取出的是红球}\}</span>. 若连续从罐子中取出三个球,其中有两个红球,一个黑球,则由乘法公式可得</p>
+<p><span class="theorem-title"><strong>例 1.43</strong></span> 设罐中有 <span class="math inline">b</span> 个黑球,<span class="math inline">r</span> 个红球,每次随机的取出一球,取出后将原球放回,还加进 <span class="math inline">c</span> 个同色球和 <span class="math inline">d</span> 个异色球.记 <span class="math inline">B_i:=\{\text{第} i\text{次取出的是黑球}\}, R_j:=\{\text{第} j\text{次取出的是红球}\}</span>. 若连续从罐子中取出三个球,其中有两个红球,一个黑球,则由乘法公式可得</p>
 <p><span class="math display">
 \begin{aligned}
 P(B_1R_2R_3)&amp;=&amp;P(B_1)P(R_2|B_1)P(R_3|B_1R_2)\\
@@ -3357,9 +3357,9 @@ P(A)&amp;=\sum_{n=1}^{\infty}P(A_{2n})=p^2\sum_{n=1}^{\infty}(2p(1-p))^{n-1}\\
 <p><span class="proof-title"><em>解 1.15</em>. </span>令</p>
 <p><span class="math display">
 \begin{aligned}
-A &amp;:=\{\mbox{选取的硬币掷 3 次均正面朝上}\}\\
-    F &amp; :=\{\mbox{选取的硬币是均匀的}\},\quad
-    H :=\{\mbox{第 4 次正面朝上} \}
+A &amp;:=\{\text{选取的硬币掷 3 次均正面朝上}\}\\
+    F &amp; :=\{\text{选取的硬币是均匀的}\},\quad
+    H :=\{\text{第 4 次正面朝上} \}
 \end{aligned}
 </span></p>
 <p>则</p>
@@ -3454,7 +3454,7 @@ P(D)&amp;=1\%,\,P(\overline{D})=99\%, \, P(T_{1}|D)=95\%,\,P(T_{1}|\overline{D})
 <section id="分支过程续" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="分支过程续">分支过程(续)</h4>
 <div id="sol-ch1-019" class="proof solution">
-<p><span class="proof-title"><em>解 1.19</em>. </span>令<span class="math inline">D:=\{\mbox{最终种族灭绝}\}</span>, 本题希望求出<span class="math inline">P(D)</span>. 接着,我们在第一步结果的基础上即以<span class="math inline">1</span>分钟后的结果进行分析: 令<span class="math inline">B_i:=\{1\mbox{分钟后}{\rm Bobo}\mbox{变成的变形虫个数}  \}(i=0,1,2)</span>; 易知 <span class="math inline">P(D|B_0)=1</span>和<span class="math inline">P(D|B_1)=P(D)</span>, <span class="math inline">P(D|B_2)=P(D)^2</span>. 利用全概率公式有</p>
+<p><span class="proof-title"><em>解 1.19</em>. </span>令<span class="math inline">D:=\{\text{最终种族灭绝}\}</span>, 本题希望求出<span class="math inline">P(D)</span>. 接着,我们在第一步结果的基础上即以<span class="math inline">1</span>分钟后的结果进行分析: 令<span class="math inline">B_i:=\{1\text{分钟后}{\rm Bobo}\text{变成的变形虫个数}  \}(i=0,1,2)</span>; 易知 <span class="math inline">P(D|B_0)=1</span>和<span class="math inline">P(D|B_1)=P(D)</span>, <span class="math inline">P(D|B_2)=P(D)^2</span>. 利用全概率公式有</p>
 <p><span class="math display">
 \begin{aligned}
     P(D)&amp;=P(D|B_0)\cdot\frac{1}{3}+P(D|B_1)\cdot\frac{1}{3}+P(D|B_2)\cdot\frac{1}{3}\\
@@ -3487,7 +3487,7 @@ p_{n+1} &amp;=P(A)P(B|A)+P(\overline{A})P(B|\overline{A})= P(A)+ (1-P(A))\cdot \
 <section id="掷骰子问题" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="掷骰子问题">掷骰子问题</h4>
 <div id="exm-ch1-056" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.56</strong></span> 甲乙轮流掷一均匀骰子. 甲先掷,以后每当某人掷出 1 点后则交给对方掷, 否则此人继续掷. 试求事件<span class="math inline">A_n=\{\mbox{第}n\mbox{次由甲掷}\}</span>的概率.</p>
+<p><span class="theorem-title"><strong>例 1.56</strong></span> 甲乙轮流掷一均匀骰子. 甲先掷,以后每当某人掷出 1 点后则交给对方掷, 否则此人继续掷. 试求事件<span class="math inline">A_n=\{\text{第}n\text{次由甲掷}\}</span>的概率.</p>
 </div>
 <p><strong>解.</strong>&nbsp;记<span class="math inline">p_n=P(A_n)</span>, 则以<span class="math inline">A_{n-}</span>与<span class="math inline">\bar{A}_{n-1}</span>为分割用全概率公式可得:</p>
 <p><span class="math display">
@@ -3506,7 +3506,7 @@ p_n=P(A_n)=\dfrac{1}{2}\bigg[1+\bigg(\dfrac{2}{3}\bigg)^{n-1}\bigg], n=1,2, \cdo
 <section id="结绳问题续" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="结绳问题续">结绳问题续</h4>
 <div id="exm-ch1-057" class="theorem example">
-<p><span class="theorem-title"><strong>例 1.57</strong></span> <span class="math inline">n</span>根绳<span class="math inline">2n</span>个头两两相接,求<span class="math inline">A_n=\{\mbox{恰好结成}n\mbox{个圈}\}</span>的概率.</p>
+<p><span class="theorem-title"><strong>例 1.57</strong></span> <span class="math inline">n</span>根绳<span class="math inline">2n</span>个头两两相接,求<span class="math inline">A_n=\{\text{恰好结成}n\text{个圈}\}</span>的概率.</p>
 </div>
 <div id="sol-ch1-021" class="proof solution">
 <p><span class="proof-title"><em>解 1.21</em>. </span>此前曾用条件概率解过本题, 现利用全概率公式给出一个解答.</p>
@@ -3710,9 +3710,9 @@ P(A_{k_1}A_{k_2}\cdots A_{k_s})=P(A_{k_1})P(A_{k_2})\cdots P(A_{k_s})
 <p><span class="theorem-title"><strong>例 1.61</strong></span> 假设有两枚硬币,一枚是均匀的,一枚是不均匀的.从两枚硬币中随机的选一枚硬币并进行抛掷 2 次,若令</p>
 <p><span class="math display">
 \begin{aligned}
-F &amp;:=\{\mbox{选取的硬币是均匀的}\}\\
-   A_{1}&amp;:= \{\mbox{第一次投掷硬币正面朝上}\}\\
-   A_{2}&amp;:= \{\mbox{第二次投掷硬币正面朝上}\}
+F &amp;:=\{\text{选取的硬币是均匀的}\}\\
+   A_{1}&amp;:= \{\text{第一次投掷硬币正面朝上}\}\\
+   A_{2}&amp;:= \{\text{第二次投掷硬币正面朝上}\}
 \end{aligned}
 </span></p>
 <p>则给定 <span class="math inline">F</span> 为条件,<span class="math inline">A_1</span> 和 <span class="math inline">A_2</span>, 是相互独立的,<span class="math inline">A_1</span> 和 <span class="math inline">A_2</span> 并不是无条件独立的,因为 <span class="math inline">A_1</span> 会提供关于 <span class="math inline">A_2</span> 的信息.</p>
@@ -3724,9 +3724,9 @@ F &amp;:=\{\mbox{选取的硬币是均匀的}\}\\
 <p><span class="theorem-title"><strong>例 1.62</strong></span> 假设只有我的朋友 Alice 和 Bob 给我打过电话.每天他俩都会相互独立地决定是否给我打电话.若令</p>
 <p><span class="math display">
 \begin{aligned}
-A&amp;:= \{\mbox{Alice 给我打电话}\}\\
-     B&amp;:= \{\mbox{Bob 给我打电话}\}\\
-     R&amp;:=\{\mbox{听到电话铃响}\}
+A&amp;:= \{\text{Alice 给我打电话}\}\\
+     B&amp;:= \{\text{Bob 给我打电话}\}\\
+     R&amp;:=\{\text{听到电话铃响}\}
 \end{aligned}
 </span></p>
 <p>显然,<span class="math inline">A</span> 和 <span class="math inline">B</span> 是无条件独立的. 同时,但现在我听到一声电话铃响,那 <span class="math inline">A</span> 和 <span class="math inline">B</span> 就不再独立了:如果这个电话不是 Alice 打的,那就肯定是 Bob 打的.从而 <span class="math display">P(B|R)&lt;1=P(B|\overline{A}R)= \frac{P(B\overline{A}R)}{P(\overline{A}R)}= \frac{P(B\overline{A}|R)}{P(\overline{A}|R)}.</span> 显然: <span class="math inline">P (B\overline{A}|R)&gt;P (B|R) P (\overline{A}|R)</span>. 此外,<span class="math inline">B</span> 与 <span class="math inline">\overline{A}</span> 关于 <span class="math inline">R</span> 不条件独立,<span class="math inline">A,B</span> 亦是如此.</p>
@@ -3738,9 +3738,9 @@ A&amp;:= \{\mbox{Alice 给我打电话}\}\\
 <p><span class="theorem-title"><strong>例 1.63</strong></span> 假设有两种课程:好的课程和坏的课程.在好的课上,如果你努力,就很有可能得到 <span class="math inline">A</span>. 在坏的课上,教授随机分配给学生分数,而不管他们是否努力.若令</p>
 <p><span class="math display">
 \begin{aligned}
-G&amp;:= \{\mbox{这个课程是好的}\}\\
-    W&amp;:= \{\mbox{你学习努力}\}\\
-    A&amp;:=\{\mbox{你的得分为} A\}
+G&amp;:= \{\text{这个课程是好的}\}\\
+    W&amp;:= \{\text{你学习努力}\}\\
+    A&amp;:=\{\text{你的得分为} A\}
 \end{aligned}
 </span></p>
 <p>这时,给定 <span class="math inline">\overline{G}</span>, <span class="math inline">A</span> 和 <span class="math inline">W</span> 是条件独立的,但给定 <span class="math inline">G</span>, <span class="math inline">A</span> 和 <span class="math inline">W</span> 却不是独立的!</p>
@@ -3800,15 +3800,15 @@ P(\cup_{j=n}^\infty A_j)&amp;=&amp; \lim_{m\rightarrow\infty}P(\cup_{j=n}^m A_j)
 <p>首先,先考虑两个随机试验,假定 <span class="math inline">(\Omega_i,\mathcal{F}_i,P_i), i=1,2</span> 为第 <span class="math inline">i</span> 个随机试验对应的概率空间.按照之前独立性的理解,两个试验的独立性应当叙述为: [</p>
 <p><span class="math display">
 \begin{aligned}
-&amp;&amp;\mbox{对任何的} A_i\in\mathcal{F}_i, i=1,2, A_1\mbox{与} A_2\mbox{同时}\\
-      &amp;&amp;\mbox{发生的概率等于它们各自概率之乘积}
+&amp;&amp;\text{对任何的} A_i\in\mathcal{F}_i, i=1,2, A_1\text{与} A_2\text{同时}\\
+      &amp;&amp;\text{发生的概率等于它们各自概率之乘积}
 \end{aligned}
 </span></p>
 <p>]{style=“color: red”} 接着,两个不妥: <span class="math inline">A_1</span> 与 <span class="math inline">A_2</span> 同时发生 应当是这两个事件的交,但它们分别是两个样本空间 <span class="math inline">\Omega_1,\Omega_2</span> 的子集,无法进行运算; 两个概率空间有各自的概率 <span class="math inline">P_1, P_2</span>, 但涉及两个度验,命题中 同时发生的概率 既不能用 <span class="math inline">P_1</span> 也不能用 <span class="math inline">P_2</span> 来度量. 最后,解决方法:构造可以同时描述两个试验的新概率空间 <span class="math inline">(\Omega,\mathcal{F},P)</span>.</p>
 </section>
 <section id="乘积空间的构造" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="乘积空间的构造">乘积空间的构造</h4>
-<p>首先,样本乘积空间: <span class="math inline">\Omega:=\Omega_1\times \Omega_2=\{(\omega_1,\omega_2):\omega_1\in\Omega_1\mbox{且}\omega_2\in \Omega_2\}</span>; 接着,乘积 <span class="math inline">\sigma</span>- 代数 <span class="math inline">\mathcal{F}_1\times\mathcal{F}_2</span>: 可测矩形集类: <span class="math inline">\mathcal{G}:=\{A_1\times A_2: A_1\in\mathcal{F}_1, A_2\in \mathcal{F}_2\}</span>; <span class="math inline">\mathcal{F}_1\times \mathcal{F}_2:=\sigma(\mathcal{G})</span>. 另一方面,乘积概率测度: 对于每个可测矩形 <span class="math inline">A_1\times A_2\in \mathcal{G}</span> 定义如下集函数:</p>
+<p>首先,样本乘积空间: <span class="math inline">\Omega:=\Omega_1\times \Omega_2=\{(\omega_1,\omega_2):\omega_1\in\Omega_1\text{且}\omega_2\in \Omega_2\}</span>; 接着,乘积 <span class="math inline">\sigma</span>- 代数 <span class="math inline">\mathcal{F}_1\times\mathcal{F}_2</span>: 可测矩形集类: <span class="math inline">\mathcal{G}:=\{A_1\times A_2: A_1\in\mathcal{F}_1, A_2\in \mathcal{F}_2\}</span>; <span class="math inline">\mathcal{F}_1\times \mathcal{F}_2:=\sigma(\mathcal{G})</span>. 另一方面,乘积概率测度: 对于每个可测矩形 <span class="math inline">A_1\times A_2\in \mathcal{G}</span> 定义如下集函数:</p>
 <p><span id="eq-ch1-timeprob"><span class="math display">
 \begin{aligned}
 P(A_1\times A_2)=P_1(A_1)P_2(A_2), \quad A_i\in\mathcal{F}_i, i=1,2.
@@ -3822,7 +3822,7 @@ P(A_1\times A_2)=P_1(A_1)P_2(A_2), \quad A_i\in\mathcal{F}_i, i=1,2.
       &amp;&amp; = P_1(A_1)P_2(A_2)= P(A_1\times\Omega_1)P(\Omega_1\times A_2)
 \end{aligned}
 </span></p>
-<p>最后,<span class="math inline">(\Omega_i,\mathcal{F}_i,P_i)</span> 的独立性取决于乘积样本空间 <span class="math inline">\Omega_1\times\Omega_2</span> 上的概率是否取作由 (<a href="#eq-ch1-timeprob" data-reference-type="ref" data-reference="eq-ch1-timeprob">[eq-ch1-timeprob]</a>) 所确定的乘积测度.</p>
+<p>最后,<span class="math inline">(\Omega_i,\mathcal{F}_i,P_i)</span> 的独立性取决于乘积样本空间 <span class="math inline">\Omega_1\times\Omega_2</span> 上的概率是否取作由 <a href="#eq-ch1-timeprob" class="quarto-xref"><span>1.14</span></a> 所确定的乘积测度.</p>
 </section>
 <section id="n-个试验相互独立的定义" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="n-个试验相互独立的定义"><span class="math inline">n</span> 个试验相互独立的定义</h4>

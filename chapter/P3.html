@@ -682,8 +682,8 @@ window.Quarto = {
 <p>考虑以概率为权重的加权平均:</p>
 <p><span class="math display">
 \begin{aligned}
-\bar{x}_{\mbox{甲}}=8*0.3+9*0.1+10*0.6=9.3\\
-         \bar{x}_{\mbox{乙}}=8*0.2+9*0.5+10*0.3=9.1
+\bar{x}_{\text{甲}}=8*0.3+9*0.1+10*0.6=9.3\\
+         \bar{x}_{\text{乙}}=8*0.2+9*0.5+10*0.3=9.1
 \end{aligned}
 </span></p>
 <p>则平均起来,甲每枪射中 9.3 环,乙每枪射中 9.1 环,故甲的技术更好一些.</p>
@@ -769,7 +769,7 @@ E(X):=\int_{-\infty}^\infty xp(x)dx
 <p>显然 <span class="math inline">\tilde{X}</span> 为离散型随机变量,且 <span class="math display">P(\tilde{X}=x_i)=P(X\in (x_i,x_{i+1}])=F(x_{i+1})-F(x_i);</span> 故 <span class="math inline">\tilde{X}</span> 的期望为</p>
 <p><span class="math display">
 \begin{aligned}
-E (\tilde{X})=\sum_i x_i\left[F (x_{i+1})-F (x_i)\right]\rightarrow \int xdF (x) \quad \textcolor{red}{\mbox{斯蒂尔切斯积分}}
+E (\tilde{X})=\sum_i x_i\left[F (x_{i+1})-F (x_i)\right]\rightarrow \int xdF (x) \quad \textcolor{red}{\text{斯蒂尔切斯积分}}
 \end{aligned}
 </span></p>
 </section>
@@ -826,7 +826,7 @@ I=\int_{-\infty}^{+\infty}g(x)p(x)dx
 <p>同时,数学期望的另一计算公式:关于概率测度的积分</p>
 <p><span class="math display">
 \begin{aligned}
-\textcolor{blue}{E (X)}&amp;=&amp;  \textcolor{blue}{\int_{-\infty}^\infty xdF (x)}  \quad \textcolor{red}{\mbox{ 注意到} F (x)=P (X (\omega)\le x):=P (X^{-1}(x))}\\
+\textcolor{blue}{E (X)}&amp;=&amp;  \textcolor{blue}{\int_{-\infty}^\infty xdF (x)}  \quad \textcolor{red}{\text{ 注意到} F (x)=P (X (\omega)\le x):=P (X^{-1}(x))}\\
                 &amp;\xlongequal[]{x=X(\omega)}&amp; \int_{\Omega}X(\omega)dP(X^{-1}(X(\omega)))= \textcolor{blue}{\int_{\Omega}X(\omega)dP(\omega)}
 \end{aligned}
 </span></p>
@@ -874,7 +874,7 @@ I=\int_{-\infty}^{+\infty}g(x)p(x)dx
 <p>若 <span class="math inline">X (\omega)</span> 为非负随机变量,则由之前随机变量的结构易知:</p>
 <p><span class="math display">
 \begin{aligned}
-\mbox{存在简单随机变量序列} X_n (\omega)\uparrow X (\omega)
+\text{存在简单随机变量序列} X_n (\omega)\uparrow X (\omega)
 \end{aligned}
 </span></p>
 <p>故可定义</p>
@@ -893,7 +893,7 @@ I=\int_{-\infty}^{+\infty}g(x)p(x)dx
 <section id="随机变量可积与积分存在的定义" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="随机变量可积与积分存在的定义">随机变量可积与积分存在的定义</h4>
 <div id="def-ch3-004" class="theorem definition">
-<p><span class="theorem-title"><strong>定义 3.4</strong></span> 称随机变量 <span class="math inline">X (\omega)</span> 关于概率测度 <span class="math inline">P</span> 的积分存在,如果 <span class="math display">\int_\Omega X^+(\omega) P (d\omega) \mbox{ 与 }\int_\Omega X^-(\omega) P (d\omega) \mbox{不同时为}\infty</span> 称随机变量 <span class="math inline">X (\omega)</span> 关于概率测度 <span class="math inline">P</span> 可积,如果 <span class="math inline">\int_\Omega X (\omega) P (d\omega)&lt;\infty</span>, 即 <span class="math display">\int_\Omega X^+(\omega) P (d\omega)&lt;\infty \mbox{ 且 }\int_\Omega X^-(\omega) P (d\omega)&lt;\infty.</span></p>
+<p><span class="theorem-title"><strong>定义 3.4</strong></span> 称随机变量 <span class="math inline">X (\omega)</span> 关于概率测度 <span class="math inline">P</span> 的积分存在,如果 <span class="math display">\int_\Omega X^+(\omega) P (d\omega) \text{ 与 }\int_\Omega X^-(\omega) P (d\omega) \text{不同时为}\infty</span> 称随机变量 <span class="math inline">X (\omega)</span> 关于概率测度 <span class="math inline">P</span> 可积,如果 <span class="math inline">\int_\Omega X (\omega) P (d\omega)&lt;\infty</span>, 即 <span class="math display">\int_\Omega X^+(\omega) P (d\omega)&lt;\infty \text{ 且 }\int_\Omega X^-(\omega) P (d\omega)&lt;\infty.</span></p>
 </div>
 <div id="def-ch3-005" class="theorem definition">
 <p><span class="theorem-title"><strong>定义 3.5</strong></span> 若 <span class="math inline">X (\omega)</span> 是概率空间 <span class="math inline">(\Omega,\mathcal{F},P)</span> 上的可积随机变量,则称</p>
@@ -997,7 +997,7 @@ E X  &amp;=\int_{0}^{\infty} P(X&gt;t) \mathrm{d} t=\sum_{n=1}^{\infty} \int_{n-
 <p><span class="theorem-title"><strong>定理 3.4</strong></span> 设随机变量 <span class="math inline">X</span> 有分布函数 <span class="math inline">F_{X}</span> ,而 <span class="math inline">f</span> 为 <span class="math inline">\mathbb{R}</span> 上的可测函数, 则随机变量 <span class="math inline">f(X)</span> 的数学期望存在当且仅当 <span class="math inline">f</span> 的 <span class="math inline">F_{X}</span> 积分存在,且此时 <span class="math display">E f(X)=\int_{-\infty}^{\infty} f(x) \mathrm{d} F_{X}(x)</span></p>
 </div>
 <p><strong>证明.</strong>&nbsp;</p>
-<p>由定理<a href="#thm-ch3-theorem-4-2-5" data-reference-type="ref" data-reference="lbl-ch3-theorem-4-2-5">[lbl-ch3-theorem-4-2-5]</a>知:</p>
+<p>由 <a href="#thm-ch3-theorem-4-2-5" class="quarto-xref">定理&nbsp;<span>3.3</span></a> 可知:</p>
 <p><span class="math display">
 \begin{aligned}
 E f(X)  &amp;=\int_{0}^{\infty} P(f(X)&gt;t) \mathrm{d} t-\int_{-\infty}^{0} P(f(X) \leqslant t) \mathrm{d} t \\
@@ -1249,7 +1249,7 @@ E\left[(\alpha X+\beta Y)^{2}\right]  &amp;=\alpha^{2} E\left(X^{2}\right)+2 \al
 <section id="赫尔德h-textquotedblolder不等式" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="赫尔德h-textquotedblolder不等式">赫尔德(H textquotedblolder)不等式</h4>
 <div id="thm-ch3-014" class="theorem">
-<p><span class="theorem-title"><strong>定理 3.14</strong></span> 设 <span class="math inline">p, q&gt;1</span> 满足 <span class="math inline">1 / p+1 / q=1</span>. 若 <span class="math inline">X \in L^{p}</span> 和 <span class="math inline">Y \in L^{q}</span>,则 <span class="math display">X Y \in L^{1}, \mbox{ 且 } E(|X Y|) \leqslant\left[E\left(|X|^{p}\right)\right]^{1 / p}\left[E\left(|Y|^{q}\right)\right]^{1 / q}.</span></p>
+<p><span class="theorem-title"><strong>定理 3.14</strong></span> 设 <span class="math inline">p, q&gt;1</span> 满足 <span class="math inline">1 / p+1 / q=1</span>. 若 <span class="math inline">X \in L^{p}</span> 和 <span class="math inline">Y \in L^{q}</span>,则 <span class="math display">X Y \in L^{1}, \text{ 且 } E(|X Y|) \leqslant\left[E\left(|X|^{p}\right)\right]^{1 / p}\left[E\left(|Y|^{q}\right)\right]^{1 / q}.</span></p>
 </div>
 <p><strong>证明.</strong>&nbsp;</p>
 <p>若 <span class="math inline">E(|X Y|)=0</span>,欲证不等式显然成立. 若 <span class="math inline">E(|X Y|)&gt;0</span>,则必有 <span class="math inline">E(|X|)&gt;0</span> 和 <span class="math inline">E(|Y|)&gt;0</span>. 另一方面,如若不然, 则 <span class="math inline">P(X=0)=1</span> 或 <span class="math inline">P(Y=0)=1</span>,从而 <span class="math inline">P(X Y=0)=1</span>,与 <span class="math inline">E(|X Y|)&gt;0</span> 矛盾. 根据对数函数的凹性,对 <span class="math inline">x, y&gt;0</span> 有: <span class="math inline">\dfrac{1}{p} \ln x+\dfrac{1}{q} \ln y \leqslant \ln \left(\dfrac{x}{p}+\dfrac{y}{q}\right).</span>. 因此,对任何 <span class="math inline">x, y \geqslant 0</span> 有: <span class="math inline">x^{1 / p} y^{1 / q} \leqslant \dfrac{x}{p}+\dfrac{y}{q}</span>. 最后,在上式中令 <span class="math inline">x=|X|^{p} / E\left(|X|^{p}\right)</span> 和 <span class="math inline">y=|Y|^{q} / E\left(|Y|^{q}\right)</span>, 并对所得不等式取期望即得结论.</p>
@@ -1483,7 +1483,7 @@ E(X)&amp;=&amp; \sum_{k=r}^\infty k C_{k-1}^{r-1}p^r(1-p)^{k-r}= \sum_{k=r}^\inf
 <p>若 <span class="math inline">X\sim U (a,b)</span>, 即 <span class="math inline">p (x)=\left\{\begin{array}{ll}
                 \dfrac{1}{b-a}, &amp; x\in (a,b)\\
                 \\
-                0, &amp; \mbox{其他}
+                0, &amp; \text{其他}
             \end{array}\right.</span>, 故</p>
 <p><span class="math display">
 \begin{aligned}
@@ -1647,7 +1647,7 @@ yBy'&amp;=&amp;\sum_{i,j}y_iy_jb_{ij}=\sum_{i,j}y_iy_jE[(X_i-EX_i)(X_j-EX_j)]\\
 p(x,y)=\left\{
             \begin{array}{ll}
                 3x, &amp; 0&lt;y&lt;x&lt;1,\\
-                0, &amp;\mbox{其他}
+                0, &amp;\text{其他}
             \end{array}
             \right.
 \end{aligned}
@@ -1671,7 +1671,7 @@ EX&amp;=&amp; \int_{-\infty}^{+\infty}xp_X(x)dx= \int_{-\infty}^{+\infty}x\int_{
 p(x,y)=\left\{
             \begin{array}{ll}
                 \dfrac{x+y}{3}, &amp; 0&lt;x&lt;1, 0&lt;y&lt;2,\\
-                0, &amp;\mbox{其他}
+                0, &amp;\text{其他}
             \end{array}
             \right.
 \end{aligned}
@@ -1882,7 +1882,7 @@ E(X)&amp;=&amp;\int_0^{2\pi}\cos t \cdot \dfrac{1}{2\pi}dt=0, \quad  E(Y)=\int_0
 \end{aligned}
 </span></p>
 <p>因此 <span class="math inline">r=\cos a</span>. 故</p>
-<p>首先,<span class="math inline">a=0</span> 时,<span class="math inline">r=1, X=Y</span>; 接着,<span class="math inline">a=\pi</span> 时,<span class="math inline">r=-1, X=-Y</span>; 最后,<span class="math inline">a=\dfrac{\pi}{2}\mbox{或}\dfrac{3\pi}{2}</span> 时,<span class="math inline">r=0</span>, <span class="math inline">X,Y</span> 不相关,但此时 <span class="math inline">X^2+Y^2=1</span>, 因此不独立.</p>
+<p>首先,<span class="math inline">a=0</span> 时,<span class="math inline">r=1, X=Y</span>; 接着,<span class="math inline">a=\pi</span> 时,<span class="math inline">r=-1, X=-Y</span>; 最后,<span class="math inline">a=\dfrac{\pi}{2}\text{或}\dfrac{3\pi}{2}</span> 时,<span class="math inline">r=0</span>, <span class="math inline">X,Y</span> 不相关,但此时 <span class="math inline">X^2+Y^2=1</span>, 因此不独立.</p>
 </div>
 </section>
 <section id="二维正态分布不相关与独立等价" class="level4 unnumbered">
@@ -2090,7 +2090,7 @@ Z=\sum_{i\in I}E(X|B_i)1_{B_i}(\omega)
 <h4 class="unnumbered anchored" data-anchor-id="随机变量关于任意sigma-代数的条件数学期望的性质">随机变量关于任意<span class="math inline">\sigma</span>-代数的条件数学期望的性质</h4>
 <p>若 <span class="math inline">\mathcal{G}=\{\emptyset, \Omega\}</span>, 则 <span class="math inline">E(X|\mathcal{G})=EX</span>;</p>
 <p>若 <span class="math inline">X</span> 关于 <span class="math inline">\mathcal{G}</span> 可测, 则 <span class="math inline">E(X|\mathcal{G})=X</span>; 若 <span class="math inline">X</span> 与 <span class="math inline">\mathcal{G}</span> 独立, 则 <span class="math inline">E(X|\mathcal{G})=EX</span>; 若 <span class="math inline">\mathcal{G}_1\subset \mathcal{G}_2\subset \mathcal{F}</span>, 则 <span class="math display">E[E(X|\mathcal{G}_2)|\mathcal{G}_1]=E(X|\mathcal{G}_1);</span></p>
-<p>若 <span class="math inline">X,Y</span> 均为可积随机变量, 且 <span class="math inline">a,b</span> 为常数, 则 <span class="math display">E(aX+bY|\mathcal{G})=aE(X|\mathcal{G})+bE(Y|\mathcal{G});</span> 若 <span class="math inline">X\le Y</span> 几乎处处成立, 则 <span class="math display">E(X|\mathcal{G})\le E(Y|\mathcal{G}) \mbox{ 几乎处处成立};</span> 若 <span class="math inline">Y</span> 关于 <span class="math inline">\mathcal{G}</span> 可测, 则 <span class="math display">E(XY|\mathcal{G})=Y E(X|\mathcal{G}).</span></p>
+<p>若 <span class="math inline">X,Y</span> 均为可积随机变量, 且 <span class="math inline">a,b</span> 为常数, 则 <span class="math display">E(aX+bY|\mathcal{G})=aE(X|\mathcal{G})+bE(Y|\mathcal{G});</span> 若 <span class="math inline">X\le Y</span> 几乎处处成立, 则 <span class="math display">E(X|\mathcal{G})\le E(Y|\mathcal{G}) \text{ 几乎处处成立};</span> 若 <span class="math inline">Y</span> 关于 <span class="math inline">\mathcal{G}</span> 可测, 则 <span class="math display">E(XY|\mathcal{G})=Y E(X|\mathcal{G}).</span></p>
 </section>
 <section id="条件数学期望的最优预测性" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="条件数学期望的最优预测性">条件数学期望的最优预测性</h4>
@@ -2162,20 +2162,20 @@ E(X|Y)=\varphi(Y)=\mu_1+\rho \dfrac{\sigma_1}{\sigma_2}(Y-\mu_2)
 <p><span class="theorem-title"><strong>定理 3.29</strong></span> 设 <span class="math inline">\mathcal{G}</span> 为<span class="math inline">\sigma</span>-代数且 <span class="math inline">\mathcal{G}\subset\mathcal{F}</span>, 则对随机变量 <span class="math inline">X</span> 及任意 Borel 函数 <span class="math inline">g (x)</span> 有</p>
 <p><span class="math display">
 \begin{aligned}
-E[E(g(X)|\mathcal{G})]=E(g(X)), \mbox{ 或, } \int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP.
+E[E(g(X)|\mathcal{G})]=E(g(X)), \text{ 或, } \int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP.
 \end{aligned}
 </span></p>
 <p>特别的,</p>
 <p>若 <span class="math inline">\mathcal{G}=\sigma(Y)</span>, 则有</p>
 <p><span class="math display">
 \begin{aligned}
-E[E(g(X)|Y)]=E(g(X)), \mbox{ 或,  } \int_{\Omega}E(g(X)|Y)dP=\int_{\Omega}g(X)dP.
+E[E(g(X)|Y)]=E(g(X)), \text{ 或,  } \int_{\Omega}E(g(X)|Y)dP=\int_{\Omega}g(X)dP.
 \end{aligned}
 </span></p>
 <p>若 <span class="math inline">\mathcal{G}=\sigma(\{B_i, i\in I\})</span>, 则有</p>
 <p><span class="math display">
 \begin{aligned}
-E\bigg[\sum_{i\in I}E(g(X)|B_i)1_{B_i}(\omega)\bigg]=E(g(X)), \mbox{ 或, } E[g(X)]=\sum_{i\in I}E(g(X)|B_i)P(B_i).
+E\bigg[\sum_{i\in I}E(g(X)|B_i)1_{B_i}(\omega)\bigg]=E(g(X)), \text{ 或, } E[g(X)]=\sum_{i\in I}E(g(X)|B_i)P(B_i).
 \end{aligned}
 </span></p>
 </div>
@@ -2302,7 +2302,7 @@ c_k=\sum_{i=0}^kC_k^i(-m_1)^{k-i}m_i, \quad m_k=\sum_{i=0}^kC_k^ic_{k-i}m_1^i.
 G(s)=\sum_{n=0}^\infty p_ns^n
 \end{aligned}
 \tag{3.1}</span></span></p>
-<p>的收敛半径 <span class="math inline">s_0&gt;0</span>, 则称 <span class="math inline">G (s)</span> 为数列 <span class="math inline">\{p_n\}</span> 的母函数.特别当 <span class="math inline">\{p_n\}</span> 为某非负整值随机变量 <span class="math inline">X</span> 的概率分布时,(<a href="#eq-ch3-gfunc" data-reference-type="ref" data-reference="eq-ch3-gfunc">[eq-ch3-gfunc]</a>) 式至少在区间 <span class="math inline">[-1,1]</span> 上绝对收敛且一致收敛,此时有</p>
+<p>的收敛半径 <span class="math inline">s_0&gt;0</span>, 则称 <span class="math inline">G (s)</span> 为数列 <span class="math inline">\{p_n\}</span> 的母函数.特别当 <span class="math inline">\{p_n\}</span> 为某非负整值随机变量 <span class="math inline">X</span> 的概率分布时,<a href="#eq-ch3-gfunc" class="quarto-xref"><span>3.1</span></a> 至少在区间 <span class="math inline">[-1,1]</span> 上绝对收敛且一致收敛,此时有</p>
 <p><span class="math display">
 \begin{aligned}
 G(s)=E(s^X),
@@ -2416,7 +2416,7 @@ H''(s)=F''(G(s))[G'(s)]^2+F'(G(s))G''(s)
 <p>令 <span class="math inline">s=1</span> 可得</p>
 <p><span class="math display">
 \begin{aligned}
-E(X^2)-E(X)  &amp;=&amp; \mbox{[}E(N^2)-E(N)][E(X_1)]^2+E(N)[E(X_1^2)-E(X_1)]\\
+E(X^2)-E(X)  &amp;=&amp; \text{[}E(N^2)-E(N)][E(X_1)]^2+E(N)[E(X_1^2)-E(X_1)]\\
             &amp;=&amp;  E(N)D(X_1)+E(N^2)[E(X_1)]^2-E(N)E(X_1)
 \end{aligned}
 </span></p>

@@ -323,8 +323,9 @@
 % 11. Chinese Font Settings (for Chinese documents) — match elegantbook.cls ctexfont option
 %------------------------------------------------------------------------------
 % Requires XeLaTeX engine
-% Use ctex with default fontset (auto-detect system fonts)
-\usepackage[UTF8,scheme=plain]{ctex}
+% Keep Quarto's CJK*font settings authoritative. Without fontset=none,
+% ctex auto-selects platform-specific fonts and overrides _quarto.yml.
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex}
 \xeCJKsetup{AutoFakeBold=true}
 % Set Chinese fonts for macOS (adjust for other platforms)
 %\setCJKmainfont{Songti SC}
@@ -334,8 +335,10 @@
 % Define \citshape (楷体 = \kaishu) if ctex is loaded
 \ifdefined\kaishu
   \renewcommand{\citshape}{\kaishu}
+  \newcommand{\cnormal}{\kaishu}
 \else
   \renewcommand{\citshape}{\itshape}
+  \newcommand{\cnormal}{\normalfont}
 \fi
 % Define \cfs (仿宋 = \fangsong) if ctex is loaded
 \ifdefined\fangsong
@@ -389,9 +392,6 @@
 \newcommand{\cover}[1]{\gdef\@cover{#1}}
 \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
 \makeatother
-
-% \cnormal is used in title page author/institute lines
-\newcommand{\cnormal}{\kaishu}
 
 % ---- Set cover and logo (defaults; override in project) ----
 % These are set here so \maketitle can use them immediately.

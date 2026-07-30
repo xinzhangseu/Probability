@@ -96,3 +96,10 @@ format:
           \subtitle{Your Subtitle Here}
           \institute{Your University, Your Department}
           \version{v1.0}
+          % Keep PDF sidebar bookmarks numbered and nested as chapter -> section.
+          \hypersetup{
+            bookmarksnumbered=true,
+            bookmarksdepth=1,
+            bookmarksopen=true,
+            bookmarksopenlevel=1
+          }

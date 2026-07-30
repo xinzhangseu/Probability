@@ -112,7 +112,7 @@ $$
 X_{ki}(\omega)=\left\{
             \begin{array}{ll}
                 1, &\omega\in [\frac{i-1}{k},\frac{i}{k}),\\
-                0, &\mbox{其他},
+                0, &\text{其他},
             \end{array}
             \right. i=1,\cdots, k
 \end{aligned}
@@ -187,7 +187,7 @@ $$ {#eq-ch4-weakdefn}
 :::
 
 ::: {#rem-ch4-001}
-后面我们用$C_F$表示函数$F(x)$的连续点集, 即 $$C_F:=\{x: x\mbox{为}F(x)\mbox{的连续点}  \}$$
+后面我们用$C_F$表示函数$F(x)$的连续点集, 即 $$C_F:=\{x: x\text{为}F(x)\text{的连续点}  \}$$
 :::
 
 #### 为何要求分布函数在连续点收敛,而不是每一点收敛 {#为何要求分布函数在连续点收敛而不是每一点收敛 .unnumbered}
@@ -581,7 +581,7 @@ $$
 
 $$
 \begin{aligned}
-\lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|<\epsilon)=1, \quad\mbox{或等价的}\quad \lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|\ge\epsilon)=0
+\lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|<\epsilon)=1, \quad\text{或等价的}\quad \lim_{n\rightarrow\infty} P (|\frac{S_n}{n}-p|\ge\epsilon)=0
 \end{aligned}
 $$
 
@@ -621,8 +621,8 @@ $$
 
 注意到,在伯努利大数定律中,如果记 $X_i=\bigg\{
         \begin{array}{ll}
-            1,& \mbox{第} i\mbox{试验} A\mbox{发生}\\
-            0,& \mbox{第} i\mbox{试验} A\mbox{不发生}
+            1,& \text{第} i\text{试验} A\text{发生}\\
+            0,& \text{第} i\text{试验} A\text{不发生}
         \end{array}$, 则 $S_n=\sum_{i=1}^nX_i$, 并且
 
 $$
@@ -655,7 +655,7 @@ $$
 
 $$
 \begin{aligned}
-\lim_{n\rightarrow\infty} P (|\frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]|<\epsilon)=1 \mbox{ 即 }  \frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]\stackrel{P}{\rightarrow} 0
+\lim_{n\rightarrow\infty} P (|\frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]|<\epsilon)=1 \text{ 即 }  \frac{1}{n}\sum_{i=1}^n [X_i-E (X_i)]\stackrel{P}{\rightarrow} 0
 \end{aligned}
 $$
 
@@ -1433,7 +1433,7 @@ $$
 
 #### 证明:$\big|\prod_{k=1}^{n} \phi_{n k}(t)-\prod_{k=1}^{n}\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^2}\big)\big| \rightarrow 0$ {#证明bigprod_k1n-phi_n-kt-prod_k1nbig1-fract2-sigma_k22-sigmay_n2bigbig-rightarrow-0 .unnumbered}
 
-由引理[\[lem-ch4-eixtaylor\]](#lem-ch4-eixtaylor){reference-type="ref" reference="lem-ch4-eixtaylor"}可知,对一切 $t \in R$ 有 $$\big|e^{i t x}-\big(1+i t x-\frac{1}{2} t^{2} x^{2}\big)\big| \leq|t x|^{2} \wedge|t x|^{3}$$ 注意到 $X_{nk}$ 二阶矩有限,两边对 $F_{n k}$ 取积分得 $$\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \int_{-\infty}^\infty |tx|^2\wedge |tx|^3dF_{nk}(x)$$ 另一方面,而对任何 $\tau>0$ ,上式右方不超过
+由 @lem-ch4-eixtaylor 可知,对一切 $t \in R$ 有 $$\big|e^{i t x}-\big(1+i t x-\frac{1}{2} t^{2} x^{2}\big)\big| \leq|t x|^{2} \wedge|t x|^{3}$$ 注意到 $X_{nk}$ 二阶矩有限,两边对 $F_{n k}$ 取积分得 $$\big|\phi_{n k}(t)-\big(1-\frac{t^{2} \sigma_{k}^{2}}{2 \sigma(Y_n)^{2}}\big)\big| \leq \int_{-\infty}^\infty |tx|^2\wedge |tx|^3dF_{nk}(x)$$ 另一方面,而对任何 $\tau>0$ ,上式右方不超过
 
 $$
 \begin{aligned}
@@ -1491,7 +1491,7 @@ $$
 
 $$
 \begin{aligned}
-\max_{1\leq k\leq n}|X_k|\leq L_n, \mbox{ 且  }\  \lim_{n}\dfrac{L_n}{\sigma(Y_n)}=0
+\max_{1\leq k\leq n}|X_k|\leq L_n, \text{ 且  }\  \lim_{n}\dfrac{L_n}{\sigma(Y_n)}=0
 \end{aligned}
 $$
 

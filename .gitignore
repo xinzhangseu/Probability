@@ -30,3 +30,5 @@ Thumbs.db
 
 /.quarto/
 **/*.quarto_ipynb
+
+/_*.local

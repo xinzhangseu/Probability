@@ -451,13 +451,13 @@ Chevalier De Mere
 
 #### 硬币抛 3 次的随机试验 {#硬币抛-3-次的随机试验 .unnumbered}
 
-[样本点:]{style="color: cyan"}正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反,共 8 种可能结果; 同时,[基本事件:]{style="color: cyan"} {正正正},{正正反},{正反正}, {反正正},{正反反},{反正反},{反反正},{反反反}, 共 8 个基本事件; 此外, $$\Omega:=\{\mbox{正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反}\}$$ 相应地,[随机事件:]{style="color: cyan"}
+[样本点:]{style="color: cyan"}正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反,共 8 种可能结果; 同时,[基本事件:]{style="color: cyan"} {正正正},{正正反},{正反正}, {反正正},{正反反},{反正反},{反反正},{反反反}, 共 8 个基本事件; 此外, $$\Omega:=\{\text{正正正,正正反,正反正,反正正,正反反,反正反,反反正,反反反}\}$$ 相应地,[随机事件:]{style="color: cyan"}
 
 $$
 \begin{aligned}
-A&:=&\{\mbox{至少出现两次正面}\}\\
-       &=&\{\mbox{正正正,正正反,正反正,反正正}\} \\
-      B&:=&\{\mbox{三次均为正面}\}=\{\mbox{正正正}\}\\
+A&:=&\{\text{至少出现两次正面}\}\\
+       &=&\{\text{正正正,正正反,正反正,反正正}\} \\
+      B&:=&\{\text{三次均为正面}\}=\{\text{正正正}\}\\
       \cdots
 \end{aligned}
 $$
@@ -465,7 +465,7 @@ $$
 
 #### 样本空间示例 {#样本空间示例 .unnumbered}
 
-掷一枚骰子, 观察出现的点数. 则 $\Omega=\{1, 2, 3, 4, 5, 6\}$. 同时,考察某一地区的年降雨量,则$\Omega=\{x|0\le x<T\}$,这里$T$表示某个常数, 表示降雨量不会超过$T$. 此外,将一枚硬币抛两次,考察正反面出现的情况, 则 $$\Omega=\{\mbox{正正,正反,反正,反反}\}.$$ 相应地,将一枚硬币抛两次,考察正面出现的次数, 则$\Omega=\{0, 1, 2\}$. 相应地,先后掷两次骰子,考察两次骰子的点数, 则 $$\Omega=\{(a_1, a_2), a_i\in \{1,2,\cdots, 6\}, i=1,2\}.$$
+掷一枚骰子, 观察出现的点数. 则 $\Omega=\{1, 2, 3, 4, 5, 6\}$. 同时,考察某一地区的年降雨量,则$\Omega=\{x|0\le x<T\}$,这里$T$表示某个常数, 表示降雨量不会超过$T$. 此外,将一枚硬币抛两次,考察正反面出现的情况, 则 $$\Omega=\{\text{正正,正反,反正,反反}\}.$$ 相应地,将一枚硬币抛两次,考察正面出现的次数, 则$\Omega=\{0, 1, 2\}$. 相应地,先后掷两次骰子,考察两次骰子的点数, 则 $$\Omega=\{(a_1, a_2), a_i\in \{1,2,\cdots, 6\}, i=1,2\}.$$
 
 #### 样本空间示例 {#样本空间示例-1 .unnumbered}
 
@@ -482,7 +482,7 @@ $$
 
 $$
 \begin{aligned}
-A\cup B:=\{\omega\in \Omega: \omega\in A, \mbox{ 或 } \omega\in B\}
+A\cup B:=\{\omega\in \Omega: \omega\in A, \text{ 或 } \omega\in B\}
 \end{aligned}
 $$
 
@@ -504,7 +504,7 @@ $$
 
 $$
 \begin{aligned}
-A\cap B:=\{\omega\in \Omega: \omega\in A \mbox{ 且 } \omega\in B\}
+A\cap B:=\{\omega\in \Omega: \omega\in A \text{ 且 } \omega\in B\}
 \end{aligned}
 $$
 
@@ -526,7 +526,7 @@ $$
 
 $$
 \begin{aligned}
-A-B:=\{\omega\in \Omega: \omega\in  A \mbox{ 且 } \omega\notin B\}
+A-B:=\{\omega\in \Omega: \omega\in  A \text{ 且 } \omega\notin B\}
 \end{aligned}
 $$
 
@@ -570,7 +570,7 @@ $$
 
 $$
 \begin{aligned}
-A\Delta B:=\{\omega\in \Omega: \omega\in A\cup B \mbox{ 且 } \omega\notin A\cap B\}\textcolor{red}{=(A-B)\cup (B-A)}
+A\Delta B:=\{\omega\in \Omega: \omega\in A\cup B \text{ 且 } \omega\notin A\cap B\}\textcolor{red}{=(A-B)\cup (B-A)}
 \end{aligned}
 $$
 
@@ -714,8 +714,8 @@ $$
 \begin{aligned}
 1_A(\omega)=\left\{
             \begin{array}[l]{ll}
-                1, &\mbox{如果}\omega\in A;\\
-                0, &\mbox{如果}\omega\notin A.
+                1, &\text{如果}\omega\in A;\\
+                0, &\text{如果}\omega\notin A.
             \end{array}
             \right.
 \end{aligned}
@@ -736,9 +736,9 @@ $A=\{\omega: 1_A(\omega)=1\}$; 同时,$1_A\leq 1_B\Leftrightarrow A\subset B$; �
 $$
 \begin{aligned}
 \limsup_{n\rightarrow\infty}A_n&=&\{\omega:\sum_{n=1}^\infty 1_{A_n}(\omega)=\infty\}\\
-            &=&\{\omega: \omega\mbox{属于无穷多个}A_n\}\\
+            &=&\{\omega: \omega\text{属于无穷多个}A_n\}\\
             \liminf_{n\rightarrow\infty}A_n&=&\{\omega:\sum_{n=1}^\infty 1_{\bar{A_n}}(\omega)<\infty\}\\
-            &=&\{\omega:\mbox{除去有限多个}A_n\mbox{外},\omega\mbox{属于余下所有的}A_n\}
+            &=&\{\omega:\text{除去有限多个}A_n\text{外},\omega\text{属于余下所有的}A_n\}
 \end{aligned}
 $$
 
@@ -854,9 +854,9 @@ $$
 若屋子里有 $k$ 个人,假设每个人的生日都等可能为一年 365 天中的一天 (不考虑 2 月 29 日的情况),而且每个人的生日是相互独立的 (假设这里不存在双胞胎).试问:屋内有两个及以上的人在同一天过生日的概率是多少?
 :::
 
-**解.** $k$ 个人中没有人生日相同的概率为 $$P (\mbox{没有人生日相同})=\dfrac{365\cdot364\cdots (365-k+1)}{365^k}$$
+**解.** $k$ 个人中没有人生日相同的概率为 $$P (\text{没有人生日相同})=\dfrac{365\cdot364\cdots (365-k+1)}{365^k}$$
 
-故至少有两个人生日相同的概率为 $$P (\mbox{至少有两个人生日相同})=1-\dfrac{365\cdot364\cdots (365-k+1)}{365^k}$$
+故至少有两个人生日相同的概率为 $$P (\text{至少有两个人生日相同})=1-\dfrac{365\cdot364\cdots (365-k+1)}{365^k}$$
 
 可以绘制至少两个人生日相同的概率随 $k$ 变化的函数图.概率首次超过 $0.5$ 是在 $k=23$, 当 $k=57$ 时,这个概率超过了 99%.
 
@@ -932,7 +932,7 @@ $$
 一批产品有 $N$ 个,其中废品有 $M$ 个.现从中随机取出 $n$ 个,在以下两种情形下,分别求 其中恰好有 $m$ 个废品 这一事件的概率.(1) 有放回地选取;(2) 不放回地选取.
 :::
 
-**解.** 记 $A = \{\mbox{其中恰好有} m \mbox{个废品}\}$, 则
+**解.** 记 $A = \{\text{其中恰好有} m \text{个废品}\}$, 则
 
 有放回情形: $|\Omega| = N^n, |A| = C_n^mM^m (N - M)^{n-m}$, 所以
 
@@ -1018,7 +1018,7 @@ $$
 $$
 \begin{aligned}
 \Omega&=&\{(\varphi,x):0\le x\le d/2, 0\le\varphi \le \pi/2\}\\
-            A&=&\{\mbox{针与平行线相交}\}\\
+            A&=&\{\text{针与平行线相交}\}\\
             &=&\{(\varphi,x):x\leq \frac{l}{2}\sin\varphi\}
 \end{aligned}
 $$
@@ -1121,7 +1121,7 @@ $$
 
 #### 黎曼积分 {#黎曼积分-1 .unnumbered}
 
-函数 $f:[a,b]\mapsto \mathbb{R}$; 同时,分割 $\Delta$: $a=x_0<x_1<\cdots<x_n=b$; 此外,黎曼和: $$I(f,\Delta):=\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i), \ \mbox{其中} \xi_i\in[x_i,x_{i+1}];$$ 令$|\Delta|:=\max_{1\leq i\leq n}|x_i-x_{i-1}|$, 则若 $$\lim_{|\Delta|\rightarrow 0}I(f,\Delta)=\lim_{|\Delta|\rightarrow 0}\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i)=L:=\int_a^bf(x)dx,$$ 则称 $L$ 为函数 $f$ 在区间 $[a,b]$ 的积分, 并称函数 $f$ 是黎曼可积的.
+函数 $f:[a,b]\mapsto \mathbb{R}$; 同时,分割 $\Delta$: $a=x_0<x_1<\cdots<x_n=b$; 此外,黎曼和: $$I(f,\Delta):=\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i), \ \text{其中} \xi_i\in[x_i,x_{i+1}];$$ 令$|\Delta|:=\max_{1\leq i\leq n}|x_i-x_{i-1}|$, 则若 $$\lim_{|\Delta|\rightarrow 0}I(f,\Delta)=\lim_{|\Delta|\rightarrow 0}\sum_{i=0}^{n-1}f(\xi_i)(x_{i+1}-x_i)=L:=\int_a^bf(x)dx,$$ 则称 $L$ 为函数 $f$ 在区间 $[a,b]$ 的积分, 并称函数 $f$ 是黎曼可积的.
 
 #### 黎曼积分示意图 {#黎曼积分示意图 .unnumbered}
 
@@ -1132,8 +1132,8 @@ $$
 #### 黎曼积分的缺点 {#黎曼积分的缺点 .unnumbered}
 
 一些很简单的函数不是黎曼可积的, 如Dirichlet 函数: $$D(x):=\left\{\begin{array}{ll}
-            1, & x \mbox{是有理数},\\
-            0, & x \mbox{是无理数}.
+            1, & x \text{是有理数},\\
+            0, & x \text{是无理数}.
         \end{array}\right.$$ 同时,需要一致收敛条件来保证函数积分与极限运算的次序交换, 即若 $f_n(x)$ 一致收敛且黎曼可积, 则 $$\lim_{n\rightarrow\infty}\int_a^bf_n(x)dx=\int_a^b\lim_{n\rightarrow\infty}f_n(x)dx$$ 此外,黎曼可积函数空间不完备, 即存在黎曼可积函数列 $f_n(x)$ 逐点收敛到函数 $f(x)$, 但 $f(x)$ 不是黎曼可积.
 
 #### 黎曼积分的等价定义(I) {#黎曼积分的等价定义i .unnumbered}
@@ -1173,7 +1173,7 @@ $$
 ::: {#def-ch1-014}
 (Darboux integral 达布积分) 设函数 $f:[a,b]\mapsto \mathbb{R}$ 为有界函数, 则
 
-称$$\underline{\int_a^b}f(x)dx:=\sup_{g\leq f,\  g\mbox{为阶梯函数}}p.c.\int_a^bg(x)dx$$ 为函数 $f(x)$ 在 $[a,b]$ 上的达布下积分; 称$$\overline{\int_a^b}f(x)dx:=\inf_{h\geq f,\  h\mbox{为阶梯函数}}p.c.\int_a^bh(x)dx$$ 为函数 $f(x)$ 在 $[a,b]$ 上的达布上积分; 显然, $\underline{\int_a^b}f(x)dx\leq \overline{\int_a^b}f(x)dx$. 如果 $$\underline{\int_a^b}f(x)dx=\overline{\int_a^b}f(x)dx,$$ 则称函数 $f(x)$ 在 $[a,b]$ 上达布可积.
+称$$\underline{\int_a^b}f(x)dx:=\sup_{g\leq f,\  g\text{为阶梯函数}}p.c.\int_a^bg(x)dx$$ 为函数 $f(x)$ 在 $[a,b]$ 上的达布下积分; 称$$\overline{\int_a^b}f(x)dx:=\inf_{h\geq f,\  h\text{为阶梯函数}}p.c.\int_a^bh(x)dx$$ 为函数 $f(x)$ 在 $[a,b]$ 上的达布上积分; 显然, $\underline{\int_a^b}f(x)dx\leq \overline{\int_a^b}f(x)dx$. 如果 $$\underline{\int_a^b}f(x)dx=\overline{\int_a^b}f(x)dx,$$ 则称函数 $f(x)$ 在 $[a,b]$ 上达布可积.
 :::
 
 #### 黎曼积分的等价定义(II) {#黎曼积分的等价定义ii-2 .unnumbered}
@@ -1276,14 +1276,14 @@ $$
 
 区间 $I\subset\mathbb{R}$ : $[a,b],\  [a,b),\  (a,b), \cdots$;
 
-同时,矩形 $B\subset\mathbb{R}^d$: $B:=I_1\times \cdots\times I_d$, 其中$I_i$ 为区间; 此外,矩形的测度: $|B|:=|I_1|\times|I_2|\times\cdots\times|I_d|$. 相应地,基本集 $E\subset\mathbb{R}^d$: 能够表示为有限个矩形的并的集合; 其中,更进一步, 可以证明基本集一定可以表示为有限个不相交矩形的并, 即 $$E=\cup_{i=1}^kB_i, \mbox{其中} B_i, i=1,\cdots, k, \mbox{为矩形且互不相交};$$ 我们将 $m(E):=|B_1|+|B_2|+\cdots+|B_k|$ 称为基本集 $E$ 的基本测度.
+同时,矩形 $B\subset\mathbb{R}^d$: $B:=I_1\times \cdots\times I_d$, 其中$I_i$ 为区间; 此外,矩形的测度: $|B|:=|I_1|\times|I_2|\times\cdots\times|I_d|$. 相应地,基本集 $E\subset\mathbb{R}^d$: 能够表示为有限个矩形的并的集合; 其中,更进一步, 可以证明基本集一定可以表示为有限个不相交矩形的并, 即 $$E=\cup_{i=1}^kB_i, \text{其中} B_i, i=1,\cdots, k, \text{为矩形且互不相交};$$ 我们将 $m(E):=|B_1|+|B_2|+\cdots+|B_k|$ 称为基本集 $E$ 的基本测度.
 
 #### 约当测度(Jordan Measure) {#约当测度jordan-measure .unnumbered}
 
 ::: {#def-ch1-015}
 (约当测度) 令 $E$ 为 $\mathbb{R}^d$ 的有界子集.
 
-称 $$m_{*,J}(E):=\sup_{A\subset E, A\mbox{为基本集}}m(A)$$ 为约当内测度; 同时,称 $$m^{*,J}(E):=\inf_{A\supset E, A\mbox{为基本集}}m(A)$$ 为约当外测度; 此外,称 $E$ 为约当可测的, 如果 $$m_{*,J}(E)=m^{*,J}(E).$$此 时称 $m(E):=m_{*,J}(E)=m^{*,J}(E)$ 为集合 $E$ 的约当测度.
+称 $$m_{*,J}(E):=\sup_{A\subset E, A\text{为基本集}}m(A)$$ 为约当内测度; 同时,称 $$m^{*,J}(E):=\inf_{A\supset E, A\text{为基本集}}m(A)$$ 为约当外测度; 此外,称 $E$ 为约当可测的, 如果 $$m_{*,J}(E)=m^{*,J}(E).$$此 时称 $m(E):=m_{*,J}(E)=m^{*,J}(E)$ 为集合 $E$ 的约当测度.
 :::
 
 #### 如何理解约当可测集的定义:以一维情形为例 {#如何理解约当可测集的定义以一维情形为例 .unnumbered}
@@ -1292,10 +1292,10 @@ $$
 
 $$
 \begin{aligned}
-m_{*,J}(E)&=\sup_{A\subset E, A\mbox{为基本集}}m(A)\\
-  &=\sup_{A\subset E, A\mbox{为基本集}}\big((b-a)-m([a,b]-A)\big)\\
-            &=\sup_{K\supset [a,b]-E, K\mbox{为基本集}}\big((b-a)-m(K)\big)\\
-            &=(b-a)-\inf_{K\supset [a,b]-E, K\mbox{为基本集}}m(K)\\
+m_{*,J}(E)&=\sup_{A\subset E, A\text{为基本集}}m(A)\\
+  &=\sup_{A\subset E, A\text{为基本集}}\big((b-a)-m([a,b]-A)\big)\\
+            &=\sup_{K\supset [a,b]-E, K\text{为基本集}}\big((b-a)-m(K)\big)\\
+            &=(b-a)-\inf_{K\supset [a,b]-E, K\text{为基本集}}m(K)\\
             &=(b-a)-m^{*,J}([a,b]-E).
 \end{aligned}
 $$
@@ -1344,15 +1344,15 @@ $$
 
 #### Lebesgue外测度 {#lebesgue外测度 .unnumbered}
 
-外测度$m^*(E)$: $$m^*(E):=\inf_{\cup_{i=1}^\infty B_i\supset E, B_i, i\geq 1, \mbox{为矩形}}\sum_{i=1}^\infty |B_i|$$ 同时,显然, $m^*(E)\leq m^{*,J}(E)$, 且存在$E\subset\mathbb{R}^d$使得不等号严格成立; 此外,外测度具有次可加性, 即对任意的$E_i, i\geq 1$,均有 $$m^*(\cup_{i=1}^\infty E_i)\leq \sum_{i=1}^\infty m^*(E_i).$$
+外测度$m^*(E)$: $$m^*(E):=\inf_{\cup_{i=1}^\infty B_i\supset E, B_i, i\geq 1, \text{为矩形}}\sum_{i=1}^\infty |B_i|$$ 同时,显然, $m^*(E)\leq m^{*,J}(E)$, 且存在$E\subset\mathbb{R}^d$使得不等号严格成立; 此外,外测度具有次可加性, 即对任意的$E_i, i\geq 1$,均有 $$m^*(\cup_{i=1}^\infty E_i)\leq \sum_{i=1}^\infty m^*(E_i).$$
 
 #### Lebesgue内测度及可测集如何定义 {#lebesgue内测度及可测集如何定义 .unnumbered}
 
-内测度$m_*(E)$如何定义? 其中,如果定义 $$m_*(E):=\sup_{\cup_{i=1}^\infty B_i\subset E, B_i, i\geq 1, \mbox{为矩形}}\sum_{i=1}^\infty |B_i|.$$ 可以证明 $$m_*(E)=m_{*,J}(E).$$ 由于可数矩形并的余集不一定是可数矩形的并, 因此, 若以此处定义的内外测度相等定义Lebesgue可测集, 我们无法像约当可测集那样得到外测度的可加性.; 若$E\subset [a,b]$, 则由外测度的次可加性可知 $$m^*(E)\geq (b-a)-m^*([a,b]-E).$$ 因此, 若定义$m_*(E)=(b-a)-m^*([a,b]-E)$为Lebesgue内测度,并由内外测度相等定义Lebesgue可测集, 则可以得到Lebesgue外测度的可加性, 即 $$m^*([a,b])=m^*(E)+m^*([a,b]-E)=m^*([a,b]\cap E)+m^*([a,b]\cap \bar{E}).$$
+内测度$m_*(E)$如何定义? 其中,如果定义 $$m_*(E):=\sup_{\cup_{i=1}^\infty B_i\subset E, B_i, i\geq 1, \text{为矩形}}\sum_{i=1}^\infty |B_i|.$$ 可以证明 $$m_*(E)=m_{*,J}(E).$$ 由于可数矩形并的余集不一定是可数矩形的并, 因此, 若以此处定义的内外测度相等定义Lebesgue可测集, 我们无法像约当可测集那样得到外测度的可加性.; 若$E\subset [a,b]$, 则由外测度的次可加性可知 $$m^*(E)\geq (b-a)-m^*([a,b]-E).$$ 因此, 若定义$m_*(E)=(b-a)-m^*([a,b]-E)$为Lebesgue内测度,并由内外测度相等定义Lebesgue可测集, 则可以得到Lebesgue外测度的可加性, 即 $$m^*([a,b])=m^*(E)+m^*([a,b]-E)=m^*([a,b]\cap E)+m^*([a,b]\cap \bar{E}).$$
 
 #### Lebesgue内外测度的等价定义 {#lebesgue内外测度的等价定义 .unnumbered}
 
-外测度: $$m^*(E):=\inf_{U\supset E, U\mbox{为开集}}m^*(U).$$ 同时,Lebesgue内测度: $$m_*(E):=\sup_{U\subset E, U\mbox{为闭集}}m^*(U).$$ 若 $$m_*(E)=m^*(E),$$ 则称$E$为Lebesgue可测集.
+外测度: $$m^*(E):=\inf_{U\supset E, U\text{为开集}}m^*(U).$$ 同时,Lebesgue内测度: $$m_*(E):=\sup_{U\subset E, U\text{为闭集}}m^*(U).$$ 若 $$m_*(E)=m^*(E),$$ 则称$E$为Lebesgue可测集.
 
 #### Lebesgue可测集的卡拉西奥多里准则 {#lebesgue可测集的卡拉西奥多里准则 .unnumbered}
 
@@ -1392,7 +1392,7 @@ $$
 
 - 要度量集合元素的全体: $\Omega$
 
-- 测度的适用范围(定义域): $\mathcal{F}:=\{A\subset \Omega:A\mbox{可测}\}$, 通常要求$\mathcal{F}$为$\sigma$-代数
+- 测度的适用范围(定义域): $\mathcal{F}:=\{A\subset \Omega:A\text{可测}\}$, 通常要求$\mathcal{F}$为$\sigma$-代数
 
 - 通常称$(\Omega, \mathcal{F})$为可测空间
 
@@ -1426,7 +1426,7 @@ $$
 
 (1) 非负性: $P(A)\geq 0$;
 
-(2) 正则性: $P(\Omega)=1\textcolor{red}{\Rightarrow P(\emptyset)=0 (\mbox{结合可列可加性})}$;
+(2) 正则性: $P(\Omega)=1\textcolor{red}{\Rightarrow P(\emptyset)=0 (\text{结合可列可加性})}$;
 
 (3) 可列可加性: 若$A_i,i=1,2,\cdots$ 互不相交, 则 $$P(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty P(A_i).$$
 
@@ -1439,11 +1439,11 @@ $$
 
 $$
 \begin{aligned}
-\Omega=\{\mbox{正,反}\}, \mbox{ 选取} \mathcal{F}=\{\emptyset, \{\mbox{正}\}, \{\mbox{反}\}, \Omega\};
+\Omega=\{\text{正,反}\}, \text{ 选取} \mathcal{F}=\{\emptyset, \{\text{正}\}, \{\text{反}\}, \Omega\};
 \end{aligned}
 $$
 
- 我们可以构造概率$P_1(\cdot)$: $$P_1(\emptyset)=0, P_1(\{\mbox{正}\})=1/2,  P_1(\{\mbox{反}\})=1/2,  P_1(\Omega)=1;$$ 也可以构造概率$P_2(\cdot)$: 其中$p+q=1$, $$P_2(\emptyset)=0, P_2(\{\mbox{正}\})=p,  P_2(\{\mbox{反}\})=q,  P_1(\Omega)=1.$$
+ 我们可以构造概率$P_1(\cdot)$: $$P_1(\emptyset)=0, P_1(\{\text{正}\})=1/2,  P_1(\{\text{反}\})=1/2,  P_1(\Omega)=1;$$ 也可以构造概率$P_2(\cdot)$: 其中$p+q=1$, $$P_2(\emptyset)=0, P_2(\{\text{正}\})=p,  P_2(\{\text{反}\})=q,  P_1(\Omega)=1.$$
 
 ### 可测空间与测度空间
 
@@ -1536,7 +1536,7 @@ $$
 
 **证明.** 
 
-若 $\mathcal{F}_t, t\in T$ 为一族 $\sigma$-代数,则 $\cap_{t\in T}\mathcal{F}_t$ 仍为 $\sigma$-代数; 令 $C^{\#}:=\{\mathcal{B}:\mathcal{B}\mbox{为}\sigma-\mbox{代数}, \mathcal{C}\subset \mathcal{B}\}$; 令 $\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}$, 则易证 $\mathcal{C}_0$ 即为定理所求之 $\sigma$-代数.
+若 $\mathcal{F}_t, t\in T$ 为一族 $\sigma$-代数,则 $\cap_{t\in T}\mathcal{F}_t$ 仍为 $\sigma$-代数; 令 $C^{\#}:=\{\mathcal{B}:\mathcal{B}\text{为}\sigma-\text{代数}, \mathcal{C}\subset \mathcal{B}\}$; 令 $\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}$, 则易证 $\mathcal{C}_0$ 即为定理所求之 $\sigma$-代数.
 
 ::: {#rem-ch1-006}
 首先,$\mathcal{C}_0:=\cap_{\mathcal{B}\in C^{\#}}\mathcal{B}$ 是包含集类 $\mathcal{C}$ 的最小 $\sigma$-代数; 最后,一般也称 $\mathcal{C}_0$ 为集类 $\mathcal{C}$ 的生成 $\sigma$-代数,后面我们常用 $\sigma (\mathcal{C})$ 表示 $\mathcal{C}_0$.
@@ -1594,8 +1594,8 @@ $$
             \mathcal{C}_3&=&\{[a,b]:-\infty< a\leq b<+\infty\}\\
             \mathcal{C}_4&=&\{[a,b):-\infty< a\leq b\leq+\infty\}\\
             \mathcal{C}_5&=&\{(a,b):-\infty\leq a\leq b\leq+\infty\}\\
-            \mathcal{C}_6&=&\{A\subset\mathbb{R}:A\mbox{为开集}\}\\
-            \mathcal{C}_7&=&\{A\subset\mathbb{R}:A\mbox{为闭集}\}
+            \mathcal{C}_6&=&\{A\subset\mathbb{R}:A\text{为开集}\}\\
+            \mathcal{C}_7&=&\{A\subset\mathbb{R}:A\text{为闭集}\}
 \end{aligned}
 $$
 
@@ -1622,8 +1622,8 @@ $$
             \mathcal{S}_3&=&\{[a_1,b_1]\times\cdots\times[a_d,b_d]:-\infty< a_i\leq b_i<+\infty, 1\leq i\leq d\}\\
             \mathcal{S}_4&=&\{[a_1,b_1)\times\cdots\times [a_d,b_d):-\infty< a_i\leq b_i\leq+\infty, 1\leq i\leq d\}\\
             \mathcal{S}_5&=&\{(a_1,b_1)\times\cdots\times(a_d,b_d):-\infty\leq a_i\leq b_i\leq+\infty, 1\leq i\leq d\}\\
-            \mathcal{S}_6&=&\{A\subset\mathbb{R}^d:A\mbox{为开集}\}\\
-            \mathcal{S}_7&=&\{A\subset\mathbb{R}^d:A\mbox{为闭集}\}
+            \mathcal{S}_6&=&\{A\subset\mathbb{R}^d:A\text{为开集}\}\\
+            \mathcal{S}_7&=&\{A\subset\mathbb{R}^d:A\text{为闭集}\}
 \end{aligned}
 $$
 
@@ -1663,7 +1663,7 @@ $$
 
 $$
 \begin{aligned}
-A_n\in \mathcal{C}, A_n\uparrow A \mbox{ 或 } A_n\downarrow A \Rightarrow A\in \mathcal{C}
+A_n\in \mathcal{C}, A_n\uparrow A \text{ 或 } A_n\downarrow A \Rightarrow A\in \mathcal{C}
 \end{aligned}
 $$
 
@@ -1702,7 +1702,7 @@ $$
 
 #### 如何应用单调类定理 {#如何应用单调类定理 .unnumbered}
 
-问题: 如何证明某$\sigma-$代数$\mathcal{F}$中的所有元素都具有某种性质($P$)? 同时,步骤: $\mathcal{G}:=\{A\in \mathcal{F}: A\mbox{具有性质}(P)\}$; 找到某一集类$\mathcal{C}$为代数或$\pi$类且具有以下性质:
+问题: 如何证明某$\sigma-$代数$\mathcal{F}$中的所有元素都具有某种性质($P$)? 同时,步骤: $\mathcal{G}:=\{A\in \mathcal{F}: A\text{具有性质}(P)\}$; 找到某一集类$\mathcal{C}$为代数或$\pi$类且具有以下性质:
 
 $$
 \begin{aligned}
@@ -2124,7 +2124,7 @@ $\Omega=\{1,2,\cdots,10\}, A=\{3,4,\cdots,10\}, B=\{2,4,6,8,10\}$; 同时,类似
 ::: {#exm-ch1-031}
 考察有两个小孩的家庭,其样本空间为$\Omega:=\{bb,bg,gb,gg\}$,其中$b, g$分别表男孩与女孩,$bg$表示大的是男孩,小的是女孩,其他样本点类似说明. 在$\Omega$中的四个样本点可能情况下,我们讨论如下事件的概率:
 
-事件$A:=\{\mbox{家中至少有一个女孩}\}$发生的概率为$P(A)=\dfrac{3}{4}$. 若已知$B:=\{\mbox{家中至少有一个男孩}\}$发生,再求$A$发生的概率为
+事件$A:=\{\text{家中至少有一个女孩}\}$发生的概率为$P(A)=\dfrac{3}{4}$. 若已知$B:=\{\text{家中至少有一个男孩}\}$发生,再求$A$发生的概率为
 
 $$
 \begin{aligned}
@@ -2434,7 +2434,7 @@ $$
 
 #### 条件性思维谬误:控方证人的错误 {#条件性思维谬误控方证人的错误-1 .unnumbered}
 
-这个所谓的专家将两个不同的条件概率混淆了: $P (\mbox{清白 | 证据})$ 和 $P (\mbox{证据 | 清白})$ 是不一样的. 其中,专家 1 声称:如果在被告人是清白的情况下,两个孩子死亡的概率很低;那就是说 $P (\mbox{证据 | 清白})$ 非常小.; 但人们感兴趣的是,给定现在所有的证据 (孩子均死) 条件下,报告人仍清白的概率,即 $P (\mbox{清白 | 证据})$.; 由贝叶斯准则可知,$$P (\mbox{清白 | 证据})=\frac{P (\mbox{证据 | 清白}) P (\mbox{清白})}{P (\mbox{证据})},$$ 所以为了计算 $P (\mbox{清白 | 证据})$, 这里需要考虑 $P (\mbox{清白})$, 也就是被告清白的先验概率.这个概率是很高的; 虽然 SIDS 造成两个婴儿死亡是很罕见的,但是蓄意杀害两个婴儿的情况也很少见! 基于现有证据的后验概率是对很低的 $P (\mbox{证据 | 清白})$ 和很高的 $P (\mbox{清白})$ 的一个平衡.专家的结果 $(1/8500)^2$ 是有问题的,它只是整个计算式中的一部分.
+这个所谓的专家将两个不同的条件概率混淆了: $P (\text{清白 | 证据})$ 和 $P (\text{证据 | 清白})$ 是不一样的. 其中,专家 1 声称:如果在被告人是清白的情况下,两个孩子死亡的概率很低;那就是说 $P (\text{证据 | 清白})$ 非常小.; 但人们感兴趣的是,给定现在所有的证据 (孩子均死) 条件下,报告人仍清白的概率,即 $P (\text{清白 | 证据})$.; 由贝叶斯准则可知,$$P (\text{清白 | 证据})=\frac{P (\text{证据 | 清白}) P (\text{清白})}{P (\text{证据})},$$ 所以为了计算 $P (\text{清白 | 证据})$, 这里需要考虑 $P (\text{清白})$, 也就是被告清白的先验概率.这个概率是很高的; 虽然 SIDS 造成两个婴儿死亡是很罕见的,但是蓄意杀害两个婴儿的情况也很少见! 基于现有证据的后验概率是对很低的 $P (\text{证据 | 清白})$ 和很高的 $P (\text{清白})$ 的一个平衡.专家的结果 $(1/8500)^2$ 是有问题的,它只是整个计算式中的一部分.
 
 #### Monty Hall三门问题 {#monty-hall三门问题 .unnumbered}
 
@@ -2456,13 +2456,13 @@ $$
 
 $$
 \begin{aligned}
-A&=\{\mbox{换门得到车} \} \\
-      B&=\{\mbox{不换门得到车} \}\\
-     C_i&:=\{\mbox{车在第}i \mbox{扇门后面} \}, i=1,2,3.
+A&=\{\text{换门得到车} \} \\
+      B&=\{\text{不换门得到车} \}\\
+     C_i&:=\{\text{车在第}i \text{扇门后面} \}, i=1,2,3.
 \end{aligned}
 $$
 
- 相应地,显然, $P(B)=P( \mbox{不换门得到车} )=1/3$. 相应地,则由全概率公式
+ 相应地,显然, $P(B)=P( \text{不换门得到车} )=1/3$. 相应地,则由全概率公式
 
 $$
 \begin{aligned}
@@ -2490,7 +2490,7 @@ $$
 相应地,考虑数轴上的两个[吸收壁$0$与$a(a>1)$]{style="color: cyan"}:质点运动到$0$或$a$之后就永远不再移动. 相应地,现求自$i(0<i<a)$出发的质点将被$0$或$a$吸收的概率.
 :::
 
-**解.** 令 $E_i=\{\mbox{质点自}i\mbox{出发}\}, F=\{\mbox{质点在}0\mbox{被吸收}\}, G=\{\mbox{质点在}a\mbox{被吸收}\}$.
+**解.** 令 $E_i=\{\text{质点自}i\text{出发}\}, F=\{\text{质点在}0\text{被吸收}\}, G=\{\text{质点在}a\text{被吸收}\}$.
 
 下面对$i=0,1,\cdots,a$ 计算
 
@@ -2500,7 +2500,7 @@ P_i=P(F|E_i), \quad Q_i=P(G|E_i)
 \end{aligned}
 $$
 
- 记$B=\{\mbox{质点第一次向左移动 1 单位}\}$并以第 1 次可能的运动情 况为条件进行全概率展开可得
+ 记$B=\{\text{质点第一次向左移动 1 单位}\}$并以第 1 次可能的运动情 况为条件进行全概率展开可得
 
 $$
 \begin{aligned}
@@ -2544,7 +2544,7 @@ Q_1=\bigg[\sum_{i=0}^{a-1}\bigg(\dfrac{q}{p}\bigg)^{i}\bigg]^{-1}=\dfrac{1-q/p}{
 \end{aligned}
 $$
 
- 再将([\[eq-ch1-ditui2\]](#eq-ch1-ditui2){reference-type="ref" reference="eq-ch1-ditui2"})式对$i=1,\cdots, i-1$求和并将上述$Q_1$代入可得
+ 再将 @eq-ch1-ditui2 对$i=1,\cdots, i-1$求和并将上述$Q_1$代入可得
 
 $$
 \begin{aligned}
@@ -2630,15 +2630,15 @@ $$
 
 **[已知:]{style="color: red"}**
 
-红白球的比例, 即$P(\mbox{红球}):=\pi, P(\mbox{白球})=1-\pi$; 同时,$P(\mbox{是}|\mbox{白球})=0.5$; 此外,$P(\mbox{是})\approx \dfrac{k}{n}$.
+红白球的比例, 即$P(\text{红球}):=\pi, P(\text{白球})=1-\pi$; 同时,$P(\text{是}|\text{白球})=0.5$; 此外,$P(\text{是})\approx \dfrac{k}{n}$.
 
-**[待求:]{style="color: red"}** $p:=P(\mbox{是}|\mbox{红球})$.
+**[待求:]{style="color: red"}** $p:=P(\text{是}|\text{红球})$.
 
 ****解.** ** 由全概率公式可得
 
 $$
 \begin{aligned}
-P(\mbox{是})=P(\mbox{白球})P(\mbox{是}|\mbox{白球})+P(\mbox{红球})P(\mbox{是}|\mbox{红球})
+P(\text{是})=P(\text{白球})P(\text{是}|\text{白球})+P(\text{红球})P(\text{是}|\text{红球})
 \end{aligned}
 $$
 
@@ -2725,11 +2725,11 @@ $$
 
 $$
 \begin{aligned}
-&P (\mbox{都是女孩 | 至少有一个是女孩})
+&P (\text{都是女孩 | 至少有一个是女孩})
             \\
-            &=\frac{P (\mbox{都是女孩,至少有一个是女孩})}{P (\mbox{至少有一个是女孩})}=\frac{1/4}{3/4}=1/3\\
-            & P (\mbox{都是女孩 | 年长的是女孩})\\
-            &=\frac{P (\mbox{都是女孩,年长的是女孩})}{P (\mbox{年长的是女孩})}=\frac{1/4}{1/2}=1/2
+            &=\frac{P (\text{都是女孩,至少有一个是女孩})}{P (\text{至少有一个是女孩})}=\frac{1/4}{3/4}=1/3\\
+            & P (\text{都是女孩 | 年长的是女孩})\\
+            &=\frac{P (\text{都是女孩,年长的是女孩})}{P (\text{年长的是女孩})}=\frac{1/4}{1/2}=1/2
 \end{aligned}
 $$
 
@@ -2761,12 +2761,12 @@ $$
 
 $$
 \begin{aligned}
-\ P (\mbox{两个都是女孩 | 至少有一个是冬天出生的女孩})\\
-            =\frac{P (\mbox{两个都是女孩,至少有一个是冬天出生的女孩})}{P (\mbox{至少有一个是冬天出生的女孩})}
+\ P (\text{两个都是女孩 | 至少有一个是冬天出生的女孩})\\
+            =\frac{P (\text{两个都是女孩,至少有一个是冬天出生的女孩})}{P (\text{至少有一个是冬天出生的女孩})}
 \end{aligned}
 $$
 
- 由于指定的孩子是在冬天出生的女孩的概率为 $1/8$, 所以,$$P (\mbox{至少有一个是在冬天出生的女孩}) = 1 - (7/8)^2.$$
+ 由于指定的孩子是在冬天出生的女孩的概率为 $1/8$, 所以,$$P (\text{至少有一个是在冬天出生的女孩}) = 1 - (7/8)^2.$$
 :::
 
 #### 男孩女孩概率问题续:冬天出生的女孩 {#男孩女孩概率问题续冬天出生的女孩-1 .unnumbered}
@@ -2775,19 +2775,19 @@ $$
 
 $$
 \begin{aligned}
-&P (\mbox{两个都是女孩,至少有一个是冬天出生的女孩})\\
-            &=P (\mbox{两个都是女孩,至少有一个是冬天出生的})\\
-            &=(1/4) P (\mbox{至少有一个是冬天出生的女孩})\\
-            &=(1/4) (1-P (\mbox{所有孩子都不是在冬天出生的})
+&P (\text{两个都是女孩,至少有一个是冬天出生的女孩})\\
+            &=P (\text{两个都是女孩,至少有一个是冬天出生的})\\
+            &=(1/4) P (\text{至少有一个是冬天出生的女孩})\\
+            &=(1/4) (1-P (\text{所有孩子都不是在冬天出生的})
 \end{aligned}
 $$
 
- 合在一起得到,$$P (\mbox{两个都是女孩 | 至少有一个是冬天出生的女孩})=7/15$$
+ 合在一起得到,$$P (\text{两个都是女孩 | 至少有一个是冬天出生的女孩})=7/15$$
 
 #### 结绳问题 {#结绳问题 .unnumbered}
 
 ::: {#exm-ch1-041}
- $n$根绳$2n$个头两两相接, 求$A=\{\mbox{恰好结成} n\mbox{个圈}\}$的概率.
+ $n$根绳$2n$个头两两相接, 求$A=\{\text{恰好结成} n\text{个圈}\}$的概率.
 :::
 
 设想 $2n$ 个头排成一行,规定将第 $2k-1$ 个头与第 $2k$ 个端头相接; 令 $B_i$ 表示第 $i$ 根绳的头与尾恰好相接,则 $A=B_1B_2\cdots B_n$; 若以 $n (A)$ 表示事件 $A$ 所包含的样本点个数,则易知
@@ -2828,12 +2828,12 @@ $$
 
 #### 取球问题 {#取球问题-2 .unnumbered}
 
-记 $B_n$={在 $1-\dfrac{1}{2^n}$ 时刻 $1$ 号球未被取出 }, 易知 $A_1=\bigcap\limits_{n=1}^{\infty} B_n$; 令 $C_m=\bigcap\limits_{n=1}^{m} B_n$, 则有 $$C_m=\bigcap\limits_{n=1}^{m} B_n\supset\bigcap\limits_{n=1}^{m+1} B_n=C_{m+1},\mbox{ 且 } \lim_{m\rightarrow\infty} C_m=A_1;$$ 由概率的上连续性知 $$P (A_1)= P\big (\lim_{m\rightarrow\infty} C_m\big)=\lim_{m\rightarrow\infty} P\big (C_m\big);$$ 相应地,下面求 $P (C_m)$, 即 $P\big (\bigcap_{n=1}^{m} B_n\big)=\prod_{n=1}^{m}\frac{9n}{9n+1}=\prod_{n=1}^{m}\left (1-\frac{1}{9n+1}\right)$; 其中,$B_1$: 在 $1/2$ 时刻,盒中 $10$ 个球,$1$ 号球未被取出,故 $P (B_1)=\frac{9}{10}$; $B_2$: 在 $3/4$ 时刻,盒中 $19$ 个球,$1$ 号球未被取出,故 $P (B_2|B_1)=\frac{18}{19}$; $B_n$: $P(B_n|B_1B_2\cdots B_{n-1})=\frac{9n}{9n+1}.$. 相应地,$P (A_1)=\prod_{n=1}^{\infty}\big (1-\frac{1}{9n+1}\big)=0.$ 同理可证 $P (A_k)=0,\,k=2,3,\cdots$.
+记 $B_n$={在 $1-\dfrac{1}{2^n}$ 时刻 $1$ 号球未被取出 }, 易知 $A_1=\bigcap\limits_{n=1}^{\infty} B_n$; 令 $C_m=\bigcap\limits_{n=1}^{m} B_n$, 则有 $$C_m=\bigcap\limits_{n=1}^{m} B_n\supset\bigcap\limits_{n=1}^{m+1} B_n=C_{m+1},\text{ 且 } \lim_{m\rightarrow\infty} C_m=A_1;$$ 由概率的上连续性知 $$P (A_1)= P\big (\lim_{m\rightarrow\infty} C_m\big)=\lim_{m\rightarrow\infty} P\big (C_m\big);$$ 相应地,下面求 $P (C_m)$, 即 $P\big (\bigcap_{n=1}^{m} B_n\big)=\prod_{n=1}^{m}\frac{9n}{9n+1}=\prod_{n=1}^{m}\left (1-\frac{1}{9n+1}\right)$; 其中,$B_1$: 在 $1/2$ 时刻,盒中 $10$ 个球,$1$ 号球未被取出,故 $P (B_1)=\frac{9}{10}$; $B_2$: 在 $3/4$ 时刻,盒中 $19$ 个球,$1$ 号球未被取出,故 $P (B_2|B_1)=\frac{18}{19}$; $B_n$: $P(B_n|B_1B_2\cdots B_{n-1})=\frac{9n}{9n+1}.$. 相应地,$P (A_1)=\prod_{n=1}^{\infty}\big (1-\frac{1}{9n+1}\big)=0.$ 同理可证 $P (A_k)=0,\,k=2,3,\cdots$.
 
 #### 罐子模型(波利亚模型) {#罐子模型波利亚模型 .unnumbered}
 
 ::: {#exm-ch1-043}
-设罐中有 $b$ 个黑球,$r$ 个红球,每次随机的取出一球,取出后将原球放回,还加进 $c$ 个同色球和 $d$ 个异色球.记 $B_i:=\{\mbox{第} i\mbox{次取出的是黑球}\}, R_j:=\{\mbox{第} j\mbox{次取出的是红球}\}$. 若连续从罐子中取出三个球,其中有两个红球,一个黑球,则由乘法公式可得
+设罐中有 $b$ 个黑球,$r$ 个红球,每次随机的取出一球,取出后将原球放回,还加进 $c$ 个同色球和 $d$ 个异色球.记 $B_i:=\{\text{第} i\text{次取出的是黑球}\}, R_j:=\{\text{第} j\text{次取出的是红球}\}$. 若连续从罐子中取出三个球,其中有两个红球,一个黑球,则由乘法公式可得
 
 $$
 \begin{aligned}
@@ -3025,9 +3025,9 @@ $$
 
 $$
 \begin{aligned}
-A &:=\{\mbox{选取的硬币掷 3 次均正面朝上}\}\\
-    F & :=\{\mbox{选取的硬币是均匀的}\},\quad
-    H :=\{\mbox{第 4 次正面朝上} \}
+A &:=\{\text{选取的硬币掷 3 次均正面朝上}\}\\
+    F & :=\{\text{选取的硬币是均匀的}\},\quad
+    H :=\{\text{第 4 次正面朝上} \}
 \end{aligned}
 $$
 
@@ -3131,7 +3131,7 @@ $$
 #### 分支过程(续) {#分支过程续 .unnumbered}
 
 ::: {#sol-ch1-019}
-令$D:=\{\mbox{最终种族灭绝}\}$, 本题希望求出$P(D)$. 接着,我们在第一步结果的基础上即以$1$分钟后的结果进行分析: 令$B_i:=\{1\mbox{分钟后}{\rm Bobo}\mbox{变成的变形虫个数}  \}(i=0,1,2)$; 易知 $P(D|B_0)=1$和$P(D|B_1)=P(D)$, $P(D|B_2)=P(D)^2$. 利用全概率公式有
+令$D:=\{\text{最终种族灭绝}\}$, 本题希望求出$P(D)$. 接着,我们在第一步结果的基础上即以$1$分钟后的结果进行分析: 令$B_i:=\{1\text{分钟后}{\rm Bobo}\text{变成的变形虫个数}  \}(i=0,1,2)$; 易知 $P(D|B_0)=1$和$P(D|B_1)=P(D)$, $P(D|B_2)=P(D)^2$. 利用全概率公式有
 
 $$
 \begin{aligned}
@@ -3170,7 +3170,7 @@ $$
 #### 掷骰子问题 {#掷骰子问题 .unnumbered}
 
 ::: {#exm-ch1-056}
-甲乙轮流掷一均匀骰子. 甲先掷,以后每当某人掷出 1 点后则交给对方掷, 否则此人继续掷. 试求事件$A_n=\{\mbox{第}n\mbox{次由甲掷}\}$的概率.
+甲乙轮流掷一均匀骰子. 甲先掷,以后每当某人掷出 1 点后则交给对方掷, 否则此人继续掷. 试求事件$A_n=\{\text{第}n\text{次由甲掷}\}$的概率.
 :::
 
 **解.** 记$p_n=P(A_n)$, 则以$A_{n-}$与$\bar{A}_{n-1}$为分割用全概率公式可得:
@@ -3194,7 +3194,7 @@ $$
 #### 结绳问题续 {#结绳问题续 .unnumbered}
 
 ::: {#exm-ch1-057}
-$n$根绳$2n$个头两两相接,求$A_n=\{\mbox{恰好结成}n\mbox{个圈}\}$的概率.
+$n$根绳$2n$个头两两相接,求$A_n=\{\text{恰好结成}n\text{个圈}\}$的概率.
 :::
 
 ::: {#sol-ch1-021}
@@ -3423,9 +3423,9 @@ $$
 
 $$
 \begin{aligned}
-F &:=\{\mbox{选取的硬币是均匀的}\}\\
-   A_{1}&:= \{\mbox{第一次投掷硬币正面朝上}\}\\
-   A_{2}&:= \{\mbox{第二次投掷硬币正面朝上}\}
+F &:=\{\text{选取的硬币是均匀的}\}\\
+   A_{1}&:= \{\text{第一次投掷硬币正面朝上}\}\\
+   A_{2}&:= \{\text{第二次投掷硬币正面朝上}\}
 \end{aligned}
 $$
 
@@ -3439,9 +3439,9 @@ $$
 
 $$
 \begin{aligned}
-A&:= \{\mbox{Alice 给我打电话}\}\\
-     B&:= \{\mbox{Bob 给我打电话}\}\\
-     R&:=\{\mbox{听到电话铃响}\}
+A&:= \{\text{Alice 给我打电话}\}\\
+     B&:= \{\text{Bob 给我打电话}\}\\
+     R&:=\{\text{听到电话铃响}\}
 \end{aligned}
 $$
 
@@ -3456,9 +3456,9 @@ $$
 
 $$
 \begin{aligned}
-G&:= \{\mbox{这个课程是好的}\}\\
-    W&:= \{\mbox{你学习努力}\}\\
-    A&:=\{\mbox{你的得分为} A\}
+G&:= \{\text{这个课程是好的}\}\\
+    W&:= \{\text{你学习努力}\}\\
+    A&:=\{\text{你的得分为} A\}
 \end{aligned}
 $$
 
@@ -3531,8 +3531,8 @@ $$
 
 $$
 \begin{aligned}
-&&\mbox{对任何的} A_i\in\mathcal{F}_i, i=1,2, A_1\mbox{与} A_2\mbox{同时}\\
-      &&\mbox{发生的概率等于它们各自概率之乘积}
+&&\text{对任何的} A_i\in\mathcal{F}_i, i=1,2, A_1\text{与} A_2\text{同时}\\
+      &&\text{发生的概率等于它们各自概率之乘积}
 \end{aligned}
 $$
 
@@ -3540,7 +3540,7 @@ $$
 
 #### 乘积空间的构造 {#乘积空间的构造 .unnumbered}
 
-首先,样本乘积空间: $\Omega:=\Omega_1\times \Omega_2=\{(\omega_1,\omega_2):\omega_1\in\Omega_1\mbox{且}\omega_2\in \Omega_2\}$; 接着,乘积 $\sigma$- 代数 $\mathcal{F}_1\times\mathcal{F}_2$: 可测矩形集类: $\mathcal{G}:=\{A_1\times A_2: A_1\in\mathcal{F}_1, A_2\in \mathcal{F}_2\}$; $\mathcal{F}_1\times \mathcal{F}_2:=\sigma(\mathcal{G})$. 另一方面,乘积概率测度: 对于每个可测矩形 $A_1\times A_2\in \mathcal{G}$ 定义如下集函数:
+首先,样本乘积空间: $\Omega:=\Omega_1\times \Omega_2=\{(\omega_1,\omega_2):\omega_1\in\Omega_1\text{且}\omega_2\in \Omega_2\}$; 接着,乘积 $\sigma$- 代数 $\mathcal{F}_1\times\mathcal{F}_2$: 可测矩形集类: $\mathcal{G}:=\{A_1\times A_2: A_1\in\mathcal{F}_1, A_2\in \mathcal{F}_2\}$; $\mathcal{F}_1\times \mathcal{F}_2:=\sigma(\mathcal{G})$. 另一方面,乘积概率测度: 对于每个可测矩形 $A_1\times A_2\in \mathcal{G}$ 定义如下集函数:
 
 $$
 \begin{aligned}
@@ -3558,7 +3558,7 @@ $$
 \end{aligned}
 $$
 
- 最后,$(\Omega_i,\mathcal{F}_i,P_i)$ 的独立性取决于乘积样本空间 $\Omega_1\times\Omega_2$ 上的概率是否取作由 ([\[eq-ch1-timeprob\]](#eq-ch1-timeprob){reference-type="ref" reference="eq-ch1-timeprob"}) 所确定的乘积测度.
+ 最后,$(\Omega_i,\mathcal{F}_i,P_i)$ 的独立性取决于乘积样本空间 $\Omega_1\times\Omega_2$ 上的概率是否取作由 @eq-ch1-timeprob 所确定的乘积测度.
 
 #### $n$ 个试验相互独立的定义 {#n-个试验相互独立的定义 .unnumbered}
 

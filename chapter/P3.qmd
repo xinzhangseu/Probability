@@ -88,8 +88,8 @@ $$
 
 $$
 \begin{aligned}
-\bar{x}_{\mbox{甲}}=8*0.3+9*0.1+10*0.6=9.3\\
-         \bar{x}_{\mbox{乙}}=8*0.2+9*0.5+10*0.3=9.1
+\bar{x}_{\text{甲}}=8*0.3+9*0.1+10*0.6=9.3\\
+         \bar{x}_{\text{乙}}=8*0.2+9*0.5+10*0.3=9.1
 \end{aligned}
 $$
 
@@ -195,7 +195,7 @@ $$
 
 $$
 \begin{aligned}
-E (\tilde{X})=\sum_i x_i\left[F (x_{i+1})-F (x_i)\right]\rightarrow \int xdF (x) \quad \textcolor{red}{\mbox{斯蒂尔切斯积分}}
+E (\tilde{X})=\sum_i x_i\left[F (x_{i+1})-F (x_i)\right]\rightarrow \int xdF (x) \quad \textcolor{red}{\text{斯蒂尔切斯积分}}
 \end{aligned}
 $$
 
@@ -267,7 +267,7 @@ $$
 
 $$
 \begin{aligned}
-\textcolor{blue}{E (X)}&=&  \textcolor{blue}{\int_{-\infty}^\infty xdF (x)}  \quad \textcolor{red}{\mbox{ 注意到} F (x)=P (X (\omega)\le x):=P (X^{-1}(x))}\\
+\textcolor{blue}{E (X)}&=&  \textcolor{blue}{\int_{-\infty}^\infty xdF (x)}  \quad \textcolor{red}{\text{ 注意到} F (x)=P (X (\omega)\le x):=P (X^{-1}(x))}\\
                 &\xlongequal[]{x=X(\omega)}& \int_{\Omega}X(\omega)dP(X^{-1}(X(\omega)))= \textcolor{blue}{\int_{\Omega}X(\omega)dP(\omega)}
 \end{aligned}
 $$
@@ -307,7 +307,7 @@ $$
 
 $$
 \begin{aligned}
-\mbox{存在简单随机变量序列} X_n (\omega)\uparrow X (\omega)
+\text{存在简单随机变量序列} X_n (\omega)\uparrow X (\omega)
 \end{aligned}
 $$
 
@@ -331,7 +331,7 @@ $$
 #### 随机变量可积与积分存在的定义 {#随机变量可积与积分存在的定义 .unnumbered}
 
 ::: {#def-ch3-004}
-称随机变量 $X (\omega)$ 关于概率测度 $P$ 的积分存在,如果 $$\int_\Omega X^+(\omega) P (d\omega) \mbox{ 与 }\int_\Omega X^-(\omega) P (d\omega) \mbox{不同时为}\infty$$ 称随机变量 $X (\omega)$ 关于概率测度 $P$ 可积,如果 $\int_\Omega X (\omega) P (d\omega)<\infty$, 即 $$\int_\Omega X^+(\omega) P (d\omega)<\infty \mbox{ 且 }\int_\Omega X^-(\omega) P (d\omega)<\infty.$$
+称随机变量 $X (\omega)$ 关于概率测度 $P$ 的积分存在,如果 $$\int_\Omega X^+(\omega) P (d\omega) \text{ 与 }\int_\Omega X^-(\omega) P (d\omega) \text{不同时为}\infty$$ 称随机变量 $X (\omega)$ 关于概率测度 $P$ 可积,如果 $\int_\Omega X (\omega) P (d\omega)<\infty$, 即 $$\int_\Omega X^+(\omega) P (d\omega)<\infty \text{ 且 }\int_\Omega X^-(\omega) P (d\omega)<\infty.$$
 :::
 
 ::: {#def-ch3-005}
@@ -461,7 +461,7 @@ $$
 
 **证明.** 
 
-由定理[\[lbl-ch3-theorem-4-2-5\]](#thm-ch3-theorem-4-2-5){reference-type="ref" reference="lbl-ch3-theorem-4-2-5"}知:
+由 @thm-ch3-theorem-4-2-5 可知:
 
 $$
 \begin{aligned}
@@ -776,7 +776,7 @@ $$
 #### 赫尔德(H textquotedblolder)不等式 {#赫尔德h-textquotedblolder不等式 .unnumbered}
 
 ::: {#thm-ch3-014}
-设 $p, q>1$ 满足 $1 / p+1 / q=1$. 若 $X \in L^{p}$ 和 $Y \in L^{q}$,则 $$X Y \in L^{1}, \mbox{ 且 } E(|X Y|) \leqslant\left[E\left(|X|^{p}\right)\right]^{1 / p}\left[E\left(|Y|^{q}\right)\right]^{1 / q}.$$
+设 $p, q>1$ 满足 $1 / p+1 / q=1$. 若 $X \in L^{p}$ 和 $Y \in L^{q}$,则 $$X Y \in L^{1}, \text{ 且 } E(|X Y|) \leqslant\left[E\left(|X|^{p}\right)\right]^{1 / p}\left[E\left(|Y|^{q}\right)\right]^{1 / q}.$$
 :::
 
 **证明.** 
@@ -1057,7 +1057,7 @@ $$
 若 $X\sim U (a,b)$, 即 $p (x)=\left\{\begin{array}{ll}
                 \dfrac{1}{b-a}, & x\in (a,b)\\
                 \\
-                0, & \mbox{其他}
+                0, & \text{其他}
             \end{array}\right.$, 故
 
 $$
@@ -1234,7 +1234,7 @@ $$
 p(x,y)=\left\{
             \begin{array}{ll}
                 3x, & 0<y<x<1,\\
-                0, &\mbox{其他}
+                0, &\text{其他}
             \end{array}
             \right.
 \end{aligned}
@@ -1264,7 +1264,7 @@ $$
 p(x,y)=\left\{
             \begin{array}{ll}
                 \dfrac{x+y}{3}, & 0<x<1, 0<y<2,\\
-                0, &\mbox{其他}
+                0, &\text{其他}
             \end{array}
             \right.
 \end{aligned}
@@ -1529,7 +1529,7 @@ $$
 
  因此 $r=\cos a$. 故
 
-首先,$a=0$ 时,$r=1, X=Y$; 接着,$a=\pi$ 时,$r=-1, X=-Y$; 最后,$a=\dfrac{\pi}{2}\mbox{或}\dfrac{3\pi}{2}$ 时,$r=0$, $X,Y$ 不相关,但此时 $X^2+Y^2=1$, 因此不独立.
+首先,$a=0$ 时,$r=1, X=Y$; 接着,$a=\pi$ 时,$r=-1, X=-Y$; 最后,$a=\dfrac{\pi}{2}\text{或}\dfrac{3\pi}{2}$ 时,$r=0$, $X,Y$ 不相关,但此时 $X^2+Y^2=1$, 因此不独立.
 :::
 
 #### 二维正态分布:不相关与独立等价 {#二维正态分布不相关与独立等价 .unnumbered}
@@ -1772,7 +1772,7 @@ $$
 
 若 $X$ 关于 $\mathcal{G}$ 可测, 则 $E(X|\mathcal{G})=X$; 若 $X$ 与 $\mathcal{G}$ 独立, 则 $E(X|\mathcal{G})=EX$; 若 $\mathcal{G}_1\subset \mathcal{G}_2\subset \mathcal{F}$, 则 $$E[E(X|\mathcal{G}_2)|\mathcal{G}_1]=E(X|\mathcal{G}_1);$$
 
-若 $X,Y$ 均为可积随机变量, 且 $a,b$ 为常数, 则 $$E(aX+bY|\mathcal{G})=aE(X|\mathcal{G})+bE(Y|\mathcal{G});$$ 若 $X\le Y$ 几乎处处成立, 则 $$E(X|\mathcal{G})\le E(Y|\mathcal{G}) \mbox{ 几乎处处成立};$$ 若 $Y$ 关于 $\mathcal{G}$ 可测, 则 $$E(XY|\mathcal{G})=Y E(X|\mathcal{G}).$$
+若 $X,Y$ 均为可积随机变量, 且 $a,b$ 为常数, 则 $$E(aX+bY|\mathcal{G})=aE(X|\mathcal{G})+bE(Y|\mathcal{G});$$ 若 $X\le Y$ 几乎处处成立, 则 $$E(X|\mathcal{G})\le E(Y|\mathcal{G}) \text{ 几乎处处成立};$$ 若 $Y$ 关于 $\mathcal{G}$ 可测, 则 $$E(XY|\mathcal{G})=Y E(X|\mathcal{G}).$$
 
 #### 条件数学期望的最优预测性 {#条件数学期望的最优预测性 .unnumbered}
 
@@ -1867,7 +1867,7 @@ $$
 
 $$
 \begin{aligned}
-E[E(g(X)|\mathcal{G})]=E(g(X)), \mbox{ 或, } \int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP.
+E[E(g(X)|\mathcal{G})]=E(g(X)), \text{ 或, } \int_{\Omega}E(g(X)|\mathcal{G})dP=\int_{\Omega}g(X)dP.
 \end{aligned}
 $$
 
@@ -1877,7 +1877,7 @@ $$
 
 $$
 \begin{aligned}
-E[E(g(X)|Y)]=E(g(X)), \mbox{ 或,  } \int_{\Omega}E(g(X)|Y)dP=\int_{\Omega}g(X)dP.
+E[E(g(X)|Y)]=E(g(X)), \text{ 或,  } \int_{\Omega}E(g(X)|Y)dP=\int_{\Omega}g(X)dP.
 \end{aligned}
 $$
 
@@ -1885,7 +1885,7 @@ $$
 
 $$
 \begin{aligned}
-E\bigg[\sum_{i\in I}E(g(X)|B_i)1_{B_i}(\omega)\bigg]=E(g(X)), \mbox{ 或, } E[g(X)]=\sum_{i\in I}E(g(X)|B_i)P(B_i).
+E\bigg[\sum_{i\in I}E(g(X)|B_i)1_{B_i}(\omega)\bigg]=E(g(X)), \text{ 或, } E[g(X)]=\sum_{i\in I}E(g(X)|B_i)P(B_i).
 \end{aligned}
 $$
 
@@ -2043,7 +2043,7 @@ G(s)=\sum_{n=0}^\infty p_ns^n
 \end{aligned}
 $$ {#eq-ch3-gfunc}
 
- 的收敛半径 $s_0>0$, 则称 $G (s)$ 为数列 $\{p_n\}$ 的母函数.特别当 $\{p_n\}$ 为某非负整值随机变量 $X$ 的概率分布时,([\[eq-ch3-gfunc\]](#eq-ch3-gfunc){reference-type="ref" reference="eq-ch3-gfunc"}) 式至少在区间 $[-1,1]$ 上绝对收敛且一致收敛,此时有
+ 的收敛半径 $s_0>0$, 则称 $G (s)$ 为数列 $\{p_n\}$ 的母函数.特别当 $\{p_n\}$ 为某非负整值随机变量 $X$ 的概率分布时,@eq-ch3-gfunc 至少在区间 $[-1,1]$ 上绝对收敛且一致收敛,此时有
 
 $$
 \begin{aligned}
@@ -2190,7 +2190,7 @@ $$
 
 $$
 \begin{aligned}
-E(X^2)-E(X)  &=& \mbox{[}E(N^2)-E(N)][E(X_1)]^2+E(N)[E(X_1^2)-E(X_1)]\\
+E(X^2)-E(X)  &=& \text{[}E(N^2)-E(N)][E(X_1)]^2+E(N)[E(X_1^2)-E(X_1)]\\
             &=&  E(N)D(X_1)+E(N^2)[E(X_1)]^2-E(N)E(X_1)
 \end{aligned}
 $$

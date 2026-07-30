@@ -7,6 +7,7 @@ folder is merged to pdf-merged/<folder>.qmd, and _quarto-pdf.yml is regenerated
 so the PDF build reads only the merged chapter files.
 """
 
+import os
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -140,4 +141,10 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    active_profiles = {
+        profile.strip()
+        for profile in os.environ.get("QUARTO_PROFILE", "").split(",")
+        if profile.strip()
+    }
+    if not active_profiles or "pdf" in active_profiles:
+        main()

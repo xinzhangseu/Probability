@@ -382,11 +382,11 @@ $$
 #### 随机变量的生成$\sigma$-代数 {#随机变量的生成sigma-代数 .unnumbered}
 
 ::: {#def-ch2-005}
-() 设$X$为定义在$(\Omega,\mathcal{F})$上的随机变量并令 $\mathcal{F}_X:=\{X^{-1}(A):A\in \mathcal{B}(\mathbb{R})\}$. 我们称$\sigma(X):=\sigma\left(\mathcal{F}_{X}\right)$为随机变量$X$的生成$\sigma$-代数.
+设$X$为定义在$(\Omega,\mathcal{F})$上的随机变量并令 $\mathcal{F}_X:=\{X^{-1}(A):A\in \mathcal{B}(\mathbb{R})\}$. 我们称$\sigma(X):=\sigma\left(\mathcal{F}_{X}\right)$为随机变量$X$的生成$\sigma$-代数.
 :::
 
 ::: {#def-ch2-006}
-()设$X_k, k=1,2,\cdots, n$为定义在$(\Omega,\mathcal{F})$上的随机变量并令 $\mathcal{F}_{X_k}:=\{X_k^{-1}(A):A\in \mathcal{B}(\mathbb{R})\}$. 我们称$$\sigma(X_1,X_2,\cdots,X_n):=\sigma\left(\cup_{k=1}^n\mathcal{F}_{X_k}\right)$$为随机变量$X_1,X_2,\cdots,X_n$的生成$\sigma$-代数.
+设$X_k, k=1,2,\cdots, n$为定义在$(\Omega,\mathcal{F})$上的随机变量并令 $\mathcal{F}_{X_k}:=\{X_k^{-1}(A):A\in \mathcal{B}(\mathbb{R})\}$. 我们称$$\sigma(X_1,X_2,\cdots,X_n):=\sigma\left(\cup_{k=1}^n\mathcal{F}_{X_k}\right)$$为随机变量$X_1,X_2,\cdots,X_n$的生成$\sigma$-代数.
 :::
 
 $\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\mathcal{F}_{X_k}$不一定是$\sigma$-代数, 因此 $$\sigma(X)=\mathcal{F}_X, \quad \text{ 但  } \quad  \sigma(X_1,X_2,\cdots,X_n)\neq \cup_{k=1}^n\mathcal{F}_{X_k}.$$ 若$X$是$(\Omega,\mathcal{F})$上的随机变量,则必有$\sigma(X):=\mathcal{F}_X\subset\mathcal{F}$, 即$\sigma(X)$是$\Omega$上使得$X$成为随变量所需要的最小$\sigma$-代数. 此外,类似的, $\sigma(X_1,X_2,\cdots,X_n)$是$\Omega$上使得$X_1,X_2,\cdots,X_n$为随机变量所需要的最小$\sigma$-代数. 相应地,随机变量$X$生成的$\sigma-$代数$\sigma(X)$集中体现了$X$的取值信息.
@@ -414,7 +414,7 @@ $\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\math
 #### 随机向量 {#随机向量-1 .unnumbered}
 
 ::: {#def-ch2-008}
-() 考虑可测空间$(\Omega,\mathcal{F})$, 若映射$X: \Omega \rightarrow \mathbb{R}^{n}$使得对任意的$B \in \mathcal{B}(\mathbb{R}^{n})$均有 $$X^{-1}(B) \in \mathcal{F}$$ 则称$X$为$n$维随机向量.
+考虑可测空间$(\Omega,\mathcal{F})$, 若映射$X: \Omega \rightarrow \mathbb{R}^{n}$使得对任意的$B \in \mathcal{B}(\mathbb{R}^{n})$均有 $$X^{-1}(B) \in \mathcal{F}$$ 则称$X$为$n$维随机向量.
 :::
 
 ::: {#rem-ch2-003}
@@ -422,7 +422,7 @@ $\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\math
 :::
 
 ::: {#def-ch2-009}
-() 考虑可测空间$(\Omega,\mathcal{F})$以及映射$Z$ $$Z(\omega)=X(\omega)+\mathrm{i} Y(\omega) \in \mathbb{C}$$ 其中$\mathrm{i}=\sqrt{-1}$是虚数单位. 如果$(X(\omega), Y(\omega))$构成二维随机向量, 则称$Z$为复随机变量.
+考虑可测空间$(\Omega,\mathcal{F})$以及映射$Z$ $$Z(\omega)=X(\omega)+\mathrm{i} Y(\omega) \in \mathbb{C}$$ 其中$\mathrm{i}=\sqrt{-1}$是虚数单位. 如果$(X(\omega), Y(\omega))$构成二维随机向量, 则称$Z$为复随机变量.
 :::
 
 ## 分布函数与分布类型 {#sec-ch2-lecture-10}
@@ -575,7 +575,7 @@ $$
 分布函数是随机变量最基本的性质,也是对随机变量概率特性最全面的描述.为清晰起见,通常记随机变量 $X$ 的分布函数为 $F_{X}(x)$. 同时,分布函数和随机变量密不可分. 每个随机变量都有自己的分布函数; 反过来, 每个分布函数都能找到与之相对应的随机变量. 此外,尽管随机变量与其分布函数密切关联,但是两者间并没有一一对应关系.一个随机变量只能有唯一的分布函数, 不同的随机变量却可能具有相同的分布函数.
 
 ::: {#exm-ch2-004}
-() 考虑随机变量 $X$, 其分布满足 $$P(X=1)=P(X=-1)=\frac{1}{2}.$$ 设随机变量 $Y=-X$, 那么 $Y$ 的分布为 $$P(Y=1)=P(Y=-1)=\frac{1}{2}$$ 显然, $X$和$Y$的分布函数完全相同, 但明显是两个不同的随机变量.
+考虑随机变量 $X$, 其分布满足 $$P(X=1)=P(X=-1)=\frac{1}{2}.$$ 设随机变量 $Y=-X$, 那么 $Y$ 的分布为 $$P(Y=1)=P(Y=-1)=\frac{1}{2}$$ 显然, $X$和$Y$的分布函数完全相同, 但明显是两个不同的随机变量.
 :::
 
 #### 分布函数表示与Borel域上概率测度之间的关系 {#分布函数表示与borel域上概率测度之间的关系 .unnumbered}

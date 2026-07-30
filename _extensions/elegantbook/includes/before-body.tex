@@ -48,65 +48,65 @@
 % theorem (thmstyle, ♥) — 定理
 \DeclareTColorBox[auto counter,number within=chapter]{theorem}{ O{} }{
   common,thmstyle,
-  title={定理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={定理~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % definition (defstyle, ♣) — 定义
 \DeclareTColorBox[auto counter,number within=chapter]{definition}{ O{} }{
   common,defstyle,
-  title={定义~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={定义~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % lemma (thmstyle, ♥) — 引理
 \DeclareTColorBox[auto counter,number within=chapter]{lemma}{ O{} }{
   common,thmstyle,
-  title={引理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={引理~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % corollary (thmstyle, ♥) — 推论
 \DeclareTColorBox[auto counter,number within=chapter]{corollary}{ O{} }{
   common,thmstyle,
-  title={推论~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={推论~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % proposition (prostyle, ♠) — 命题
 \DeclareTColorBox[auto counter,number within=chapter]{proposition}{ O{} }{
   common,prostyle,
-  title={命题~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={命题~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % axiom (thmstyle, ♥) — 公理
 \DeclareTColorBox[auto counter,number within=chapter]{axiom}{ O{} }{
   common,thmstyle,
-  title={公理~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={公理~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % postulate (thmstyle, ♥) — 公设
 \DeclareTColorBox[auto counter,number within=chapter]{postulate}{ O{} }{
   common,thmstyle,
-  title={公设~\thetcbcounter\IfValueT{#1}{ (#1)}},
+  title={公设~\thetcbcounter\ifstrempty{#1}{}{ (#1)}},
 }
 
 % Starred (unnumbered) versions
 \DeclareTColorBox{theorem*}{ O{} }{
   common,thmstyle,
-  title={定理\IfValueT{#1}{ (#1)}},
+  title={定理\ifstrempty{#1}{}{ (#1)}},
 }
 \DeclareTColorBox{definition*}{ O{} }{
   common,defstyle,
-  title={定义\IfValueT{#1}{ (#1)}},
+  title={定义\ifstrempty{#1}{}{ (#1)}},
 }
 \DeclareTColorBox{lemma*}{ O{} }{
   common,thmstyle,
-  title={引理\IfValueT{#1}{ (#1)}},
+  title={引理\ifstrempty{#1}{}{ (#1)}},
 }
 \DeclareTColorBox{corollary*}{ O{} }{
   common,thmstyle,
-  title={推论\IfValueT{#1}{ (#1)}},
+  title={推论\ifstrempty{#1}{}{ (#1)}},
 }
 \DeclareTColorBox{proposition*}{ O{} }{
   common,prostyle,
-  title={命题\IfValueT{#1}{ (#1)}},
+  title={命题\ifstrempty{#1}{}{ (#1)}},
 }
 
 % Redefine proof, solution, remark environments (match elegantbook.cls)

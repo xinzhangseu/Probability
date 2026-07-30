@@ -96,6 +96,7 @@ format:
           \subtitle{Your Subtitle Here}
           \institute{Your University, Your Department}
           \version{v1.0}
+          \usepackage{bookmark}
           % Keep PDF sidebar bookmarks numbered and nested as chapter -> section.
           \hypersetup{
             bookmarksnumbered=true,

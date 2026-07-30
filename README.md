@@ -13,7 +13,7 @@
   - 定义类（绿色框 ♣）：definition, example, exercise, problem
   - 定理类（橙色框 ♥）：theorem, lemma, corollary, axiom, postulate
   - 命题类（蓝色框 ♠）：proposition, note, assumption, conclusion, property
-- **中文全流程** — 定理标签、目录标题、参考文献标题均为中文；中文字体（macOS: Songti SC / Heiti SC / FangSong）
+- **中文全流程** — 定理标签、目录标题、参考文献标题均为中文；PDF 默认使用 Noto CJK SC 字体
 - **参考文献** — natbib 编号制 + `plainnat-doi.bst`（DOI 超链接支持），引用格式 `[1]`, `[1,2,5]`
 - **特殊环境** — introduction（章节导读 double-column 框）、problemset（章后习题，装饰标题）
 - **公式编号** — 仅带 `{#eq-xxx}` 标签的公式编号，无标签公式不编号；编号格式 `(1.1)`, `(1.2)` 按章编号；交叉引用自动加括号
@@ -27,7 +27,7 @@
 
 ### 双格式公用
 
-- 同一套 `.qmd` 源文件，`quarto render --to html` 与 `quarto render --to elegantbook-pdf` 均可用
+- 同一套 `.qmd` 源文件，通过 `html` / `pdf` project profile 分别生成两种格式
 - 交叉引用（`@thm:label`、`@def:label`）在两种格式间通用
 
 ## 项目结构
@@ -35,11 +35,16 @@
 ```
 quarto-elegantbook-pdf/
 ├── _quarto.yml                          # 项目配置（含标题页内嵌 LaTeX）
+├── _quarto-html.yml                     # HTML 章节清单
+├── _quarto-pdf.yml                      # 自动生成的 PDF 章节清单
 ├── _variables.yml                       # 模板变量（ORCID, GitHub, PGP 等）
 ├── references.bib                       # 参考文献数据库
 ├── styles.css                           # HTML 布局 CSS
 ├── theme.scss / theme-dark.scss         # HTML 亮色/暗色主题
 ├── div-environments.lua                 # Lua 过滤器（环境映射 + 页码控制）
+├── scripts/
+│   └── build_pdf_sources.py             # 合并分节 qmd，生成连续 PDF 章节源
+├── pdf-merged/                           # 由合并脚本生成的 PDF 章节
 ├── images/
 │   ├── cover.jpg                        # 封面图片
 │   ├── logo-blue.png                    # ElegantBook logo
@@ -152,16 +157,184 @@ include-in-header:
 
 ### 编译
 
+本仓库的 HTML 与 PDF 使用不同的 project profile，必须同时指定 profile 和输出格式：
+
 ```bash
-# 生成 PDF
-quarto render --to elegantbook-pdf
-
 # 生成 HTML
-quarto render --to html
+quarto render --profile html --to html
 
-# 同时生成两种格式
-quarto render
+# 合并分节源文件并生成 PDF
+python3 scripts/build_pdf_sources.py
+quarto render --profile pdf --to elegantbook-pdf
 ```
+
+`scripts/build_pdf_sources.py` 读取 `_quarto-html.yml` 和原始 `.qmd`，不依赖生成后的
+HTML 文件。GitHub Actions 虽然先构建 HTML，再执行合并脚本，但这只是工作流顺序，
+不是数据依赖。
+
+### RStudio 本地构建
+
+推荐在 RStudio 中打开本项目后，切换到底部的 **Terminal** 面板并运行：
+
+```bash
+./scripts/build_local.sh
+```
+
+如果脚本没有执行权限，也可以运行：
+
+```bash
+bash scripts/build_local.sh
+```
+
+该脚本会检查 Quarto、R、Python、CJK 字体和 `rsvg-convert`，然后按照 GitHub
+Actions 相同的顺序执行以下步骤：
+
+1. 使用 `html` profile 构建网站；
+2. 合并分节 QMD，重新生成 PDF profile；
+3. 使用 `pdf` profile 构建连续 PDF；
+4. 将 PDF 复制到 `_book`；
+5. 构建成功后使用默认浏览器打开 `_book/index.html`。
+
+生成文件位于：
+
+- HTML：`_book/index.html`
+- 连续 PDF：`_book-pdf/ElegantBook-PDF-Template.pdf`
+- 网站中提供下载的 PDF：`_book/ElegantBook-PDF-Template.pdf`
+
+如果某次只想构建、不自动打开浏览器，可运行：
+
+```bash
+OPEN_BUILD_OUTPUT=0 ./scripts/build_local.sh
+```
+
+完整脚本已经显式指定 `--profile html` 和 `--profile pdf`，也会主动运行
+`scripts/build_pdf_sources.py`。因此，若以后统一使用该脚本，以下两项不是必需的：
+
+- `_quarto.yml` 中的 `profile.group`；
+- `_quarto.yml.local` 中调用合并脚本的 `pre-render`。
+
+仍须保留 `_quarto-html.yml`、由合并脚本生成的 `_quarto-pdf.yml`，以及两个构建
+脚本。`profile.group` 和本地 `pre-render` 只在继续使用 RStudio 普通
+**Render/Build** 按钮时有用；同时保留本地 `pre-render` 会让 PDF 合并脚本执行
+两次，但结果不受影响。
+
+脚本只复现构建过程，不执行 `gh-pages` 部署。GitHub Actions 继续使用
+`.github/workflows/deploy-pages.yml` 中的显式调用：
+
+```bash
+python3 scripts/build_pdf_sources.py
+quarto render --profile pdf --to elegantbook-pdf
+```
+
+## 本地编译故障排查
+
+### `Book contents must include a home page`
+
+**原因**：直接运行 `quarto render --to ...` 时没有启用 profile，基础
+`_quarto.yml` 中没有 `book.chapters`；章节清单位于 `_quarto-html.yml` 或
+`_quarto-pdf.yml`。
+
+**解决**：使用完整命令：
+
+```bash
+quarto render --profile html --to html
+quarto render --profile pdf --to elegantbook-pdf
+```
+
+也可以通过 `_quarto.yml` 的 `profile.group` 为 RStudio 设置默认 profile。
+
+### `Noto Serif CJK SC` 字体缺失
+
+PDF 配置使用以下字体：
+
+```yaml
+CJKmainfont: "Noto Serif CJK SC"
+CJKsansfont: "Noto Sans CJK SC"
+CJKmonofont: "Noto Sans Mono CJK SC"
+```
+
+macOS 可使用 Homebrew 安装缺少的简体中文衬线字体：
+
+```bash
+brew install --cask font-noto-serif-cjk-sc
+```
+
+安装后重启 RStudio。可在 RStudio Console 中检查：
+
+```r
+system("fc-match 'Noto Serif CJK SC'")
+```
+
+### TeX Live 跨年度更新失败
+
+典型信息：
+
+```text
+Local TeX Live (2025) is older than remote repository (2026).
+Cross release updates are only supported with update-tlmgr-latest.
+```
+
+这通常发生在 Quarto 因字体或宏包缺失而尝试自动下载依赖时。先安装缺少的系统字体；
+如果确实缺少 LaTeX 宏包，则将 TeX Live/TinyTeX 升级到与远程仓库相同的年度版本。
+
+### `Command \theexample undefined`
+
+**原因**：`before-body.tex` 重定义 `\theexample` 时假定 Quarto 已创建 `example`
+计数器。本地使用陈旧的 `pdf-merged` 文件时，Quarto 可能没有看到带
+`{#exm-...}` 标签的示例，因此不会创建该计数器。GitHub Actions 每次都会先执行
+合并脚本，所以通常不会触发该错误。
+
+**首先执行**：
+
+```bash
+python3 scripts/build_pdf_sources.py
+quarto render --profile pdf --to elegantbook-pdf
+```
+
+若模板需要兼容完全没有带标签示例或练习的书籍，可在 `before-body.tex` 的
+`\renewcommand{\theexample}` 之前增加防御性定义：
+
+```latex
+\makeatletter
+\@ifundefined{c@example}{\newcounter{example}[chapter]}{}
+\@ifundefined{c@exercise}{\newcounter{exercise}[chapter]}{}
+\makeatother
+```
+
+应同时处理 `example` 和 `exercise`，否则修复前者后可能继续出现
+`\theexercise undefined`。
+
+### `Could not convert a SVG to a PDF`
+
+PDF 构建需要将 `chapter/assets/*.svg` 转换为 PDF。macOS 安装 `librsvg`：
+
+```bash
+brew install librsvg
+rsvg-convert --version
+```
+
+安装后重启 RStudio，并在 RStudio Console 中确认：
+
+```r
+Sys.which("rsvg-convert")
+```
+
+应返回类似 `/opt/homebrew/bin/rsvg-convert` 的路径。
+
+### GitHub 有 CSS，本地预览没有
+
+GitHub Actions 不会额外注入 CSS；HTML 样式来自 `_quarto.yml` 中的
+`format.html` 配置。不要在 `_quarto-html.yml` 中添加：
+
+```yaml
+format: html
+```
+
+profile 中的该标量会替换完整的 HTML format 配置，导致 `styles.css`、
+`theme.scss`、`theme-dark.scss` 和明暗主题切换失效。`_quarto-html.yml` 只保留
+`book.chapters`，编译时通过 `--to html` 选择格式。
+
+重新编译后若浏览器仍显示旧样式，macOS 下使用 `Command + Shift + R` 强制刷新。
 
 ## 支持的环境
 
@@ -266,6 +439,7 @@ $$ -\frac{\partial V}{\partial t} = \sup_{u \in U} \left\{ f(t,x,u) + \mathcal{L
 | 章首页页码 | `\fancypagestyle{plain}` 添加 `\fancyfoot[C]{\thepage}` |
 | 目录页码 | `\maketitle` 末尾设置 `\pagenumbering{Roman}`；文档体起始处 Lua filter 注入 `\pagenumbering{arabic}` |
 | 目录深度 | `_quarto.yml` → `toc-depth: 2`（章 + 节） |
+| PDF 侧边书签 | PDF 的 `include-in-header` 使用 `bookmarksnumbered=true`、`bookmarksdepth=1` 和 `bookmarksopenlevel=1`，显示“章 → 节”层级及章节编号 |
 | 章奇数页起始 | 重定义 `\cleardoublepage` 覆盖 `oneside` 下的默认行为 |
 | 公式编号 | `\numberwithin{equation}{chapter}` + Lua 过滤器（仅标签公式编号） |
 | 公式引用括号 | `header-includes.tex` 中重定义 `\ref` → 检测 `eq-` 前缀后包裹括号 |
@@ -314,7 +488,9 @@ $$ \nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0} $$ {#eq-maxwell}  <!-- �
 
 ### 修改中文字体
 
-`header-includes.tex` 第 178-183 行已配置 macOS 字体（Songti SC, Heiti SC, FangSong_GB2312）。
+当前字体由 `_quarto.yml` 的 `CJKmainfont`、`CJKsansfont` 和 `CJKmonofont`
+配置，默认使用 Noto Serif/Sans CJK SC。也可以取消
+`header-includes.tex` 中的 `\setCJK...` 示例注释，改用系统字体。
 
 Windows / Linux 用户需改为：
 
@@ -362,13 +538,15 @@ years: "2026"
 
 ### 字体
 
-- **中文字体**（macOS 默认可用）：Songti SC, Heiti SC, FangSong_GB2312
+- **中文字体**：Noto Serif CJK SC、Noto Sans CJK SC、Noto Sans Mono CJK SC
 - **英文字体**：Times New Roman（需单独安装或通过 `mainfont` 配置）
 
 ### 其他
 
 - Quarto ≥ 1.4
 - XeLaTeX（`pdf-engine: xelatex`）
+- Python 3（用于合并 PDF 章节源）
+- `rsvg-convert`（由 `librsvg` 提供，用于将 SVG 插图转换为 PDF）
 
 ## 已知限制
 

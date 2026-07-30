@@ -42,7 +42,7 @@
 
 #### 随机变量的引入 {#随机变量的引入-1 .unnumbered}
 
-令 $X_k$ 表示甲在 $k$ 轮赌博后的资产 其中,乙在 $k$ 轮赌博后的资产 $Y_k=a-X_k$; 资产差额:$Z=X_k-Y_k=2X_k-a$; 持续时间:$R=\min\{n: X_n=0, \mbox{或} Y_n=0\}$. 同时,$X_k$ 的取值具有以下特点:依赖于前面 $k$ 次赌博这一 随机试验 的结果; 在 随机试验 完成之前,$X_k$ 取值不确定,因此具有不确定性; $k$ 次赌博 随机试验 一旦完成,$X_k$ 的值必然确定; 记 $k$ 次赌博 随机试验 样本空间为 $\Omega$, 则给定 $\omega\in\Omega$, 则 $X_k$ 值确定. 此外,为说明上述关系,以 $k=2$ 为例考察 $X_2$ 的取值,设 $i\geq 2$ 具体为:$\Omega=\{\omega_1,\omega_2, \omega_3,\omega_4\}$, 其中 $\omega_1=(\mbox{胜,胜}), \omega_2=(\mbox{胜,败}), \omega_3=(\mbox{败,胜}), \omega_4=(\mbox{败,败})$; $X_2(\omega_1)=i+2,\  X_2(\omega_2)=X_2(\omega_3)=i,\  X_2(\omega_4)=i-2$. 相应地,$X_k$ 可以看作定义在样本空间 $\Omega$ 上的函数,即 $X_k:\Omega\rightarrow \{0, 1,\cdots, a\}$. 由此可见,一般地,随机变量可以看作从样本空间到实数的映射:$X:\Omega\rightarrow R$.
+令 $X_k$ 表示甲在 $k$ 轮赌博后的资产 其中,乙在 $k$ 轮赌博后的资产 $Y_k=a-X_k$; 资产差额:$Z=X_k-Y_k=2X_k-a$; 持续时间:$R=\min\{n: X_n=0, \text{或} Y_n=0\}$. 同时,$X_k$ 的取值具有以下特点:依赖于前面 $k$ 次赌博这一 随机试验 的结果; 在 随机试验 完成之前,$X_k$ 取值不确定,因此具有不确定性; $k$ 次赌博 随机试验 一旦完成,$X_k$ 的值必然确定; 记 $k$ 次赌博 随机试验 样本空间为 $\Omega$, 则给定 $\omega\in\Omega$, 则 $X_k$ 值确定. 此外,为说明上述关系,以 $k=2$ 为例考察 $X_2$ 的取值,设 $i\geq 2$ 具体为:$\Omega=\{\omega_1,\omega_2, \omega_3,\omega_4\}$, 其中 $\omega_1=(\text{胜,胜}), \omega_2=(\text{胜,败}), \omega_3=(\text{败,胜}), \omega_4=(\text{败,败})$; $X_2(\omega_1)=i+2,\  X_2(\omega_2)=X_2(\omega_3)=i,\  X_2(\omega_4)=i-2$. 相应地,$X_k$ 可以看作定义在样本空间 $\Omega$ 上的函数,即 $X_k:\Omega\rightarrow \{0, 1,\cdots, a\}$. 由此可见,一般地,随机变量可以看作从样本空间到实数的映射:$X:\Omega\rightarrow R$.
 
 #### 随机变量的直观定义 {#随机变量的直观定义 .unnumbered}
 
@@ -97,7 +97,7 @@ $$
 
 $$
 \begin{aligned}
-\{\omega: X (\omega)\le x\}\in \mathcal{F} \mbox{  或  }      \{\omega: X (\omega)< x\}\in \mathcal{F}
+\{\omega: X (\omega)\le x\}\in \mathcal{F} \text{  或  }      \{\omega: X (\omega)< x\}\in \mathcal{F}
 \end{aligned}
 $$
 
@@ -106,7 +106,7 @@ $$
 
 #### 随机变量两种定义的等价性 {#随机变量两种定义的等价性 .unnumbered}
 
-由定义 [\[lbl-ch2-rvdefi2\]](#def-ch2-rvdefi2){reference-type="ref" reference="lbl-ch2-rvdefi2"} 推定义 [\[lbl-ch2-rvdefi1\]](#def-ch2-rvdefi1){reference-type="ref" reference="lbl-ch2-rvdefi1"}: 仅需说明若定义 [\[lbl-ch2-rvdefi2\]](#def-ch2-rvdefi2){reference-type="ref" reference="lbl-ch2-rvdefi2"} 成立,则对任意 $B\in\mathcal{B}$ 均有 $$X^{-1}(B):=\{\omega:X(\omega)\in B\}\in \mathcal{F}.$$ 即只需说明以下集合包含关系成立即可
+由 @def-ch2-rvdefi2 推出 @def-ch2-rvdefi1：仅需说明若 @def-ch2-rvdefi2 成立,则对任意 $B\in\mathcal{B}$ 均有 $$X^{-1}(B):=\{\omega:X(\omega)\in B\}\in \mathcal{F}.$$ 即只需说明以下集合包含关系成立即可
 
 $$
 \begin{aligned}
@@ -389,12 +389,12 @@ $$
 ()设$X_k, k=1,2,\cdots, n$为定义在$(\Omega,\mathcal{F})$上的随机变量并令 $\mathcal{F}_{X_k}:=\{X_k^{-1}(A):A\in \mathcal{B}(\mathbb{R})\}$. 我们称$$\sigma(X_1,X_2,\cdots,X_n):=\sigma\left(\cup_{k=1}^n\mathcal{F}_{X_k}\right)$$为随机变量$X_1,X_2,\cdots,X_n$的生成$\sigma$-代数.
 :::
 
-$\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\mathcal{F}_{X_k}$不一定是$\sigma$-代数, 因此 $$\sigma(X)=\mathcal{F}_X, \quad \mbox{ 但  } \quad  \sigma(X_1,X_2,\cdots,X_n)\neq \cup_{k=1}^n\mathcal{F}_{X_k}.$$ 若$X$是$(\Omega,\mathcal{F})$上的随机变量,则必有$\sigma(X):=\mathcal{F}_X\subset\mathcal{F}$, 即$\sigma(X)$是$\Omega$上使得$X$成为随变量所需要的最小$\sigma$-代数. 此外,类似的, $\sigma(X_1,X_2,\cdots,X_n)$是$\Omega$上使得$X_1,X_2,\cdots,X_n$为随机变量所需要的最小$\sigma$-代数. 相应地,随机变量$X$生成的$\sigma-$代数$\sigma(X)$集中体现了$X$的取值信息.
+$\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\mathcal{F}_{X_k}$不一定是$\sigma$-代数, 因此 $$\sigma(X)=\mathcal{F}_X, \quad \text{ 但  } \quad  \sigma(X_1,X_2,\cdots,X_n)\neq \cup_{k=1}^n\mathcal{F}_{X_k}.$$ 若$X$是$(\Omega,\mathcal{F})$上的随机变量,则必有$\sigma(X):=\mathcal{F}_X\subset\mathcal{F}$, 即$\sigma(X)$是$\Omega$上使得$X$成为随变量所需要的最小$\sigma$-代数. 此外,类似的, $\sigma(X_1,X_2,\cdots,X_n)$是$\Omega$上使得$X_1,X_2,\cdots,X_n$为随机变量所需要的最小$\sigma$-代数. 相应地,随机变量$X$生成的$\sigma-$代数$\sigma(X)$集中体现了$X$的取值信息.
 
 #### 两个随机变量之间的关系 {#两个随机变量之间的关系 .unnumbered}
 
 ::: {#def-ch2-007}
-考虑两个随机变量$X, Y$,如果对任意的$B\in\mathcal{B}(\mathbb{R})$均有 $$Y^{-1}(B) \in \sigma(X),\ \mbox{等价的}\ \sigma(Y)\subset \sigma(X).$$则称$Y$适应(adaptive to) $X$.
+考虑两个随机变量$X, Y$,如果对任意的$B\in\mathcal{B}(\mathbb{R})$均有 $$Y^{-1}(B) \in \sigma(X),\ \text{等价的}\ \sigma(Y)\subset \sigma(X).$$则称$Y$适应(adaptive to) $X$.
 :::
 
 ::: {#thm-ch2-004}
@@ -409,7 +409,7 @@ $\mathcal{F}_{X}, \mathcal{F}_{X_k}$均为$\sigma$-代数, 但$\cup_{k=1}^n\math
 
 #### 随机向量: 如何定义$\mathcal{B}(\mathbb{R}^n)$ {#随机向量-如何定义mathcalbmathbbrn .unnumbered}
 
-直观上来讲, 随机向量就是取值于$\mathbb{R}^n$的随机变量. 如何定义$\mathcal{B}(\mathbb{R}^n)$ 其中,注意到$$\mathbb{R}^n:=\mathbb{R}\times \mathbb{R}\times\cdots\times \mathbb{R}=\Pi_{k=1}^n\mathbb{R}$$ 我们希望 $$\mathcal{B}(\mathbb{R}^n)=\mathcal{B}(\mathbb{R})\times \mathcal{B}(\mathbb{R})\times\cdots\times\mathcal{B}(\mathbb{R})=\Pi_{k=1}^n\mathcal{B}(\mathbb{R})$$ 但$\Pi_{k=1}^n\mathcal{B}(\mathbb{R})$不是$\sigma$-代数.; 因此, 定义 $$\mathcal{B}(\mathbb{R}^n):=\sigma(\mathcal{B}(\mathbb{R})\times \mathcal{B}(\mathbb{R})\times\cdots\times\mathcal{B}(\mathbb{R}))=\sigma(\Pi_{k=1}^n\mathcal{B}(\mathbb{R}))$$ 我们也可以类比$\mathcal{B}(\mathbb{R})$的定义方法, 先定义$\mathbb{R}^n$上的立方体 $$I=I_1\times I_2\times\cdots\times I_n=\Pi_{k=1}^nI_k, \ I_k=(a_k, b_k].$$ 然后定义$\mathcal{B}(\mathbb{R}^n)$为: $$\mathcal{B}(\mathbb{R}^n):=\sigma(\{I:I\mbox{为}\mathbb{R}^n\mbox{上的立方体}\}).$$
+直观上来讲, 随机向量就是取值于$\mathbb{R}^n$的随机变量. 如何定义$\mathcal{B}(\mathbb{R}^n)$ 其中,注意到$$\mathbb{R}^n:=\mathbb{R}\times \mathbb{R}\times\cdots\times \mathbb{R}=\Pi_{k=1}^n\mathbb{R}$$ 我们希望 $$\mathcal{B}(\mathbb{R}^n)=\mathcal{B}(\mathbb{R})\times \mathcal{B}(\mathbb{R})\times\cdots\times\mathcal{B}(\mathbb{R})=\Pi_{k=1}^n\mathcal{B}(\mathbb{R})$$ 但$\Pi_{k=1}^n\mathcal{B}(\mathbb{R})$不是$\sigma$-代数.; 因此, 定义 $$\mathcal{B}(\mathbb{R}^n):=\sigma(\mathcal{B}(\mathbb{R})\times \mathcal{B}(\mathbb{R})\times\cdots\times\mathcal{B}(\mathbb{R}))=\sigma(\Pi_{k=1}^n\mathcal{B}(\mathbb{R}))$$ 我们也可以类比$\mathcal{B}(\mathbb{R})$的定义方法, 先定义$\mathbb{R}^n$上的立方体 $$I=I_1\times I_2\times\cdots\times I_n=\Pi_{k=1}^nI_k, \ I_k=(a_k, b_k].$$ 然后定义$\mathcal{B}(\mathbb{R}^n)$为: $$\mathcal{B}(\mathbb{R}^n):=\sigma(\{I:I\text{为}\mathbb{R}^n\text{上的立方体}\}).$$
 
 #### 随机向量 {#随机向量-1 .unnumbered}
 
@@ -688,7 +688,7 @@ $$
 :::
 
 ::: {#exm-ch2-006}
-计算例 [\[lbl-ch2-312\]](#exm-ch2-312){reference-type="ref" reference="lbl-ch2-312"} 中的所有随机变量的分布列或概率质量函数.
+计算 @exm-ch2-312 中的所有随机变量的分布列或概率质量函数.
 
 $X$ 表示正面朝上的次数,其概率质量函数 $p_X$ 为:
 
@@ -739,13 +739,13 @@ $$
 
  令 $X$ 和 $Y$ 表示每个骰子分别出现的点数.试求下面随机变量的分布列:
 
-1.  $T_1:=X+Y=\mbox{骰子点数之和}$;
+1.  $T_1:=X+Y=\text{骰子点数之和}$;
 
 2.  $T_2:=14-(X+Y)$;
 
-3.  $T_3:=\mbox{点数为 6 点的骰子的个数}$;
+3.  $T_3:=\text{点数为 6 点的骰子的个数}$;
 
-4.  $T_4:=\max\{X, Y\}=\mbox{骰子的最大点数}$
+4.  $T_4:=\max\{X, Y\}=\text{骰子的最大点数}$
 :::
 
 - $T_1, T_2$ 的概率分布列为
@@ -925,21 +925,21 @@ $$
           \\
          X(\omega)
             \end{array}\right\}\Rightarrow P(X\leq x)=: F(x)    \Rightarrow  \left\{\begin{array}{l}
-           \mbox{单调非降性} \\
-           \mbox{右连续性}\\
-           \mbox{规范性}
+           \text{单调非降性} \\
+           \text{右连续性}\\
+           \text{规范性}
         \end{array}\right. \\
  \\
  \\
  &\left.\begin{array}{r}
-     \mbox{单调非降性} \\
-     \mbox{右连续性}\\
-     \mbox{规范性}
- \end{array}\right\}\mbox{的} F (x) \mbox{给定}\Rightarrow \mbox{存在}  \left\{\begin{array}{l}
+     \text{单调非降性} \\
+     \text{右连续性}\\
+     \text{规范性}
+ \end{array}\right\}\text{的} F (x) \text{给定}\Rightarrow \text{存在}  \left\{\begin{array}{l}
          (\Omega, \mathcal{F}, P) \\
          \\
          X(\omega)
-     \end{array}\right. \mbox{使得} F (x)=P (X\leq x) ?
+     \end{array}\right. \text{使得} F (x)=P (X\leq x) ?
 \end{aligned}
 $$
 
@@ -1080,7 +1080,7 @@ $F^{-1}(p)$ 关于 $p$ 是左连续的; 同时,$F^{-1}(p):=\inf\{x: F(x)\geq p\}
 
 #### 伯努利实验 {#伯努利实验 .unnumbered}
 
-只有两种可能结果的试验称为伯努利试验;例如抽检产品,可能是合格品,也可能是次品;掷两颗骰子,可能得到同点,也可能得到不同点,等等都是伯努利试验. 同时,伯努利试验的样本空间 $\Omega_1$ 并不一定只含有两个样本点,有时只是把我们所关心的一部分样本点归结为一种结果 $A$, 同时把其余的样本点的集合看作另一种结果 $\bar{A}$; 此外,在上述掷骰子的试验中,样本空间 $\Omega_1$ 共含有 36 个样本点,如果我们只关心同点是否发生,就可以把其中的 6 个样本点组成的事件 $A:=\{(i,i):i=1,\cdots, 6\}$ 视为一种结果,而其余的 30 个样本点组成另一结果 $\bar{A}:=\{\mbox{不同点}\}$; 相应地,此外我们不再关心由 $\Omega_1$ 的其他非空子集组成的事件,于是对于伯努利试验而言,事件 $\sigma$ 代数应取为 $\mathcal{F}_1=\{\emptyset, A, \bar{A}, \Omega_1\}$; 相应地,通常把结果 $A$ 称作 成功, 而把 $\bar{A}$ 称作 失败; 相应地,再取定成功失败的概率 $p=P_1(A), q=P_1(\bar{A})$ ($p>0,q>0$ 且 $p+q=1$), 则建立了一次伯努利试验的概率空间 $(\Omega_1,\mathcal{F}_1,P_1)$.
+只有两种可能结果的试验称为伯努利试验;例如抽检产品,可能是合格品,也可能是次品;掷两颗骰子,可能得到同点,也可能得到不同点,等等都是伯努利试验. 同时,伯努利试验的样本空间 $\Omega_1$ 并不一定只含有两个样本点,有时只是把我们所关心的一部分样本点归结为一种结果 $A$, 同时把其余的样本点的集合看作另一种结果 $\bar{A}$; 此外,在上述掷骰子的试验中,样本空间 $\Omega_1$ 共含有 36 个样本点,如果我们只关心同点是否发生,就可以把其中的 6 个样本点组成的事件 $A:=\{(i,i):i=1,\cdots, 6\}$ 视为一种结果,而其余的 30 个样本点组成另一结果 $\bar{A}:=\{\text{不同点}\}$; 相应地,此外我们不再关心由 $\Omega_1$ 的其他非空子集组成的事件,于是对于伯努利试验而言,事件 $\sigma$ 代数应取为 $\mathcal{F}_1=\{\emptyset, A, \bar{A}, \Omega_1\}$; 相应地,通常把结果 $A$ 称作 成功, 而把 $\bar{A}$ 称作 失败; 相应地,再取定成功失败的概率 $p=P_1(A), q=P_1(\bar{A})$ ($p>0,q>0$ 且 $p+q=1$), 则建立了一次伯努利试验的概率空间 $(\Omega_1,\mathcal{F}_1,P_1)$.
 
 #### $n$重伯努利试验的概率空间及随机变量 {#n重伯努利试验的概率空间及随机变量 .unnumbered}
 
@@ -1096,7 +1096,7 @@ $F^{-1}(p)$ 关于 $p$ 是左连续的; 同时,$F^{-1}(p):=\inf\{x: F(x)\geq p\}
 
 #### 二项分布:$n$ 重伯努利试验中成功的次数 $X$ {#二项分布n-重伯努利试验中成功的次数-x .unnumbered}
 
-$X$:$n$ 重伯努利试验中成功 (事件 $A$ 发生) 的次数; 同时,$X$ 的所有可能取值为: $0, 1, \cdots, n$; 此外,下面我们考虑 $X$ 的分布列 其中,$n$ 重伯努利试验的样本空间: $\Omega:=\{\omega=(\omega_1,\cdots,\omega_n):\omega_i\mbox{或者为} A\mbox{或者为}\bar{A}\}$; 样本空间样本点的个数为 $2^n$ 个; $\{X=k\}=\{\omega=(\omega_1,\cdots,\omega_n):\omega_1,\cdots,\omega_n\mbox{中有} k\mbox{个} A\}$, 共包含 $C_n^k$ 个样本点; 若任给样本点 $\omega=(\omega_1,\cdots,\omega_n)\in \{X=k\}$, 则意味着 $\omega_1,\cdots,\omega_n$ 中有 $k$ 个 $A$, $n-k$ 个 $\bar{A}$, 故由独立性可知
+$X$:$n$ 重伯努利试验中成功 (事件 $A$ 发生) 的次数; 同时,$X$ 的所有可能取值为: $0, 1, \cdots, n$; 此外,下面我们考虑 $X$ 的分布列 其中,$n$ 重伯努利试验的样本空间: $\Omega:=\{\omega=(\omega_1,\cdots,\omega_n):\omega_i\text{或者为} A\text{或者为}\bar{A}\}$; 样本空间样本点的个数为 $2^n$ 个; $\{X=k\}=\{\omega=(\omega_1,\cdots,\omega_n):\omega_1,\cdots,\omega_n\text{中有} k\text{个} A\}$, 共包含 $C_n^k$ 个样本点; 若任给样本点 $\omega=(\omega_1,\cdots,\omega_n)\in \{X=k\}$, 则意味着 $\omega_1,\cdots,\omega_n$ 中有 $k$ 个 $A$, $n-k$ 个 $\bar{A}$, 故由独立性可知
 
 $$
 \begin{aligned}
@@ -1187,7 +1187,7 @@ $$
 :::
 
 ::: {#sol-ch2-001}
-由定理 [\[lbl-ch2-338\]](#thm-ch2-338){reference-type="ref" reference="lbl-ch2-338"} 可知,$n-X$ 同样服从 $B (n,1/2)$. 因此对任意非负整数 $k$ 均有 $$P(X=k)=P(n-X=k)=P(X=n-k).$$
+由 @thm-ch2-338 可知,$n-X$ 同样服从 $B (n,1/2)$. 因此对任意非负整数 $k$ 均有 $$P(X=k)=P(n-X=k)=P(X=n-k).$$
 
 令 $k=n/2+j$, 即可得证.
 :::
@@ -1223,14 +1223,14 @@ $$
 #### 小概率事件终将发生 {#小概率事件终将发生 .unnumbered}
 
 ::: {#exm-ch2-011}
-在可列重伯努利试验中,求事件 $E:=\{\mbox{试验终将成功}\}$ 的概率.
+在可列重伯努利试验中,求事件 $E:=\{\text{试验终将成功}\}$ 的概率.
 :::
 
-**解.** 考虑所求概率事件的反面即 $\overline{E}:=\{\mbox{试验永不成功}\}$. 若我们记
+**解.** 考虑所求概率事件的反面即 $\overline{E}:=\{\text{试验永不成功}\}$. 若我们记
 
 $$
 \begin{aligned}
-F_n:=\{\mbox{前} n\mbox{次试验均失败}\},
+F_n:=\{\text{前} n\text{次试验均失败}\},
 \end{aligned}
 $$
 
@@ -1288,7 +1288,7 @@ $$
 
 $$
 \begin{aligned}
-P (X>m+n|X>m)=P (X>n), \mbox{对任意的} m,n \ge 1.
+P (X>m+n|X>m)=P (X>n), \text{对任意的} m,n \ge 1.
 \end{aligned}
 $$ {#eq-ch2-memory}
 
@@ -1324,7 +1324,7 @@ $$
 
 $$
 \begin{aligned}
-Q_n:=P (X>n)>0, \quad \mbox{对任意的} n\ge 1
+Q_n:=P (X>n)>0, \quad \text{对任意的} n\ge 1
 \end{aligned}
 $$
 
@@ -1371,7 +1371,7 @@ $$
 首先,上述的无记忆性表明:已知试验了 $m$ 次未获得成功,再加做 $n$ 次试验仍不成功的概率,等于从开始算起做 $n$ 次试验都不成成功的概率. 接着,换句话说,已做过的 $m$ 次失败的试验被忘记了; 最后,产生几何分布的这种无记忆性的根本原因在于,我们进行的是独立重复试验,这是不学习,不总结经验的试验,已经做过的试验当然不会留下记忆.
 
 ::: {#exm-ch2-012}
-10 把外形相同的钥匙中只有一把能打开门.现一一试开,试对每次试毕放回与不放回两种情形,分别求事件 $E:=\{\mbox{至多试} 3\mbox{次能打开门}\}$ 的概率.
+10 把外形相同的钥匙中只有一把能打开门.现一一试开,试对每次试毕放回与不放回两种情形,分别求事件 $E:=\{\text{至多试} 3\text{次能打开门}\}$ 的概率.
 :::
 
 **解.** 1. 放回情形是独立重复试验,属伯努利概型.以 $X$ 表示首次打开门的等待时间,则 $X$ 服从几何分布 $G (0.1)$. 故所求概率为
@@ -1391,7 +1391,7 @@ P(E)=1-P(\overline{E})=1-\dfrac{C_9^3}{C_{10}^3}=0.3
 \end{aligned}
 $$
 
- 或令 $A_i:=\{\mbox{第} i\mbox{次取到能开门的钥匙}\}$, 则 $A_1,A_2,A_3$ 互不相容,由可加性及抽签的公平性可得
+ 或令 $A_i:=\{\text{第} i\text{次取到能开门的钥匙}\}$, 则 $A_1,A_2,A_3$ 互不相容,由可加性及抽签的公平性可得
 
 $$
 \begin{aligned}
@@ -1406,8 +1406,8 @@ $$
 
 $$
 \begin{aligned}
-\{X_r=k\}&=&\{\mbox{前} k-1\mbox{次试验恰有} r-1\mbox{次成功且第} k\mbox{次成功}\}\\
-                  P (X_r=k)&=& P (\mbox{前} k-1\mbox{次试验恰有} r-1\mbox{次成功}) P (\mbox{第} k\mbox{次成功})\\
+\{X_r=k\}&=&\{\text{前} k-1\text{次试验恰有} r-1\text{次成功且第} k\text{次成功}\}\\
+                  P (X_r=k)&=& P (\text{前} k-1\text{次试验恰有} r-1\text{次成功}) P (\text{第} k\text{次成功})\\
                   &=& C_{k-1}^{r-1}p^{r-1}(1-p)^{k-1-(r-1)}p\\
                   &=& C_{k-1}^{r-1}p^r(1-p)^{k-r}:=f(k;r,p), \quad k=r, r+1,\cdots
 \end{aligned}
@@ -1458,7 +1458,7 @@ $$
 
 $$
 \begin{aligned}
-E=\{\mbox{掏出甲盒已空而乙盒尚余} r\mbox{根}\}
+E=\{\text{掏出甲盒已空而乙盒尚余} r\text{根}\}
 \end{aligned}
 $$
 
@@ -1466,7 +1466,7 @@ $$
 
 $$
 \begin{aligned}
-E=\{\mbox{第} n+1\mbox{次成功发生在第} 2n-r+1\mbox{次试验}\}
+E=\{\text{第} n+1\text{次成功发生在第} 2n-r+1\text{次试验}\}
 \end{aligned}
 $$
 
@@ -1489,10 +1489,10 @@ $$
 为解决这个问题,Pascal 与当时声望很高的数学家 Fermat 建立了通信联系.他们进行了卓有成效的讨论,不仅完满的回答了分赌注问题,而且为解决其他概率问题建立起了框架,极大的促进了概率论的建立与发展; 同时,Pascal 令人信服的指出,赌金的分法应当取决于若赌博能继续进行下去甲乙各自获胜的概率,这个概率即为在 $p=0.5$ 的可列重伯努利试验中 2 次成功发生在 3 次失败之前的概率; 此外,更一般的,下面我们求一下 $n$ 次成功发生在 $m$ 次失败之前的概率.
 
 ::: {#exm-ch2-015}
-在可列重伯努利试验中,求下面事件的概率: $$E=\{n\mbox{次成功发生在} m\mbox{次失败之前}\}$$
+在可列重伯努利试验中,求下面事件的概率: $$E=\{n\text{次成功发生在} m\text{次失败之前}\}$$
 :::
 
-**解.** 记 $F_k=\{\mbox{第} n\mbox{次成功发生在第} k\mbox{次试验}\}$, 则
+**解.** 记 $F_k=\{\text{第} n\text{次成功发生在第} k\text{次试验}\}$, 则
 
 $$
 \begin{aligned}
@@ -1512,7 +1512,7 @@ $$
 
 $$
 \begin{aligned}
-P (\mbox{甲胜})=P (E)\xlongequal{n=2,m=3,p=1/2}\dfrac{11}{16}
+P (\text{甲胜})=P (E)\xlongequal{n=2,m=3,p=1/2}\dfrac{11}{16}
 \end{aligned}
 $$
 
@@ -2028,7 +2028,7 @@ $$
 
 $$
 \begin{aligned}
-\{\omega:X_i (\omega)\in B_i\}\in \mathcal{F}, \quad \mbox{任意的} B_i\in \mathcal{B},
+\{\omega:X_i (\omega)\in B_i\}\in \mathcal{F}, \quad \text{任意的} B_i\in \mathcal{B},
 \end{aligned}
 $$
 
@@ -2098,11 +2098,11 @@ $$
 
 $$
 \begin{aligned}
-\mathcal{O}&:=\{(x_1,\cdots,x_n): x_j=a_j\mbox{或} b_j, 1\leq j\leq n\},\\
+\mathcal{O}&:=\{(x_1,\cdots,x_n): x_j=a_j\text{或} b_j, 1\leq j\leq n\},\\
                 \operatorname{sgn}(\boldsymbol{x})&=\left\{
                 \begin{array}{ll}
-                    1,& |\{j:x_j=a_j\}|\mbox{为偶数},\\
-                    -1, &|\{j:x_j=a_j\}|\mbox{为奇数}.
+                    1,& |\{j:x_j=a_j\}|\text{为偶数},\\
+                    -1, &|\{j:x_j=a_j\}|\text{为奇数}.
                     \end{array}\right.
 \end{aligned}
 $$
@@ -2332,7 +2332,7 @@ $$
 p(x,y)=\left\{
       \begin{array}{ll}
         Ae^{-2x-3y},& x>0,y>0\\
-        0,&\mbox{其他}
+        0,&\text{其他}
       \end{array}\right.
 \end{aligned}
 $$
@@ -2404,8 +2404,8 @@ $$
 
 $$
 \begin{aligned}
-&&X\mbox{的分布列为:} P (X=x_i)= \sum_{j} P (X=x_i,Y=y_j)= \sum_{j} p_{ij}= p_{i\cdot};\\
-            &&  Y\mbox{的分布列为:} P (Y=y_j)=\sum_{i} P (X=x_i,Y=y_j)=\sum_{i} p_{ij}= p_{\cdot j}
+&&X\text{的分布列为:} P (X=x_i)= \sum_{j} P (X=x_i,Y=y_j)= \sum_{j} p_{ij}= p_{i\cdot};\\
+            &&  Y\text{的分布列为:} P (Y=y_j)=\sum_{i} P (X=x_i,Y=y_j)=\sum_{i} p_{ij}= p_{\cdot j}
 \end{aligned}
 $$
 
@@ -2481,7 +2481,7 @@ $$
 p(x_1,\cdots,x_n)=\left\{
             \begin{array}{ll}
                 \dfrac{1}{S_D}, &(x_1,x_2,\cdots,x_n)\in D\\
-                0,&\mbox{其他}
+                0,&\text{其他}
             \end{array}\right.
 \end{aligned}
 $$
@@ -2513,7 +2513,7 @@ $$
 p(x,y)=\left\{
             \begin{array}{ll}
                 \dfrac{1}{\pi}, & x^2+y^2<1\\
-                0, & \mbox{其他}
+                0, & \text{其他}
             \end{array}\right.
 \end{aligned}
 $$
@@ -2663,7 +2663,7 @@ $$
 F(x|y)&:=&P(X\le x|Y=y)= \lim_{h\rightarrow 0}\dfrac{P(X\le x, Y\in[y,y+h])}{P(Y\in[y,y+h])}\\
                 &=& \lim_{h\rightarrow 0}\dfrac{\int_{-\infty}^x\int_y^{y+h}p(u,v)dvdu}{\int_y^{y+h}p_Y(v)dv}
                 = \lim_{h\rightarrow 0}\dfrac{\int_{-\infty}^x\big\{\dfrac{1}{h}\int_y^{y+h}p(u,v)dv\big\}du}{\dfrac{1}{h}\int_y^{y+h}p_Y(v)dv}\\
-                && \xlongequal[\mbox{积分中值定理}]{p (x,y),p_Y (y)\mbox{在} y\mbox{连续}} \int_{-\infty}^x\dfrac{p (u,y)}{p_Y (y)} du
+                && \xlongequal[\text{积分中值定理}]{p (x,y),p_Y (y)\text{在} y\text{连续}} \int_{-\infty}^x\dfrac{p (u,y)}{p_Y (y)} du
 \end{aligned}
 $$
 
@@ -2765,11 +2765,11 @@ $$
 p(x,y)=\left\{
         \begin{array}{ll}
             \dfrac{1}{\pi}, & x^2+y^2<1,\\
-            0, & \mbox{其他}
+            0, & \text{其他}
         \end{array}\right. ,\quad
         p_X(x)=\left\{\begin{array}{ll}
             \dfrac{2}{\pi}\sqrt{1-x^2}, & |x|<1,\\
-            0, & \mbox{其他}.
+            0, & \text{其他}.
         \end{array}\right.
 \end{aligned}
 $$
@@ -2781,7 +2781,7 @@ $$
 p(y|x)=\dfrac{p(x,y)}{p_X(x)}=\left\{
         \begin{array}{ll}
             \dfrac{1}{2\sqrt{1-x^2}}, & |y|\le \sqrt{1-x^2}\\
-            0, &\mbox{其他}
+            0, &\text{其他}
         \end{array}
         \right.
 \end{aligned}
@@ -2792,11 +2792,11 @@ $$
 
 #### 随机变量的独立性 {#随机变量的独立性-1 .unnumbered}
 
-首先我们回顾一下事件的独立性: $$P (AB)=P (A) P (B)\Leftrightarrow P (A|B)=P (A), \mbox{当} P (B)>0;$$ 同时,二维离散型随机变量
+首先我们回顾一下事件的独立性: $$P (AB)=P (A) P (B)\Leftrightarrow P (A|B)=P (A), \text{当} P (B)>0;$$ 同时,二维离散型随机变量
 
 $$
 \begin{aligned}
-p_{i|j}:=\textcolor{red}{\dfrac{p_{ij}}{p_{\cdot j}}}=P (X=x_i|Y=y_j)\xlongequal[\mbox{不影响概率}]{\mbox{若条件事件}} P (X=x_i)\textcolor{red}{=p_{i\cdot}};
+p_{i|j}:=\textcolor{red}{\dfrac{p_{ij}}{p_{\cdot j}}}=P (X=x_i|Y=y_j)\xlongequal[\text{不影响概率}]{\text{若条件事件}} P (X=x_i)\textcolor{red}{=p_{i\cdot}};
 \end{aligned}
 $$
 
@@ -2824,7 +2824,7 @@ $$
 
 $$
 \begin{aligned}
-F (x|y)&=&\int_{-\infty}^x\dfrac{p (u,y)}{p_Y (y)} du=P (X\le x|Y=y)\xlongequal[\mbox{不影响概率}]{\mbox{若条件事件}} P (X\le x)\\
+F (x|y)&=&\int_{-\infty}^x\dfrac{p (u,y)}{p_Y (y)} du=P (X\le x|Y=y)\xlongequal[\text{不影响概率}]{\text{若条件事件}} P (X\le x)\\
             &=&\int_{-\infty}^xp_X(u)du\\
             &\Rightarrow& p(x,y)=p_X(x)p_Y(y)
 \end{aligned}
@@ -2992,7 +2992,7 @@ $$
 p_Y(y)=\left\{
             \begin{array}{ll}
                 p_X(h(y))|h'(y)|,& a\leq y\leq b\\
-                0,&\mbox{其他}
+                0,&\text{其他}
             \end{array}
             \right.
 \end{aligned}
@@ -3010,8 +3010,8 @@ F_Y(y)&=& P(Y\le y)=P(f(X)\le y)\\
         \begin{array}{ll}
              0, & y<a\\
              1, & y>b\\
-             P (X\le h (y))= \int_{-\infty}^{h (y)} p_X (x) dx, & a\leq y \leq b \mbox{且} f (x)\mbox{严格递增}\\
-             P (X\ge h (y))= \int_{h (y)}^{+\infty} p_X (x) dx, &a\leq y \leq b\mbox{且} f (x)\mbox{严格递减}
+             P (X\le h (y))= \int_{-\infty}^{h (y)} p_X (x) dx, & a\leq y \leq b \text{且} f (x)\text{严格递增}\\
+             P (X\ge h (y))= \int_{h (y)}^{+\infty} p_X (x) dx, &a\leq y \leq b\text{且} f (x)\text{严格递减}
         \end{array}
         \right.
 \end{aligned}
@@ -3125,7 +3125,7 @@ $$
 #### 二项分布的可加性 {#二项分布的可加性 .unnumbered}
 
 ::: {#exm-ch2-027}
-设随机变量 $X\sim B (n,p), Y\sim B (m,p)$, 且 $X,Y$ 独立,则 $X+Y\sim B (n+m,p)$. 特别的,若 $$X_i\sim B (1,p), i=1,2,\cdots, n, \mbox{则} X_1+X_2+\cdots+X_n\sim B (n,p).$$
+设随机变量 $X\sim B (n,p), Y\sim B (m,p)$, 且 $X,Y$ 独立,则 $X+Y\sim B (n+m,p)$. 特别的,若 $$X_i\sim B (1,p), i=1,2,\cdots, n, \text{则} X_1+X_2+\cdots+X_n\sim B (n,p).$$
 :::
 
 #### 多维随机变量函数的分布:连续情形的一般方法 {#多维随机变量函数的分布连续情形的一般方法 .unnumbered}
@@ -3437,7 +3437,7 @@ $$
 q(y_1,\cdots,y_n)=\left\{
             \begin{array}{l}
                 p\big(h_1(y_1,\cdots,y_n),\cdots, h_n(y_1,\cdots,y_n)\big)|J|\\
-                0,  \mbox{若}(y_1,\cdots,y_n)\mbox{使}@eq-ch2-yxf2 \mbox{无解}
+                0,  \text{若}(y_1,\cdots,y_n)\text{使}@eq-ch2-yxf2 \text{无解}
             \end{array}
             \right.
 \end{aligned}
@@ -3466,7 +3466,7 @@ q(y_1,\cdots,y_n)=\left\{
         \begin{array}{l}
             p\big(h_1(y_1,\cdots,y_n),\cdots, h_n(y_1,\cdots,y_n)\big)|J|\\
             \\
-            0,  \mbox{若}(y_1,\cdots,y_n)\mbox{使}@eq-ch2-yxf2 \mbox{无解}
+            0,  \text{若}(y_1,\cdots,y_n)\text{使}@eq-ch2-yxf2 \text{无解}
         \end{array}
         \right.
 \end{aligned}
